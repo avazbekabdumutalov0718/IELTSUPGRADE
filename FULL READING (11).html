@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Full Reading Test</title>
+<style>
+:root{--ielts-red:#d2122e;--border:#c9c9c9;--text:#1a1a1a;--muted:#666;--panel:#f1f1f1;--focus:#2b6fd6;--highlight:#ffe066}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+button,input,select{font:inherit}
+#app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hidden{display:none!important}
+.auth-banner{height:64px;flex:0 0 64px;background:#172f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.auth-banner-text{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:800;white-space:nowrap}
+.auth-banner-link{display:inline-flex;align-items:center;gap:10px;padding:8px 21px;border:2px solid #d9f3ff;border-radius:28px;background:#45afe0;color:#fff;text-decoration:none;font-size:20px;font-weight:800;white-space:nowrap}
+.auth-banner-play{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#45afe0;font-size:16px}
+.gate-screen{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#f5f5f5;padding:20px}
+.gate-card{width:min(390px,100%);background:#fff;border:1px solid var(--border);border-radius:6px;padding:36px 40px;box-shadow:0 3px 16px rgba(0,0,0,.09)}
+.gate-brand-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.gate-logo{font-size:28px;font-weight:800;color:var(--ielts-red);letter-spacing:1px}
+.gate-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:25px}
+.gate-card label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+.gate-card input{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:4px;margin-bottom:16px}
+.gate-card input:focus{outline:2px solid var(--focus);border-color:var(--focus)}
+.gate-btn{width:100%;padding:11px;border:0;border-radius:4px;background:#111;color:#fff;cursor:pointer}
+.gate-btn:hover{background:#000}
+.gate-error{min-height:18px;color:var(--ielts-red);font-size:13px;margin-top:-8px;margin-bottom:8px}
+.gate-footer{text-align:center;margin-top:17px;font-size:11px;color:#999}
+.gate-footer a{color:var(--focus);text-decoration:none}
+#screen-test,#screen-final,#screen-results{flex:1;min-height:0}
+.topbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 20px;border-bottom:1px solid var(--border);background:#fff;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:13px;min-width:0}
+.ielts-logo{font-size:20px;font-weight:800;color:var(--ielts-red)}
+.brand-name{font-size:11px;color:#555;white-space:nowrap}
+.taker-id-block{font-size:12px;line-height:1.35}
+.taker-id-block .label{font-weight:700}
+.timer-status{font-size:13px;font-weight:700;color:#222}
+.timer-status.low{color:var(--ielts-red)}
+.topbar-right{display:flex;align-items:center;gap:13px}
+.icon-btn{border:0;background:none;cursor:pointer;font-size:19px;padding:5px}
+.main-wrap{position:relative;flex:1;display:flex;overflow:hidden}
+.content-wrap{flex:1;display:flex;overflow:hidden}
+.passage-pane,.questions-pane{flex:1 1 50%;overflow-y:auto;padding:22px 26px;font-size:14px;line-height:1.7}
+.passage-pane{border-right:1px solid var(--border)}
+.passage-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.passage-sub{font-size:16px;font-weight:800;text-align:center;margin:8px 0 12px}
+.passage-time{font-size:12px;color:#777;margin-bottom:18px;font-style:italic}
+.passage-heading{font-size:15px;font-weight:800;text-align:center;margin:18px 0 10px}
+.passage-para{display:flex;gap:10px;margin-bottom:15px}
+.para-letter{width:24px;flex-shrink:0;font-weight:800;color:var(--ielts-red)}
+.para-text{flex:1}
+.part-banner{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin-bottom:18px;border-radius:3px}
+.part-banner b{font-size:14px}
+.part-banner .instr{font-size:13px;margin-top:2px}
+.q-instructions{font-size:13px;margin:0 0 12px}
+.q-title{font-weight:800}
+.question-row{display:flex;align-items:center;gap:11px;margin-bottom:13px;font-size:13px}
+.question-row .qtext{flex:1}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:31px;height:24px;border:1px solid #333;padding:1px 7px;font-size:12px;font-weight:800;flex-shrink:0}
+select.answer-select,input.answer-input{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px}
+select.answer-select{width:170px}
+input.answer-input{width:185px;text-align:center}
+.summary-box{border:1px solid #ddd;background:#fafafa;padding:15px 17px;margin:10px 0 18px;font-size:14px;line-height:2.25}
+.summary-box input{vertical-align:middle;margin:0 4px}
+.list-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.75}
+.list-box b{font-size:13px}
+.mc-question{margin-bottom:18px;font-size:13px}
+.mc-question-title{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px}
+.mc-options label{display:block;margin:7px 0 0 40px;cursor:pointer;line-height:1.45}
+.mc-options input{margin-right:8px}
+.flow-line{margin:8px 0}
+.flow-center{text-align:center;font-weight:700;margin:12px 0}
+.notes-panel{width:270px;border-left:1px solid var(--border);background:#f1f1f1;padding:15px;display:none;overflow-y:auto;flex-shrink:0}
+.notes-panel.open{display:block}
+.notes-title{font-size:13px;font-weight:800;color:var(--ielts-red);margin-bottom:13px}
+.notes-empty{font-size:13px;color:#666;text-align:center;margin-top:35px;line-height:1.6}
+.note-entry{background:#fff;border:1px solid #ccc;border-radius:3px;padding:8px 10px;margin-bottom:9px;font-size:12px;font-style:italic}
+.selection-menu{position:absolute;z-index:100;background:#fff;border:1px solid #999;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;border-radius:3px}
+.selection-menu button{border:0;background:none;padding:8px 11px;font-size:11px;cursor:pointer}
+.selection-menu button+button{border-left:1px solid #ddd}
+mark.hl{background:var(--highlight)}
+.bottombar{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:#fff;overflow-x:auto;flex-shrink:0}
+.part-nav-group{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.part-label{font-size:13px;font-weight:700;cursor:pointer}
+.part-label.active{color:var(--ielts-red)}
+.part-count{font-size:12px;color:#888}
+.qnum-btn{width:23px;height:23px;border:1px solid transparent;border-radius:2px;background:none;font-size:12px;cursor:pointer;padding:0}
+.qnum-btn.answered{font-weight:800;color:var(--focus)}
+.submit-check{width:36px;height:36px;border:0;background:#efefef;cursor:pointer;font-size:16px;flex-shrink:0}
+.menu-overlay{position:absolute;inset:0;z-index:60;background:#fff;display:none;flex-direction:column}
+.menu-overlay.open{display:flex}
+.menu-header{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;padding:14px 16px;border-bottom:1px solid #eee}
+.menu-header button{border:0;background:none;cursor:pointer}
+.menu-back{display:none;justify-self:start}
+.menu-back.show{display:block}
+.menu-title{text-align:center;font-weight:700;font-size:15px}
+.menu-close{justify-self:end;font-size:18px}
+.menu-body{width:min(440px,100%);margin:0 auto;padding:20px}
+.menu-item,.option-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #ddd;padding:14px 16px;font-size:14px;cursor:pointer}
+.menu-item+.menu-item,.option-row+.option-row{border-top:0}
+.menu-item.danger{background:var(--ielts-red);border-color:var(--ielts-red);color:#fff;font-weight:700;margin-bottom:15px}
+.final-action-btn{background:#fff;color:#111;border:1px solid #111;padding:8px 15px;border-radius:3px;font-size:12px;cursor:pointer}
+.final-action-btn.primary{background:#111;color:#fff}
+.transition-body{flex:1;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;font-size:13px;color:#444}
+.results-wrap{height:100%;overflow-y:auto;padding:30px 40px}
+.results-wrap h1{color:var(--ielts-red);font-size:25px;margin:0 0 4px}
+.score-summary{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 27px}
+.score-box{min-width:130px;text-align:center;border:1px solid #ddd;border-radius:5px;padding:16px 22px}
+.score-box .num{font-size:30px;font-weight:800;color:var(--ielts-red)}
+.score-box .lbl{font-size:12px;color:#666;margin-top:4px}
+.review-table{width:100%;border-collapse:collapse;font-size:13px}
+.review-table th,.review-table td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+.review-table th{background:var(--panel)}
+.ok{color:#148a3b;font-weight:800} .no{color:var(--ielts-red);font-weight:800}
+.restart-btn{margin-top:22px;padding:10px 21px;border:0;border-radius:3px;background:#111;color:#fff;cursor:pointer}
+body.contrast-wb .topbar,body.contrast-wb .bottombar,body.contrast-wb .content-wrap,body.contrast-wb .passage-pane,body.contrast-wb .questions-pane{background:#000!important;color:#fff!important}
+body.contrast-wb .part-banner,body.contrast-wb .list-box,body.contrast-wb .summary-box{background:#171717;border-color:#444}
+body.contrast-wb input,body.contrast-wb select{background:#111;color:#fff;border-color:#777}
+body.contrast-yb .topbar,body.contrast-yb .bottombar,body.contrast-yb .content-wrap,body.contrast-yb .passage-pane,body.contrast-yb .questions-pane{background:#000!important;color:#f1d70a!important}
+body.contrast-yb .part-banner,body.contrast-yb .list-box,body.contrast-yb .summary-box{background:#171717;border-color:#555}
+body.contrast-yb input,body.contrast-yb select{background:#111;color:#f1d70a;border-color:#f1d70a}
+#app.textsize-large .passage-pane,#app.textsize-large .questions-pane{font-size:16px}
+#app.textsize-extralarge .passage-pane,#app.textsize-extralarge .questions-pane{font-size:19px}
+@media(max-width:900px){.main-wrap,.content-wrap{flex-direction:column}.passage-pane{border-right:0;border-bottom:1px solid var(--border);max-height:42vh}.notes-panel{position:absolute;right:0;top:0;bottom:0;z-index:55}.brand-name{display:none}.topbar{padding:8px 10px}.passage-pane,.questions-pane{padding:18px}.results-wrap{padding:22px 16px}}
+@media(max-width:700px){.auth-banner{height:52px;flex-basis:52px;gap:8px;padding:6px 8px}.auth-banner-text{font-size:16px}.auth-banner-link{font-size:14px;padding:6px 11px}.auth-banner-play{width:24px;height:24px;font-size:12px}}
+.passage-intro{font-style:italic;margin:0 0 17px;padding:10px 12px;background:#fafafa;border-left:3px solid var(--ielts-red);line-height:1.55}
+.diagram-box{border:1px solid #ddd;background:#fff;padding:10px;margin:10px 0 16px;border-radius:3px;text-align:center}
+.diagram-box img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-answer-grid{margin-top:10px}
+.multi-note{font-size:12px;color:#666;margin:-4px 0 12px}
+body.contrast-wb .passage-intro,body.contrast-wb .diagram-box{background:#111;color:#fff;border-color:#555}
+body.contrast-yb .passage-intro,body.contrast-yb .diagram-box{background:#111;color:#f1d70a;border-color:#555}
+.fill-sentence-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:13px;line-height:2}
+.fill-sentence-row .fill-sentence{flex:1}
+input.inline-answer-input{display:inline-block;width:150px;min-width:110px;border:0!important;border-bottom:2px solid #333!important;border-radius:0!important;background:transparent!important;padding:1px 5px 2px!important;margin:0 5px!important;text-align:center!important;outline:none;color:inherit}
+input.inline-answer-input:focus{border-bottom-color:var(--focus)!important;box-shadow:0 2px 0 rgba(43,111,214,.15)}
+input.inline-answer-input::placeholder{color:#777;letter-spacing:1px}
+.heading-bank{background:var(--panel);border:1px solid #ddd;padding:12px 14px;margin:10px 0 16px;border-radius:3px}
+.heading-bank-title{font-size:13px;font-weight:800;margin-bottom:8px}
+.heading-drag-item{display:flex;align-items:flex-start;gap:9px;background:#fff;border:1px solid #bbb;border-radius:4px;padding:8px 10px;margin:7px 0;cursor:grab;font-size:12px;line-height:1.45;user-select:none}
+.heading-drag-item:active{cursor:grabbing}
+.heading-drag-item.used{opacity:.58}
+.heading-drag-item.selected{outline:2px solid var(--focus);outline-offset:1px}
+.heading-roman{min-width:31px;font-weight:800;color:var(--ielts-red)}
+.heading-help{font-size:11px;color:#666;margin:6px 0 2px}
+.para-content{flex:1;min-width:0}
+.heading-drop-slot{display:flex;align-items:center;gap:8px;min-height:40px;border:2px dashed #9ca3af;border-radius:5px;background:#fafafa;padding:6px 8px;margin:0 0 9px;transition:.15s ease}
+.heading-drop-slot.drag-over{border-color:var(--focus);background:#eef5ff}
+.heading-drop-slot.filled{border-style:solid;border-color:#5c7fb6;background:#f5f8ff}
+.drop-qnum{display:inline-flex;align-items:center;justify-content:center;min-width:35px;height:25px;border:1px solid #333;background:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.drop-prompt{font-size:12px;color:#6b7280;flex:1}
+.drop-answer{font-size:12px;line-height:1.35;flex:1;font-weight:700}
+.drop-clear{border:0;background:transparent;color:#777;font-size:17px;line-height:1;cursor:pointer;padding:2px 5px;display:none}
+.heading-drop-slot.filled .drop-clear{display:block}
+.heading-assignments{border:1px solid #ddd;border-radius:3px;margin:12px 0 18px;overflow:hidden}
+.heading-assignment-row{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:12px;border-top:1px solid #e4e4e4}
+.heading-assignment-row:first-child{border-top:0}
+.heading-assignment-q{font-weight:800;min-width:35px}
+.heading-assignment-value{color:#555;flex:1}
+body.contrast-wb .heading-bank,body.contrast-wb .heading-drop-slot,body.contrast-wb .heading-drag-item{background:#171717;color:#fff;border-color:#666}
+body.contrast-yb .heading-bank,body.contrast-yb .heading-drop-slot,body.contrast-yb .heading-drag-item{background:#171717;color:#f1d70a;border-color:#777}
+body.contrast-wb .drop-qnum,body.contrast-yb .drop-qnum{background:#111;color:inherit;border-color:#888}
+@media(max-width:900px){.heading-drag-item{cursor:pointer}.heading-drop-slot{min-height:44px}}
+.category-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.8}
+.category-grid{display:grid;grid-template-columns:38px 1fr;gap:4px 10px}
+.two-choice-box{border:1px solid #ddd;background:#fafafa;padding:12px 15px;margin:10px 0 16px}
+.two-choice-box label{display:block;margin:8px 0;cursor:pointer;font-size:13px;line-height:1.45}
+.two-choice-box input{margin-right:8px}
+.example-row{font-size:13px;margin:9px 0 14px;padding:8px 10px;background:#fafafa;border-left:3px solid #aaa}
+.p3-key-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:2.2;margin:8px 0}
+.p3-key-line .answer-input{width:165px}
+.flow-chart-box{background:#fafafa;border:1px solid #ddd;padding:18px 20px;margin:12px 0 16px;border-radius:4px;text-align:center}
+.flow-step{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0}
+.flow-arrow{font-size:20px;color:#666}
+.flow-label{font-weight:700;font-size:13px}
+.flow-input{margin:0 6px}
+.flow-input .answer-input{width:120px}
+.flow-chart-box .answer-input{width:135px}
+@media(max-width:700px){.flow-step{flex-wrap:wrap}.flow-chart-box .answer-input{width:120px}}
+.match-bank{background:var(--panel);border:1px solid #ddd;padding:13px 15px;margin:10px 0 18px;border-radius:3px;font-size:12px;line-height:1.55}
+.match-bank-row{display:grid;grid-template-columns:26px 1fr;gap:8px;margin:5px 0}.match-bank-letter{font-weight:800;color:var(--ielts-red)}
+.diagram-rebuild{border:1px solid #ccc;background:#fafafa;border-radius:5px;padding:14px 16px;margin:12px 0 18px}.diagram-title{font-weight:800;font-size:13px;text-align:center;margin-bottom:8px}.eye-svg{display:block;width:min(100%,520px);height:auto;margin:0 auto 8px}.diagram-fields{display:grid;gap:9px;max-width:520px;margin:0 auto}.diagram-field{display:flex;align-items:center;gap:10px}.diagram-field .answer-input{flex:1;width:auto}.diagram-note{font-size:11px;color:#777;text-align:center;margin-top:8px}
+body.contrast-wb .match-bank,body.contrast-wb .diagram-rebuild{background:#171717;color:#fff;border-color:#555}body.contrast-yb .match-bank,body.contrast-yb .diagram-rebuild{background:#171717;color:#f1d70a;border-color:#555}
+@media(max-width:650px){.diagram-field{align-items:flex-start}.diagram-field .answer-input{min-width:0}}
+
+/* === Imported Reading Full 121 content, restyled to the user's IELTS template === */
+#passage-pane .passage-content{font-size:14px;line-height:1.72}
+#passage-pane .passage-content>p{margin:0 0 15px}
+#passage-pane .passage-content>p:first-child{margin-bottom:3px;font-size:17px;font-weight:800;color:var(--ielts-red)}
+#passage-pane .passage-content>p:nth-child(2){margin-bottom:10px;font-size:12px;color:#777;font-style:italic}
+#passage-pane .passage-content h3{font-size:17px;line-height:1.35;text-align:center;margin:8px 0 18px;font-weight:800}
+#passage-pane .passage-content p strong:first-child{font-weight:800}
+#questions-pane .section-title{font-size:17px;font-weight:800;margin:0 0 18px;padding:12px 15px;background:var(--panel);border:1px solid #ddd;border-radius:3px}
+#questions-pane .question-group{margin:0 0 28px;overflow-x:auto}
+#questions-pane .question-group-title{font-size:14px;font-weight:800;margin:0 0 8px}
+#questions-pane .question-group>p{font-size:13px;line-height:1.6;margin:7px 0 12px}
+#questions-pane table{width:100%;min-width:520px;border-collapse:collapse;margin:10px 0 16px;font-size:12px;background:#fff}
+#questions-pane th,#questions-pane td{border:1px solid #cfcfcf;padding:7px 7px;vertical-align:top}
+#questions-pane th{background:#f3f3f3;font-weight:800;text-align:center}
+#questions-pane th:first-child,#questions-pane td:first-child{text-align:left}
+#questions-pane td:not(:first-child){text-align:center;vertical-align:middle}
+#questions-pane input[type="radio"]{width:15px;height:15px;accent-color:var(--focus);cursor:pointer}
+#questions-pane .input-field,#questions-pane input[type="text"]{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px;min-width:125px;max-width:190px}
+#questions-pane .inline-input{display:inline-block;margin:2px 5px;vertical-align:middle}
+#questions-pane .question{margin:18px 0 24px;font-size:13px}
+#questions-pane .question-text{font-weight:700;line-height:1.5;margin-bottom:9px}
+#questions-pane .options,#questions-pane .tf-options,#questions-pane .reason-options{display:flex;flex-direction:column;gap:8px;padding-left:8px}
+#questions-pane .options label,#questions-pane .tf-options label,#questions-pane .reason-options label{display:flex;align-items:flex-start;gap:8px;line-height:1.45;cursor:pointer}
+#questions-pane .options label input,#questions-pane .tf-options label input,#questions-pane .reason-options label input{margin-top:3px;flex:0 0 auto}
+#questions-pane .question-anchor{scroll-margin-top:18px}
+#questions-pane [id^="q"]{scroll-margin-top:18px}
+body.contrast-wb #questions-pane .section-title,body.contrast-wb #questions-pane th{background:#171717;color:#fff;border-color:#555}
+body.contrast-wb #questions-pane table,body.contrast-wb #questions-pane td{background:#000;color:#fff;border-color:#555}
+body.contrast-yb #questions-pane .section-title,body.contrast-yb #questions-pane th{background:#171717;color:#f1d70a;border-color:#555}
+body.contrast-yb #questions-pane table,body.contrast-yb #questions-pane td{background:#000;color:#f1d70a;border-color:#555}
+body.contrast-wb #passage-pane .passage-content>p:nth-child(2),body.contrast-yb #passage-pane .passage-content>p:nth-child(2){color:inherit}
+#app.textsize-large #passage-pane .passage-content,#app.textsize-large #questions-pane .question-group>p,#app.textsize-large #questions-pane .question{font-size:16px}
+#app.textsize-extralarge #passage-pane .passage-content,#app.textsize-extralarge #questions-pane .question-group>p,#app.textsize-extralarge #questions-pane .question{font-size:18px}
+@media(max-width:800px){
+  .content-wrap{flex-direction:column;overflow-y:auto}
+  .passage-pane,.questions-pane{flex:0 0 auto;min-height:46vh;overflow-y:auto;padding:16px 18px}
+  .passage-pane{border-right:0;border-bottom:1px solid var(--border)}
+  #questions-pane table{min-width:500px}
+}
+
+
+/* Matching-headings drag/drop support for Test 3 */
+#questions-pane .drag-options{display:flex;flex-direction:column;gap:7px;margin:10px 0 16px}
+#questions-pane .drag-item{padding:7px 10px;border:1px solid #c7c7c7;border-radius:4px;background:#fafafa;cursor:grab;font-weight:600;line-height:1.4;user-select:none}
+#questions-pane .drag-item.used{opacity:.45;cursor:not-allowed;background:#ececec}
+#passage-pane .drop-zone{display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:28px;padding:3px 7px;border:2px dashed #aaa;border-radius:4px;background:#fafafa;margin:0 7px 3px 0;font-weight:800;color:var(--focus);vertical-align:middle;cursor:pointer}
+#passage-pane .drop-zone.over{border-color:var(--focus);background:#eef5ff}
+#passage-pane .drop-zone.filled{border-style:solid;border-color:#3f8f5b;background:#eefaf1;color:#245c38;min-width:100px}
+body.contrast-wb #questions-pane .drag-item,body.contrast-wb #passage-pane .drop-zone{background:#111;color:#fff;border-color:#777}
+body.contrast-yb #questions-pane .drag-item,body.contrast-yb #passage-pane .drop-zone{background:#111;color:#f1d70a;border-color:#777}
+
+
+#questions-pane .question{margin-bottom:19px;font-size:13px}
+#questions-pane .question-text{font-weight:600;line-height:1.55;margin-bottom:7px}
+#questions-pane .options label{display:block;margin:7px 0 0 39px;cursor:pointer;line-height:1.45;font-weight:400}
+#questions-pane .options input{margin-right:7px}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="auth-banner">
+<span class="auth-banner-text">For the authentic tests, join</span>
+<a class="auth-banner-link" href="https://t.me/jasurbekisaev" target="_blank" rel="noopener"><span class="auth-banner-play">▶</span>@jasurbekisaev</a>
+</div>
+<section class="gate-screen" id="screen-password">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Full Reading Test Access</div>
+<label for="pwd-input">Enter Password</label>
+<input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+<div class="gate-error" id="pwd-error"></div>
+<button class="gate-btn" id="pwd-submit">Continue</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="gate-screen hidden" id="screen-id">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Enter your Test Taker ID</div>
+<label for="id-input">Test Taker ID</label>
+<input type="text" id="id-input" placeholder="e.g. 123456789" autocomplete="off">
+<div class="gate-error" id="id-error"></div>
+<button class="gate-btn" id="id-submit">Start Test</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="hidden" id="screen-test" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar">
+<div class="topbar-left">
+<div><div class="ielts-logo">IELTS</div><div class="brand-name">Full Reading Test</div></div>
+<div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display"></div><div class="timer-status" id="timer-display">60:00</div></div>
+</div>
+<div class="topbar-right"><span title="Connection">📶</span><span title="Notifications">🔔</span><button class="icon-btn" id="hamburger-btn" title="Menu">☰</button><button class="icon-btn" id="notes-toggle-btn" title="Notes">✏️</button></div>
+</header>
+<div class="main-wrap">
+<div class="content-wrap"><main class="passage-pane" id="passage-pane"></main><aside class="questions-pane" id="questions-pane"></aside></div>
+<aside class="notes-panel" id="notes-panel"><div class="notes-title">Notes</div><div id="notes-list"></div></aside>
+<div class="menu-overlay" id="menu-overlay">
+<div class="menu-header"><button class="menu-back" id="menu-back-btn">‹ Options</button><div class="menu-title" id="menu-title">Options</div><button class="menu-close" id="menu-close-btn">✕</button></div>
+<div class="menu-body">
+<div id="menu-root"><div class="menu-item danger" id="menu-submit-btn"><span>🚀 Go to submission page</span><span>›</span></div><div class="menu-item" id="menu-contrast-btn"><span>◐ Contrast</span><span>›</span></div><div class="menu-item" id="menu-textsize-btn"><span>🔍 Text size</span><span>›</span></div></div>
+<div class="hidden" id="menu-contrast"><div class="option-row" data-contrast="bw"><span><span class="check">✔</span> Black on white</span></div><div class="option-row" data-contrast="wb"><span><span class="check"></span> White on black</span></div><div class="option-row" data-contrast="yb"><span><span class="check"></span> Yellow on black</span></div></div>
+<div class="hidden" id="menu-textsize"><div class="option-row" data-textsize="regular"><span><span class="check">✔</span> Regular</span></div><div class="option-row" data-textsize="large"><span><span class="check"></span> Large</span></div><div class="option-row" data-textsize="extralarge"><span><span class="check"></span> Extra large</span></div></div>
+</div>
+</div>
+</div>
+<footer class="bottombar" id="bottombar"></footer>
+</section>
+<section class="hidden" id="screen-final" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar"><div class="topbar-left"><div class="ielts-logo">IELTS</div><div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display-final"></div></div></div><div class="topbar-right"><button class="final-action-btn" id="back-to-test-btn">← Back to test</button><button class="final-action-btn primary" id="final-next-btn">Next ✈</button></div></header>
+<div class="transition-body">Click next to submit and view your result.</div>
+<footer class="bottombar"><div class="part-nav-group"><span class="part-label">Passage 1</span><span class="part-count">Questions 1–13</span></div><div class="part-nav-group"><span class="part-label">Passage 2</span><span class="part-count">Questions 14–26</span></div><div class="part-nav-group"><span class="part-label">Passage 3</span><span class="part-count">Questions 27–40</span></div><button class="submit-check" style="background:#111;color:#fff">✔</button></footer>
+</section>
+<section class="hidden results-wrap" id="screen-results">
+<h1>Test Results</h1>
+<p style="font-size:13px;color:#555">Test taker ID: <span id="results-taker-id"></span></p>
+<div class="score-summary"><div class="score-box"><div class="num" id="score-correct">0</div><div class="lbl">Correct</div></div><div class="score-box"><div class="num">40</div><div class="lbl">Total Questions</div></div><div class="score-box"><div class="num" id="score-band">0.0</div><div class="lbl">Estimated Band</div></div></div>
+<table class="review-table"><thead><tr><th style="width:60px">Q#</th><th>Your Answer</th><th>Correct Answer</th><th style="width:90px">Result</th></tr></thead><tbody id="review-body"></tbody></table>
+<button class="restart-btn" id="restart-btn">Restart Test</button>
+</section>
+</div>
+<script>
+(() => {
+"use strict";
+const REQUIRED_PASSWORD="jasurbekisaev";
+const passageHtml={"1":"<p><strong>PASSAGE 1</strong></p>\n<p><strong>Read the text and answer questions 1-13</strong></p>\n<h3>The Extraordinary Watkin Tench</h3>\n<p>At the end of 18th century, life for the average British citizen was changing. The population grew as health and industrialisation took hold of the country. However, land and resources were limited. Families could not guarantee jobs for all of their children. People who were poor or destitute had little option. To make things worse, the rate of people who turned to crime to make a living increased. In Britain, the prisons were no longer large enough to hold the convicted people of this growing criminal class. Many towns and governments were at a loss as to what to do. However, another phenomenon that was happening in the 18th century was exploration of other continents. There were many ships looking for crew members who would risk a month-long voyage across a vast ocean. This job was risky and dangerous, so few would willingly choose it. However, with so many citizens without jobs or with criminal convictions, they had little choice. One such member of this new lower class of British citizens was Watkin Tench. Between 1788 and 1868, approximately 161,700 convicts were transported to the Australian colonies of New South Wales, Van Diemen’s land and Western Australia. Tench was one of these unlucky convicts to sign onto a dangerous journey. When his ship set out in 1788, he signed a three years’ service to the First Fleet.</p>\n<p>Apart from his years in Australia, people knew little about his life back in Britain. It was said he was born on 6 October 1758 at Chester in the county of Cheshire in England. He came from a decent background. Tench was a son of Fisher Tench, a dancing master who ran a boarding school in the town and Margaritta Tarleton of the Liverpool Tarletons. He grew up around a finer class of British citizens, and his family helped instruct the children of the wealthy in formal dance lessons. Though we don’t know for sure how Tench was educated in this small British town, we do know that he was well educated. His diaries from his travels to Australia are written in excellent English, a skill that not everyone was lucky to possess in the 18th century. Aside from this, we know little of Tench’s beginnings. We don’t know how he ended up convicted of a crime. But after he started his voyage, his life changed dramatically.</p>\n<p>During the voyage, which was harsh and took many months, Tench described landscape of different places. While sailing to Australia, Tench saw landscapes that were unfamiliar and new to him. Arriving in Australia, the entire crew was uncertain of what was to come in their new life. When they arrived in Australia, they established a British colony. Governor Philip was vested with complete authority over the inhabitants of the colony. Though still a young man, Philip was enlightened for his age. From stories of other British colonies, Philip learnt that conflict with the original peoples of the land was often a source of strife and difficulties. To avoid this, Philip’s personal intent was to establish harmonious relations with local Aboriginal people. But Philip’s job was even more difficult considering his crew. Other colonies were established with middle-class merchants and craftsmen. His crew were convicts, who had few other skills outside of their criminal histories. Along with making peace with the Aboriginal people, Philip also had to try to reform as well as discipline the convicts of the colony.</p>\n<p>From the beginning, Tench stood out as different from the other convicts. During his initial time in Australia, he quickly rose in his rank, and was given extra power and responsibility over the convicted crew members. However, he was also still very different from the upper-class rulers who came to rule over the crew. He showed humanity towards the convicted workers. He didn’t want to treat them as common criminals, but as trained military men. Under Tench’s authority, he released the convicts’ chains which were used to control them during the voyage. Tench also showed mercy towards the Aboriginal people. Governor Philip often pursued violent solutions to conflicts with the Aboriginal peoples. Tench disagreed strongly with this method. At one point, he was unable to follow the order given by the Governor Philip to punish the ten Aboriginals.</p>\n<p>When they first arrived, Tench was fearful and contemptuous towards the Aboriginals, because the two cultures did not understand each other. However, gradually he got to know them individually and became close friends with them. Tench knew that the Aboriginal people would not cause them conflict if they looked for a peaceful solution. Though there continued to be conflict and violence, Tench’s efforts helped establish a more peaceful negotiation between the two groups when they settled territory and land-use issues.</p>\n<p>Meanwhile, many changes were made to the new colony. The Hawkesbury River was named by Governor Philip in June 1789. Many native bird species to the river were hunted by travelling colonists. The colonists were having a great impact on the land and natural resources. Though the colonists had made a lot of progress in the untamed lands of Australia, there were still limits. The convicts were notoriously ill-informed about Australian geography, as was evident in the attempt by twenty absconders to walk from Sydney to China in 1791, believing: “China might be easily reached, being not more than a hundred miles distant, and separated only by a river.” In reality, miles of ocean separated the two.</p>\n<p>Much of Australia was unexplored by the convicts. Even Tench had little understanding of what existed beyond the established lines of their colony. Slowly, but surely, the colonists expanded into the surrounding area. A few days after arrival at Botany Bay, their original location, the fleet moved to the more suitable Port Jackson where a settlement was established at Sydney Cove on 26 January 1788. This second location was strange and unfamiliar, and the fleet was on alert for any kind of suspicious behaviors. Though Tench had made friends in Botany Bay with Aboriginal peoples, he could not be sure this new land would be uninhabited. He recalled the first time he stepped into this unfamiliar ground with a boy who helped Tench navigate. In these new lands, he met an old Aboriginal.</p>","2":"<p><strong>PASSAGE 2</strong></p>\n<p><strong>Read the text and answer questions 14-26</strong></p>\n<h3>Are Artists Liars?</h3>\n<p><strong>A</strong> Shortly before his death, Marlon Brando was working on a series of instructional videos about acting, to he called “Lying for a Living”. On the surviving footage, Brando can be seen dispensing gnomic advice on his craft to a group of enthusiastic, if somewhat bemused, Hollywood stars, including Leonardo Di Caprio and Sean Penn. Brando also recruited random people from the Los Angeles street and persuaded them to improvise (the footage is said to include a memorable scene featuring two dwarves and a giant Samoan). “If you can lie, you can act.” Brando told Jod Kaftan, a writer for Rolling Stone and one of the few people to have viewed the footage. “Are you good at lying?” asked Kaftan. “Jesus,” said Brando, “I'm fabulous at it”.</p>\n<p><strong>B</strong> Brando was not the first person to note that the line between an artist and a liar is a fine one. If art is a kind of lying, then lying is a form of art, albeit of a lower order—as Oscar Wilde and Mark Twain have observed. Indeed, lying and artistic storytelling spring from a common neurological root—one that is exposed in the cases of psychiatric patients who suffer from a particular kind of impairment. Both liars and artists refuse to accept the tyranny of reality. Both carefully craft stories that are worthy of belief—a skill requiring intellectual sophistication, emotional sensitivity and physical self-control (liars are writers and performers of their own work). Such parallels are hardly coincidental, as I discovered while researching my book on lying.</p>\n<p><strong>C</strong> A case study published in 1985 by Antonio Damasio, a neurologist, tells the story of a middle-aged woman with brain damage caused by a series of strokes. She retained cognitive abilities, including coherent speech, but what she actually said was rather unpredictable. Checking her knowledge of contemporary events, Damasio asked her about the Falklands War. In the language of psychiatry, this woman was “confabulating”. Chronic confabulation is a rare type of memory problem that affects a small proportion of brain damaged people. In the literature it is defined as “the production of fabricated, distorted or misinterpreted memories about oneself or the world, without the conscious intention to deceive”. Whereas amnesiacs make errors of omission—there are gaps in their recollections they find impossible to fill—confabulators make errors of commission: they make things up. Rather than forgetting, they are inventing. Confabulating patients are nearly always oblivious to their own condition, and will earnestly give absurdly implausible explanations of why they're in hospital, or talking to a doctor. One patient, asked about his surgical scar, explained that during the Second World War he surprised a teenage girl who shot him three times in the head, killing him, only for surgery to bring him back to life. The same patient, when asked about his family, described how at various times they had died in his arms, or had been killed before his eyes. Others tell yet more fantastical tales, about trips to the moon, fighting alongside Alexander in India or seeing Jesus on the Cross. Confabulators aren’t out to deceive. They engage in what Morris Moscovitch, a neuropsychologist, calls “honest lying”. Uncertain and obscurely distressed by their uncertainty, they are seized by a “compulsion to narrate”: a deep-seated need to shape, order and explain what they do not understand. Chronic confabulators are often highly inventive at the verbal level, jamming together words in nonsensical but suggestive ways: one patient, when asked what happened to Queen Marie Antoinette of France, answered that she had been “suicided” by her family. In a sense, these patients are like novelists, as described by Henry James: people on whom “nothing is wasted”. Unlike writers, however, they have little or no control over their own material.</p>\n<p><strong>D</strong> The wider significance of this condition is what it tells us about ourselves. Evidently, there is a gushing river of verbal creativity in the normal human mind, from which both artistic invention and lying are drawn. We are born storytellers, spinning narrative out of our experience and imagination, straining against the leash that keeps us tethered to reality. This is a wonderful thing; it is what gives us our ability to conceive of alternative futures and different worlds. And it helps us to understand our own lives through the entertaining stories of others. But it can lead us into trouble, particularly when we try to persuade others that our inventions are real. Most of the time, as our stories bubble up to consciousness, we exercise our cerebral censors, controlling which stories we tell, and to whom. Yet people lie for all sorts of reasons, including the fact that confabulating can be dangerously fun.</p>\n<p><strong>E</strong> During a now-famous libel case in 1996, Jonathan Aitken, a former cabinet minister, recounted a tale to illustrate the horrors he endured after a national newspaper tainted his name. The case, which stretched on for more than two years, involved a series of claims made by the Guardian about Aitken's relationships with Saudi arms dealers, including meetings he allegedly held with them on a trip to Paris while he was a government minister. What amazed many in hindsight was the sheer superfluity of the lies Aitken told during his testimony. Aitken’s case collapsed in June 1997, when the defence finally found indisputable evidence about his Paris trip. Until then, Aitken's charm, fluency and flair for theatrical displays of sincerity looked as if they might bring him victory. They revealed that not only was Aitken’s daughter not with him that day (when he was indeed doorstepped), but also that the minister had simply got into his car and drove off, with no vehicle in pursuit.</p>\n<p><strong>F</strong> Of course, unlike Aitken, actors, playwrights and novelists are not literally attempting to deceive us, because the rules are laid out in advance: come to the theatre, or open this book, and we'll lie to you. Perhaps this is why we felt it necessary to invent art in the first place: as a safe space into which our lies can be corralled, and channeled into something socially useful. Given the universal compulsion to tell stories, art is the best way to refine and enjoy the particularly outlandish or insightful ones. But that is not the whole story. The key way in which artistic “lies” differ from normal lies, and from the “honest lying” of chronic confabulators, is that they have a meaning and resonance beyond their creator. The liar lies on behalf of himself; the artist tells lies on behalf of everyone. If writers have a compulsion to narrate, they compel themselves to find insights about the human condition. Mario Vargas Llosa has written that novels “express a curious truth that can only be expressed in a furtive and veiled fashion, masquerading as what it is not.” Art is a lie whose secret ingredient is truth.</p>","3":"<p><strong>PASSAGE 3</strong></p>\n<p><strong>Read the text and answer questions 27-40</strong></p>\n<h3>Theory or Practice? — What is the point of research carried out by biz schools?</h3>\n<p>Students go to universities and other academic institutions to prepare for their future. We pay tuition and struggle through classes in the hopes that we can find a fulfilling and exciting career. But the choice of your university has a large influence on your future. How can you know which university will prepare you the best for your future? Like other academic institutions, business schools are judged by the quality of the research carried out by their faculties. Professors must both teach students and also produce original research in their own field. The quality of this research is assessed by academic publications. At the same time, universities have another responsibility to equip their students for the real world, however that is defined. Most students learning from professors will not go into academics themselves—so how do academics best prepare them for their future careers, whatever that may be? Whether academic research actually produces anything that is useful to the practice of business, or even whether it is its job to do so, are questions that can provoke vigorous arguments on campus.</p>\n<p>The debate, which first flared during the 1950s, was reignited in August, when AACSB International, the most widely recognised global accrediting agency for business schools, announced it would consider changing the way it evaluates research. The news followed rather damning criticism in 2002 from Jeffrey Pfeffer, a Stanford professor, and Christina Fong of Washington University, which questioned whether business education in its current guise was sustainable. The study found that traditional modes of academia were not adequately preparing students for the kind of careers they faced in current times. The most controversial recommendation in AACSB’s draft report (which was sent round to administrators for their comment) is that the schools should be required to demonstrate the value of their faculties’ research not simply by listing its citations in journals, but by demonstrating the impact it has in the professional world. New qualifiers, such as average incomes, student placement in top firms and business collaborations would now be considered just as important as academic publications.</p>\n<p>AACSB justifies its stance by saying that it wants schools and faculty to play to their strengths, whether they be in pedagogy, in the research of practical applications, or in scholarly endeavor. Traditionally, universities operate in a pyramid structure. Everyone enters and stays in an attempt to be successful in their academic field. A psychology professor must publish competitive research in the top neuroscience journals. A Cultural Studies professor must send graduate students on new field research expeditions to be taken seriously. This research is the core of a university’s output. And research of any kind is expensive—AACSB points out that business schools in America alone spend more than $320m a year on it. So it seems legitimate to ask for what purpose it is undertaken?</p>\n<p>If a school chose to specialise in professional outputs rather than academic outputs, it could use such a large sum of money and redirect it into more fruitful programs. For example, if a business school wanted a larger presence of employees at top financial firms, this money may be better spent on a career center which focuses on building the skills of students, rather than paying for more high-level research to be done through the effort of faculty. A change in evaluation could also open the door to inviting more professionals from different fields to teach as adjuncts. Students could take accredited courses from people who are currently working in their dream field. The AACSB insists that universities answer the question as to why research is the most critical component of traditional education.</p>\n<p>On one level, the question is simple to answer. Research in business schools, as anywhere else, is about expanding the boundaries of knowledge; it thrives on answering unasked questions. Surely this pursuit of knowledge is still important to the university system. Our society progresses because we learn how to do things in new ways, a process which depends heavily on research and academics. But one cannot ignore the other obvious practical uses of research publications. Research is also about cementing schools’ and professors' reputations. Schools gain kudos from their faculties’ record of publication: which journals publish them, and how often. In some cases, such as with government-funded schools in Britain, it can affect how much money they receive. For professors, the mantra is often “publish or perish”. Their careers depend on being seen in the right journals.</p>\n<p>But at a certain point, one has to wonder whether this research is being done for the benefit of the university or for the students the university aims to teach. Greater publications will attract greater funding, which will in turn be spent on better publications. Students seeking to enter professions out of academia find this cycle frustrating, and often see their professors as being part of the “Ivory Tower” of academia, operating in a self-contained community that has little influence on the outside world.</p>\n<p>The research is almost universally unread by real-world managers. Part of the trouble is that the journals labour under a similar ethos. They publish more than 20,000 articles each year. Most of the research is highly quantitative, hypothesis-driven and esoteric. As a result, it is almost universally unread by real-world managers. Much of the research criticises other published research. A paper in a 2006 issue of <em>Strategy &amp; Leadership</em> commented that “research is not designed with managers’ needs in mind, nor is it communicated in the journals they read. For the most part, it has become a self-referential closed system irrelevant to corporate performance.” The AACSB demands that this segregation must change for the future of higher education. If students must invest thousands of dollars for an education as part of their career path, the academics which serve the students should be more fully incorporated into the professional world. This means that universities must focus on other strengths outside of research, such as professional networks, technology skills, and connections with top business firms around the world. Though many universities resisted the report, today’s world continues to change. The universities which prepare students for our changing future have little choice but to change with new trends and new standards.</p>"};
+const questionHtml={"1":"<h2 class=\"section-title\">Questions 1-13</h2>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 1-6</div>\n<p>Do the following statements agree with the information given in Reading Passage 1?</p>\n<p>Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.</p>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"1\"></span><span class=\"qnum\">1</span><span class=\"qtext\">There was a great deal of information available about the life of Tench before he arrived in Australia.</span><select class=\"answer-select\" name=\"q1\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"2\"></span><span class=\"qnum\">2</span><span class=\"qtext\">Tench drew pictures to illustrate different places during the voyage.</span><select class=\"answer-select\" name=\"q2\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"3\"></span><span class=\"qnum\">3</span><span class=\"qtext\">Other military personnel in New South Wales did not treated convicts in the same way as Tench did.</span><select class=\"answer-select\" name=\"q3\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"4\"></span><span class=\"qnum\">4</span><span class=\"qtext\">Tench’s view towards the Aboriginals remained unchanged during his time in Australia.</span><select class=\"answer-select\" name=\"q4\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"5\"></span><span class=\"qnum\">5</span><span class=\"qtext\">An Aboriginal gave him gifts of food at the first time they met.</span><select class=\"answer-select\" name=\"q5\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"6\"></span><span class=\"qnum\">6</span><span class=\"qtext\">The convicts had a good knowledge of Australian geography.</span><select class=\"answer-select\" name=\"q6\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n</div><div class=\"question-group\"><div class=\"question-group-title\">Questions 7-13</div><p>Answer the questions below. Choose <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from the passage for each answer.</p>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"7\"></span><span class=\"qnum\">7</span><span class=\"qtext\">What could be a concrete proof of Tench’s good education?</span><input class=\"answer-input\" type=\"text\" name=\"q7\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"8\"></span><span class=\"qnum\">8</span><span class=\"qtext\">How many years did Tench sign the contract to the First Fleet?</span><input class=\"answer-input\" type=\"text\" name=\"q8\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"9\"></span><span class=\"qnum\">9</span><span class=\"qtext\">What was used to control convicts during the voyage?</span><input class=\"answer-input\" type=\"text\" name=\"q9\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"10\"></span><span class=\"qnum\">10</span><span class=\"qtext\">Who gave the order to punish the Aboriginals?</span><input class=\"answer-input\" type=\"text\" name=\"q10\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"11\"></span><span class=\"qnum\">11</span><span class=\"qtext\">When did the name of Hawkesbury River come into being?</span><input class=\"answer-input\" type=\"text\" name=\"q11\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"12\"></span><span class=\"qnum\">12</span><span class=\"qtext\">Where did the escaped convicts plan to go?</span><input class=\"answer-input\" type=\"text\" name=\"q12\" autocomplete=\"off\"/></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"13\"></span><span class=\"qnum\">13</span><span class=\"qtext\">In which place did Tench feel unaccustomed?</span><input class=\"answer-input\" type=\"text\" name=\"q13\" autocomplete=\"off\"/></div>\n</div>","2":"<h2 class=\"section-title\">Questions 14-26</h2>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 14-19</div><p>Reading Passage 2 has six paragraphs, A-F. Choose the correct heading for each paragraph from the list of headings below.</p>\n<div class=\"list-box\"><b>List of Headings</b><br>\ni &nbsp; Unsuccessful deceit<br>\nii &nbsp; Biological basis between liars and artists<br>\niii &nbsp; How to lie in an artistic way<br>\niv &nbsp; Confabulations and the exemplifiers<br>\nv &nbsp; The distinction between artists and common liars<br>\nvi &nbsp; The fine line between liars and artists<br>\nvii &nbsp; The definition of confabulation<br>\nviii &nbsp; Creativity when people lie</div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"14\"></span><span class=\"qnum\">14</span><span class=\"qtext\">Paragraph A</span><select class=\"answer-select\" name=\"q14\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"15\"></span><span class=\"qnum\">15</span><span class=\"qtext\">Paragraph B</span><select class=\"answer-select\" name=\"q15\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"16\"></span><span class=\"qnum\">16</span><span class=\"qtext\">Paragraph C</span><select class=\"answer-select\" name=\"q16\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"17\"></span><span class=\"qnum\">17</span><span class=\"qtext\">Paragraph D</span><select class=\"answer-select\" name=\"q17\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"18\"></span><span class=\"qnum\">18</span><span class=\"qtext\">Paragraph E</span><select class=\"answer-select\" name=\"q18\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"19\"></span><span class=\"qnum\">19</span><span class=\"qtext\">Paragraph F</span><select class=\"answer-select\" name=\"q19\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"i\">i</option><option value=\"ii\">ii</option><option value=\"iii\">iii</option><option value=\"iv\">iv</option><option value=\"v\">v</option><option value=\"vi\">vi</option><option value=\"vii\">vii</option><option value=\"viii\">viii</option></select></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 20-21</div><p>Choose <strong>TWO</strong> letters, A-E. Which TWO of the following statements about people suffering from confabulation are true?</p><div class=\"list-box\"><b>A</b> They have lost cognitive abilities.<br><b>B</b> They do not deliberately tell a lie.<br><b>C</b> They are normally aware of their condition.<br><b>D</b> They do not have the impetus to explain what they do not understand.<br><b>E</b> They try to make up stories.</div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"20\"></span><span class=\"qnum\">20</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q20\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"21\"></span><span class=\"qnum\">21</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q21\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 22-23</div><p>Choose <strong>TWO</strong> letters, A-E. Which TWO of the following statements about playwrights and novelists are true?</p><div class=\"list-box\"><b>A</b> They give more meaning to the stories.<br><b>B</b> They tell lies for the benefit of themselves.<br><b>C</b> They have nothing to do with the truth out there.<br><b>D</b> We can be misled by them if not careful.<br><b>E</b> We know there are lies in the content.</div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"22\"></span><span class=\"qnum\">22</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q22\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"23\"></span><span class=\"qnum\">23</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q23\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 24-26</div>\n<p>Complete the summary below. Choose <strong>NO MORE THAN TWO WORDS</strong> from the passage for each answer.</p>\n<div class=\"summary-box\">\nA <span class=\"question-anchor\" data-question-anchor=\"24\"></span><strong>24</strong> <input class=\"answer-input inline-input\" type=\"text\" name=\"q24\" autocomplete=\"off\"/> accused Jonathan Aitken, a former cabinet minister, who was selling and buying with <span class=\"question-anchor\" data-question-anchor=\"25\"></span><strong>25</strong> <input class=\"answer-input inline-input\" type=\"text\" name=\"q25\" autocomplete=\"off\"/>. Aitken’s case collapsed in June 1997, when the defence finally found indisputable evidence about his Paris trip. He was deemed to have his <span class=\"question-anchor\" data-question-anchor=\"26\"></span><strong>26</strong> <input class=\"answer-input inline-input\" type=\"text\" name=\"q26\" autocomplete=\"off\"/>. They revealed that not only was Aitken’s daughter not with him that day, but also that the minister had simply got into his car and drove off, with no vehicle in pursuit.\n</div></div>","3":"<h2 class=\"section-title\">Questions 27-40</h2>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 27-29</div><p>Choose the correct letter, A, B, C or D.</p>\n<div class=\"question\" data-question=\"27\"><div class=\"question-text\"><span class=\"question-anchor\" data-question-anchor=\"27\"></span><strong>27</strong> In the second paragraph, the recommendation given by AACSB is</div><div class=\"options\"><label><input name=\"q27\" type=\"radio\" value=\"A\"/> <strong>A</strong> to focus on listing research paper’s citation only.</label><label><input name=\"q27\" type=\"radio\" value=\"B\"/> <strong>B</strong> to consider the quantity of academic publications.</label><label><input name=\"q27\" type=\"radio\" value=\"C\"/> <strong>C</strong> to evaluate how the paper influences the field.</label><label><input name=\"q27\" type=\"radio\" value=\"D\"/> <strong>D</strong> to maintain the traditional modes of academia.</label></div></div>\n<div class=\"question\" data-question=\"28\"><div class=\"question-text\"><span class=\"question-anchor\" data-question-anchor=\"28\"></span><strong>28</strong> Why does AACSB put forward the recommendation?</div><div class=\"options\"><label><input name=\"q28\" type=\"radio\" value=\"A\"/> <strong>A</strong> to give full play to the faculties’ advantage.</label><label><input name=\"q28\" type=\"radio\" value=\"B\"/> <strong>B</strong> to reinforce the play to the pyramid structure of universities.</label><label><input name=\"q28\" type=\"radio\" value=\"C\"/> <strong>C</strong> to push professors to publish competitive papers.</label><label><input name=\"q28\" type=\"radio\" value=\"D\"/> <strong>D</strong> to reduce costs of research in universities.</label></div></div>\n<div class=\"question\" data-question=\"29\"><div class=\"question-text\"><span class=\"question-anchor\" data-question-anchor=\"29\"></span><strong>29</strong> Why does the author mention the Journal Strategy &amp; Leadership?</div><div class=\"options\"><label><input name=\"q29\" type=\"radio\" value=\"A\"/> <strong>A</strong> to characterize research as irrelevant to company performance.</label><label><input name=\"q29\" type=\"radio\" value=\"B\"/> <strong>B</strong> to suggest that managers don’t read research papers.</label><label><input name=\"q29\" type=\"radio\" value=\"C\"/> <strong>C</strong> to describe students’ expectation for universities.</label><label><input name=\"q29\" type=\"radio\" value=\"D\"/> <strong>D</strong> to exemplify high-quality research papers.</label></div></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 30-31</div><p>Choose <strong>TWO</strong> letters, A-E. Which TWO choices are in line with Jeffrey Pfeffer and Christina Fong’s idea?</p><div class=\"list-box\"><b>A</b> Students should pay less to attend universities.<br><b>B</b> Business education is not doing their job well.<br><b>C</b> Professors should not focus on writing papers.<br><b>D</b> Students are ill-prepared for their career from universities.<br><b>E</b> Recognized accrediting agency can evaluate research well.</div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"30\"></span><span class=\"qnum\">30</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q30\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"31\"></span><span class=\"qnum\">31</span><span class=\"qtext\">Choose one answer</span><select class=\"answer-select\" name=\"q31\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 32-36</div><p>Do the following statements agree with the information given in Reading Passage 3?</p><p>Choose <strong>TRUE</strong>, <strong>FALSE</strong> or <strong>NOT GIVEN</strong>.</p>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"32\"></span><span class=\"qnum\">32</span><span class=\"qtext\">The debate about the usefulness of academic research for business practices is a recent one.</span><select class=\"answer-select\" name=\"q32\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"33\"></span><span class=\"qnum\">33</span><span class=\"qtext\">AACSB’s draft report was not reviewed externally.</span><select class=\"answer-select\" name=\"q33\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"34\"></span><span class=\"qnum\">34</span><span class=\"qtext\">Business schools in the US spend more than 320 million dollars yearly on research.</span><select class=\"answer-select\" name=\"q34\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"35\"></span><span class=\"qnum\">35</span><span class=\"qtext\">Many universities pursue professional outputs.</span><select class=\"answer-select\" name=\"q35\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"36\"></span><span class=\"qnum\">36</span><span class=\"qtext\">Greater publications benefit professors and students as well.</span><select class=\"answer-select\" name=\"q36\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"TRUE\">TRUE</option><option value=\"FALSE\">FALSE</option><option value=\"NOT GIVEN\">NOT GIVEN</option></select></div>\n</div>\n<div class=\"question-group\"><div class=\"question-group-title\">Questions 37-40</div><p>Complete each sentence with the correct ending, A-E, below.</p><div class=\"list-box\"><b>Sentence endings</b><br>\n<b>A</b> it progresses as we learn innovative ways of doing things.<br>\n<b>B</b> the trends and standards are changing.<br>\n<b>C</b> their jobs depend on it.<br>\n<b>D</b> they care about their school rankings and government funds.<br>\n<b>E</b> it helps students to go into top business firms.</div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"37\"></span><span class=\"qnum\">37</span><span class=\"qtext\">Most professors support academic research because</span><select class=\"answer-select\" name=\"q37\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"38\"></span><span class=\"qnum\">38</span><span class=\"qtext\">Schools support academic research because</span><select class=\"answer-select\" name=\"q38\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"39\"></span><span class=\"qnum\">39</span><span class=\"qtext\">Our society needs academic research because</span><select class=\"answer-select\" name=\"q39\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n<div class=\"question-row\"><span class=\"question-anchor\" data-question-anchor=\"40\"></span><span class=\"qnum\">40</span><span class=\"qtext\">Universities resisting the AACSB should change because</span><select class=\"answer-select\" name=\"q40\" style=\"width:170px\"><option value=\"\">Select</option><option value=\"A\">A</option><option value=\"B\">B</option><option value=\"C\">C</option><option value=\"D\">D</option><option value=\"E\">E</option></select></div>\n</div>"};
+const answerAliases={"1":["FALSE"],"2":["NOT GIVEN"],"3":["TRUE"],"4":["FALSE"],"5":["NOT GIVEN"],"6":["FALSE"],"7":["His diaries","diaries"],"8":["3 years","Three years","3/Three years"],"9":["Chains"],"10":["Governor Philip"],"11":["June 1789"],"12":["China"],"13":["Botany Bay"],"14":["vi"],"15":["ii"],"16":["iv"],"17":["viii"],"18":["i"],"19":["v"],"20":["B"],"21":["E"],"22":["A"],"23":["E"],"24":["national newspaper"],"25":["arms dealers"],"26":["victory"],"27":["C"],"28":["A"],"29":["A"],"30":["B"],"31":["D"],"32":["FALSE"],"33":["FALSE"],"34":["TRUE"],"35":["NOT GIVEN"],"36":["FALSE"],"37":["C"],"38":["D"],"39":["A"],"40":["B"]};
+const canonicalAnswers={"1":"FALSE","2":"NOT GIVEN","3":"TRUE","4":"FALSE","5":"NOT GIVEN","6":"FALSE","7":"His diaries","8":"3/Three years","9":"Chains","10":"Governor Philip","11":"June 1789","12":"China","13":"Botany Bay","14":"vi","15":"ii","16":"iv","17":"viii","18":"i","19":"v","20":"B","21":"E","22":"A","23":"E","24":"national newspaper","25":"arms dealers","26":"victory","27":"C","28":"A","29":"A","30":"B","31":"D","32":"FALSE","33":"FALSE","34":"TRUE","35":"NOT GIVEN","36":"FALSE","37":"C","38":"D","39":"A","40":"B"};
+const partData={1:{range:[1,13]},2:{range:[14,26]},3:{range:[27,40]}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const state={currentPart:1,answers:{},notes:[],timeLeft:3600,timer:null,takerId:"",contrast:"bw",textsize:"regular"};
+function hide(el){el.classList.add("hidden")}
+function show(el){el.classList.remove("hidden")}
+function qNumberFromName(name){const m=String(name||"").match(/^q(\d+)$/i);return m?Number(m[1]):0}
+function restoreAnswers(){
+  document.querySelectorAll('#questions-pane input[name^="q"],#questions-pane select[name^="q"],#questions-pane textarea[name^="q"],#passage-pane input[name^="q"],#passage-pane select[name^="q"],#passage-pane textarea[name^="q"]').forEach(el=>{
+    const n=qNumberFromName(el.name);if(!n)return;
+    const saved=state.answers[n];
+    if(el.type==="radio"||el.type==="checkbox") el.checked=String(saved??"")===String(el.value);
+    else el.value=saved??"";
+  });
+}
+function markQuestionAnchors(){
+  document.querySelectorAll('#questions-pane [data-question-anchor],#passage-pane [data-question-anchor]').forEach(a=>{
+    const n=Number(a.dataset.questionAnchor);if(!n)return;
+    const target=a.closest('tr,.question,.tf-question,.mcq-question,.drop-paragraph')||a;
+    if(!$('q'+n)) target.id='q'+n;
+  });
+}
+function renderPart(part){
+  state.currentPart=part;
+  $('passage-pane').innerHTML='<div class="passage-content">'+(passageHtml[String(part)]||'')+'</div>';
+  $('questions-pane').innerHTML=questionHtml[String(part)]||'';
+  markQuestionAnchors();restoreAnswers();attachQuestionListeners();setupDragDrop();renderBottomBar();
+  $('passage-pane').scrollTop=0;$('questions-pane').scrollTop=0;
+}
+function attachQuestionListeners(){
+  document.querySelectorAll('#questions-pane input[name^="q"],#questions-pane select[name^="q"],#questions-pane textarea[name^="q"],#passage-pane input[name^="q"],#passage-pane select[name^="q"],#passage-pane textarea[name^="q"]').forEach(el=>{
+    const eventName=(el.tagName==='INPUT'&&(el.type==='text'||el.type==='search'))||el.tagName==='TEXTAREA'?'input':'change';
+    el.addEventListener(eventName,e=>{
+      const n=qNumberFromName(e.target.name);if(!n)return;
+      if(e.target.type==='checkbox'){
+        const values=[...document.querySelectorAll('input[name="q'+n+'"]:checked')].map(x=>x.value);
+        state.answers[n]=values.join(',');
+      }else state.answers[n]=e.target.value;
+      renderBottomBar();
+    });
+  });
+  $('passage-pane').onmouseup=handleTextSelection;
+  $('questions-pane').onmouseup=handleTextSelection;
+}
+function setupDragDrop(){
+  const items=[...document.querySelectorAll('#questions-pane .drag-item[data-answer]')];
+  const zones=[...document.querySelectorAll('#passage-pane .drop-zone[data-target]')];
+  if(!items.length||!zones.length)return;
+  const groupOf=x=>x.dataset.group||'default';
+  const findItem=(answer,group)=>items.find(x=>groupOf(x)===(group||'default')&&String(x.dataset.answer||'')===String(answer||''));
+  const setZoneVisual=(zone,item)=>{
+    const answer=item.dataset.answer||'';
+    zone.dataset.value=answer;
+    zone.textContent=answer+(item.dataset.label?' '+item.dataset.label:'');
+    zone.classList.add('filled');
+    item.classList.add('used');
+    item.draggable=false;
+  };
+  const clearZone=(zone,update=true)=>{
+    const old=zone.dataset.value||'';
+    if(old){const item=findItem(old,groupOf(zone));if(item){item.classList.remove('used');item.draggable=true}}
+    zone.dataset.value='';zone.textContent=zone.dataset.placeholder||'';zone.classList.remove('filled','over');
+    const target=zone.dataset.target;const input=document.querySelector('#passage-pane input[name="'+target+'"]');
+    if(input)input.value='';
+    const n=qNumberFromName(target);if(n)state.answers[n]='';
+    if(update)renderBottomBar();
+  };
+  const fillZone=(zone,item)=>{
+    if(zone.dataset.value)clearZone(zone,false);
+    setZoneVisual(zone,item);
+    const target=zone.dataset.target;const input=document.querySelector('#passage-pane input[name="'+target+'"]');
+    const answer=item.dataset.answer||'';
+    if(input)input.value=answer;
+    const n=qNumberFromName(target);if(n)state.answers[n]=answer;
+    renderBottomBar();
+  };
+  items.forEach(item=>{item.classList.remove('used');item.draggable=true});
+  zones.forEach(zone=>{
+    const n=qNumberFromName(zone.dataset.target);const saved=n?state.answers[n]:'';
+    zone.dataset.value='';zone.textContent=zone.dataset.placeholder||zone.textContent;zone.classList.remove('filled','over');
+    if(saved){const item=findItem(saved,groupOf(zone));if(item)setZoneVisual(zone,item)}
+    zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('over')});
+    zone.addEventListener('dragleave',()=>zone.classList.remove('over'));
+    zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('over');const answer=e.dataTransfer.getData('text/answer');const group=e.dataTransfer.getData('text/group')||'default';if(group!==groupOf(zone))return;const item=findItem(answer,group);if(item&&!item.classList.contains('used'))fillZone(zone,item)});
+    zone.addEventListener('click',()=>{if(zone.dataset.value)clearZone(zone)});
+  });
+  items.forEach(item=>{
+    item.addEventListener('dragstart',e=>{if(item.classList.contains('used')){e.preventDefault();return}e.dataTransfer.setData('text/answer',item.dataset.answer||'');e.dataTransfer.setData('text/group',groupOf(item));e.dataTransfer.effectAllowed='move'});
+  });
+}
+function countAnswered(part){const [s,e]=partData[part].range;let c=0;for(let n=s;n<=e;n++)if(String(state.answers[n]||'').trim())c++;return c}
+function renderBottomBar(){
+  let html='';
+  for(let part=1;part<=3;part++){
+    const [start,end]=partData[part].range;
+    if(part===state.currentPart){
+      html+=`<div class="part-nav-group"><span class="part-label active">Passage ${part}</span>`;
+      for(let n=start;n<=end;n++)html+=`<button class="qnum-btn ${state.answers[n]?'answered':''}" data-jump="${n}">${n}</button>`;
+      html+='</div>';
+    }else html+=`<div class="part-nav-group"><span class="part-label" data-part="${part}">Passage ${part}</span><span class="part-count">${countAnswered(part)} of ${end-start+1}</span></div>`;
+  }
+  html+='<button class="submit-check" id="submit-check-btn" title="Complete test">✔</button>';
+  $('bottombar').innerHTML=html;
+  document.querySelectorAll('[data-part]').forEach(el=>el.addEventListener('click',()=>renderPart(Number(el.dataset.part))));
+  document.querySelectorAll('[data-jump]').forEach(el=>el.addEventListener('click',()=>{const target=$('q'+el.dataset.jump);if(target)target.scrollIntoView({behavior:'smooth',block:'center'})}));
+  $('submit-check-btn').addEventListener('click',goToFinal);
+}
+let selectionMenu=null;
+function clearSelectionMenu(){if(selectionMenu){selectionMenu.remove();selectionMenu=null}}
+function clearHighlightsInRange(range){document.querySelectorAll('mark.hl').forEach(mark=>{let hit=false;try{hit=range.intersectsNode(mark)}catch(_e){}if(hit){const parent=mark.parentNode;while(mark.firstChild)parent.insertBefore(mark.firstChild,mark);parent.removeChild(mark);parent.normalize()}})}
+function handleTextSelection(){
+  clearSelectionMenu();const sel=window.getSelection(),text=sel?sel.toString().trim():'';if(!text||text.length>500)return;
+  const range=sel.getRangeAt(0),rect=range.getBoundingClientRect();selectionMenu=document.createElement('div');selectionMenu.className='selection-menu';
+  selectionMenu.innerHTML='<button data-act="highlight">Highlight</button><button data-act="note">Note</button><button data-act="clear">Clear</button>';
+  selectionMenu.style.left=Math.max(8,Math.min(window.innerWidth-220,rect.left))+'px';selectionMenu.style.top=Math.max(74,rect.bottom+6)+'px';document.body.appendChild(selectionMenu);
+  selectionMenu.addEventListener('mousedown',ev=>ev.preventDefault());
+  selectionMenu.querySelector('[data-act="highlight"]').onclick=()=>{try{const r=sel.getRangeAt(0),mark=document.createElement('mark');mark.className='hl';r.surroundContents(mark)}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};
+  selectionMenu.querySelector('[data-act="note"]').onclick=()=>{state.notes.push(text);renderNotes();sel.removeAllRanges();clearSelectionMenu()};
+  selectionMenu.querySelector('[data-act="clear"]').onclick=()=>{try{clearHighlightsInRange(sel.getRangeAt(0))}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};
+}
+document.addEventListener('mousedown',e=>{if(selectionMenu&&!selectionMenu.contains(e.target))clearSelectionMenu()});
+function renderNotes(){const list=$('notes-list');if(!list)return;list.innerHTML=state.notes.length?state.notes.map((n,i)=>`<div class="note-entry">${esc(n)} <button data-del-note="${i}" style="float:right;border:0;background:none;cursor:pointer">×</button></div>`).join(''):'<div class="notes-empty">Highlight text and choose <b>Note</b> to save it here.</div>';list.querySelectorAll('[data-del-note]').forEach(btn=>btn.onclick=()=>{state.notes.splice(Number(btn.dataset.delNote),1);renderNotes()})}
+function startTimer(){clearInterval(state.timer);state.timer=setInterval(()=>{state.timeLeft=Math.max(0,state.timeLeft-1);updateTimer();if(state.timeLeft===0){clearInterval(state.timer);goToFinal()}},1000);updateTimer()}
+function updateTimer(){const m=String(Math.floor(state.timeLeft/60)).padStart(2,'0'),s=String(state.timeLeft%60).padStart(2,'0');$('timer-display').textContent=`${m}:${s}`;$('timer-display').classList.toggle('low',state.timeLeft<=300)}
+function requestFullscreen(){const el=document.documentElement;if(el.requestFullscreen)el.requestFullscreen().catch(()=>{})}
+function goToFinal(){clearSelectionMenu();$('menu-overlay').classList.remove('open');hide($('screen-test'));show($('screen-final'));$('taker-id-display-final').textContent=state.takerId}
+function normalize(value){return String(value||'').trim().toLowerCase().replace(/[’']/g,'').replace(/[‐‑–—-]+/g,' ').replace(/[.,;:!?()]/g,'').replace(/\s+/g,' ')}
+function isRegularCorrect(n,user){const list=answerAliases[String(n)]||[];const u=normalize(user);return list.some(a=>normalize(a)===u)}
+function evaluateAnswers(){
+  const result={};
+  for(let n=1;n<=40;n++)result[n]=isRegularCorrect(n,state.answers[n]||'');
+  const pairGroups=[{qs:[20,21],correct:['B','E']},{qs:[22,23],correct:['A','E']},{qs:[30,31],correct:['B','D']}];
+  pairGroups.forEach(g=>{
+    const remaining=g.correct.map(normalize);
+    g.qs.forEach(n=>{const u=normalize(state.answers[n]||'');const idx=remaining.indexOf(u);if(u&&idx>=0){result[n]=true;remaining.splice(idx,1)}else result[n]=false;});
+  });
+  return result;
+}
+function estimateBand(correct){const table=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[8,3.5],[6,3]];for(const [min,band] of table)if(correct>=min)return band.toFixed(1);return '2.5'}
+function showResults(){
+  clearInterval(state.timer);hide($('screen-final'));show($('screen-results'));$('results-taker-id').textContent=state.takerId;
+  const evalMap=evaluateAnswers();let correct=0,rows='';
+  for(let n=1;n<=40;n++){const user=state.answers[n]||'',ok=!!evalMap[n];if(ok)correct++;rows+=`<tr><td>${n}</td><td>${esc(user||'—')}</td><td>${esc(canonicalAnswers[String(n)]||'')}</td><td class="${ok?'ok':'no'}">${ok?'✓ Correct':'✗ Wrong'}</td></tr>`}
+  $('score-correct').textContent=correct;$('score-band').textContent=estimateBand(correct);$('review-body').innerHTML=rows;
+}
+function openMenuRoot(){$('menu-root').classList.remove('hidden');$('menu-contrast').classList.add('hidden');$('menu-textsize').classList.add('hidden');$('menu-back-btn').classList.remove('show');$('menu-title').textContent='Options'}
+function openSubmenu(which){$('menu-root').classList.add('hidden');$('menu-'+which).classList.remove('hidden');$('menu-back-btn').classList.add('show');$('menu-title').textContent=which==='contrast'?'Contrast':'Text size'}
+function setContrast(mode){document.body.classList.remove('contrast-wb','contrast-yb');if(mode==='wb')document.body.classList.add('contrast-wb');if(mode==='yb')document.body.classList.add('contrast-yb');state.contrast=mode;document.querySelectorAll('[data-contrast] .check').forEach(x=>x.textContent='');const c=document.querySelector(`[data-contrast="${mode}"] .check`);if(c)c.textContent='✔'}
+function setTextSize(size){$('app').classList.remove('textsize-large','textsize-extralarge');if(size==='large')$('app').classList.add('textsize-large');if(size==='extralarge')$('app').classList.add('textsize-extralarge');state.textsize=size;document.querySelectorAll('[data-textsize] .check').forEach(x=>x.textContent='');const c=document.querySelector(`[data-textsize="${size}"] .check`);if(c)c.textContent='✔'}
+$('pwd-submit').onclick=()=>{if($('pwd-input').value===REQUIRED_PASSWORD){$('pwd-error').textContent='';hide($('screen-password'));show($('screen-id'));$('id-input').focus()}else $('pwd-error').textContent='Incorrect password.'};
+$('pwd-input').addEventListener('keydown',e=>{if(e.key==='Enter')$('pwd-submit').click()});
+$('id-submit').onclick=()=>{const id=$('id-input').value.trim();if(!id){$('id-error').textContent='Please enter your Test Taker ID.';return}state.takerId=id;$('id-error').textContent='';$('taker-id-display').textContent=id;hide($('screen-id'));show($('screen-test'));renderNotes();renderPart(1);startTimer();requestFullscreen()};
+$('id-input').addEventListener('keydown',e=>{if(e.key==='Enter')$('id-submit').click()});
+$('notes-toggle-btn').onclick=()=>{$('notes-panel').classList.toggle('open');renderNotes()};
+$('hamburger-btn').onclick=()=>{openMenuRoot();$('menu-overlay').classList.add('open')};
+$('menu-close-btn').onclick=()=>$('menu-overlay').classList.remove('open');
+$('menu-back-btn').onclick=openMenuRoot;$('menu-submit-btn').onclick=goToFinal;$('menu-contrast-btn').onclick=()=>openSubmenu('contrast');$('menu-textsize-btn').onclick=()=>openSubmenu('textsize');
+document.querySelectorAll('[data-contrast]').forEach(el=>el.onclick=()=>setContrast(el.dataset.contrast));document.querySelectorAll('[data-textsize]').forEach(el=>el.onclick=()=>setTextSize(el.dataset.textsize));
+$('back-to-test-btn').onclick=()=>{hide($('screen-final'));show($('screen-test'));renderPart(state.currentPart)};$('final-next-btn').onclick=showResults;
+$('restart-btn').onclick=()=>{clearInterval(state.timer);state.answers={};state.notes=[];state.currentPart=1;state.timeLeft=3600;state.takerId='';$('pwd-input').value='';$('id-input').value='';hide($('screen-results'));show($('screen-password'))};
+renderNotes();
+})();
+</script>
+</body>
+</html>

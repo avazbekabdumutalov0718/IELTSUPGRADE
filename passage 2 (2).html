@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Academic Reading – Coins – the first form of money</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; font-family:Arial,Helvetica,sans-serif; font-size:14px; color:#222; background:#fff; overflow:hidden; }
+body { display:flex; flex-direction:column; }
+button, input, select, textarea { font-family:inherit; }
+
+/* ID Screen */
+#idScreen { position:fixed; inset:0; background:#f0f0ec; display:flex; align-items:center; justify-content:center; z-index:9000; }
+.id-card { background:#fff; border-radius:6px; padding:40px 44px; box-shadow:0 8px 40px rgba(0,0,0,.18); width:min(380px,92vw); text-align:center; }
+.id-card .logo-big { background:#c8102e; color:#fff; font-weight:900; font-size:28px; padding:6px 14px; letter-spacing:3px; display:inline-block; margin-bottom:22px; }
+.id-card h2 { font-size:17px; font-weight:700; margin-bottom:6px; }
+.id-card p { font-size:13px; color:#666; margin-bottom:22px; }
+.id-card input { width:100%; border:1.5px solid #ccc; border-radius:3px; padding:10px 14px; font-size:15px; outline:none; margin-bottom:6px; text-align:center; letter-spacing:1px; }
+.id-card input:focus { border-color:#c8102e; }
+.id-err { color:#c8102e; font-size:12px; min-height:16px; margin-bottom:10px; }
+.id-card button { width:100%; background:#c8102e; color:#fff; border:none; padding:12px; font-size:15px; font-weight:700; cursor:pointer; border-radius:3px; }
+.id-card button:hover { background:#a80e26; }
+
+/* Authentic-tests banner */
+.auth-banner {
+  width:100%; height:72px; flex:0 0 72px; background:#173250;
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  padding:10px 18px; color:#fff; overflow:hidden;
+}
+.auth-banner-text { font-size:22px; font-weight:800; letter-spacing:.2px; white-space:nowrap; }
+.auth-banner-link {
+  display:inline-flex; align-items:center; gap:9px; padding:10px 22px;
+  border:2px solid rgba(255,255,255,.65); border-radius:999px;
+  background:linear-gradient(180deg,#55c7f0,#2ba9df); color:#fff;
+  text-decoration:none; font-size:17px; font-weight:800; white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 5px rgba(0,0,0,.18);
+  transition:transform .15s,filter .15s,box-shadow .15s;
+}
+.auth-banner-link:hover { transform:translateY(-1px); filter:brightness(1.06); box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 9px rgba(0,0,0,.23); }
+.auth-banner-link:focus-visible { outline:3px solid rgba(255,255,255,.8); outline-offset:3px; }
+.auth-tg-icon {
+  width:25px; height:25px; border-radius:50%; background:#fff; color:#2aa9df;
+  display:inline-flex; align-items:center; justify-content:center; flex:0 0 25px;
+}
+.auth-tg-icon svg { width:15px; height:15px; display:block; }
+
+/* Top bar */
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:0 18px; height:50px; border-bottom:2px solid #ddd; background:#fff; flex-shrink:0; }
+.topbar-logo { background:#c8102e; color:#fff; font-weight:900; font-size:19px; padding:4px 9px; letter-spacing:2px; }
+.tid { font-size:13px; color:#444; margin-left:12px; font-weight:600; }
+.topbar-right { display:flex; align-items:center; gap:12px; }
+.timer { display:flex; align-items:center; gap:7px; border:1px solid #ccc; border-radius:3px; padding:5px 14px; font-size:15px; font-weight:700; color:#222; background:#f7f7f7; }
+.timer svg { width:17px; height:17px; }
+.timer.warn { color:#c8102e; border-color:#c8102e; background:#fff4f4; animation:pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.submit-btn { background:#c8102e; color:#fff; border:none; padding:8px 20px; font-size:13px; font-weight:700; cursor:pointer; border-radius:2px; }
+.submit-btn:hover { background:#a80e26; }
+
+/* Passage header */
+.part-hdr { background:#f5f5f5; padding:10px 18px; border-bottom:1px solid #ccc; flex-shrink:0; }
+.part-hdr strong { display:block; font-size:14px; }
+.part-hdr span { font-size:13px; color:#555; }
+
+/* Split layout */
+.split { display:flex; flex:1; min-height:0; overflow:hidden; }
+.left { width:52%; min-width:280px; overflow-y:auto; padding:26px 32px; line-height:1.78; font-size:14px; flex-shrink:0; }
+.left h2 { font-size:18px; font-weight:700; margin-bottom:4px; line-height:1.4; text-align:center; }
+.left .subtitle { text-align:center; font-style:italic; margin-bottom:18px; color:#333; }
+.left p { margin-bottom:14px; text-align:justify; }
+
+/* Highlights and notes */
+.hl-yellow { background:#fff176; border-radius:2px; }
+.hl-note { background:#b3e5fc; border-radius:2px; position:relative; }
+.hl-note::after { content:attr(data-note); display:none; position:absolute; bottom:calc(100% + 8px); left:0; background:#333; color:#fff; font-size:12px; line-height:1.45; padding:6px 10px; border-radius:4px; white-space:pre-wrap; max-width:240px; z-index:600; pointer-events:none; box-shadow:0 3px 10px rgba(0,0,0,.3); }
+.hl-note:hover::after { display:block; }
+
+/* Resizer */
+.handle { width:9px; flex-shrink:0; background:#e0e0e0; border-left:1px solid #ccc; border-right:1px solid #ccc; cursor:col-resize; display:flex; align-items:center; justify-content:center; }
+.handle::after { content:'⋮'; font-size:18px; color:#bbb; pointer-events:none; }
+.handle:hover, .handle.active { background:#c8102e; }
+.handle:hover::after, .handle.active::after { color:#fff; }
+
+/* Questions pane */
+.right { flex:1; min-width:300px; overflow-y:auto; padding:22px 26px; }
+.right h3 { font-size:15px; font-weight:700; margin-bottom:10px; }
+.instr { font-size:13px; color:#333; line-height:1.55; margin-bottom:18px; padding:10px 14px; background:#fafaf8; border-left:3px solid #c8102e; }
+.qblock { margin-bottom:12px; scroll-margin-top:20px; transition:background .15s,border-color .15s; }
+.qblock.flash-target { animation:targetFlash .8s ease; }
+@keyframes targetFlash { 0%,100%{box-shadow:none} 45%{box-shadow:0 0 0 5px rgba(200,16,46,.18)} }
+
+.question-row { border:1px solid #d1d1d1; border-left:3px solid #aaa; border-radius:3px; padding:12px 13px; background:#fff; }
+.question-main { display:grid; grid-template-columns:32px minmax(0,1fr) 142px; gap:10px; align-items:start; }
+.question-main.headings { grid-template-columns:32px minmax(0,1fr); }
+.question-main.headings .q-select { grid-column:2; width:100%; }
+.question-num { font-weight:800; padding-top:6px; }
+.question-text { line-height:1.55; padding-top:4px; }
+.q-select { font-size:13px; border:1.5px solid #aaa; border-radius:3px; padding:7px 8px; outline:none; cursor:pointer; background:#fff; width:142px; }
+.q-select:focus { border-color:#c8102e; }
+
+/* Headings list box */
+.headings-box { border:1px solid #c8c8c8; border-radius:3px; padding:14px 18px; background:#fff; margin-bottom:18px; }
+.headings-box ul { list-style:none; }
+.headings-box li { padding:3px 0; line-height:1.5; }
+.headings-box li b { display:inline-block; min-width:30px; }
+
+.mcq-options { margin-top:9px; display:grid; gap:6px; }
+.mcq-option { padding:10px 12px; border:1.5px solid #d4d4d4; border-radius:4px; background:#fafafa; line-height:1.45; cursor:pointer; transition:all .15s; user-select:none; }
+.mcq-option:hover { border-color:#888; background:#f1f1f1; }
+.mcq-option:focus-visible { outline:2px solid #c8102e; outline-offset:2px; }
+.mcq-option.selected { border-color:#555; background:#555; color:#fff; }
+.mcq-option.correct-field { border-color:#28a745; background:#eaf8ed; color:#1f6f31; }
+.mcq-option.wrong-field { border-color:#ff3131; background:#fff0f0; color:#b50000; }
+.mcq-option b { display:inline-block; width:24px; }
+.mcq-option.static-option { cursor:default; }
+.mcq-option.static-option:hover { border-color:#d4d4d4; background:#fafafa; }
+
+.sentence-card { border:1px solid #c8c8c8; border-radius:3px; padding:16px 18px; background:#fff; margin-bottom:22px; }
+.sentence-row { display:flex; align-items:center; flex-wrap:wrap; gap:7px; padding:10px; margin:6px 0; border-left:3px solid transparent; border-radius:3px; line-height:1.6; }
+.qnum { min-width:28px; height:28px; border:1.5px solid #888; display:inline-flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; background:#fff; }
+.answer-input { width:180px; max-width:100%; border:1.5px solid #aaa; border-radius:3px; padding:6px 9px; font-size:14px; outline:none; background:#fff; }
+.answer-input:focus { border-color:#c8102e; box-shadow:0 0 0 2px rgba(200,16,46,.08); }
+
+/* Summary inline blanks */
+.summary-text { line-height:2.3; text-align:justify; margin:8px 0; }
+.inline-blank { display:inline-flex; align-items:center; gap:5px; vertical-align:middle; }
+.inline-blank .qnum { min-width:22px; height:22px; font-size:11px; }
+.inline-blank .answer-input { width:125px; padding:4px 8px; font-size:13px; }
+
+.review-correct { border-left-color:#28a745 !important; background:#f2fbf4 !important; }
+.review-wrong { border-left-color:#ff3131 !important; background:#fff0f0 !important; }
+.answer-input.correct-field, .q-select.correct-field { border-color:#28a745; background:#f4fff6; }
+.answer-input.wrong-field, .q-select.wrong-field { border-color:#ff3131; background:#fff7f7; }
+.inline-feedback { width:100%; font-size:12px; font-weight:700; margin-top:7px; padding-left:42px; }
+.inline-feedback.ok { color:#218838; }
+.inline-feedback.bad { color:#ff3131; }
+
+/* Bottom navigation */
+.bot { display:flex; align-items:center; justify-content:space-between; padding:8px 18px; border-top:1px solid #ccc; background:#fff; flex-shrink:0; }
+.bot-left { display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
+.plabel { font-size:13px; font-weight:700; color:#333; margin-right:6px; }
+.dot { width:28px; height:28px; border:1.5px solid #aaa; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:600; cursor:pointer; border-radius:2px; color:#555; background:#fff; transition:all .15s; }
+.dot:hover { background:#f0f0f0; border-color:#888; }
+.dot.ans { background:#555; color:#fff; border-color:#555; }
+.dot.cur { border:2.5px solid #c8102e !important; color:#c8102e !important; background:#fff !important; }
+.navbtns { display:flex; gap:8px; }
+.nav { width:44px; height:38px; background:#555; color:#fff; border:none; font-size:20px; cursor:pointer; border-radius:2px; display:flex; align-items:center; justify-content:center; }
+.nav:hover { background:#333; }
+.nav:disabled { background:#ccc; cursor:not-allowed; }
+
+/* Context menu */
+.ctx-menu { position:fixed; background:#fff; border:1px solid #ccc; border-radius:4px; box-shadow:0 4px 18px rgba(0,0,0,.18); z-index:8999; min-width:140px; overflow:hidden; display:none; }
+.ctx-menu.show { display:block; }
+.ctx-item { padding:10px 16px; font-size:13px; cursor:pointer; display:flex; align-items:center; gap:9px; user-select:none; transition:background .12s; }
+.ctx-item:hover { background:#f5f5f5; }
+.ctx-sep { height:1px; background:#eee; }
+
+/* Note dialog */
+.note-dialog { position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:9500; display:none; align-items:center; justify-content:center; }
+.note-dialog.show { display:flex; }
+.note-box { background:#fff; border-radius:4px; padding:22px 24px; width:min(340px,92vw); box-shadow:0 8px 32px rgba(0,0,0,.22); }
+.note-box h4 { font-size:14px; font-weight:700; margin-bottom:10px; }
+.note-box textarea { width:100%; height:90px; border:1px solid #ccc; border-radius:3px; padding:8px; font-size:13px; resize:none; outline:none; }
+.note-box textarea:focus { border-color:#c8102e; }
+.note-btns { display:flex; gap:8px; margin-top:12px; justify-content:flex-end; }
+.note-btns button { padding:7px 18px; border:none; border-radius:2px; font-size:13px; cursor:pointer; font-weight:600; }
+.note-save { background:#c8102e; color:#fff; }
+.note-save:hover { background:#a80e26; }
+.note-cancel { background:#eee; color:#333; }
+.note-cancel:hover { background:#ddd; }
+
+/* Review overlay */
+.overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:7000; align-items:center; justify-content:center; }
+.overlay.on { display:flex; }
+.revbox { background:#fff; border-radius:4px; padding:28px 32px; max-width:680px; width:93%; max-height:86vh; overflow-y:auto; }
+.revbox h2 { font-size:18px; font-weight:700; color:#c8102e; margin-bottom:18px; }
+.scorecard { background:#f9f9f6; border:1px solid #ccc; padding:16px 20px; border-radius:3px; margin-bottom:20px; }
+.score-big { font-size:38px; font-weight:900; color:#c8102e; }
+.ritem { margin-bottom:8px; padding:10px 12px; border:1px solid #e0e0e0; border-left-width:3px; border-radius:3px; font-size:13px; }
+.ritem.ok-item { border-left-color:#28a745; background:#f4fff6; }
+.ritem.bad-item { border-left-color:#ff3131; background:#fff0f0; }
+.ritem .rlabel { font-size:12px; font-weight:700; margin-bottom:4px; }
+.ok-lbl { color:#28a745; font-weight:700; }
+.bad-lbl { color:#ff3131; font-weight:700; }
+.close-btn { background:#c8102e; color:#fff; border:none; padding:10px 28px; font-size:14px; cursor:pointer; border-radius:2px; margin-top:16px; font-weight:700; }
+.close-btn:hover { background:#a80e26; }
+
+.passage-image-wrap { float:right; width:300px; margin:2px 0 14px 22px; }
+.passage-image { display:block; width:100%; height:auto; border-radius:10px; border:1px solid #d2d2d2; box-shadow:0 3px 12px rgba(0,0,0,.12); }
+
+.notes-title { text-align:center; font-size:16px; font-weight:800; margin-bottom:12px; }
+
+@media (max-width:800px) {
+  .auth-banner { height:auto; min-height:58px; flex-basis:auto; gap:9px; padding:8px 10px; flex-wrap:wrap; }
+  .auth-banner-text { font-size:15px; white-space:normal; text-align:center; }
+  .auth-banner-link { font-size:14px; padding:7px 14px; }
+  .auth-tg-icon { width:21px; height:21px; flex-basis:21px; }
+  .auth-tg-icon svg { width:13px; height:13px; }
+  .topbar { padding:0 9px; }
+  .tid { display:none; }
+  .timer { padding:5px 8px; }
+  .submit-btn { padding:8px 10px; }
+  .split { display:block; overflow-y:auto; }
+  .left, .right { width:100% !important; min-width:0 !important; overflow:visible; padding:20px; }
+  .handle { display:none; }
+  .passage-image-wrap { float:none; width:100%; max-width:260px; margin:10px auto 18px; }
+  .question-main { grid-template-columns:28px minmax(0,1fr); }
+  .q-select { grid-column:2; width:100%; }
+  .bot { padding:7px 9px; }
+  .dot { width:25px; height:25px; }
+  .nav { width:38px; height:34px; }
+  .inline-blank .answer-input { width:100px; }
+}
+</style>
+</head>
+<body>
+
+<div id="idScreen">
+  <div class="id-card">
+    <div class="logo-big">IELTS</div>
+    <h2>Enter Your Test Taker ID</h2>
+    <p>Please type your ID to begin the test</p>
+    <input type="text" id="idInput" value="STUDENT" maxlength="30" onkeydown="if(event.key==='Enter') startTest()">
+    <div class="id-err" id="idErr"></div>
+    <button onclick="startTest()">Start Test &rarr;</button>
+  </div>
+</div>
+
+<div class="auth-banner" aria-label="For the authentic tests, join @jasurbekisaev">
+  <span class="auth-banner-text">For the authentic tests, join</span>
+  <a class="auth-banner-link" href="https://t.me/jasurbekisaev" target="_blank" rel="noopener noreferrer" aria-label="Open @jasurbekisaev Telegram channel">
+    <span class="auth-tg-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.2 5.2l10.1 6.1c.9.5.9 1.8 0 2.3L8.2 19.8c-1 .6-2.2-.2-2.2-1.3V6.5c0-1.1 1.2-1.9 2.2-1.3z"/></svg>
+    </span>
+    <span>@jasurbekisaev</span>
+  </a>
+</div>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;">
+    <div class="topbar-logo">IELTS</div>
+    <span class="tid" id="tidDisplay">Test taker ID: —</span>
+  </div>
+  <div class="topbar-right">
+    <div class="timer" id="timerBox">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span id="timerTxt">20:00</span>
+    </div>
+    <button class="submit-btn" onclick="openReview()">Review Test</button>
+  </div>
+</div>
+
+<div class="part-hdr">
+  <strong>Reading Passage 2</strong>
+  <span>Read the text and answer Questions 14–26.</span>
+</div>
+
+<div class="split" id="splitWrap">
+
+  <div class="left" id="passagePane">
+    <h2>COINS – THE FIRST FORM OF MONEY</h2>
+
+    <div class="passage-image-wrap">
+      <img class="passage-image" src="https://i.ibb.co/Z1NJjJTd/089ea0b8-bd81-4bab-a09a-fc65d70d3916.png" alt="Coins – the first form of money" loading="eager">
+    </div>
+
+    <p><strong>A</strong><br>Few people pay much attention to coins; we take them for granted. Since the advent of paper currency and the abandonment of a monetary system based on intrinsic of actual value, they have been demoted to the status of change: what is left when you have paid for something with "paper" money. There is even a belief that they will one day be obsolete, as will paper or plastic notes, and money will at last have achieved the pure status of a mathematical formulation, a system of electronic credits and debits.</p>
+
+    <p><strong>B</strong><br>In the modern media environment, the sheer number of visual images is overwhelming, but it makes one stop to think that coins are among the most durable of our artefacts, and future archaeologists will scrutinize coins in order to learn about their distant ancestors. This is exactly the way ancient coins have informed us for over four millennia. There are thousands of different coins, each designed to carry meaning as well as value, tiny but rich sources of documentary evidence about events and cultural attitudes, frequently produced with exquisite craftsmanship.</p>
+
+    <p><strong>C</strong><br>Coins in Europe date from 2,500 to 2,700 years ago, and seem to have originated in the ancient kingdom of Lydia, in what is now Turkey. Before coins, trade was based on barter: the direct trade of commodities. Barter required the physical presence of both commodities that were being traded. Metal coins were far more portable, and not subject to the same spoilage on long sea journeys as a commodity like grain might be if it became wet. However, they could also be accumulated, and these hoards could be stolen. Coins were therefore a temptation to criminals. The Greeks, however, were the first to realise the full potential of the new invention. They were a trading people of seafarers. Their civilisation, which was composed of dozens of city-states, was highly decentralised. Despite the potential for theft, the Greeks realised that they could benefit enormously from a system that used coins, because it meant that they no longer had to carry goods with them to barter.</p>
+
+    <p><strong>D</strong><br>The value of coins was generally based on the intrinsic value of the metal they were made of. At first this was mostly silver, and this meant that the discovery of silver mines on Greek territory actually increased the quantity of money they could produce. Had the Greek mining been on a larger scale, it could have caused problems similar to those faced by the Spanish centuries later, when so much gold from the New World was brought into their economy that it resulted in serious inflation. One advantage of intrinsic value was that coins could be weighed to determine the amount of metal they contained, so that the only thing an issuing state had to guarantee was the purity of the metal to prevent accusations of fraud and cheating, which could cause fighting and unrest. This was quite difficult to do, especially with coins made of gold, until Archimedes realised that different metals have different weight-volume ratios, and that by measuring the amount of displacement when coins were immersed in water, it was possible to establish whether gold was alloyed with silver.</p>
+
+    <p><strong>E</strong><br>All ancient coins were made by hand using engraved metal moulds. Many hundreds of coins were made, and as a result the moulds often cracked and new ones had to be engraved. This explains the endless variety encountered in coins with the same designs because the moulds had to be remade repeatedly, by many different artisans. One of the distinctive features of coins, in fact, is that they are the work of anonymous craftsmen, and yet each coin is an intimate reflection of the character of its city of origin. It was the Greeks who realised that coins could have a double function, as a unit of value and as a symbol of the identity of the city that issued them. The Greek view of life was deeply motivated by a spirit of competition, and coins, which circulated around the trading world, were a way of advertising the qualities of each particular city-state.</p>
+
+    <p><strong>F</strong><br>Interestingly, Greek coins from the city of Athens, which was the home of the greatest sculptors of the classical period, seem to have been completely disconnected from the high sculptural tradition. The beautiful features of the city's patron, Athena (with her owl on the reverse of the coin), seem to have been repeated virtually unaltered for many years. Perhaps this was because the Athenian currency had grown increasingly to be the international standard and, like the US dollar today, a uniform design implied integrity.</p>
+
+    <p><strong>G</strong><br>One side of a coin was always occupied by the head of a divinity, so it was a relatively small step, at around 323 BC, for Greek coins to replace that head with the portrait of the reigning monarch, a tradition that has continued in monarchies to the present day. Republics may have either symbolic heads – going back to the older tradition of divinities – or the features of a distinguished past head of state. The Romans adopted the Greek practice of coin design and as a result, the features of many great Romans have survived and are known to modern generations, despite the fact that the art of portrait painting was completely lost for more than a millennium following the fall of the Roman Empire.</p>
+  </div>
+
+  <div class="handle" id="dragHandle" aria-hidden="true"></div>
+
+  <div class="right" id="qPane">
+    <h3>Questions 14–20</h3>
+    <p class="instr">Reading Passage 2 has seven paragraphs, <b>A–G</b>.<br>Choose the correct heading for each paragraph from the list of headings below.<br>Write the correct number, <b>i–xi</b>, in boxes 14–20.</p>
+
+    <div class="headings-box">
+      <div class="notes-title">List of Headings</div>
+      <ul>
+        <li><b>i</b> Training coin makers</li>
+        <li><b>ii</b> A form of regional promotion</li>
+        <li><b>iii</b> More gold than silver in Greece</li>
+        <li><b>iv</b> Calculating what a coin was worth</li>
+        <li><b>v</b> A simpler, more efficient way of trading</li>
+        <li><b>vi</b> Putting a face to famous historical names</li>
+        <li><b>vii</b> An uncertain future</li>
+        <li><b>viii</b> Careless workmanship caused breakages</li>
+        <li><b>ix</b> Unchanging coins signalled trustworthiness</li>
+        <li><b>x</b> Reading the writing on coins</li>
+        <li><b>xi</b> Significant records of past societies</li>
+      </ul>
+    </div>
+
+    <div class="question-row qblock" id="qb-14"><div class="question-main headings"><div class="question-num">14</div><div class="question-text">Paragraph A</div><select class="q-select" id="field-q14" aria-label="Question 14" onchange="pickSelect('q14',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-15"><div class="question-main headings"><div class="question-num">15</div><div class="question-text">Paragraph B</div><select class="q-select" id="field-q15" aria-label="Question 15" onchange="pickSelect('q15',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-16"><div class="question-main headings"><div class="question-num">16</div><div class="question-text">Paragraph C</div><select class="q-select" id="field-q16" aria-label="Question 16" onchange="pickSelect('q16',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-17"><div class="question-main headings"><div class="question-num">17</div><div class="question-text">Paragraph D</div><select class="q-select" id="field-q17" aria-label="Question 17" onchange="pickSelect('q17',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-18"><div class="question-main headings"><div class="question-num">18</div><div class="question-text">Paragraph E</div><select class="q-select" id="field-q18" aria-label="Question 18" onchange="pickSelect('q18',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-19"><div class="question-main headings"><div class="question-num">19</div><div class="question-text">Paragraph F</div><select class="q-select" id="field-q19" aria-label="Question 19" onchange="pickSelect('q19',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <div class="question-row qblock" id="qb-20"><div class="question-main headings"><div class="question-num">20</div><div class="question-text">Paragraph G</div><select class="q-select" id="field-q20" aria-label="Question 20" onchange="pickSelect('q20',this.value,true)"><option value="">Select</option><option value="i">i – Training coin makers</option><option value="ii">ii – A form of regional promotion</option><option value="iii">iii – More gold than silver in Greece</option><option value="iv">iv – Calculating what a coin was worth</option><option value="v">v – A simpler, more efficient way of trading</option><option value="vi">vi – Putting a face to famous historical names</option><option value="vii">vii – An uncertain future</option><option value="viii">viii – Careless workmanship caused breakages</option><option value="ix">ix – Unchanging coins signalled trustworthiness</option><option value="x">x – Reading the writing on coins</option><option value="xi">xi – Significant records of past societies</option></select></div></div>
+
+    <h3>Questions 21–22</h3>
+    <p class="instr">Choose <b>TWO</b> letters, <b>A–E</b>.<br>Which TWO of these comments about ancient coins are made by the writer of the text?</p>
+
+    <div class="sentence-card">
+      <div class="mcq-options" style="margin-top:0;">
+        <div class="mcq-option static-option"><b>A</b> There is no record of the names of the coin makers.</div>
+        <div class="mcq-option static-option"><b>B</b> Coins were not popular as payment for traded objects.</div>
+        <div class="mcq-option static-option"><b>C</b> Coins with the same design often looked quite different.</div>
+        <div class="mcq-option static-option"><b>D</b> Greek coins were more beautiful in design than Roman coins.</div>
+        <div class="mcq-option static-option"><b>E</b> At times, too many coins were produced in Greece.</div>
+      </div>
+      <div class="sentence-row qblock" id="qb-21"><span class="qnum">21</span><select class="q-select" id="field-q21" aria-label="Question 21" onchange="pickSelect('q21',this.value,true)"><option value="">Select</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></div>
+      <div class="sentence-row qblock" id="qb-22"><span class="qnum">22</span><select class="q-select" id="field-q22" aria-label="Question 22" onchange="pickSelect('q22',this.value,true)"><option value="">Select</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select></div>
+    </div>
+
+    <h3>Questions 23–26</h3>
+    <p class="instr">Complete the summary below.<br>Write <b>ONE WORD ONLY</b> from the passage for each answer.</p>
+
+    <div class="sentence-card">
+      <div class="notes-title">Greek traders and coins</div>
+      <p class="summary-text">The ancient Greek
+        <span class="inline-blank qblock" id="qb-23"><span class="qnum">23</span><input class="answer-input" id="field-q23" type="text" autocomplete="off" aria-label="Question 23" oninput="setAnswer('q23',this.value)" onkeydown="advanceOnEnter(event,9)"></span>
+        was made up of many city-states which were spread over a large area. Many Greeks were seafarers who travelled the seas trading. Before coins, they had to do this through
+        <span class="inline-blank qblock" id="qb-24"><span class="qnum">24</span><input class="answer-input" id="field-q24" type="text" autocomplete="off" aria-label="Question 24" oninput="setAnswer('q24',this.value)" onkeydown="advanceOnEnter(event,10)"></span>.
+        This meant that, whenever they set out, they had to carry a lot of goods, which could get damaged on the voyages. The Greeks liked coins; they were made of metal, and the weather and sea had little effect on them. The Greeks had a plentiful supply of
+        <span class="inline-blank qblock" id="qb-25"><span class="qnum">25</span><input class="answer-input" id="field-q25" type="text" autocomplete="off" aria-label="Question 25" oninput="setAnswer('q25',this.value)" onkeydown="advanceOnEnter(event,11)"></span>
+        which they mined themselves, but were able to avoid the problem of
+        <span class="inline-blank qblock" id="qb-26"><span class="qnum">26</span><input class="answer-input" id="field-q26" type="text" autocomplete="off" aria-label="Question 26" oninput="setAnswer('q26',this.value)" onkeydown="advanceOnEnter(event,12)"></span>
+        which the Spanish encountered much later, after they allowed too much gold from the New World to enter their economy.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="bot">
+  <div class="bot-left" id="dotsBar"></div>
+  <div class="navbtns">
+    <button class="nav" id="btnPrev" onclick="navQ(-1)" aria-label="Previous question">&#8592;</button>
+    <button class="nav" id="btnNext" onclick="navQ(1)" aria-label="Next question">&#8594;</button>
+  </div>
+</div>
+
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-item" id="ctxHL" onclick="doHighlight()">🖊&nbsp; Highlight</div>
+  <div class="ctx-sep" id="ctxSep1"></div>
+  <div class="ctx-item" id="ctxNote" onclick="openNoteDialog()">📝&nbsp; Note</div>
+  <div class="ctx-sep" id="ctxSep2" style="display:none"></div>
+  <div class="ctx-item" id="ctxClear" onclick="doClear()" style="display:none">🗑&nbsp; Clear</div>
+</div>
+
+<div class="note-dialog" id="noteDialog">
+  <div class="note-box">
+    <h4>📝 Add Note</h4>
+    <textarea id="noteText" placeholder="Type your note here…"></textarea>
+    <div class="note-btns">
+      <button class="note-cancel" onclick="closeNote()">Cancel</button>
+      <button class="note-save" onclick="saveNote()">Save Note</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="revbox">
+    <h2>📋 Test Results &amp; Review</h2>
+    <div class="scorecard" id="scoreCard"></div>
+    <div id="revItems"></div>
+    <button class="close-btn" onclick="closeReview()">✕ Close</button>
+  </div>
+</div>
+
+<script>
+const CORRECT = {
+  q14:'vii',
+  q15:'xi',
+  q16:'v',
+  q17:'iv',
+  q18:'ii',
+  q19:'ix',
+  q20:'vi',
+  q21:['A','C'],
+  q22:['A','C'],
+  q23:['civilisation','civilization'],
+  q24:'barter',
+  q25:'silver',
+  q26:'inflation'
+};
+
+const Q_IDS = Array.from({length:13}, (_,i)=>'q'+(i+14));
+const answers = {};
+let currentQ = 0;
+
+function normalize(value){
+  return String(value || '').trim().replace(/\s+/g,' ').toLowerCase();
+}
+function esc(value){
+  return String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+}
+function isAnswered(id){ return normalize(answers[id]) !== ''; }
+function isCorrect(id){
+  if(id==='q21' || id==='q22'){
+    const v = normalize(answers[id]);
+    const other = id==='q21' ? normalize(answers.q22) : normalize(answers.q21);
+    return (v==='a' || v==='c') && v!==other;
+  }
+  const accepted=Array.isArray(CORRECT[id]) ? CORRECT[id] : [CORRECT[id]];
+  return accepted.some(value=>normalize(answers[id])===normalize(value));
+}
+function correctText(id){
+  if(id==='q21'||id==='q22') return 'A / C (in any order)';
+  return Array.isArray(CORRECT[id]) ? CORRECT[id].join(' / ') : CORRECT[id];
+}
+
+function renderDots(){
+  let html='<span class="plabel">Passage 2</span>';
+  Q_IDS.forEach((id,i)=>{
+    const filled=isAnswered(id);
+    const cur=i===currentQ?'cur':'';
+    html+=`<div class="dot ${filled?'ans':''} ${cur}" onclick="jumpToQ(${i})">${i+14}</div>`;
+  });
+  document.getElementById('dotsBar').innerHTML=html;
+  document.getElementById('btnPrev').disabled=currentQ===0;
+  document.getElementById('btnNext').disabled=currentQ===Q_IDS.length-1;
+}
+
+function jumpToQ(i){
+  currentQ=Math.max(0,Math.min(Q_IDS.length-1,i));
+  const el=document.getElementById('qb-'+(currentQ+14));
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.classList.remove('flash-target');
+    void el.offsetWidth;
+    el.classList.add('flash-target');
+    setTimeout(()=>el.classList.remove('flash-target'),900);
+  }
+  renderDots();
+}
+function navQ(dir){ jumpToQ(currentQ+dir); }
+
+function setAnswer(id,val,advance=false){
+  answers[id]=val;
+  const index=Q_IDS.indexOf(id);
+  if(index>=0) currentQ=index;
+  if(advance && index<Q_IDS.length-1) currentQ=index+1;
+  clearQuestionReview(id);
+  renderDots();
+}
+function pickSelect(id,val,advance=false){ setAnswer(id,val,advance); }
+
+function advanceOnEnter(event,index){
+  if(event.key==='Enter'){
+    event.preventDefault();
+    if(index<Q_IDS.length-1) jumpToQ(index+1);
+  }
+}
+
+function clearQuestionReview(id){
+  const num=id.replace('q','');
+  const block=document.getElementById('qb-'+num);
+  if(block){
+    block.classList.remove('review-correct','review-wrong');
+    block.querySelectorAll('.inline-feedback').forEach(el=>el.remove());
+  }
+  const field=document.getElementById('field-'+id);
+  if(field) field.classList.remove('correct-field','wrong-field');
+}
+
+function markQuestion(id){
+  clearQuestionReview(id);
+  const num=id.replace('q','');
+  const block=document.getElementById('qb-'+num);
+  const field=document.getElementById('field-'+id);
+  const ok=isCorrect(id);
+  if(block) block.classList.add(ok?'review-correct':'review-wrong');
+  if(field) field.classList.add(ok?'correct-field':'wrong-field');
+  if(block && !block.classList.contains('inline-blank')){
+    const feedback=document.createElement('div');
+    feedback.className='inline-feedback '+(ok?'ok':'bad');
+    feedback.innerHTML=ok ? '✓ Correct' : `✗ Incorrect — Correct answer: <b>${esc(correctText(id))}</b>`;
+    block.appendChild(feedback);
+  }
+}
+
+renderDots();
+
+/* Resizable panes */
+(function(){
+  const handle=document.getElementById('dragHandle');
+  let dragging=false,startX=0,startW=0;
+  handle.addEventListener('mousedown',e=>{
+    dragging=true; startX=e.clientX; startW=document.getElementById('passagePane').offsetWidth;
+    handle.classList.add('active'); document.body.style.cursor='col-resize'; document.body.style.userSelect='none'; e.preventDefault();
+  });
+  document.addEventListener('mousemove',e=>{
+    if(!dragging)return;
+    const total=document.getElementById('splitWrap').offsetWidth-handle.offsetWidth;
+    const width=Math.max(240,Math.min(total-280,startW+(e.clientX-startX)));
+    const pane=document.getElementById('passagePane'); pane.style.width=width+'px'; pane.style.minWidth=width+'px';
+  });
+  document.addEventListener('mouseup',()=>{
+    if(!dragging)return;
+    dragging=false; handle.classList.remove('active'); document.body.style.cursor=''; document.body.style.userSelect='';
+  });
+})();
+
+/* Highlighting and notes */
+const ctxMenu=document.getElementById('ctxMenu');
+let savedRange=null,clickedHL=null;
+function onMU(e){
+  if(['INPUT','TEXTAREA','SELECT','BUTTON'].includes(e.target.tagName))return;
+  const selection=window.getSelection();
+  const text=selection?selection.toString().trim():'';
+  const highlightTarget=e.target.closest('.hl-yellow,.hl-note');
+  if(text.length>0){
+    savedRange=selection.getRangeAt(0).cloneRange(); clickedHL=null;
+    show('ctxHL'); show('ctxSep1'); show('ctxNote'); hide('ctxSep2'); hide('ctxClear'); showMenu(e); e.stopPropagation();
+  } else if(highlightTarget){
+    clickedHL=highlightTarget; savedRange=null;
+    hide('ctxHL'); hide('ctxSep1'); hide('ctxNote'); show('ctxSep2'); show('ctxClear'); showMenu(e); e.stopPropagation();
+  }
+}
+document.getElementById('passagePane').addEventListener('mouseup',onMU);
+document.getElementById('qPane').addEventListener('mouseup',onMU);
+document.addEventListener('mousedown',e=>{ if(!ctxMenu.contains(e.target))ctxMenu.classList.remove('show'); });
+function show(id){ document.getElementById(id).style.display=''; }
+function hide(id){ document.getElementById(id).style.display='none'; }
+function showMenu(e){
+  const x=Math.min(e.clientX,window.innerWidth-155);
+  const y=Math.min(e.clientY,window.innerHeight-130);
+  ctxMenu.style.left=x+'px'; ctxMenu.style.top=y+'px'; ctxMenu.classList.add('show');
+}
+function wrapRange(className,note){
+  if(!savedRange)return;
+  try{
+    const span=document.createElement('span'); span.className=className;
+    if(note)span.setAttribute('data-note',note);
+    savedRange.surroundContents(span);
+  }catch(error){
+    const fragment=savedRange.extractContents();
+    const span=document.createElement('span'); span.className=className;
+    if(note)span.setAttribute('data-note',note);
+    span.appendChild(fragment); savedRange.insertNode(span);
+  }
+  window.getSelection().removeAllRanges(); savedRange=null;
+}
+function doHighlight(){ ctxMenu.classList.remove('show'); wrapRange('hl-yellow',null); }
+function openNoteDialog(){ ctxMenu.classList.remove('show'); document.getElementById('noteText').value=''; document.getElementById('noteDialog').classList.add('show'); }
+function closeNote(){ document.getElementById('noteDialog').classList.remove('show'); savedRange=null; }
+function saveNote(){
+  const value=document.getElementById('noteText').value.trim();
+  if(!value || !savedRange){ closeNote(); return; }
+  wrapRange('hl-note',value); closeNote();
+}
+function doClear(){
+  ctxMenu.classList.remove('show');
+  if(!clickedHL)return;
+  const parent=clickedHL.parentNode;
+  while(clickedHL.firstChild) parent.insertBefore(clickedHL.firstChild,clickedHL);
+  parent.removeChild(clickedHL); clickedHL=null;
+}
+
+/* Timer */
+function startTest(){
+  const value=document.getElementById('idInput').value.trim();
+  if(!value){ document.getElementById('idErr').textContent='Please enter your ID'; return; }
+  document.getElementById('idErr').textContent='';
+  document.getElementById('tidDisplay').textContent='Test taker ID: '+value;
+  document.getElementById('idScreen').style.display='none';
+  startTimer();
+}
+let seconds=20*60, timerStarted=false, timerInterval=null;
+function startTimer(){
+  if(timerStarted)return;
+  timerStarted=true;
+  const timerText=document.getElementById('timerTxt');
+  const timerBox=document.getElementById('timerBox');
+  timerInterval=setInterval(()=>{
+    seconds--;
+    if(seconds<=0){
+      seconds=0; timerText.textContent='00:00'; timerBox.classList.add('warn');
+      clearInterval(timerInterval); openReview(); return;
+    }
+    timerText.textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');
+    if(seconds<=180)timerBox.classList.add('warn');
+  },1000);
+}
+
+/* Review */
+function openReview(){
+  let correct=0;
+  let reviewHTML='';
+  Q_IDS.forEach((id,index)=>{
+    markQuestion(id);
+    const user=String(answers[id] || '').trim();
+    const ok=isCorrect(id);
+    if(ok)correct++;
+    reviewHTML+=`<div class="ritem ${ok?'ok-item':'bad-item'}">
+      <div class="rlabel">Question ${index+14}</div>
+      <div>Your answer: <b>${esc(user || 'Not answered')}</b></div>
+      <div>${ok?'<span class="ok-lbl">✓ Correct</span>':`<span class="bad-lbl">✗ Incorrect</span> &nbsp; Correct answer: <b>${esc(correctText(id))}</b>`}</div>
+    </div>`;
+  });
+  document.getElementById('scoreCard').innerHTML=
+    `<div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;margin-bottom:6px;">PASSAGE SCORE</div>
+     <div class="score-big">${correct} <span style="font-size:16px;font-weight:400;color:#999;">/ 13</span></div>
+     <div style="font-size:13px;margin-top:7px;color:#555;">${13-correct} incorrect or unanswered</div>`;
+  document.getElementById('revItems').innerHTML=reviewHTML;
+  document.getElementById('overlay').classList.add('on');
+}
+function closeReview(){ document.getElementById('overlay').classList.remove('on'); }
+</script>
+</body>
+</html>

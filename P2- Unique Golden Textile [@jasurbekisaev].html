@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Reading Test - Spider Silk</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {margin: 0;padding: 0;font-family: 'Inter', 'Segoe UI', Arial, sans-serif;background: radial-gradient(1200px 600px at 10% 0%, #e0f2fe, transparent),radial-gradient(1200px 600px at 90% 100%, #dbeafe, transparent),#f0f9ff;overflow: hidden;color: #1e293b;}
+    .test-wrapper {display: flex;flex-direction: column;height: 100vh;}
+    .test-container {display: flex;flex: 1;overflow: hidden;}
+    .header {background: #ffffff;border-bottom: 1px solid #d1d5db;padding: 1rem 2rem;display: flex;justify-content: space-between;align-items: center;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);}
+    .header__logo img {height: 48px;transition: transform 0.3s ease;}
+    .header__logo img:hover {transform: scale(1.1);}
+    .header__timer {font-size: 1.25rem;font-weight: 600;color: #2563eb;background: #eff6ff;padding: 0.5rem 1.5rem;border-radius: 9999px;border: 1px solid #3b82f6;transition: all 0.3s ease;}
+    .header__icons {display: flex;gap: 1.5rem;}
+    .header__icon {font-size: 1.5rem;color: #4b5563;cursor: pointer;transition: all 0.3s ease;}
+    .header__icon:hover {color: #2563eb;transform: scale(1.15);}
+    .settings-modal {display: none;position: fixed;inset: 0;background: rgba(0, 0, 0, 0.75);z-index: 1000;justify-content: center;align-items: center;}
+    .settings-content {background: #ffffff;width: 90%;max-width: 32rem;border-radius: 1rem;box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);animation: slideIn 0.4s ease-out;}
+    @keyframes slideIn {from { transform: translateY(-3rem); opacity: 0; }to { transform: translateY(0); opacity: 1; }}
+    .settings-header {display: flex;justify-content: space-between;align-items: center;padding: 1rem 2rem;background: linear-gradient(90deg, #3b82f6, #1e40af);color: #ffffff;}
+    .settings-header h2 {margin: 0;font-size: 1.25rem;}
+    .settings-close {background: none;border: none;font-size: 1.75rem;cursor: pointer;color: #ffffff;transition: color 0.3s ease;}
+    .settings-close:hover {color: #fed7e2;}
+    .settings-body {padding: 1.5rem;background: #f9fafb;}
+    .settings-option {display: flex;align-items: center;padding: 1rem 0;border-bottom: 1px solid #e5e7eb;cursor: pointer;transition: background 0.2s ease;}
+    .settings-option:hover {background: #eff6ff;}
+    .settings-option:last-child {border-bottom: none;}
+    .settings-option i {margin-right: 0.75rem;width: 1.25rem;text-align: center;color: #2563eb;}
+    .settings-option span {font-size: 1.1rem;}
+    .sectionRubric {margin: 1.5rem;padding: 1.25rem;background: #ffffff;border: 1px solid #d1d5db;border-radius: 0.75rem;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);}
+    .sectionRubric h2 {font-size: 1.25rem;color: #2563eb;margin-bottom: 0.5rem;}
+    .passage-container {width: 45%;height: 100%;overflow-y: auto;padding: 1.5rem;box-sizing: border-box;background: #f9fafb;border-right: 1px solid #d1d5db;position: relative;user-select: text;-webkit-user-select: text;}
+    .passage-container::-webkit-scrollbar {width: 8px;}
+    .passage-container::-webkit-scrollbar-track {background: #e5e7eb;}
+    .passage-container::-webkit-scrollbar-thumb {background: #6b7280;border-radius: 4px;}
+    .questions-container {flex: 1;height: 100%;overflow-y: auto;padding: 1.5rem;box-sizing: border-box;background: #f9fafb;user-select: text;-webkit-user-select: text;position: relative;}
+    .questions-container::-webkit-scrollbar {width: 8px;}
+    .questions-container::-webkit-scrollbar-track {background: #e5e7eb;}
+    .questions-container::-webkit-scrollbar-thumb {background: #6b7280;border-radius: 4px;}
+    .highlight {border-radius: 0.25rem;padding: 0 0.25rem;}
+    .highlight.yellow { background: rgba(254, 243, 199, 0.5); }
+    .highlight.green { background: rgba(187, 247, 208, 0.5); }
+    .highlight.pink { background: rgba(251, 207, 232, 0.5); }
+    .highlight.blue { background: rgba(191, 219, 254, 0.5); }
+    .highlight-toolbar {position: fixed;background: #ffffff;border: 1px solid #d1d5db;border-radius: 0.5rem;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);display: none;z-index: 1000;padding: 0.5rem;transform: translate(-50%, -100%);margin-top: -0.5rem;}
+    .highlight-toolbar button {background: none;border: none;width: 2rem;height: 2rem;cursor: pointer;border-radius: 0.25rem;transition: all 0.2s ease;}
+    .highlight-toolbar button:hover {background: #eff6ff;transform: scale(1.1);}
+    .highlight-toolbar button.remove {color: #ef4444;}
+    .divider {width: 14px;background: #e5e7eb;cursor: col-resize;position: relative;}
+    .divider-handle {width: 6px;height: 60px;background: #6b7280;border-radius: 4px;position: absolute;top: 50%;left: 4px;transform: translateY(-50%);}
+    .question {margin-bottom: 2rem;background: #ffffff;padding: 1.5rem;border-radius: 0.75rem;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);transition: transform 0.2s ease;}
+    .question:hover {transform: translateY(-2px);}
+    .question-rubric {margin-bottom: 1.5rem;font-weight: 600;color: #1f2937;}
+    .question-rubric h3 {margin: 0 0 0.5rem;color: #2563eb;}
+    .question-rubric p {margin: 0.25rem 0;color: #4b5563;}
+    .question-number {font-weight: 700;color: #2563eb;}
+    .footer {background: #ffffff;border-top: 1px solid #d1d5db;padding: 1.25rem;box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.05);}
+    .nav-row {display: flex;align-items: center;justify-content: space-between;}
+    .footer__questionWrapper {display: flex;align-items: center;}
+    .footer__subquestionWrapper {display: flex;flex-wrap: wrap;margin-left: 1.25rem;}
+    .subQuestion {width: 2.5rem;height: 2.5rem;border-radius: 50%;border: 1px solid #d1d5db;background: #f3f4f6;margin: 0.25rem;cursor: pointer;display: flex;align-items: center;justify-content: center;color: #4b5563;font-weight: 600;transition: all 0.3s ease;}
+    .subQuestion.active {background: #2563eb;color: #ffffff;border-color: #2563eb;}
+    .subQuestion.attempted {background: #60a5fa;color: #ffffff;}
+    .footer__deliverButton {background: #2563eb;color: #ffffff;border: none;padding: 0.75rem 1.5rem;border-radius: 0.5rem;cursor: pointer;font-weight: 600;transition: all 0.3s ease;}
+    .footer__deliverButton:hover {background: #1e40af;transform: translateY(-2px);}
+    .footer__deliverButton:disabled {background: #d1d5db;cursor: not-allowed;}
+    .submission-modal {display: none;position: fixed;inset: 0;background: rgba(0, 0, 0, 0.8);z-index: 2000;justify-content: center;align-items: center;}
+    .submission-content {background: #ffffff;width: 90%;max-width: 48rem;border-radius: 1rem;padding: 2rem;box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);max-height: 90vh;overflow-y: auto;}
+    .submission-content h2 {margin-top: 0;color: #2563eb;border-bottom: 2px solid #2563eb;padding-bottom: 0.75rem;font-size: 1.75rem;}
+    .submission-content p {margin-bottom: 1.5rem;color: #4b5563;font-size: 1.1rem;}
+    .answers-section {margin-top: 1.5rem;}
+    .answers-section h3 {color: #2563eb;margin-bottom: 1.25rem;font-size: 1.25rem;}
+    .answer-item {padding: 0.75rem;margin-bottom: 0.5rem;border-radius: 0.5rem;border-left: 6px solid #d1d5db;background: #f9fafb;}
+    .answer-item.correct {border-left-color: #10b981;background: #ecfdf5;}
+    .answer-item.incorrect {border-left-color: #ef4444;background: #fef2f2;}
+    .answer-text {font-weight: 600;}
+    .correct-answer {color: #10b981;margin-left: 0.75rem;}
+    .incorrect-answer {color: #ef4444;margin-left: 0.75rem;}
+    .answer-status {float: right;margin-left: 1rem;}
+    .correct-status {color: #10b981;}
+    .incorrect-status {color: #ef4444;}
+    .submission-buttons {margin-top: 1.5rem;text-align: right;}
+    .submission-buttons button {padding: 0.75rem 1.5rem;margin-left: 1rem;border-radius: 0.5rem;cursor: pointer;font-weight: 600;}
+    .submission-buttons .confirm {background: #2563eb;color: #ffffff;border: none;}
+    .submission-buttons .confirm:hover {background: #1e40af;transform: translateY(-2px);}
+    .score-display {text-align: center;margin-bottom: 1.5rem;padding: 1.5rem;background: #eff6ff;border-radius: 0.75rem;}
+    .score-number {font-size: 3rem;font-weight: bold;color: #2563eb;margin: 0.75rem 0;}
+    .score-total {font-size: 1.25rem;color: #4b5563;}
+    .performance-rating {font-size: 1.25rem;font-weight: bold;margin: 1.25rem 0;padding: 0.75rem;border-radius: 0.5rem;}
+    .excellent { color: #065f46; background: #ecfdf5; }
+    .very-good { color: #047857; background: #ecfdf5; }
+    .good { color: #34d399; background: #ecfdf5; }
+    .fair { color: #d97706; background: #fefce8; }
+    .poor { color: #dc2626; background: #fef2f2; }
+    .band-score {font-size: 2rem;font-weight: bold;color: #2563eb;margin: 0.75rem 0;}
+    .highlight-color {width: 1.75rem;height: 1.75rem;border-radius: 50%;border: 1px solid #d1d5db;cursor: pointer;transition: transform 0.2s ease;}
+    .highlight-color:hover {transform: scale(1.2);}
+    .highlight-color.yellow { background: #fef3c7; }
+    .highlight-color.green { background: #bbf7d0; }
+    .highlight-color.pink { background: #fbcfe8; }
+    .highlight-color.blue { background: #bfdbfe; }
+    #passageContent {line-height: 1.6;font-size: 1.05rem;}
+    #passageContent h2 {margin: 1.5rem 0 1rem 0;line-height: 1.4;}
+    #passageContent p {margin: 1.2rem 0;text-align: justify;line-height: 1.7;}
+    #passageContent p:first-of-type {margin-top: 1rem;}
+  </style>
+</head>
+<body>
+<div class="test-wrapper">
+  <header class="header">
+    <div class="flex items-center">
+      <img src="https://d2snzxottmona5.cloudfront.net/releases/3.46.0/images/logo/ielts.svg" alt="IELTS Logo" class="h-12 transition-transform hover:scale-110">
+    </div>
+    <div class="flex-1 flex justify-center">
+      <a href="https://t.me/jasurbekisaev" target="_blank" class="flex items-center gap-3 text-blue-700 hover:text-blue-900 font-semibold text-xl transition-all hover:scale-105">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-.38.24-1.07.7-.96.66-1.89 1.28-1.89 1.28s-.17.11-.49.03c-.32-.08-.72-.26-1.16-.47-.54-.26-1.17-.53-1.17-.53s-.87-.55.62-1.14c.32-.13 1.96-.84 2.99-1.2 1.05-.37 2.86-1.01 2.86-1.01s1.02-.4 1.02 0z"/>
+        </svg>
+        Jasurbek’s blog
+      </a>
+    </div>
+    <div class="header__timer" id="testTimer">00:00</div>
+    <div class="header__icons">
+      <i class="fas fa-adjust header__icon" id="contrastToggle" title="Dark mode"></i>
+      <i class="fas fa-text-height header__icon" id="textSizeToggle" title="Text size"></i>
+      <i class="fas fa-circle-question header__icon" title="Tips" onclick="alert('Complete Headings (14-19), Matching (20-23), Summary (24-26). Use highlighter by selecting text.')"></i>
+    </div>
+  </header>
+
+  <div class="settings-modal" id="settingsModal">
+    <div class="settings-content">
+      <div class="settings-header">
+        <h2>Options</h2>
+        <button class="settings-close" id="settingsClose">×</button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-option" id="contrastOption"><i class="fas fa-adjust"></i><span>Dark mode</span></div>
+        <div class="settings-option" id="textSizeOption"><i class="fas fa-text-height"></i><span>Text size</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-container">
+    <div class="passage-container" id="passage-container">
+      <div class="sectionRubric">
+        <h2>Reading Passage 2</h2>
+        <p>You should spend about 20 minutes on Questions 14-26, which are based on Reading Passage 2 below.</p>
+      </div>
+      <div class="highlight-toolbar" id="highlightToolbar">
+        <button class="highlight-color yellow" data-color="yellow" title="Yellow highlight"></button>
+        <button class="highlight-color green" data-color="green" title="Green highlight"></button>
+        <button class="highlight-color pink" data-color="pink" title="Pink highlight"></button>
+        <button class="highlight-color blue" data-color="blue" title="Blue highlight"></button>
+        <button class="remove" title="Remove highlight"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="passageContent">
+        <h2 class="text-center text-xl font-bold text-gray-800">A unique golden textile</h2>
+        <p>A A rare textile made from the silk of more than a million wild spiders has been on display at the American Museum of Natural History in New York City. To produce this golden cloth, 70 people spent four years collecting golden orb spiders from telephone poles in Madagascar, while another dozen workers carefully extracted about 80 feet of silk filament from each of the arachnids. The resulting 11-foot by 4-foot textile is the only large piece of cloth made from natural spider silk existing in the world today.</p>
+        <p>B Spider silk is very elastic and strong compared with steel or Kevlar, said textile expert Simon Peers, who co-led the project. Kevlar is a lightweight synthetic fabric which is chemically related to nylon. It is very tough and durable and used in bullet-proof vests. Kevlar is also resistant to wear, tear, and heat and has absolutely no melting point. But the tensile strength of spider silk is even greater than Kevlar's aramid filaments, and greater than that of high-grade steel. Most importantly, spider silk is extremely lightweight: a strand of spider silk long enough to circle the Earth would weigh less than 500 grams (18 oz). Spider silk is also especially ductile, able to stretch up to 140 per cent of its length without breaking. It can hold its strength below -40°C. This gives it a very high toughness, which equals that of commercial fibers.</p>
+        <p>C Researchers have long been intrigued by the unique properties of spider silk. Unfortunately, spider silk is extremely hard to mass produce. Unlike silkworms, which are easy to raise in captivity, spiders have a habit of chomping off each other’s heads when housed together. According to Peers, there's scientific research going on all over the world right now trying to replicate the tensile properties of spider silk and apply it to all sorts of areas in medicine and industry, but no one up until now has succeeded in replicating 100 per cent of the properties of natural spider silk.</p>
+        <p>D Peers came up with the idea of weaving spider silk after learning about the French missionary Jacob Paul Camboue, who worked with spiders in Madagascar during the 1880s and 1890s. Camboue built a small, hand-driven machine to extract silk from up to 24 spiders at once, without harming them. The spiders were temporarily restrained, their silk extracted, and then let go. Peers managed to build a replica of this 24-spider silking machine that was used at the turn of the century, said Nicholas Godley, who co-led the project with Peers. As an experiment, the pair collected an initial batch of about 20 spiders. When we stuck them in the machine and started turning it, lo and behold, this beautiful gold-colored silk started coming out’, Godley said.</p>
+        <p>E But to make a textile of any significant size, the silk experts had to drastically scale up their plan. Fourteen thousand spiders yield about an ounce of silk, Godley said, and the textile weighs about 2.6 pounds. The numbers are overwhelming. To get as much silk as they needed, Godley and Peers began hiring dozens of spider handlers to collect wild arachnids and carefully harness them to the silk-extraction machine. We had to find people who were willing to work with spiders, Godley said, because they bite. By the end of the project, Godley and Peers extracted silk from more than 1 million female golden orb spiders, which are abundant throughout Madagascar and known for the rich golden color of their silk. Because the spiders only produce silk during the rainy season, workers collected all the spiders between October and June. Then an additional 12 people used hand-powered machines to extract the silk and wove it into 96-filament thread. Once the spiders had been silked, they were released back into the wild, where Godley said it takes them about a week to regenerate their silk. We can go back and re-silk the same spiders, he said. It’s like the gift that never stops giving.</p>
+        <p>F Of course, spending four years to produce a single textile of spider silk isn’t very practical for scientists trying to study the properties of spider silk, or companies that want to manufacture the fabric for use as a biomedical product, or an alternative to Kevlar armor. Several groups have tried inserting spider genes into bacteria or even cows and goats to produce silk, but so far, the attempts have been only moderately successful. Part of the reason it’s so hard to generate spider silk in the lab is that it starts out as a liquid protein that’s produced by a special gland in the spider’s abdomen. Using their spinneret, spiders apply force to rearrange the protein’s molecular structure and transform it into solid silk. When we talk about a spider spinning silk, we’re talking about how the spider applies forces to produce a transformation from liquid to solid, said spider silk expert Todd Blackledge of the University of Akron, Ohio, US, who was not involved in creating the textile. Scientists simply can’t replicate the efficiency with which a spider produces silk. Every year we’re getting closer and closer to being able to mass-produce it, but we’re not there yet. For now, it seems we’ll have to be content with one incredibly beautiful cloth, graciously provided by more than a million spiders.</p>
+      </div>
+    </div>
+
+    <div class="divider" id="divider"><div class="divider-handle"></div></div>
+
+    <div class="questions-container" id="questions-container">
+      <!-- Questions 14-19: Headings -->
+      <div class="question">
+        <div class="question-rubric">
+          <h3>Questions 14–19</h3>
+          <p>Reading Passage 2 has six paragraphs A–F.<br>Choose the correct heading for each paragraph from the list of headings below.<br>Write the correct number i–ix in boxes 14–19 on your answer sheet.</p>
+        </div>
+        <div class="question-content">
+          <p><strong>List of Headings</strong></p>
+          <ul class="list-disc pl-6">
+            <li>i Experimenting with an old idea</li>
+            <li>ii Life cycle of Madagascar spiders</li>
+            <li>iii Advances in the textile industry</li>
+            <li>iv Resources needed to meet the project’s demands</li>
+            <li>v The physical properties of spider silk</li>
+            <li>vi A scientific analysis of spider silk</li>
+            <li>vii A unique work of art</li>
+            <li>viii Importance of the silk textile market</li>
+            <li>ix Difficulties of raising spiders in captivity</li>
+          </ul>
+
+          <div class="yes-no-option"><p><span class="question-number">14</span> Paragraph A</p>
+            <select name="q14">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+
+          <div class="yes-no-option"><p><span class="question-number">15</span> Paragraph B</p>
+            <select name="q15">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+
+          <div class="yes-no-option"><p><span class="question-number">16</span> Paragraph C</p>
+            <select name="q16">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+
+          <div class="yes-no-option"><p><span class="question-number">17</span> Paragraph D</p>
+            <select name="q17">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+
+          <div class="yes-no-option"><p><span class="question-number">18</span> Paragraph E</p>
+            <select name="q18">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+
+          <div class="yes-no-option"><p><span class="question-number">19</span> Paragraph F</p>
+            <select name="q19">
+              <option value="">--</option>
+              <option value="i">i</option>
+              <option value="ii">ii</option>
+              <option value="iii">iii</option>
+              <option value="iv">iv</option>
+              <option value="v">v</option>
+              <option value="vi">vi</option>
+              <option value="vii">vii</option>
+              <option value="viii">viii</option>
+              <option value="ix">ix</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Questions 20-23: Matching researchers -->
+      <div class="question">
+        <div class="question-rubric">
+          <h3>Questions 20–23</h3>
+          <p>Look at the following statements (Questions 20-23) and the list of researchers below.<br>Match each statement with the correct researcher, A, B or C.<br>NB You may use any letter more than once.</p>
+        </div>
+        <div class="question-content">
+          <p><strong>List of Researchers</strong></p>
+          <ul class="list-disc pl-6">
+            <li>A Simon Peers</li>
+            <li>B Nicholas Godley</li>
+            <li>C Todd Blackledge</li>
+          </ul>
+          <div class="yes-no-option"><p><span class="question-number">20</span> It takes a tremendous number of spiders to make a small amount of silk</p><select name="q20"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select></div>
+          <div class="yes-no-option"><p><span class="question-number">21</span> Scientists want to use the qualities of spider silk for medical purposes</p><select name="q21"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select></div>
+          <div class="yes-no-option"><p><span class="question-number">22</span> Scientists are making some progress in their efforts to manufacture spider silk</p><select name="q22"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select></div>
+          <div class="yes-no-option"><p><span class="question-number">23</span> Spider silk compares favourably to materials known for their strength</p><select name="q23"><option value="">--</option><option value="A">A</option><option value="B">B</option><option value="C">C</option></select></div>
+        </div>
+      </div>
+
+      <!-- Questions 24-26: Summary completion -->
+      <div class="question">
+        <div class="question-rubric">
+          <h3>Questions 24–26</h3>
+          <p>Complete the summary below.<br>Choose ONE WORD ONLY from the passage for each answer.<br>Write your answers in boxes 24-26 on your answer sheet.</p>
+        </div>
+        <div class="question-content">
+          <p>Producing spider silk in the lab</p>
+          <p>Both scientists and manufacturers are interested in producing silk for many different purposes. Some researchers have tried to grow silk by introducing genetic material into <input type="text" name="q24" placeholder="Your answer" class="border p-2 rounded w-full mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"> and some animals. But these experiments have been somewhat disappointing. It is difficult to make spider silk in a lab setting because the silk comes from a liquid protein made in a <input type="text" name="q25" placeholder="Your answer" class="border p-2 rounded w-full mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"> inside the spiders body. When a spider spins silk, it causes a <input type="text" name="q26" placeholder="Your answer" class="border p-2 rounded w-full mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500"> that turns this liquid into solid silk. Scientists cannot replicate this yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <nav class="nav-row">
+      <div class="footer__questionWrapper">
+        <div class="footer__subquestionWrapper">
+          <button class="subQuestion" data-ordernumber="14"><span>14</span></button>
+          <button class="subQuestion" data-ordernumber="15"><span>15</span></button>
+          <button class="subQuestion" data-ordernumber="16"><span>16</span></button>
+          <button class="subQuestion" data-ordernumber="17"><span>17</span></button>
+          <button class="subQuestion" data-ordernumber="18"><span>18</span></button>
+          <button class="subQuestion" data-ordernumber="19"><span>19</span></button>
+          <button class="subQuestion" data-ordernumber="20"><span>20</span></button>
+          <button class="subQuestion" data-ordernumber="21"><span>21</span></button>
+          <button class="subQuestion" data-ordernumber="22"><span>22</span></button>
+          <button class="subQuestion" data-ordernumber="23"><span>23</span></button>
+          <button class="subQuestion" data-ordernumber="24"><span>24</span></button>
+          <button class="subQuestion" data-ordernumber="25"><span>25</span></button>
+          <button class="subQuestion" data-ordernumber="26"><span>26</span></button>
+        </div>
+      </div>
+      <button id="deliver-button" class="footer__deliverButton"><i class="fas fa-check"></i> Submit</button>
+    </nav>
+  </footer>
+</div>
+
+<div class="submission-modal" id="submissionModal">
+  <div class="submission-content">
+    <h2 id="submissionTitle">Test Results</h2>
+    <div class="score-display">
+      <div>Your Score:</div>
+      <div class="score-number" id="userScore">0</div>
+      <div class="score-total">out of <span id="totalQuestions">13</span></div>
+      <div class="band-score" id="bandScore">Band: 0.0</div>
+      <div class="performance-rating" id="performanceRating">Poor - Needs Improvement</div>
+    </div>
+    <div class="time-spent" id="timeSpent"></div>
+    <p id="submissionMessage">Here are your answers with the correct solutions:</p>
+    <div class="answers-section">
+      <h3>Your Answers:</h3>
+      <div id="answersList"></div>
+    </div>
+    <div class="submission-buttons">
+      <button class="confirm" id="closeSubmission">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const correctAnswers = {
+  14: "vii",
+  15: "v",
+  16: "ix",
+  17: "i",
+  18: "iv",
+  19: "vi",
+  20: "B",
+  21: "A",
+  22: "C",
+  23: "A",
+  24: "bacteria",
+  25: "gland",
+  26: "force"
+};
+
+const answerExplanations = {
+  14: "vii A unique work of art – Paragraph A describes the rare golden cloth made from spider silk on display.",
+  15: "v The physical properties of spider silk – Paragraph B details elasticity, strength, lightness compared to steel/Kevlar.",
+  16: "ix Difficulties of raising spiders in captivity – Paragraph C explains why mass production is hard (cannibalism).",
+  17: "i Experimenting with an old idea – Paragraph D discusses reviving Camboue's old machine.",
+  18: "iv Resources needed to meet the project’s demands – Paragraph E covers scaling up, number of spiders, workers.",
+  19: "vi A scientific analysis of spider silk – Paragraph F analyzes lab production challenges and spider mechanism.",
+  20: "B Nicholas Godley – 'Fourteen thousand spiders yield about an ounce of silk'",
+  21: "A Simon Peers – research to replicate for medicine and industry",
+  22: "C Todd Blackledge – 'Every year we’re getting closer and closer'",
+  23: "A Simon Peers – spider silk stronger than Kevlar/steel",
+  24: "bacteria – inserting spider genes into bacteria or animals",
+  25: "gland – liquid protein produced by a special gland",
+  26: "force – spider applies force to transform liquid to solid"
+};
+
+let totalSeconds = 0;
+const timerElement = document.getElementById('testTimer');
+let testSubmitted = false;
+let userAnswers = {};
+let startTime = new Date();
+let resultsShown = false;
+
+function updateTimer() {
+  if (testSubmitted) return;
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  totalSeconds++;
+}
+
+const timerInterval = setInterval(updateTimer, 1000);
+
+function disableAllInputs() {
+  document.querySelectorAll('select, input[type="text"]').forEach(input => input.disabled = true);
+  document.getElementById('deliver-button').disabled = true;
+}
+
+function showSubmissionModal() {
+  const modal = document.getElementById('submissionModal');
+  const endTime = new Date();
+  const timeDiff = endTime - startTime;
+  const minutes = Math.floor(timeDiff / 60000);
+  const seconds = Math.floor((timeDiff % 60000) / 1000);
+  document.getElementById('timeSpent').textContent = `Time spent: ${minutes}m ${seconds}s`;
+
+  const answersList = document.getElementById('answersList');
+  answersList.innerHTML = '';
+  let score = 0;
+
+  for (let i = 14; i <= 26; i++) {
+    let user, correct = correctAnswers[i], isCorrect;
+    const elem = document.querySelector(`[name="q${i}"]`);
+    if (elem.tagName === 'SELECT') {
+      user = elem.value || 'Not answered';
+      isCorrect = user === correct;
+    } else {
+      user = elem ? elem.value.trim().toLowerCase() : 'Not answered';
+      isCorrect = user === correct.toLowerCase();
+    }
+    userAnswers[i] = user;
+    if (isCorrect) score++;
+
+    const item = document.createElement('div');
+    item.className = `answer-item ${isCorrect ? 'correct' : 'incorrect'}`;
+    item.innerHTML = `
+      <div class="answer-text">Question ${i}: ${user}</div>
+      <span class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">(Correct: ${correct})</span>
+      <span class="answer-status ${isCorrect ? 'correct-status' : 'incorrect-status'}">${isCorrect ? '✓' : '✗'}</span>
+      <div style="margin-top:0.5rem;font-size:0.9rem;color:#6b7280;font-style:italic;">${answerExplanations[i]}</div>
+    `;
+    answersList.appendChild(item);
+  }
+
+  document.getElementById('userScore').textContent = score;
+  document.getElementById('totalQuestions').textContent = "13";
+  const band = (score / 13 * 9).toFixed(1);
+  document.getElementById('bandScore').textContent = `Band: ${band}`;
+
+  let rating, ratingClass;
+  if (score >= 11) { rating = "Excellent!"; ratingClass = "excellent"; }
+  else if (score >= 9) { rating = "Very Good"; ratingClass = "very-good"; }
+  else if (score >= 7) { rating = "Good"; ratingClass = "good"; }
+  else if (score >= 5) { rating = "Fair"; ratingClass = "fair"; }
+  else { rating = "Poor - Needs Improvement"; ratingClass = "poor"; }
+  document.getElementById('performanceRating').textContent = rating;
+  document.getElementById('performanceRating').className = `performance-rating ${ratingClass}`;
+
+  modal.style.display = 'flex';
+  resultsShown = true;
+}
+
+document.getElementById('deliver-button').addEventListener('click', () => {
+  if (resultsShown) return document.getElementById('submissionModal').style.display = 'flex';
+  if (testSubmitted) return;
+  if (confirm('Are you sure you want to submit your test?')) {
+    clearInterval(timerInterval);
+    testSubmitted = true;
+    disableAllInputs();
+    showSubmissionModal();
+  }
+});
+
+document.getElementById('closeSubmission').addEventListener('click', () => {
+  document.getElementById('submissionModal').style.display = 'none';
+});
+
+// Divider drag
+const divider = document.getElementById('divider');
+const passage = document.getElementById('passage-container');
+let isDragging = false;
+let startX, startWidth;
+divider.addEventListener('mousedown', e => {
+  isDragging = true;
+  startX = e.clientX;
+  startWidth = passage.offsetWidth;
+  document.body.style.cursor = 'col-resize';
+});
+document.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const newWidth = startWidth + e.clientX - startX;
+  if (newWidth > 300 && newWidth < window.innerWidth * 0.7) {
+    passage.style.width = newWidth + 'px';
+  }
+});
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+  document.body.style.cursor = '';
+});
+
+// Highlight toolbar
+let selectedText = '', selectedRange = null;
+function handleSelection() {
+  const sel = window.getSelection();
+  selectedText = sel.toString().trim();
+  if (selectedText && sel.rangeCount) {
+    selectedRange = sel.getRangeAt(0);
+    const rect = selectedRange.getBoundingClientRect();
+    const toolbar = document.getElementById('highlightToolbar');
+    toolbar.style.display = 'flex';
+    toolbar.style.top = `${rect.top + window.scrollY - 45}px`;
+    toolbar.style.left = `${rect.left + window.scrollX + (rect.width / 2)}px`;
+  } else {
+    document.getElementById('highlightToolbar').style.display = 'none';
+  }
+}
+document.addEventListener('mouseup', handleSelection);
+
+document.querySelectorAll('.highlight-color').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const color = btn.dataset.color;
+    if (selectedRange) {
+      const span = document.createElement('span');
+      span.className = `highlight ${color}`;
+      selectedRange.surroundContents(span);
+      window.getSelection().removeAllRanges();
+      document.getElementById('highlightToolbar').style.display = 'none';
+    }
+  });
+});
+
+document.querySelector('.highlight-toolbar .remove').addEventListener('click', () => {
+  if (selectedRange) {
+    let span = selectedRange.commonAncestorContainer;
+    if (span.nodeType !== 1) span = span.parentNode;
+    if (span && span.classList.contains('highlight')) {
+      const text = document.createTextNode(span.textContent);
+      span.parentNode.replaceChild(text, span);
+    }
+    window.getSelection().removeAllRanges();
+    document.getElementById('highlightToolbar').style.display = 'none';
+  }
+});
+
+// Dark mode
+let darkMode = false;
+document.getElementById('contrastToggle').addEventListener('click', () => {
+  darkMode = !darkMode;
+  if (darkMode) {
+    document.body.style.background = 'radial-gradient(1200px 600px at 10% 0%, #1e293b, transparent), radial-gradient(1200px 600px at 90% 100%, #0f172a, transparent), #111827';
+    document.body.style.color = '#f9fafb';
+    document.querySelector('.header').style.background = '#374151';
+    document.querySelector('.header').style.borderBottomColor = '#4b5563';
+    document.querySelectorAll('.passage-container, .questions-container').forEach(el => { el.style.background = '#1f2937'; el.style.color = '#f9fafb'; });
+    document.querySelectorAll('.question').forEach(el => { el.style.background = '#374151'; el.style.color = '#f9fafb'; el.style.borderColor = '#4b5563'; });
+    document.querySelector('.footer').style.background = '#374151';
+    document.querySelector('.footer').style.borderTopColor = '#4b5563';
+    document.querySelectorAll('select, input').forEach(el => { el.style.background = '#374151'; el.style.color = '#f9fafb'; el.style.borderColor = '#6b7280'; });
+  } else {
+    document.body.style.background = 'radial-gradient(1200px 600px at 10% 0%, #e0f2fe, transparent),radial-gradient(1200px 600px at 90% 100%, #dbeafe, transparent),#f0f9ff';
+    document.body.style.color = '#1e293b';
+    document.querySelector('.header').style.background = '#ffffff';
+    document.querySelector('.header').style.borderBottomColor = '#d1d5db';
+    document.querySelectorAll('.passage-container, .questions-container').forEach(el => { el.style.background = '#f9fafb'; el.style.color = '#1e293b'; });
+    document.querySelectorAll('.question').forEach(el => { el.style.background = '#ffffff'; el.style.color = '#1e293b'; el.style.borderColor = '#d1d5db'; });
+    document.querySelector('.footer').style.background = '#ffffff';
+    document.querySelector('.footer').style.borderTopColor = '#d1d5db';
+    document.querySelectorAll('select, input').forEach(el => { el.style.background = '#ffffff'; el.style.color = '#1e293b'; el.style.borderColor = '#d1d5db'; });
+  }
+});
+
+// Text size toggle
+let textSize = 'normal';
+const sizes = { small: '0.9rem', normal: '1.05rem', large: '1.2rem', xlarge: '1.35rem' };
+document.getElementById('textSizeToggle').addEventListener('click', () => {
+  const keys = Object.keys(sizes);
+  textSize = keys[(keys.indexOf(textSize) + 1) % keys.length];
+  const size = sizes[textSize];
+  document.getElementById('passageContent').style.fontSize = size;
+  document.querySelectorAll('.question-content, .question-rubric, input, select').forEach(el => el.style.fontSize = size);
+});
+
+// Settings modal
+document.getElementById('settingsClose').addEventListener('click', () => document.getElementById('settingsModal').style.display = 'none');
+window.addEventListener('click', e => {
+  if (e.target === document.getElementById('settingsModal')) document.getElementById('settingsModal').style.display = 'none';
+});
+
+// Attempted questions
+document.querySelectorAll('select, input[type="text"]').forEach(el => {
+  el.addEventListener('change', markAttempted);
+  el.addEventListener('input', markAttempted);
+});
+function markAttempted(e) {
+  const q = e.target.name.replace('q', '');
+  const btn = document.querySelector(`.subQuestion[data-ordernumber="${q}"]`);
+  if (btn && e.target.value.trim()) {
+    btn.classList.add('attempted');
+  } else if (btn) {
+    btn.classList.remove('attempted');
+  }
+}
+</script>
+</body>
+</html>

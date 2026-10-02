@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Full Reading Test – Food Advertising / Finding Our Way / Decision, Decision!</title>
+<style>
+:root{--ielts-red:#d2122e;--border:#c9c9c9;--text:#1a1a1a;--muted:#666;--panel:#f1f1f1;--focus:#2b6fd6;--highlight:#ffe066}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+button,input,select{font:inherit}
+#app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hidden{display:none!important}
+.auth-banner{height:64px;flex:0 0 64px;background:#172f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.auth-banner-text{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:800;white-space:nowrap}
+.auth-banner-link{display:inline-flex;align-items:center;gap:10px;padding:8px 21px;border:2px solid #d9f3ff;border-radius:28px;background:#45afe0;color:#fff;text-decoration:none;font-size:20px;font-weight:800;white-space:nowrap}
+.auth-banner-play{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#45afe0;font-size:16px}
+.gate-screen{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#f5f5f5;padding:20px}
+.gate-card{width:min(390px,100%);background:#fff;border:1px solid var(--border);border-radius:6px;padding:36px 40px;box-shadow:0 3px 16px rgba(0,0,0,.09)}
+.gate-brand-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.gate-logo{font-size:28px;font-weight:800;color:var(--ielts-red);letter-spacing:1px}
+.gate-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:25px}
+.gate-card label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+.gate-card input{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:4px;margin-bottom:16px}
+.gate-card input:focus{outline:2px solid var(--focus);border-color:var(--focus)}
+.gate-btn{width:100%;padding:11px;border:0;border-radius:4px;background:#111;color:#fff;cursor:pointer}
+.gate-btn:hover{background:#000}
+.gate-error{min-height:18px;color:var(--ielts-red);font-size:13px;margin-top:-8px;margin-bottom:8px}
+.gate-footer{text-align:center;margin-top:17px;font-size:11px;color:#999}
+.gate-footer a{color:var(--focus);text-decoration:none}
+#screen-test,#screen-final,#screen-results{flex:1;min-height:0}
+.topbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 20px;border-bottom:1px solid var(--border);background:#fff;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:13px;min-width:0}
+.ielts-logo{font-size:20px;font-weight:800;color:var(--ielts-red)}
+.brand-name{font-size:11px;color:#555;white-space:nowrap}
+.taker-id-block{font-size:12px;line-height:1.35}
+.taker-id-block .label{font-weight:700}
+.timer-status{font-size:13px;font-weight:700;color:#222}
+.timer-status.low{color:var(--ielts-red)}
+.topbar-right{display:flex;align-items:center;gap:13px}
+.icon-btn{border:0;background:none;cursor:pointer;font-size:19px;padding:5px}
+.main-wrap{position:relative;flex:1;display:flex;overflow:hidden}
+.content-wrap{flex:1;display:flex;overflow:hidden}
+.passage-pane,.questions-pane{flex:1 1 50%;overflow-y:auto;padding:22px 26px;font-size:14px;line-height:1.7}
+.passage-pane{border-right:1px solid var(--border)}
+.passage-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.passage-sub{font-size:16px;font-weight:800;text-align:center;margin:8px 0 12px}
+.passage-time{font-size:12px;color:#777;margin-bottom:18px;font-style:italic}
+.passage-heading{font-size:15px;font-weight:800;text-align:center;margin:18px 0 10px}
+.passage-para{display:flex;gap:10px;margin-bottom:15px}
+.para-letter{width:24px;flex-shrink:0;font-weight:800;color:var(--ielts-red)}
+.para-text{flex:1}
+.part-banner{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin-bottom:18px;border-radius:3px}
+.part-banner b{font-size:14px}
+.part-banner .instr{font-size:13px;margin-top:2px}
+.q-instructions{font-size:13px;margin:0 0 12px}
+.q-title{font-weight:800}
+.question-row{display:flex;align-items:center;gap:11px;margin-bottom:13px;font-size:13px}
+.question-row .qtext{flex:1}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:31px;height:24px;border:1px solid #333;padding:1px 7px;font-size:12px;font-weight:800;flex-shrink:0}
+select.answer-select,input.answer-input{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px}
+select.answer-select{width:170px}
+input.answer-input{width:185px;text-align:center}
+.summary-box{border:1px solid #ddd;background:#fafafa;padding:15px 17px;margin:10px 0 18px;font-size:14px;line-height:2.25}
+.summary-box input{vertical-align:middle;margin:0 4px}
+.list-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.75}
+.list-box b{font-size:13px}
+.mc-question{margin-bottom:18px;font-size:13px}
+.mc-question-title{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px}
+.mc-options label{display:block;margin:7px 0 0 40px;cursor:pointer;line-height:1.45}
+.mc-options input{margin-right:8px}
+.flow-line{margin:8px 0}
+.flow-center{text-align:center;font-weight:700;margin:12px 0}
+.notes-panel{width:270px;border-left:1px solid var(--border);background:#f1f1f1;padding:15px;display:none;overflow-y:auto;flex-shrink:0}
+.notes-panel.open{display:block}
+.notes-title{font-size:13px;font-weight:800;color:var(--ielts-red);margin-bottom:13px}
+.notes-empty{font-size:13px;color:#666;text-align:center;margin-top:35px;line-height:1.6}
+.note-entry{background:#fff;border:1px solid #ccc;border-radius:3px;padding:8px 10px;margin-bottom:9px;font-size:12px;font-style:italic}
+.selection-menu{position:absolute;z-index:100;background:#fff;border:1px solid #999;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;border-radius:3px}
+.selection-menu button{border:0;background:none;padding:8px 11px;font-size:11px;cursor:pointer}
+.selection-menu button+button{border-left:1px solid #ddd}
+mark.hl{background:var(--highlight)}
+.bottombar{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:#fff;overflow-x:auto;flex-shrink:0}
+.part-nav-group{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.part-label{font-size:13px;font-weight:700;cursor:pointer}
+.part-label.active{color:var(--ielts-red)}
+.part-count{font-size:12px;color:#888}
+.qnum-btn{width:23px;height:23px;border:1px solid transparent;border-radius:2px;background:none;font-size:12px;cursor:pointer;padding:0}
+.qnum-btn.answered{font-weight:800;color:var(--focus)}
+.submit-check{width:36px;height:36px;border:0;background:#efefef;cursor:pointer;font-size:16px;flex-shrink:0}
+.menu-overlay{position:absolute;inset:0;z-index:60;background:#fff;display:none;flex-direction:column}
+.menu-overlay.open{display:flex}
+.menu-header{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;padding:14px 16px;border-bottom:1px solid #eee}
+.menu-header button{border:0;background:none;cursor:pointer}
+.menu-back{display:none;justify-self:start}
+.menu-back.show{display:block}
+.menu-title{text-align:center;font-weight:700;font-size:15px}
+.menu-close{justify-self:end;font-size:18px}
+.menu-body{width:min(440px,100%);margin:0 auto;padding:20px}
+.menu-item,.option-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #ddd;padding:14px 16px;font-size:14px;cursor:pointer}
+.menu-item+.menu-item,.option-row+.option-row{border-top:0}
+.menu-item.danger{background:var(--ielts-red);border-color:var(--ielts-red);color:#fff;font-weight:700;margin-bottom:15px}
+.final-action-btn{background:#fff;color:#111;border:1px solid #111;padding:8px 15px;border-radius:3px;font-size:12px;cursor:pointer}
+.final-action-btn.primary{background:#111;color:#fff}
+.transition-body{flex:1;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;font-size:13px;color:#444}
+.results-wrap{height:100%;overflow-y:auto;padding:30px 40px}
+.results-wrap h1{color:var(--ielts-red);font-size:25px;margin:0 0 4px}
+.score-summary{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 27px}
+.score-box{min-width:130px;text-align:center;border:1px solid #ddd;border-radius:5px;padding:16px 22px}
+.score-box .num{font-size:30px;font-weight:800;color:var(--ielts-red)}
+.score-box .lbl{font-size:12px;color:#666;margin-top:4px}
+.review-table{width:100%;border-collapse:collapse;font-size:13px}
+.review-table th,.review-table td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+.review-table th{background:var(--panel)}
+.ok{color:#148a3b;font-weight:800} .no{color:var(--ielts-red);font-weight:800}
+.restart-btn{margin-top:22px;padding:10px 21px;border:0;border-radius:3px;background:#111;color:#fff;cursor:pointer}
+body.contrast-wb .topbar,body.contrast-wb .bottombar,body.contrast-wb .content-wrap,body.contrast-wb .passage-pane,body.contrast-wb .questions-pane{background:#000!important;color:#fff!important}
+body.contrast-wb .part-banner,body.contrast-wb .list-box,body.contrast-wb .summary-box{background:#171717;border-color:#444}
+body.contrast-wb input,body.contrast-wb select{background:#111;color:#fff;border-color:#777}
+body.contrast-yb .topbar,body.contrast-yb .bottombar,body.contrast-yb .content-wrap,body.contrast-yb .passage-pane,body.contrast-yb .questions-pane{background:#000!important;color:#f1d70a!important}
+body.contrast-yb .part-banner,body.contrast-yb .list-box,body.contrast-yb .summary-box{background:#171717;border-color:#555}
+body.contrast-yb input,body.contrast-yb select{background:#111;color:#f1d70a;border-color:#f1d70a}
+#app.textsize-large .passage-pane,#app.textsize-large .questions-pane{font-size:16px}
+#app.textsize-extralarge .passage-pane,#app.textsize-extralarge .questions-pane{font-size:19px}
+@media(max-width:900px){.main-wrap,.content-wrap{flex-direction:column}.passage-pane{border-right:0;border-bottom:1px solid var(--border);max-height:42vh}.notes-panel{position:absolute;right:0;top:0;bottom:0;z-index:55}.brand-name{display:none}.topbar{padding:8px 10px}.passage-pane,.questions-pane{padding:18px}.results-wrap{padding:22px 16px}}
+@media(max-width:700px){.auth-banner{height:52px;flex-basis:52px;gap:8px;padding:6px 8px}.auth-banner-text{font-size:16px}.auth-banner-link{font-size:14px;padding:6px 11px}.auth-banner-play{width:24px;height:24px;font-size:12px}}
+.passage-intro{font-style:italic;margin:0 0 17px;padding:10px 12px;background:#fafafa;border-left:3px solid var(--ielts-red);line-height:1.55}
+.diagram-box{border:1px solid #ddd;background:#fff;padding:10px;margin:10px 0 16px;border-radius:3px;text-align:center}
+.diagram-box img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-answer-grid{margin-top:10px}
+.multi-note{font-size:12px;color:#666;margin:-4px 0 12px}
+body.contrast-wb .passage-intro,body.contrast-wb .diagram-box{background:#111;color:#fff;border-color:#555}
+body.contrast-yb .passage-intro,body.contrast-yb .diagram-box{background:#111;color:#f1d70a;border-color:#555}
+.fill-sentence-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:13px;line-height:2}
+.fill-sentence-row .fill-sentence{flex:1}
+input.inline-answer-input{display:inline-block;width:150px;min-width:110px;border:0!important;border-bottom:2px solid #333!important;border-radius:0!important;background:transparent!important;padding:1px 5px 2px!important;margin:0 5px!important;text-align:center!important;outline:none;color:inherit}
+input.inline-answer-input:focus{border-bottom-color:var(--focus)!important;box-shadow:0 2px 0 rgba(43,111,214,.15)}
+input.inline-answer-input::placeholder{color:#777;letter-spacing:1px}
+.heading-bank{background:var(--panel);border:1px solid #ddd;padding:12px 14px;margin:10px 0 16px;border-radius:3px}
+.heading-bank-title{font-size:13px;font-weight:800;margin-bottom:8px}
+.heading-drag-item{display:flex;align-items:flex-start;gap:9px;background:#fff;border:1px solid #bbb;border-radius:4px;padding:8px 10px;margin:7px 0;cursor:grab;font-size:12px;line-height:1.45;user-select:none}
+.heading-drag-item:active{cursor:grabbing}
+.heading-drag-item.used{opacity:.58}
+.heading-drag-item.selected{outline:2px solid var(--focus);outline-offset:1px}
+.heading-roman{min-width:31px;font-weight:800;color:var(--ielts-red)}
+.heading-help{font-size:11px;color:#666;margin:6px 0 2px}
+.para-content{flex:1;min-width:0}
+.heading-drop-slot{display:flex;align-items:center;gap:8px;min-height:40px;border:2px dashed #9ca3af;border-radius:5px;background:#fafafa;padding:6px 8px;margin:0 0 9px;transition:.15s ease}
+.heading-drop-slot.drag-over{border-color:var(--focus);background:#eef5ff}
+.heading-drop-slot.filled{border-style:solid;border-color:#5c7fb6;background:#f5f8ff}
+.drop-qnum{display:inline-flex;align-items:center;justify-content:center;min-width:35px;height:25px;border:1px solid #333;background:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.drop-prompt{font-size:12px;color:#6b7280;flex:1}
+.drop-answer{font-size:12px;line-height:1.35;flex:1;font-weight:700}
+.drop-clear{border:0;background:transparent;color:#777;font-size:17px;line-height:1;cursor:pointer;padding:2px 5px;display:none}
+.heading-drop-slot.filled .drop-clear{display:block}
+.heading-assignments{border:1px solid #ddd;border-radius:3px;margin:12px 0 18px;overflow:hidden}
+.heading-assignment-row{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:12px;border-top:1px solid #e4e4e4}
+.heading-assignment-row:first-child{border-top:0}
+.heading-assignment-q{font-weight:800;min-width:35px}
+.heading-assignment-value{color:#555;flex:1}
+body.contrast-wb .heading-bank,body.contrast-wb .heading-drop-slot,body.contrast-wb .heading-drag-item{background:#171717;color:#fff;border-color:#666}
+body.contrast-yb .heading-bank,body.contrast-yb .heading-drop-slot,body.contrast-yb .heading-drag-item{background:#171717;color:#f1d70a;border-color:#777}
+body.contrast-wb .drop-qnum,body.contrast-yb .drop-qnum{background:#111;color:inherit;border-color:#888}
+@media(max-width:900px){.heading-drag-item{cursor:pointer}.heading-drop-slot{min-height:44px}}
+.category-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.8}
+.category-grid{display:grid;grid-template-columns:38px 1fr;gap:4px 10px}
+.two-choice-box{border:1px solid #ddd;background:#fafafa;padding:12px 15px;margin:10px 0 16px}
+.two-choice-box label{display:block;margin:8px 0;cursor:pointer;font-size:13px;line-height:1.45}
+.two-choice-box input{margin-right:8px}
+.example-row{font-size:13px;margin:9px 0 14px;padding:8px 10px;background:#fafafa;border-left:3px solid #aaa}
+.p3-key-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:2.2;margin:8px 0}
+.p3-key-line .answer-input{width:165px}
+.flow-chart-box{background:#fafafa;border:1px solid #ddd;padding:18px 20px;margin:12px 0 16px;border-radius:4px;text-align:center}
+.flow-step{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0}
+.flow-arrow{font-size:20px;color:#666}
+.flow-label{font-weight:700;font-size:13px}
+.flow-input{margin:0 6px}
+.flow-input .answer-input{width:120px}
+.flow-chart-box .answer-input{width:135px}
+@media(max-width:700px){.flow-step{flex-wrap:wrap}.flow-chart-box .answer-input{width:120px}}
+<br>
+.match-bank{background:var(--panel);border:1px solid #ddd;padding:13px 15px;margin:10px 0 18px;border-radius:3px;font-size:12px;line-height:1.55}
+.match-bank-row{display:grid;grid-template-columns:26px 1fr;gap:8px;margin:5px 0}.match-bank-letter{font-weight:800;color:var(--ielts-red)}
+.diagram-rebuild{border:1px solid #ccc;background:#fafafa;border-radius:5px;padding:14px 16px;margin:12px 0 18px}.diagram-title{font-weight:800;font-size:13px;text-align:center;margin-bottom:8px}.eye-svg{display:block;width:min(100%,520px);height:auto;margin:0 auto 8px}.diagram-fields{display:grid;gap:9px;max-width:520px;margin:0 auto}.diagram-field{display:flex;align-items:center;gap:10px}.diagram-field .answer-input{flex:1;width:auto}.diagram-note{font-size:11px;color:#777;text-align:center;margin-top:8px}
+body.contrast-wb .match-bank,body.contrast-wb .diagram-rebuild{background:#171717;color:#fff;border-color:#555}body.contrast-yb .match-bank,body.contrast-yb .diagram-rebuild{background:#171717;color:#f1d70a;border-color:#555}
+@media(max-width:650px){.diagram-field{align-items:flex-start}.diagram-field .answer-input{min-width:0}}
+<br>
+</style>
+</head>
+<body>
+<div id="app">
+<div class="auth-banner">
+<span class="auth-banner-text">For the authentic tests, join</span>
+<a class="auth-banner-link" href="[https://t.me/jasurbekisaev](https://t.me/jasurbekisaev)" target="_blank" rel="noopener"><span class="auth-banner-play">▶</span>@jasurbekisaev</a>
+</div>
+<section class="gate-screen" id="screen-password">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Full Reading Test Access</div>
+<label for="pwd-input">Enter Password</label>
+<input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+<div class="gate-error" id="pwd-error"></div>
+<button class="gate-btn" id="pwd-submit">Continue</button>
+<div class="gate-footer">Full Reading Test — <a href="[https://t.me/jasurbekisaev](https://t.me/jasurbekisaev)" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="gate-screen hidden" id="screen-id">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Enter your Test Taker ID</div>
+<label for="id-input">Test Taker ID</label>
+<input type="text" id="id-input" placeholder="e.g. 123456789" autocomplete="off">
+<div class="gate-error" id="id-error"></div>
+<button class="gate-btn" id="id-submit">Start Test</button>
+<div class="gate-footer">Full Reading Test — <a href="[https://t.me/jasurbekisaev](https://t.me/jasurbekisaev)" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="hidden" id="screen-test" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar">
+<div class="topbar-left">
+<div><div class="ielts-logo">IELTS</div><div class="brand-name">Full Reading Test</div></div>
+<div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display"></div><div class="timer-status" id="timer-display">60:00</div></div>
+</div>
+<div class="topbar-right"><span title="Connection">📶</span><span title="Notifications">🔔</span><button class="icon-btn" id="hamburger-btn" title="Menu">☰</button><button class="icon-btn" id="notes-toggle-btn" title="Notes">✏️</button></div>
+</header>
+<div class="main-wrap">
+<div class="content-wrap"><main class="passage-pane" id="passage-pane"></main><aside class="questions-pane" id="questions-pane"></aside></div>
+<aside class="notes-panel" id="notes-panel"><div class="notes-title">Notes</div><div id="notes-list"></div></aside>
+<div class="menu-overlay" id="menu-overlay">
+<div class="menu-header"><button class="menu-back" id="menu-back-btn">‹ Options</button><div class="menu-title" id="menu-title">Options</div><button class="menu-close" id="menu-close-btn">✕</button></div>
+<div class="menu-body">
+<div id="menu-root"><div class="menu-item danger" id="menu-submit-btn"><span>🚀 Go to submission page</span><span>›</span></div><div class="menu-item" id="menu-contrast-btn"><span>◐ Contrast</span><span>›</span></div><div class="menu-item" id="menu-textsize-btn"><span>🔍 Text size</span><span>›</span></div></div>
+<div class="hidden" id="menu-contrast"><div class="option-row" data-contrast="bw"><span><span class="check">✔</span> Black on white</span></div><div class="option-row" data-contrast="wb"><span><span class="check"></span> White on black</span></div><div class="option-row" data-contrast="yb"><span><span class="check"></span> Yellow on black</span></div></div>
+<div class="hidden" id="menu-textsize"><div class="option-row" data-textsize="regular"><span><span class="check">✔</span> Regular</span></div><div class="option-row" data-textsize="large"><span><span class="check"></span> Large</span></div><div class="option-row" data-textsize="extralarge"><span><span class="check"></span> Extra large</span></div></div>
+</div>
+</div>
+</div>
+<footer class="bottombar" id="bottombar"></footer>
+</section>
+<section class="hidden" id="screen-final" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar"><div class="topbar-left"><div class="ielts-logo">IELTS</div><div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display-final"></div></div></div><div class="topbar-right"><button class="final-action-btn" id="back-to-test-btn">← Back to test</button><button class="final-action-btn primary" id="final-next-btn">Next ✈</button></div></header>
+<div class="transition-body">Click next to submit and view your result.</div>
+<footer class="bottombar"><div class="part-nav-group"><span class="part-label">Passage 1</span><span class="part-count">Questions 1–13</span></div><div class="part-nav-group"><span class="part-label">Passage 2</span><span class="part-count">Questions 14–26</span></div><div class="part-nav-group"><span class="part-label">Passage 3</span><span class="part-count">Questions 27–40</span></div><button class="submit-check" style="background:#111;color:#fff">✔</button></footer>
+</section>
+<section class="hidden results-wrap" id="screen-results">
+<h1>Test Results</h1>
+<p style="font-size:13px;color:#555">Test taker ID: <span id="results-taker-id"></span></p>
+<div class="score-summary"><div class="score-box"><div class="num" id="score-correct">0</div><div class="lbl">Correct</div></div><div class="score-box"><div class="num">40</div><div class="lbl">Total Questions</div></div><div class="score-box"><div class="num" id="score-band">0.0</div><div class="lbl">Estimated Band</div></div></div>
+<table class="review-table"><thead><tr><th style="width:60px">Q#</th><th>Your Answer</th><th>Correct Answer</th><th style="width:90px">Result</th></tr></thead><tbody id="review-body"></tbody></table>
+<button class="restart-btn" id="restart-btn">Restart Test</button>
+</section>
+</div>
+<script>
+(() => {
+"use strict";
+const REQUIRED_PASSWORD="jasurbekisaev";
+const passages={"1":{"title":"READING PASSAGE 1","sub":"Food advertising on children","time":"You should spend about 20 minutes on Questions 1–13, which are based on Reading Passage 1 below.","paras":[{"letter":"","text":"This review was commissioned by the Food Standards Agency to examine the current research evidence on: the extent and nature of food promotion to children; and the effect, if any, that this promotion has on their food knowledge, preferences and behaviour."},{"letter":"A","text":"Children’s food promotion is dominated by television advertising, and the great majority of this promotes the so-called ‘Big Four’ of pre-sugared breakfast cereals, soft-drinks, confectionary and savoury snacks. In the last ten years advertising for fast food outlets has rapidly increased. There is some evidence that the dominance of television has recently begun to wane. The importance of strong, global branding reinforces a need for multi-faceted communications combining television with merchandising, ‘tie-ins’ and point of sale activity. The advertised diet contrasts sharply with that recommended by public health advisors, and themes of fun and fantasy or taste, rather than health and nutrition, are used to promote it to children. Meanwhile, the recommended diet gets little promotional support."},{"letter":"B","text":"There is plenty of evidence that children notice and enjoy food promotion. However, establishing whether this actually influences them is a complex problem. The review tackled it by looking at studies that had examined possible effects on what children know about food, their food preferences, their actual food behaviour (both buying and eating), and their health outcomes (eg. Obesity or cholesterol levels). The majority of studies examined food advertising, but a few examined other forms of food promotion. In terms of nutritional knowledge, food advertising seems to have little influence on children’s general perceptions of what constitutes a healthy diet, but, in certain contexts, it does have an effect on more specific types of nutritional knowledge. For example, seeing soft drink and cereal adverts reduced primary aged children’s ability to determine correctly whether or not certain products contained real fruit."},{"letter":"C","text":"The review also found evidence that food promotion influences children’s food preferences and their purchase behaviour. A study of primary school children, for instance, found that exposure to advertising influenced which foods they claimed to like; and another showed that labelling and signage on a vending machine had an effect on what was bought by secondary school pupils. A number of studies have also shown that food advertising can influence what children eat. One, for example, showed that advertising influenced a primary class’s choice of daily snack at playtime."},{"letter":"D","text":"The next step, of trying to establish whether or not a link exists between food promotion and diet or obesity, is extremely difficult as it requires research to be done in real world settings. A number of studies have attempted this by using amount of television viewing as a proxy for exposure to television advertising. They have established a clear link between television viewing and diet, obesity, and cholesterol levels. It is impossible to say, however, whether this effect is caused by the advertising, the sedentary nature of television viewing or snacking that might take place whilst viewing. One study resolved this problem by taking a detailed diary of children’s viewing habits. This showed that the more food adverts they saw, the more snacks and calories they consumed."},{"letter":"E","text":"Thus the literature does suggest food promotion is influencing children’s diet in a number of ways. This does not amount to proof; as noted above with this kind of research, incontrovertible proof simply isn’t attainable. Nor do all studies point to this conclusion; several have no found an effect. In addition, very few studies have attempted to measure how strong these effects are relative to other factors influencing children’s food choices. Nonetheless, many studies have found clear effects and they have used sophisticated methodologies that make it possible to determine that i) these effects are not just due to chance; ii) they are independent of other factors that influence diet, such as parents’ eating habits or attitudes; and iii) they occur at a brand and category level."},{"letter":"F","text":"Furthermore, two factors suggest that these findings actually downplay the effect that food promotion has no children. First, the literature focuses principally on television advertising; the cumulative effect of this combined with other forms of promotion and marketing is likely to be significantly greater. Second, the studies have looked at direct effects of individual children, and understate indirect influences. For example, promotion for fast food outlets may not only influence the child, but also encourage parents to take them for meals and reinforce the idea that this is a normal and desirable behariour."},{"letter":"G","text":"This does not amount to proof of an effect, but in our view does provide sufficient evidence to conclude that an effect exists. The debate should now shift to what action is needed, and specifically to how the power of commercial marketing can be used to bring about improvements in young people’s eating."}]},"2":{"title":"READING PASSAGE 2","sub":"Finding Our Way","time":"You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2 below.","paras":[{"letter":"A","text":"“Drive 200 yards, and then turn right,” says the car’s computer voice. You relax in the driver’s seat, follow the directions and reach your destination without error. It’s certainly nice to have the Global Positioning System (GPS) to direct you to within a few yards of your goal. Yet if the satellite service’s digital maps become even slightly outdated, you can become lost. Then you have to rely on the ancient human skill of navigating in three-dimensional space. Luckily, your biological finder has an important advantage over GPS: it does not go awry if only one part of the guidance system goes wrong, because it works in various ways. You can ask questions of people on the sidewalk. Or follow a street that looks familiar. Or rely on a navigational rubric: “If I keep the East River on my left, I will eventually cross 34th Street.” The human positioning system is flexible and capable of learning. Anyone who knows the way from point A to point B – and from A to C – can probably figure out how to get from B to C, too."},{"letter":"B","text":"But how does this complex cognitive system really work? Researchers are looking at several strategies people use to orient themselves in space: guidance, path integration and route following. We may use all three or combinations thereof. And as experts learn more about these navigational skills, they are making the case that our abilities may underlie our powers of memory and logical thinking. Grand Central, Please Imagine that you have arrived in a place you have never visited – New York City. You get off the train at Grand Central Terminal in midtown Manhattan. You have a few hours to explore before you must return for your ride home. You head uptown to see popular spots your have been told about: Rockefeller Center, Central Park, the Metropolitan Museum of Art. You meander in and out of shops along the way. Suddenly, it is time to get back to the station. But how?"},{"letter":"C","text":"If you ask passersby for help, most likely you will receive information in many different forms. A person who orients herself by a prominent landmark would gesture southward: “Look down there. See the tall, broad MetLife Building? Head for that – the station is right below it.” Neurologists call this navigational approach “guidance,” meaning that landmark visible from a distance serves as the marker for one’s destination."},{"letter":"D","text":"Another city dweller might say: “What places do you remember passing? … Okay. Go toward the end of Central Park, then walk down to St. Patrick’s Cathedral. A few more blocks, and Grand Central will be off to your left.” In this case, you are pointed toward the most recent place you recall, and you aim for it. Once there you head for the next notable place and so on, retracing your path. Your brain is adding together the individual legs of your trek into a cumulative progress report. Researchers call this strategy “path integration.” Many animals rely primarily on path integration to get around, including insects, spiders, crabs and rodents. The desert ants of the genus Cataglyphis employ this method to return from foraging as far as 100 yards away. They note the general direction they came from and retrace their steps, using the polarization of sunlight to orient themselves even under overcast skies. On their way back they are faithful to this inner homing vector. Even when a scientist picks up an ant and puts it in a totally different spot, the insect stubbornly proceeds in the originally determined direction until it has gone “back” all of the distance it wandered from its nest. Only then does the ant realize it has not succeeded, and it begins to walk in successively larger loops to find its way home."},{"letter":"E","text":"Whether it is trying to get back to the anthill or the train station, any animal using path integration must keep track of its own movements so it knows, while returning, which segments it has already completed. As you move, your brain gathers data from your environment – sights, sounds, smells, lighting, muscle contractions, a sense of time passing – to determine which way your body has gone. The church spire, the sizzling sausages on that vendor’s grill, the open courtyard, and the train station – all represent snapshots of memorable junctures during your journey."},{"letter":"F","text":"In addition to guidance and path integration, we use a third method for finding our way. An office worker you approach for help on a Manhattan street corner might say: “Walk straight down Fifth, turn left on 47th, turn right on Park, go through the walkway under the Helmsley Building, then cross the street to the MetLife Building into Grand Central.” This strategy, called route following, uses landmarks such as buildings and street names, plus directions – straight, turn, go through – for reaching intermediate points. Route following is more precise than guidance or path integration, but if you forget the details and take a wrong turn, the only way to recover is to backtrack until you reach a familiar spot, because you do not know the general direction or have a reference landmark for your goal. The route-following navigation strategy truly challenges the brain. We have to keep all the landmark and intermediate directions in our head. It is the most detailed and therefore most reliable method, but it can be undone by routine memory lapses. With path integration, our cognitive memory is less burdened; it has to deal with only a few general instructions and the homing vector. Path integration works because it relies most fundamentally on our knowledge of our body’s general direction of movement, and we always have access to these inputs. Nevertheless, people often choose to give route-following directions, in part because saying “Go straight that way!” just does not work in our complex, man-made surroundings."},{"letter":"G","text":"Road Map or Metaphor? On your next visit to Manhattan you will rely on your memory to get around. Most likely you will use guidance, path integration and route following in various combinations. But how exactly do these constructs deliver concrete direction? Do we humans have, as an image of the real world, a kind of road map in our heads – with symbols for cities, train stations and churches; thick lines for highways; narrow lines for local streets? Neurobiologists and cognitive psychologists do call the portion of our memory that controls navigation a “cognitive map.” The map metaphor is obviously seductive: maps are the easiest way to present geographic information for convenient visual inspection. In many cultures, maps were developed before writing, and today they are used in almost every society. It is even possible that maps derive from a universal way in which our spatial-memory networks are wired."},{"letter":"H","text":"Yet the notion of a literal map in our heads may be misleading; a growing body of research implies that the cognitive map is mostly a metaphor. It may be more like a hierarchical structure of relationships. To get back to Grand Central, you first envision the large scale – that is, you visualize the general direction of the station. Within that system you then imagine the route to the last place you remember. After that, you observe your nearby surroundings to pick out a recognizable storefront or street corner that will send you toward that place. In this hierarchical, or nested, scheme, positions and distances are relative, in contrast with a road map, where the same information is shown in a geometrically precise scale."}]},"3":{"title":"READING PASSAGE 3","sub":"Decision, Decision!","time":"You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3 below.","paras":[{"letter":"","text":"Research explores when we can make a vital decision quickly and we need to proceed more deliberately"},{"letter":"A","text":"A widely recognised legend tells us that in Gordium (in what is now Turkey) in the fourth century BC an oxcart was roped to a pole with a complex knot. It was said that the first person to untie it would become the king of Asia. Unfortunately, the knot proved impossible to untie. The story continues that when confronted with this problem, rather than deliberating on how to untie the Gordian knot. Alexander, the famous ruler of the Greeks in the ancient world, simply took out his sword and cut it in two – then went on to conquer Asia. Ever since, the notion of a ‘Gordian solution’ has referred to the attractiveness of a simple answer to an otherwise intractable problem."},{"letter":"B","text":"Among researchers in the psychology of decision making, however, such solutions have traditionally held little appeal. In particular, the ‘conflict model’ of decision making proposed by psychologists Irving Janis and Leon Mann in their 1977 book, Decision Making, argued that a complex decision making process is essential for guarding individuals and groups from the peril of ‘group-think’. Decisions made without thorough canvassing, surveying, weighing, examining and reexamining relevant information and options would be suboptimal and often disastrous. One foreign affair decision made by a well-known US political leader in the 1960s is typically held us as an example of the perils of inadequate thought, whereas his successful handling of a later crisis is cited as an example of the advantages of careful deliberation. However, examination of these historical events by Peter Suedfield, a psychologist at the University of British Columbia, and Roderick Kramer, a psychologist at the Stanford Graduate School of Business, found little difference in the two decision-making processes; both crises required and received complex consideration by the political administration, but later only the second one was deemed to be the effective."},{"letter":"C","text":"In general, however, organizational and political science offer little evidence that complex decisions fare better than simpler ones. In fact, a growing body of work suggests that in many situations simple ‘snap’ decisions with be routinely superior to more complex ones – an idea that gained widespread public appeal with Malcolm Gladwell’s best-selling book Blink (2005)."},{"letter":"D","text":"An article by Ap Dijksterhuis of the University of Amsterdam and his colleagues, Making the Right Choice: the Deliberation-without-attention Effect’, runs very much in the spirit of Gladwell’s influential text. It’s core argument is that to be effective, conscious (deliberative) decision making requires cognitive resources. Because increasingly complex decisions place increasing strain on those resources, the quality of our decisions declines as their complexity increases. In short, complex decisions overrun our cognitive powers. On the other hand, unconscious decision making (what the author refer to as ‘deliberation without attention’) requires no cognitive resources, so task complexity does not Effectiveness. The seemingly counterintuitive conclusion is that although conscious thought enhances simple decisions, the opposite holds true for more complex decisions."},{"letter":"E","text":"Dijksterhuis reports four Simple but elegant studies supporting this argument. In one, participants assessed the quality of four hypothetical cars by considering either four attributes (a simple task) or 12 attributes (a complex task). Among participants who considered four attributes, those who were allowed to engage in undistracted deliberative thought did better at discriminating between the best and worst cars. Those who were distracted and thus unable to deliberate had to rely on their unconscious thinking and did less well. The opposite pattern emerged when people considered 12 criteria. In this case, conscious deliberation led to inferior discrimination and poor decisions."},{"letter":"F","text":"In other study, Dijksterhuis surveyed people shopping for clothes (‘simple’ products) and furniture (‘complex’ products). Compared with those who said they had deliberated long and hard, shoppers who bought with little conscious deliberation felt less happy with their simple clothing purchase but happier with the complex furniture purchases. Deliberation without attention actually produced better results as the decisions became more complex."},{"letter":"G","text":"From there, however, the researchers take a big leap. They write: There is no reason to assume that the deliberation-without-attention effect does not generalize to other types of choices – political, managerial or otherwise. In such cases, it should benefit the individual to think consciously about simple matters and to delegate thinking about more complicated matters to the unconscious."},{"letter":"H","text":"This radical inference contradicts standard political and managerial theory but doubtless comforts those in politics and management who always find the simple solution to the complex problem an attractive proposition. Indeed, one suspects many of our political leaders already embrace this wisdom."},{"letter":"I","text":"Still it is there, in the realms of society and its governance, that the more problematic implications of deliberation without attention begin to surface. Variables that can be neatly circumscribed in decisions about shopping lose clarity in a world of group dynamics, social interaction, history and politics. Two pertinent questions arise. First, what counts as a complex decision? And second, what counts as a good outcome?"},{"letter":"J","text":"As social psychologist Kurt Lewin (1890 – 1947) noted, a ‘good’ decision that nobody respects is actually bad, his classic studies of decision making showed that participating in deliberative processes makes people more likely to abide by the results. The issue here is that when political decision makers make mistakes, it is their politics, or the relation between their politics and our own, rather than psychology which is at fault."},{"letter":"K","text":"Gladwell’s book and Dijksterhuis’s paper are invaluable in pointing out the limitations of the conventional wisdom that decision quality rises with decision-making complexity. But this work still tempts us to believe that decision making is simply a matter of psychology, rather than also a question of politics, ideology and group membership. Avoiding social considerations in a search for general appeal rather than toward it."}]}};
+const q={"p1head":[[1,"Paragraph A"],[2,"Paragraph B"],[3,"Paragraph C"],[4,"Paragraph D"],[5,"Paragraph E"],[6,"Paragraph F"],[7,"Paragraph G"]],"p1yn":[[8,"There is little difference between healthy diet recommended by advisors and diet prompted in food advertisements."],[9,"TV advertising has successfully taught children nutritional knowledge about vitamins and others."],[10,"It is hard to decide which aspect accompanied with TV viewing has caused weight problems or other detrimental effects on children."],[11,"The preference of food for children is affected by their age and gender."],[12,"The investigation primarily for food promotion on TV advertising tend to be partial and incomplete"],[13,"Wealthy parents tend to buy more ‘sensible food’ for their children."]],"p2match":[[14,"Using basic direction from starting point and light intensity to move on."],[15,"Using combination of place and direction heading for destination."],[16,"Using an iconic building near your destination as orientation."],[17,"Using a retrace method from a known place if a mistake happens."],[18,"Using a passed spot as reference for a new integration."]],"p2mc":[[19,"What does the ant of Cataglyphis respond if it has been taken to another location according to the passage?",[["A","Changes the orientation sensors improvingly"],["B","Releases biological scent for help from others"],["C","Continues to move by the original orientation"],["D","Totally gets lost once disturbed"]]],[20,"Which of the followings is true about ‘cognitive map’ in this passage?",[["A","There is not obvious difference contrast by real map"],["B","It exists in our head and is always correct"],["C","It only exists under some cultures"],["D","It was managed by brain memory"]]],[21,"Which of following description of way findings correctly reflects the function of cognitive map?",[["A","It visualizes a virtual route in a large scope"],["B","It reproduces an exact details of every landmark"],["C","Observation plays a more important role"],["D","Store or supermarket is a must in the map"]]]],"p2tf":[[22,"Biological navigation has a state of flexibility."],[23,"You will always receive good reaction when you ask direction."],[24,"When someone follows a route, he or she collects comprehensive perceptional information in mind on the way."],[25,"Path integration requires more thought from brain compared with route-following."],[26,"In a familiar surrounding, an exact map of where you are will automatically emerge in your head."]],"p3mc":[[27,"The legend of the Gordian knot is used to illustrate the idea that",[["A","anyone can solve a difficult problem"],["B","difficult problems can have easy solutions"],["C","the solution to any problem requires a lot of thought"],["D","people who can solve complex problems make good leaders"]]],[28,"The ‘conflict model’ of decision making proposed by Janis and Mann requires that",[["A","opposing political parties be involved"],["B","all important facts be considered"],["C","people be encouraged to have different ideas"],["D","previous similar situations be thoroughly examined"]]],[29,"According to recent thinking reinforced by Malcolm Gladwell, the best decisions",[["A","involve consultation"],["B","involve complex thought"],["C","are made very quickly"],["D","are the most attractive option"]]],[30,"Dijksterhuis and his colleagues claim in their article that",[["A","our cognitive resources improve as tasks become more complex"],["B","conscious decision making is negative affected by task complexity"],["C","unconscious decision making is a popular approach"],["D","deliberation without attention defines the way we make decisions"]]],[31,"Dijksterhuis’s car study found that, in simple tasks, participants",[["A","were involved in lengthy discussions"],["B","found it impossible to make decisions quickly"],["C","were unable to differentiate between the options"],["D","could make a better choice when allowed to concentrate"]]]],"p3summary":[[32,"People who spent ______ time buying simple clothing items were more satisfied than those who had not."],[33,"When buying furniture, shoppers made ______ purchasing decisions if they didn’t think too hard."],[34,"In other choices, perhaps more important than shopping, ______ decisions are best made by the unconscious."],[35,"The writer comments that Dijksterhuis’s finding is apparently ______ but nonetheless true."]],"p3yn":[[36,"Dijksterhuis’s findings agree with existing political and management theories."],[37,"Some political leaders seem to use deliberation without attention when making complex decisions."],[38,"All political decisions are complex ones."],[39,"We judge political errors according to our own political beliefs."],[40,"Social considerations must be taken into account for any examination of decision making to prove useful."]]};
+const headingList={"i":"General points of agreements and disagreements of researchers","ii":"How much children really know about food","iii":"Need to take action","iv":"Advertising effects of the ‘Big Four’","v":"Connection of advertising and children’s weight problems","vi":"Evidence that advertising affects what children buy to eat","vii":"How parents influence children’s eating habits","viii":"Advertising’s focus on unhealthy options","ix":"Children often buy what they want","x":"Underestimating the effects advertising has on children"};
+const answerAliases={"1":["viii"],"2":["ii"],"3":["vi"],"4":["v"],"5":["i"],"6":["x"],"7":["iii"],"8":["NO"],"9":["NO"],"10":["YES"],"11":["NOT GIVEN"],"12":["YES"],"13":["NOT GIVEN"],"14":["B"],"15":["C"],"16":["A"],"17":["C"],"18":["B"],"19":["C"],"20":["D"],"21":["A"],"22":["TRUE"],"23":["NOT GIVEN"],"24":["TRUE"],"25":["FALSE"],"26":["FALSE"],"27":["B"],"28":["B"],"29":["C"],"30":["B"],"31":["D"],"32":["A"],"33":["D"],"34":["G"],"35":["B"],"36":["NO"],"37":["NOT GIVEN"],"38":["NOT GIVEN"],"39":["YES"],"40":["NOT GIVEN"]};
+const canonicalAnswers={"1":"viii","2":"ii","3":"vi","4":"v","5":"i","6":"x","7":"iii","8":"NO","9":"NO","10":"YES","11":"NOT GIVEN","12":"YES","13":"NOT GIVEN","14":"B","15":"C","16":"A","17":"C","18":"B","19":"C","20":"D","21":"A","22":"TRUE","23":"NOT GIVEN","24":"TRUE","25":"FALSE","26":"FALSE","27":"B","28":"B","29":"C","30":"B","31":"D","32":"A","33":"D","34":"G","35":"B","36":"NO","37":"NOT GIVEN","38":"NOT GIVEN","39":"YES","40":"NOT GIVEN"};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const state={currentPart:1,answers:{},notes:[],timeLeft:3600,timer:null,takerId:"",contrast:"bw",textsize:"regular"};
+function hide(el){el.classList.add("hidden")}
+function show(el){el.classList.remove("hidden")}
+function renderPassage(data){
+let html=`<div class="passage-title">${esc(data.title)}</div><div class="passage-sub">${esc(data.sub)}</div><div class="passage-time">${esc(data.time)}</div>`;
+data.paras.forEach(p=>{html+=p.letter?`<div class="passage-para"><span class="para-letter">${esc(p.letter)}</span><span class="para-text">${esc(p.text)}</span></div>`:`<div class="passage-para"><span class="para-text">${esc(p.text)}</span></div>`});
+return html;
+}
+function banner(part,range){return `<div class="part-banner"><b>Reading Passage ${part}</b><div class="instr">Answer questions ${range}.</div></div>`}
+function selectInput(num,text,values,labels=null,small=false){const current=state.answers[num]||"";return `<div class="question-row" id="q${num}"><span class="qnum">${num}</span><span class="qtext">${esc(text)}</span><select class="answer-select" data-q="${num}" ${small?'style="width:92px"':''}><option value="">--</option>${values.map((v,i)=>`<option value="${esc(v)}" ${current===v?"selected":""}>${esc(labels?labels[i]:v)}</option>`).join("")}</select></div>`}
+function mc(num,text,items){const current=state.answers[num]||"";return `<div class="mc-question" id="q${num}"><div class="mc-question-title"><span class="qnum">${num}</span><span>${esc(text)}</span></div><div class="mc-options">${items.map(([val,label])=>`<label><input type="radio" name="q${num}" value="${esc(val)}" ${current===val?"checked":""}><b>${esc(val)}</b> ${esc(label)}</label>`).join("")}</div></div>`}
+function fillInput(num,placeholder="________"){return `<input class="answer-input" data-q="${num}" value="${esc(state.answers[num]||"")}" placeholder="${placeholder}" autocomplete="off">`}
+function renderQ1(){
+ const heads=Object.keys(headingList);
+ return `${banner(1,"1–13")}
+ <div class="q-instructions"><span class="q-title">Questions 1–7</span><br>Reading Passage 1 has seven paragraphs, <b>A–G</b>.<br>Choose the most suitable heading for each paragraph from the list below.</div>
+ <div class="list-box"><b>List of Headings</b><br><br>${heads.map(h=>`<b>${esc(h)}</b> &nbsp; ${esc(headingList[h])}`).join("<br><br>")}</div>
+ ${q.p1head.map(([n,t])=>selectInput(n,t,heads,heads,true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 8–13</span><br>Do the following statements agree with the views of the writer in Reading Passage 1?<br>Choose <b>YES</b>, <b>NO</b>, or <b>NOT GIVEN</b>.</div>
+ ${q.p1yn.map(([n,t])=>selectInput(n,t,["YES","NO","NOT GIVEN"])).join("")}`;
+}
+function renderQ2(){
+ const cats={A:"Guidance",B:"Path integration",C:"Route following"};
+ const letters=Object.keys(cats);
+ return `${banner(2,"14–26")}
+ <div class="q-instructions"><span class="q-title">Questions 14–18</span><br>Match each statement with the correct navigation method <b>A–C</b>.<br><b>NB</b> You may use any letter more than once.</div>
+ <div class="list-box">${letters.map(l=>`<b>${l}</b> &nbsp; ${esc(cats[l])}`).join("<br><br>")}</div>
+ ${q.p2match.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 19–21</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+ ${q.p2mc.map(([n,t,items])=>mc(n,t,items)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 22–26</span><br>Do the following statements agree with the information given in Reading Passage 2?<br>Choose <b>TRUE</b>, <b>FALSE</b>, or <b>NOT GIVEN</b>.</div>
+ ${q.p2tf.map(([n,t])=>selectInput(n,t,["TRUE","FALSE","NOT GIVEN"])).join("")}`;
+}
+function renderQ3(){
+ const words={A:"more",B:"counterintuitive",C:"simple",D:"better",E:"conscious",F:"obvious",G:"complex",H:"less",I:"worse"};
+ const letters=Object.keys(words);
+ return `${banner(3,"27–40")}
+ <div class="q-instructions"><span class="q-title">Questions 27–31</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+ ${q.p3mc.map(([n,t,items])=>mc(n,t,items)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 32–35</span><br>Complete the summary using the list of words <b>A–I</b> below.</div>
+ <div class="list-box"><b>Dijksterhuis’s shopping study and its conclusions</b><br><br>${letters.map(l=>`<b>${l}</b> &nbsp; ${esc(words[l])}`).join("<br>")}</div>
+ ${q.p3summary.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 36–40</span><br>Do the following statements agree with the views of the writer in Reading Passage 3?<br>Choose <b>YES</b>, <b>NO</b>, or <b>NOT GIVEN</b>.</div>
+ ${q.p3yn.map(([n,t])=>selectInput(n,t,["YES","NO","NOT GIVEN"])).join("")}`;
+}
+const partData={1:{range:[1,13],render:renderQ1},2:{range:[14,26],render:renderQ2},3:{range:[27,40],render:renderQ3}};
+function renderPart(part){state.currentPart=part;$("passage-pane").innerHTML=renderPassage(passages[String(part)]);$("questions-pane").innerHTML=partData[part].render();attachQuestionListeners();renderBottomBar();$("passage-pane").scrollTop=0;$("questions-pane").scrollTop=0}
+function attachQuestionListeners(){document.querySelectorAll("#questions-pane [data-q]").forEach(el=>{const eventName=(el.tagName==="INPUT"&&el.type==="text")?"input":"change";el.addEventListener(eventName,e=>{state.answers[Number(e.target.dataset.q)]=e.target.value;renderBottomBar()})});document.querySelectorAll("#questions-pane input[type=radio]").forEach(el=>el.addEventListener("change",e=>{state.answers[Number(e.target.name.slice(1))]=e.target.value;renderBottomBar()}));$("passage-pane").onmouseup=handleTextSelection;$("questions-pane").onmouseup=handleTextSelection}
+function countAnswered(part){const [s,e]=partData[part].range;let c=0;for(let n=s;n<=e;n++)if(String(state.answers[n]||"").trim())c++;return c}
+function renderBottomBar(){let html="";for(let part=1;part<=3;part++){const [start,end]=partData[part].range;if(part===state.currentPart){html+=`<div class="part-nav-group"><span class="part-label active">Passage ${part}</span>`;for(let n=start;n<=end;n++)html+=`<button class="qnum-btn ${state.answers[n]?"answered":""}" data-jump="${n}">${n}</button>`;html+="</div>"}else html+=`<div class="part-nav-group"><span class="part-label" data-part="${part}">Passage ${part}</span><span class="part-count">${countAnswered(part)} of ${end-start+1}</span></div>`}html+=`<button class="submit-check" id="submit-check-btn" title="Complete test">✔</button>`;$("bottombar").innerHTML=html;document.querySelectorAll("[data-part]").forEach(el=>el.addEventListener("click",()=>renderPart(Number(el.dataset.part))));document.querySelectorAll("[data-jump]").forEach(el=>el.addEventListener("click",()=>{const n=el.dataset.jump;const target=$("q"+n)||document.querySelector(`[data-q="${n}"]`);if(target)target.scrollIntoView({behavior:"smooth",block:"center"})}));$("submit-check-btn").addEventListener("click",goToFinal)}
+let selectionMenu=null;
+function clearSelectionMenu(){if(selectionMenu){selectionMenu.remove();selectionMenu=null}}
+function clearHighlightsInRange(range){document.querySelectorAll("mark.hl").forEach(mark=>{let hit=false;try{hit=range.intersectsNode(mark)}catch(_e){}if(hit){const parent=mark.parentNode;while(mark.firstChild)parent.insertBefore(mark.firstChild,mark);parent.removeChild(mark);parent.normalize()}})}
+function handleTextSelection(){clearSelectionMenu();const sel=window.getSelection();const text=sel?sel.toString().trim():"";if(!text||text.length>500)return;const range=sel.getRangeAt(0),rect=range.getBoundingClientRect();selectionMenu=document.createElement("div");selectionMenu.className="selection-menu";selectionMenu.innerHTML='<button data-act="highlight">Highlight</button><button data-act="note">Note</button><button data-act="clear">Clear</button>';selectionMenu.style.left=Math.max(8,Math.min(window.innerWidth-220,rect.left))+"px";selectionMenu.style.top=Math.max(74,rect.bottom+6)+"px";document.body.appendChild(selectionMenu);selectionMenu.addEventListener("mousedown",ev=>ev.preventDefault());selectionMenu.querySelector('[data-act="highlight"]').onclick=()=>{try{const r=sel.getRangeAt(0),mark=document.createElement("mark");mark.className="hl";r.surroundContents(mark)}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};selectionMenu.querySelector('[data-act="note"]').onclick=()=>{state.notes.push(text);renderNotes();sel.removeAllRanges();clearSelectionMenu()};selectionMenu.querySelector('[data-act="clear"]').onclick=()=>{try{clearHighlightsInRange(sel.getRangeAt(0))}catch(_e){}sel.removeAllRanges();clearSelectionMenu()}}
+document.addEventListener("mousedown",e=>{if(selectionMenu&&!selectionMenu.contains(e.target))clearSelectionMenu()});
+function renderNotes(){const list=$("notes-list");if(!list)return;list.innerHTML=state.notes.length?state.notes.map((n,i)=>`<div class="note-entry">${esc(n)} <button data-del-note="${i}" style="float:right;border:0;background:none;cursor:pointer">×</button></div>`).join(""):'<div class="notes-empty">Highlight text and choose <b>Note</b> to save it here.</div>';list.querySelectorAll("[data-del-note]").forEach(btn=>btn.onclick=()=>{state.notes.splice(Number(btn.dataset.delNote),1);renderNotes()})}
+function startTimer(){clearInterval(state.timer);state.timer=setInterval(()=>{state.timeLeft=Math.max(0,state.timeLeft-1);updateTimer();if(state.timeLeft===0){clearInterval(state.timer);goToFinal()}},1000);updateTimer()}
+function updateTimer(){const m=String(Math.floor(state.timeLeft/60)).padStart(2,"0"),s=String(state.timeLeft%60).padStart(2,"0");$("timer-display").textContent=`${m}:${s}`;$("timer-display").classList.toggle("low",state.timeLeft<=300)}
+function requestFullscreen(){const el=document.documentElement;if(el.requestFullscreen)el.requestFullscreen().catch(()=>{})}
+function goToFinal(){clearSelectionMenu();$("menu-overlay").classList.remove("open");hide($("screen-test"));show($("screen-final"));$("taker-id-display-final").textContent=state.takerId}
+function normalize(value){return String(value||"").trim().toLowerCase().replace(/[’']/g,"").replace(/[‐‑–—-]+/g," ").replace(/[.,;:!?()]/g,"").replace(/\s+/g," ")}
+function isRegularCorrect(n,user){const aliases=answerAliases[String(n)]||[];const u=normalize(user);return aliases.some(a=>normalize(a)===u)}
+function evaluateAnswers(){const result={};for(let n=1;n<=40;n++)result[n]=isRegularCorrect(n,state.answers[n]||"");return result}
+function estimateBand(correct){const table=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[8,3.5],[6,3]];for(const [min,band] of table)if(correct>=min)return band.toFixed(1);return"2.5"}
+function showResults(){clearInterval(state.timer);hide($("screen-final"));show($("screen-results"));$("results-taker-id").textContent=state.takerId;const evalMap=evaluateAnswers();let correct=0,rows="";for(let n=1;n<=40;n++){const user=state.answers[n]||"",ok=!!evalMap[n];if(ok)correct++;rows+=`<tr><td>${n}</td><td>${esc(user||"—")}</td><td>${esc(canonicalAnswers[String(n)]||"")}</td><td class="${ok?"ok":"no"}">${ok?"✓ Correct":"✗ Wrong"}</td></tr>`}$("score-correct").textContent=correct;$("score-band").textContent=estimateBand(correct);$("review-body").innerHTML=rows}
+function openMenuRoot(){$("menu-root").classList.remove("hidden");$("menu-contrast").classList.add("hidden");$("menu-textsize").classList.add("hidden");$("menu-back-btn").classList.remove("show");$("menu-title").textContent="Options"}
+function openSubmenu(which){$("menu-root").classList.add("hidden");$("menu-"+which).classList.remove("hidden");$("menu-back-btn").classList.add("show");$("menu-title").textContent=which==="contrast"?"Contrast":"Text size"}
+function setContrast(mode){document.body.classList.remove("contrast-wb","contrast-yb");if(mode==="wb")document.body.classList.add("contrast-wb");if(mode==="yb")document.body.classList.add("contrast-yb");state.contrast=mode;document.querySelectorAll("[data-contrast] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-contrast="${mode}"] .check`);if(c)c.textContent="✔"}
+function setTextSize(size){$("app").classList.remove("textsize-large","textsize-extralarge");if(size==="large")$("app").classList.add("textsize-large");if(size==="extralarge")$("app").classList.add("textsize-extralarge");state.textsize=size;document.querySelectorAll("[data-textsize] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-textsize="${size}"] .check`);if(c)c.textContent="✔"}
+$("pwd-submit").onclick=()=>{if($("pwd-input").value===REQUIRED_PASSWORD){$("pwd-error").textContent="";hide($("screen-password"));show($("screen-id"));$("id-input").focus()}else $("pwd-error").textContent="Incorrect password."};
+$("pwd-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("pwd-submit").click()});
+$("id-submit").onclick=()=>{const id=$("id-input").value.trim();if(!id){$("id-error").textContent="Please enter your Test Taker ID.";return}state.takerId=id;$("id-error").textContent="";$("taker-id-display").textContent=id;hide($("screen-id"));show($("screen-test"));renderNotes();renderPart(1);startTimer();requestFullscreen()};
+$("id-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("id-submit").click()});
+$("notes-toggle-btn").onclick=()=>{$("notes-panel").classList.toggle("open");renderNotes()};
+$("hamburger-btn").onclick=()=>{openMenuRoot();$("menu-overlay").classList.add("open")};
+$("menu-close-btn").onclick=()=>$("menu-overlay").classList.remove("open");
+$("menu-back-btn").onclick=openMenuRoot;$("menu-submit-btn").onclick=goToFinal;
+$("menu-contrast-btn").onclick=()=>openSubmenu("contrast");$("menu-textsize-btn").onclick=()=>openSubmenu("textsize");
+document.querySelectorAll("[data-contrast]").forEach(el=>el.onclick=()=>setContrast(el.dataset.contrast));
+document.querySelectorAll("[data-textsize]").forEach(el=>el.onclick=()=>setTextSize(el.dataset.textsize));
+$("back-to-test-btn").onclick=()=>{hide($("screen-final"));show($("screen-test"));renderPart(state.currentPart)};
+$("final-next-btn").onclick=showResults;
+$("restart-btn").onclick=()=>{clearInterval(state.timer);state.answers={};state.notes=[];state.currentPart=1;state.timeLeft=3600;state.takerId="";$("pwd-input").value="";$("id-input").value="";hide($("screen-results"));show($("screen-password"))};
+renderNotes();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Full Reading Test</title>
+<style>
+:root{--ielts-red:#d2122e;--border:#c9c9c9;--text:#1a1a1a;--muted:#666;--panel:#f1f1f1;--focus:#2b6fd6;--highlight:#ffe066}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+button,input,select{font:inherit}
+#app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hidden{display:none!important}
+.auth-banner{height:64px;flex:0 0 64px;background:#172f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.auth-banner-text{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:800;white-space:nowrap}
+.auth-banner-link{display:inline-flex;align-items:center;gap:10px;padding:8px 21px;border:2px solid #d9f3ff;border-radius:28px;background:#45afe0;color:#fff;text-decoration:none;font-size:20px;font-weight:800;white-space:nowrap}
+.auth-banner-play{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#45afe0;font-size:16px}
+.gate-screen{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#f5f5f5;padding:20px}
+.gate-card{width:min(390px,100%);background:#fff;border:1px solid var(--border);border-radius:6px;padding:36px 40px;box-shadow:0 3px 16px rgba(0,0,0,.09)}
+.gate-brand-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.gate-logo{font-size:28px;font-weight:800;color:var(--ielts-red);letter-spacing:1px}
+.gate-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:25px}
+.gate-card label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+.gate-card input{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:4px;margin-bottom:16px}
+.gate-card input:focus{outline:2px solid var(--focus);border-color:var(--focus)}
+.gate-btn{width:100%;padding:11px;border:0;border-radius:4px;background:#111;color:#fff;cursor:pointer}
+.gate-btn:hover{background:#000}
+.gate-error{min-height:18px;color:var(--ielts-red);font-size:13px;margin-top:-8px;margin-bottom:8px}
+.gate-footer{text-align:center;margin-top:17px;font-size:11px;color:#999}
+.gate-footer a{color:var(--focus);text-decoration:none}
+#screen-test,#screen-final,#screen-results{flex:1;min-height:0}
+.topbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 20px;border-bottom:1px solid var(--border);background:#fff;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:13px;min-width:0}
+.ielts-logo{font-size:20px;font-weight:800;color:var(--ielts-red)}
+.brand-name{font-size:11px;color:#555;white-space:nowrap}
+.taker-id-block{font-size:12px;line-height:1.35}
+.taker-id-block .label{font-weight:700}
+.timer-status{font-size:13px;font-weight:700;color:#222}
+.timer-status.low{color:var(--ielts-red)}
+.topbar-right{display:flex;align-items:center;gap:13px}
+.icon-btn{border:0;background:none;cursor:pointer;font-size:19px;padding:5px}
+.main-wrap{position:relative;flex:1;display:flex;overflow:hidden}
+.content-wrap{flex:1;display:flex;overflow:hidden}
+.passage-pane,.questions-pane{flex:1 1 50%;overflow-y:auto;padding:22px 26px;font-size:14px;line-height:1.7}
+.passage-pane{border-right:1px solid var(--border)}
+.passage-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.passage-sub{font-size:16px;font-weight:800;text-align:center;margin:8px 0 12px}
+.passage-time{font-size:12px;color:#777;margin-bottom:18px;font-style:italic}
+.passage-heading{font-size:15px;font-weight:800;text-align:center;margin:18px 0 10px}
+.passage-para{display:flex;gap:10px;margin-bottom:15px}
+.para-letter{width:24px;flex-shrink:0;font-weight:800;color:var(--ielts-red)}
+.para-text{flex:1}
+.part-banner{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin-bottom:18px;border-radius:3px}
+.part-banner b{font-size:14px}
+.part-banner .instr{font-size:13px;margin-top:2px}
+.q-instructions{font-size:13px;margin:0 0 12px}
+.q-title{font-weight:800}
+.question-row{display:flex;align-items:center;gap:11px;margin-bottom:13px;font-size:13px}
+.question-row .qtext{flex:1}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:31px;height:24px;border:1px solid #333;padding:1px 7px;font-size:12px;font-weight:800;flex-shrink:0}
+select.answer-select,input.answer-input{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px}
+select.answer-select{width:170px}
+input.answer-input{width:185px;text-align:center}
+.summary-box{border:1px solid #ddd;background:#fafafa;padding:15px 17px;margin:10px 0 18px;font-size:14px;line-height:2.25}
+.summary-box input{vertical-align:middle;margin:0 4px}
+.list-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.75}
+.list-box b{font-size:13px}
+.mc-question{margin-bottom:18px;font-size:13px}
+.mc-question-title{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px}
+.mc-options label{display:block;margin:7px 0 0 40px;cursor:pointer;line-height:1.45}
+.mc-options input{margin-right:8px}
+.flow-line{margin:8px 0}
+.flow-center{text-align:center;font-weight:700;margin:12px 0}
+.notes-panel{width:270px;border-left:1px solid var(--border);background:#f1f1f1;padding:15px;display:none;overflow-y:auto;flex-shrink:0}
+.notes-panel.open{display:block}
+.notes-title{font-size:13px;font-weight:800;color:var(--ielts-red);margin-bottom:13px}
+.notes-empty{font-size:13px;color:#666;text-align:center;margin-top:35px;line-height:1.6}
+.note-entry{background:#fff;border:1px solid #ccc;border-radius:3px;padding:8px 10px;margin-bottom:9px;font-size:12px;font-style:italic}
+.selection-menu{position:absolute;z-index:100;background:#fff;border:1px solid #999;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;border-radius:3px}
+.selection-menu button{border:0;background:none;padding:8px 11px;font-size:11px;cursor:pointer}
+.selection-menu button+button{border-left:1px solid #ddd}
+mark.hl{background:var(--highlight)}
+.bottombar{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:#fff;overflow-x:auto;flex-shrink:0}
+.part-nav-group{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.part-label{font-size:13px;font-weight:700;cursor:pointer}
+.part-label.active{color:var(--ielts-red)}
+.part-count{font-size:12px;color:#888}
+.qnum-btn{width:23px;height:23px;border:1px solid transparent;border-radius:2px;background:none;font-size:12px;cursor:pointer;padding:0}
+.qnum-btn.answered{font-weight:800;color:var(--focus)}
+.submit-check{width:36px;height:36px;border:0;background:#efefef;cursor:pointer;font-size:16px;flex-shrink:0}
+.menu-overlay{position:absolute;inset:0;z-index:60;background:#fff;display:none;flex-direction:column}
+.menu-overlay.open{display:flex}
+.menu-header{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;padding:14px 16px;border-bottom:1px solid #eee}
+.menu-header button{border:0;background:none;cursor:pointer}
+.menu-back{display:none;justify-self:start}
+.menu-back.show{display:block}
+.menu-title{text-align:center;font-weight:700;font-size:15px}
+.menu-close{justify-self:end;font-size:18px}
+.menu-body{width:min(440px,100%);margin:0 auto;padding:20px}
+.menu-item,.option-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #ddd;padding:14px 16px;font-size:14px;cursor:pointer}
+.menu-item+.menu-item,.option-row+.option-row{border-top:0}
+.menu-item.danger{background:var(--ielts-red);border-color:var(--ielts-red);color:#fff;font-weight:700;margin-bottom:15px}
+.final-action-btn{background:#fff;color:#111;border:1px solid #111;padding:8px 15px;border-radius:3px;font-size:12px;cursor:pointer}
+.final-action-btn.primary{background:#111;color:#fff}
+.transition-body{flex:1;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;font-size:13px;color:#444}
+.results-wrap{height:100%;overflow-y:auto;padding:30px 40px}
+.results-wrap h1{color:var(--ielts-red);font-size:25px;margin:0 0 4px}
+.score-summary{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 27px}
+.score-box{min-width:130px;text-align:center;border:1px solid #ddd;border-radius:5px;padding:16px 22px}
+.score-box .num{font-size:30px;font-weight:800;color:var(--ielts-red)}
+.score-box .lbl{font-size:12px;color:#666;margin-top:4px}
+.review-table{width:100%;border-collapse:collapse;font-size:13px}
+.review-table th,.review-table td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+.review-table th{background:var(--panel)}
+.ok{color:#148a3b;font-weight:800} .no{color:var(--ielts-red);font-weight:800}
+.restart-btn{margin-top:22px;padding:10px 21px;border:0;border-radius:3px;background:#111;color:#fff;cursor:pointer}
+body.contrast-wb .topbar,body.contrast-wb .bottombar,body.contrast-wb .content-wrap,body.contrast-wb .passage-pane,body.contrast-wb .questions-pane{background:#000!important;color:#fff!important}
+body.contrast-wb .part-banner,body.contrast-wb .list-box,body.contrast-wb .summary-box{background:#171717;border-color:#444}
+body.contrast-wb input,body.contrast-wb select{background:#111;color:#fff;border-color:#777}
+body.contrast-yb .topbar,body.contrast-yb .bottombar,body.contrast-yb .content-wrap,body.contrast-yb .passage-pane,body.contrast-yb .questions-pane{background:#000!important;color:#f1d70a!important}
+body.contrast-yb .part-banner,body.contrast-yb .list-box,body.contrast-yb .summary-box{background:#171717;border-color:#555}
+body.contrast-yb input,body.contrast-yb select{background:#111;color:#f1d70a;border-color:#f1d70a}
+#app.textsize-large .passage-pane,#app.textsize-large .questions-pane{font-size:16px}
+#app.textsize-extralarge .passage-pane,#app.textsize-extralarge .questions-pane{font-size:19px}
+@media(max-width:900px){.main-wrap,.content-wrap{flex-direction:column}.passage-pane{border-right:0;border-bottom:1px solid var(--border);max-height:42vh}.notes-panel{position:absolute;right:0;top:0;bottom:0;z-index:55}.brand-name{display:none}.topbar{padding:8px 10px}.passage-pane,.questions-pane{padding:18px}.results-wrap{padding:22px 16px}}
+@media(max-width:700px){.auth-banner{height:52px;flex-basis:52px;gap:8px;padding:6px 8px}.auth-banner-text{font-size:16px}.auth-banner-link{font-size:14px;padding:6px 11px}.auth-banner-play{width:24px;height:24px;font-size:12px}}
+.passage-intro{font-style:italic;margin:0 0 17px;padding:10px 12px;background:#fafafa;border-left:3px solid var(--ielts-red);line-height:1.55}
+.diagram-box{border:1px solid #ddd;background:#fff;padding:10px;margin:10px 0 16px;border-radius:3px;text-align:center}
+.diagram-box img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-answer-grid{margin-top:10px}
+.multi-note{font-size:12px;color:#666;margin:-4px 0 12px}
+body.contrast-wb .passage-intro,body.contrast-wb .diagram-box{background:#111;color:#fff;border-color:#555}
+body.contrast-yb .passage-intro,body.contrast-yb .diagram-box{background:#111;color:#f1d70a;border-color:#555}
+.fill-sentence-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:13px;line-height:2}
+.fill-sentence-row .fill-sentence{flex:1}
+input.inline-answer-input{display:inline-block;width:150px;min-width:110px;border:0!important;border-bottom:2px solid #333!important;border-radius:0!important;background:transparent!important;padding:1px 5px 2px!important;margin:0 5px!important;text-align:center!important;outline:none;color:inherit}
+input.inline-answer-input:focus{border-bottom-color:var(--focus)!important;box-shadow:0 2px 0 rgba(43,111,214,.15)}
+input.inline-answer-input::placeholder{color:#777;letter-spacing:1px}
+.heading-bank{background:var(--panel);border:1px solid #ddd;padding:12px 14px;margin:10px 0 16px;border-radius:3px}
+.heading-bank-title{font-size:13px;font-weight:800;margin-bottom:8px}
+.heading-drag-item{display:flex;align-items:flex-start;gap:9px;background:#fff;border:1px solid #bbb;border-radius:4px;padding:8px 10px;margin:7px 0;cursor:grab;font-size:12px;line-height:1.45;user-select:none}
+.heading-drag-item:active{cursor:grabbing}
+.heading-drag-item.used{opacity:.58}
+.heading-drag-item.selected{outline:2px solid var(--focus);outline-offset:1px}
+.heading-roman{min-width:31px;font-weight:800;color:var(--ielts-red)}
+.heading-help{font-size:11px;color:#666;margin:6px 0 2px}
+.para-content{flex:1;min-width:0}
+.heading-drop-slot{display:flex;align-items:center;gap:8px;min-height:40px;border:2px dashed #9ca3af;border-radius:5px;background:#fafafa;padding:6px 8px;margin:0 0 9px;transition:.15s ease}
+.heading-drop-slot.drag-over{border-color:var(--focus);background:#eef5ff}
+.heading-drop-slot.filled{border-style:solid;border-color:#5c7fb6;background:#f5f8ff}
+.drop-qnum{display:inline-flex;align-items:center;justify-content:center;min-width:35px;height:25px;border:1px solid #333;background:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.drop-prompt{font-size:12px;color:#6b7280;flex:1}
+.drop-answer{font-size:12px;line-height:1.35;flex:1;font-weight:700}
+.drop-clear{border:0;background:transparent;color:#777;font-size:17px;line-height:1;cursor:pointer;padding:2px 5px;display:none}
+.heading-drop-slot.filled .drop-clear{display:block}
+.heading-assignments{border:1px solid #ddd;border-radius:3px;margin:12px 0 18px;overflow:hidden}
+.heading-assignment-row{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:12px;border-top:1px solid #e4e4e4}
+.heading-assignment-row:first-child{border-top:0}
+.heading-assignment-q{font-weight:800;min-width:35px}
+.heading-assignment-value{color:#555;flex:1}
+body.contrast-wb .heading-bank,body.contrast-wb .heading-drop-slot,body.contrast-wb .heading-drag-item{background:#171717;color:#fff;border-color:#666}
+body.contrast-yb .heading-bank,body.contrast-yb .heading-drop-slot,body.contrast-yb .heading-drag-item{background:#171717;color:#f1d70a;border-color:#777}
+body.contrast-wb .drop-qnum,body.contrast-yb .drop-qnum{background:#111;color:inherit;border-color:#888}
+@media(max-width:900px){.heading-drag-item{cursor:pointer}.heading-drop-slot{min-height:44px}}
+.category-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.8}
+.category-grid{display:grid;grid-template-columns:38px 1fr;gap:4px 10px}
+.two-choice-box{border:1px solid #ddd;background:#fafafa;padding:12px 15px;margin:10px 0 16px}
+.two-choice-box label{display:block;margin:8px 0;cursor:pointer;font-size:13px;line-height:1.45}
+.two-choice-box input{margin-right:8px}
+.example-row{font-size:13px;margin:9px 0 14px;padding:8px 10px;background:#fafafa;border-left:3px solid #aaa}
+.p3-key-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:2.2;margin:8px 0}
+.p3-key-line .answer-input{width:165px}
+.flow-chart-box{background:#fafafa;border:1px solid #ddd;padding:18px 20px;margin:12px 0 16px;border-radius:4px;text-align:center}
+.flow-step{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0}
+.flow-arrow{font-size:20px;color:#666}
+.flow-label{font-weight:700;font-size:13px}
+.flow-input{margin:0 6px}
+.flow-input .answer-input{width:120px}
+.flow-chart-box .answer-input{width:135px}
+@media(max-width:700px){.flow-step{flex-wrap:wrap}.flow-chart-box .answer-input{width:120px}}
+
+.match-bank{background:var(--panel);border:1px solid #ddd;padding:13px 15px;margin:10px 0 18px;border-radius:3px;font-size:12px;line-height:1.55}
+.match-bank-row{display:grid;grid-template-columns:26px 1fr;gap:8px;margin:5px 0}.match-bank-letter{font-weight:800;color:var(--ielts-red)}
+.diagram-rebuild{border:1px solid #ccc;background:#fafafa;border-radius:5px;padding:14px 16px;margin:12px 0 18px}.diagram-title{font-weight:800;font-size:13px;text-align:center;margin-bottom:8px}.eye-svg{display:block;width:min(100%,520px);height:auto;margin:0 auto 8px}.diagram-fields{display:grid;gap:9px;max-width:520px;margin:0 auto}.diagram-field{display:flex;align-items:center;gap:10px}.diagram-field .answer-input{flex:1;width:auto}.diagram-note{font-size:11px;color:#777;text-align:center;margin-top:8px}
+body.contrast-wb .match-bank,body.contrast-wb .diagram-rebuild{background:#171717;color:#fff;border-color:#555}body.contrast-yb .match-bank,body.contrast-yb .diagram-rebuild{background:#171717;color:#f1d70a;border-color:#555}
+@media(max-width:650px){.diagram-field{align-items:flex-start}.diagram-field .answer-input{min-width:0}}
+
+</style>
+</head>
+<body>
+<div id="app">
+<div class="auth-banner">
+<span class="auth-banner-text">For the authentic tests, join</span>
+<a class="auth-banner-link" href="https://t.me/jasurbekisaev" target="_blank" rel="noopener"><span class="auth-banner-play">▶</span>@jasurbekisaev</a>
+</div>
+<section class="gate-screen" id="screen-password">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Full Reading Test Access</div>
+<label for="pwd-input">Enter Password</label>
+<input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+<div class="gate-error" id="pwd-error"></div>
+<button class="gate-btn" id="pwd-submit">Continue</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="gate-screen hidden" id="screen-id">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Enter your Test Taker ID</div>
+<label for="id-input">Test Taker ID</label>
+<input type="text" id="id-input" placeholder="e.g. 123456789" autocomplete="off">
+<div class="gate-error" id="id-error"></div>
+<button class="gate-btn" id="id-submit">Start Test</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="hidden" id="screen-test" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar">
+<div class="topbar-left">
+<div><div class="ielts-logo">IELTS</div><div class="brand-name">Full Reading Test</div></div>
+<div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display"></div><div class="timer-status" id="timer-display">60:00</div></div>
+</div>
+<div class="topbar-right"><span title="Connection">📶</span><span title="Notifications">🔔</span><button class="icon-btn" id="hamburger-btn" title="Menu">☰</button><button class="icon-btn" id="notes-toggle-btn" title="Notes">✏️</button></div>
+</header>
+<div class="main-wrap">
+<div class="content-wrap"><main class="passage-pane" id="passage-pane"></main><aside class="questions-pane" id="questions-pane"></aside></div>
+<aside class="notes-panel" id="notes-panel"><div class="notes-title">Notes</div><div id="notes-list"></div></aside>
+<div class="menu-overlay" id="menu-overlay">
+<div class="menu-header"><button class="menu-back" id="menu-back-btn">‹ Options</button><div class="menu-title" id="menu-title">Options</div><button class="menu-close" id="menu-close-btn">✕</button></div>
+<div class="menu-body">
+<div id="menu-root"><div class="menu-item danger" id="menu-submit-btn"><span>🚀 Go to submission page</span><span>›</span></div><div class="menu-item" id="menu-contrast-btn"><span>◐ Contrast</span><span>›</span></div><div class="menu-item" id="menu-textsize-btn"><span>🔍 Text size</span><span>›</span></div></div>
+<div class="hidden" id="menu-contrast"><div class="option-row" data-contrast="bw"><span><span class="check">✔</span> Black on white</span></div><div class="option-row" data-contrast="wb"><span><span class="check"></span> White on black</span></div><div class="option-row" data-contrast="yb"><span><span class="check"></span> Yellow on black</span></div></div>
+<div class="hidden" id="menu-textsize"><div class="option-row" data-textsize="regular"><span><span class="check">✔</span> Regular</span></div><div class="option-row" data-textsize="large"><span><span class="check"></span> Large</span></div><div class="option-row" data-textsize="extralarge"><span><span class="check"></span> Extra large</span></div></div>
+</div>
+</div>
+</div>
+<footer class="bottombar" id="bottombar"></footer>
+</section>
+<section class="hidden" id="screen-final" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar"><div class="topbar-left"><div class="ielts-logo">IELTS</div><div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display-final"></div></div></div><div class="topbar-right"><button class="final-action-btn" id="back-to-test-btn">← Back to test</button><button class="final-action-btn primary" id="final-next-btn">Next ✈</button></div></header>
+<div class="transition-body">Click next to submit and view your result.</div>
+<footer class="bottombar"><div class="part-nav-group"><span class="part-label">Passage 1</span><span class="part-count">Questions 1–13</span></div><div class="part-nav-group"><span class="part-label">Passage 2</span><span class="part-count">Questions 14–26</span></div><div class="part-nav-group"><span class="part-label">Passage 3</span><span class="part-count">Questions 27–40</span></div><button class="submit-check" style="background:#111;color:#fff">✔</button></footer>
+</section>
+<section class="hidden results-wrap" id="screen-results">
+<h1>Test Results</h1>
+<p style="font-size:13px;color:#555">Test taker ID: <span id="results-taker-id"></span></p>
+<div class="score-summary"><div class="score-box"><div class="num" id="score-correct">0</div><div class="lbl">Correct</div></div><div class="score-box"><div class="num">40</div><div class="lbl">Total Questions</div></div><div class="score-box"><div class="num" id="score-band">0.0</div><div class="lbl">Estimated Band</div></div></div>
+<table class="review-table"><thead><tr><th style="width:60px">Q#</th><th>Your Answer</th><th>Correct Answer</th><th style="width:90px">Result</th></tr></thead><tbody id="review-body"></tbody></table>
+<button class="restart-btn" id="restart-btn">Restart Test</button>
+</section>
+</div>
+<script>
+(() => {
+"use strict";
+const REQUIRED_PASSWORD="jasurbekisaev";
+const passages={"1": {"title": "READING PASSAGE 1", "sub": "ALTERNATIVE ENERGY SOURCES", "time": "You should spend about 20 minutes on Questions 1–13, which are based on Reading Passage 1 below.", "paras": [{"letter": "A", "text": "There are many reasons why we are looking toward alternative energy sources. With many countries signing the Kyoto Treaty, efforts to reduce pollutants and greenhouse gases are a primary focus in today’s culture. Alternative, or renewable, energy sources show significant promise in helping to reduce the amount of toxins that are by-products of energy use. Not only do they protect against harmful by-products, but using alternative energy helps to preserve many of the natural resources that we currently use as sources of energy. To understand how alternative energy use can help preserve the delicate ecological balance of the planet, and help us conserve the non-renewable energy sources like fossil fuels, it is important to know what types of alternative energy are out there."}, {"letter": "B", "text": "Alternative energy sources are resources that constantly replace and are usually less polluting. They are not the result of the burning of fossil fuels or the splitting of atoms. The use of renewable energy is contributing to our energy supply. Some alternative energy sources are biomass energy, geothermal energy, hydroelectric power, solar power, wind power, fuel cells, ocean thermal energy conversion, tidal energy, and wave energy."}, {"letter": "C", "text": "Biomass is renewable energy that is produced from organic matter. Biomass fuels include wood, forest and mill residues, animal waste, grains, agricultural crops, and aquatic plants. These materials are used as fuel to heat water for steam or processed into liquids and gases, which can be burned to do the same thing. With more use of biomass at lower production costs and better technology, the United States could generate as much as four-and-a-half times more biopower by 2020. It is estimated that biomass will have the largest increase among renewable energy sources, rising by 80 percent and reaching 65.7 billion KW in 2020."}, {"letter": "D", "text": "Geothermal energy uses heat from within the earth. Wells are drilled into geothermal reservoirs to bring the hot water or steam to the surface. The steam then drives a turbine-generator to generate electricity in geothermal plants. In some places, this heat is used directly to heat homes and greenhouses or to provide process heat for businesses or industries. Reykjavik, Iceland, is heated by geothermal energy. Most geothermal resources are concentrated in the western part of the United States. Geothermal heat pumps use shallow ground energy to heat and cool homes, and this technique can be employed almost anywhere. With technological improvements much more power could be generated from hydrothermal resources. Scientists have been experimenting by pumping water into the hot dry rock that is 3-6 miles below the earth’s surface for use in geothermal power plants."}, {"letter": "E", "text": "Hydroelectric (hydropower) energy employs the force of falling water to drive turbine-generators to produce electricity. Hydropower produces more electricity than any other alternative energy source. It has been estimated that hydroelectric power will decline from 389 billion KW in the US in 1999 to 298 billion KW in 2020. This decline is expected because most of the best sites for hydropower have already been developed and because of concerns about the adverse impact that large-scale hydroelectric facilities may have on the environment."}, {"letter": "F", "text": "Solar energy is generated without a turbine or electromagnet. Special panels of photovoltaic cells capture light from the sun and convert it directly into electricity. The electricity is stored in a battery. Solar energy can also be used to directly heat water for domestic use (solar thermal technology). The domestic photovoltaic (PV) industry could provide up to 15% of new US peak electricity capacity that is expected to be required in 2020."}, {"letter": "G", "text": "Wind energy can be used to produce electricity. As wind passes through the blades of a windmill, the blades spin. The shaft that is attached to the blades turns and powers a pump or turns a generator to produce electricity. Electricity is then stored in batteries. The speed of the wind and the size of the blades determine how much energy can be produced. Wind energy is more efficient in windier parts of the country. Most wind power is produced from wind farms – large groups of turbines located in consistently windy locations. Wind, used as a fuel, is free and non-polluting and produces no emissions or chemical wastes. Wind-powered electricity is gaining in popularity."}, {"letter": "H", "text": "Fuel cells are electrochemical devices that produce electricity through a chemical reaction. Fuel cells are rechargeable, contain no moving parts, are clean, and produce no noise. Scientists are exploring ways that they could be used as a power source for nearly exhaust-free automobiles and how they can be used as electricity-generating plants. The high cost of manufacturing fuel cells has prevented the mass use of this valuable energy source."}, {"letter": "I", "text": "Ocean sources: Oceans, which cover more than 70% of the earth, contain both thermal energy from the sun’s heat and mechanical energy from the tides and waves. Ocean thermal energy conversion (OTEC) converts solar radiation to electric power. OTEC power plants use the difference in temperature between warm surface waters heated by the sun and colder waters found at ocean depths to generate electricity. The power of tides can also be harnessed to produce electricity. Tidal energy works by harnessing the power of changing tides but it needs large tidal differences. The tidal process utilizes the natural motion of the tides to fill reservoirs, which are then slowly discharged through electricity-producing turbines. Wave energy conversion extracts energy from surface waves, from pressure fluctuations below the water surface, or from the full wave. Wave energy also uses the interaction of winds with the ocean surface. This technology is still in the exploratory phase in the United States."}]}, "2": {"title": "READING PASSAGE 2", "sub": "Colour Blindness", "time": "You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2 below.", "paras": [{"letter": "", "text": "Colour blindness results from an absence or malfunction of certain colour-sensitive cells in the retina. The retina is a neuro-membrane lining the inside back of the eye, behind the lens. The retina contains both rod cells (active in low light or night vision but which cannot distinguish colour) and cone cells (active in normal daylight, sensitive to colour). Cone cells, also called photoreceptors, are concentrated mostly in the central part of the retina, in an area called the macula. Cone cells provide clear, sharp colour vision. The cones contain light-sensitive pigments that are sensitive to the range of wavelengths. There are three different types of cones with one sensitive to short wavelengths, or the colour blue, one sensitive to medium wavelengths, or the colour green, and the other sensitive to higher wavelengths, or the colour red. All of these cells send information about colour to the brain via the optic nerve which connects to the retina at a point very close to the macula. Normal persons, referred to as trichromats, are able to match all colours of the spectrum by using a combination of these three fundamental colour sensitivities. Hence, the huge variety of colours we perceive stems from the cone cells’ response to different compositions of wavelengths of light."}, {"letter": "", "text": "There are many types of colour blindness. When there are deficiencies in the cones, either at birth or acquired in other ways, the cones are not able to distinguish the particular wavelengths and thus, that colour range is seen differently. Those with defective colour vision have a deficiency or absence in one or more of the pigments. People with a deficiency in one of the pigments (the most common type of colour vision problem) are called anomalous trichromats. When one of the cone pigments is absent and the colour is reduced to two dimensions, dichromacy occurs. These individuals normally know they have a colour vision problem and it can affect their lives on a daily basis. They see no perceptible difference between red, orange, yellow, and green. All these colours that seem so different to the normal viewer appear to them to be the same colour. Missing the cones responsible for green and red hues can also affect the sensitivity to brightness."}, {"letter": "", "text": "Most cases of colour blindness, about 99%, are inherited, resulting from partial or complete loss of function in one or more of the different cone systems and affect both eyes without worsening over time. The most common are red-green hereditary (genetic) photoreceptor disorders collectively referred to as ‘red-green colour blindness’. It affects 8% of all males of European origin and 0.4% of all females. The gene for this is carried in the X chromosome. Since males have an X-Y pairing and females have X-X, colour blindness can occur much more easily in males and is typically passed to them by their mothers. In other words, females may be carriers of colour blindness, but males are more commonly affected. People with this disorder cannot identify red or green by itself but can if among a coloured group. Other forms of colour blindness are much rarer. They include problems in discriminating blues from yellows. Both colours are seen as white other physical disorders, such as liver disease or diabetes."}, {"letter": "", "text": "The rarest form of all is total colour blindness, monochromacy, where one can only see grey or shades of black, grey and white as in a black-and-white film or photograph. Monochromacy occurs when two or all three of the cone pigments are missing and colour and lightness vision is reduced to one dimension. Another term for total colour blindness is achromatopsia, the inability to see colour."}, {"letter": "", "text": "Inherited colour vision problems cannot be treated or corrected. Some acquired colour vision problems can be treated with surgery, such as the removal of a cataract, depending on the cause. Certain types of tinted filters and contact lenses may also help an individual to distinguish different colours better. Additionally, computer software has been developed to assist those with visual colour difficulties and those with mild colour deficiencies to learn to associate colours with certain objects and are usually able to identify colour in the same way as everyone else. One frequent problem encountered is with traffic lights, and worst of all, warning lights: colour-blind people always know the position of the colours on the traffic light – in most situations; red on top, yellow in the centre, green on the bottom. But warning lights present an entirely different problem. In this situation there is only one light; no top or bottom, no right or left, just one light that is either red or yellow."}, {"letter": "", "text": "Colour vision problems can have a significant impact on a person’s life, learning abilities and career choices. On an everyday basis, there are some annoyances and frustrations: not being able to differentiate between green or ripe tomatoes when preparing food, for example, or buying clothes that to the ‘normal’ eye seem positively garish. However, people with colour vision problems usually learn to compensate for their inability to see colours. Although there is little or no treatment for colour blindness, most colour deficient persons compensate well for their defect and may even discover instances in which they can discern details and images that would escape normal-sighted persons. At one time the US Army found the colour-blind persons can spot camouflage colours in cases where those with normal colour vision are typically fooled."}]}, "3": {"title": "READING PASSAGE 3", "sub": "Population growth sentencing millions to hydrological poverty", "time": "You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3 below.", "paras": [{"letter": "A", "text": "At a time when drought in the United States, Ethiopia, and Afghanistan is in the news, it is easy to forget that far more serious water shortages are emerging at the demand for water in many countries simply outruns the supply. Water tables are now falling on every continent; literally, scores of countries are facing water shortages as the tables fall and wells go dry. We live in a water-challenged world, one that is becoming more so each year as 80 million additional people stake their claims to the Earth’s water resources. Unfortunately, nearly all the projected 3 billion people to be added over the next half-century will be born in countries that are already experiencing water shortages. Even now, many in these countries lack enough water to drink, to satisfy cleanliness needs, and to produce food."}, {"letter": "B", "text": "By 2050, India is projected to have added 519 million people and China 211 million. Pakistan is projected to have added nearly 200 million, going from 151 million at present to 348 million. Egypt, Iran, and Mexico are slated to increase their populations by more than half by 2050. In these and other water-short countries, population growth is sentencing millions of people to hydrological poverty, a local form of poverty that is difficult to escape."}, {"letter": "C", "text": "Even with today’s 6 billion people, the world has a huge water deficit. Using data on over-pumping for China, India, Saudi Arabia, North Africa, and the United States, Sandra Postel, author of Pillar of Sand: Can the Irrigation Miracle Last? reports the annual depletion of the aquifer to be at 160 billion cubic meters or 160 billion tons. Using the rule of thumb that it takes 1,000 tons of water to produce 1 ton of grain, this 160-billion-ton water deficit is equal to 160 million tons of grain or one-half the US grain harvest."}, {"letter": "D", "text": "Average world grain consumption is just over 300 kilograms per person per annum – one-third of a ton per person per year – and grain reserves directly or indirectly feed 480 million people globally. Stated otherwise, 480 million of the world’s 6 billion people are being fed with grain produced with the unsustainable use of water."}, {"letter": "E", "text": "Over-pumping is a new phenomenon, one largely confined to the last half-century. Only since the development of powerful diesel – and electrically-driven pumps have we had the capacity to pull water out of an aquifer faster than it is replaced by precipitation. Some 70 percent of the water consumed worldwide, including both that diverted from rivers and that pumped from underground, is used for irrigation, while some 20 percent is used by industry, and 10 percent for residential purposes. In the increasingly intense competition for water among sectors, agriculture almost always loses. The 1,000 tons of water used in India to produce 1 ton of wheat worth perhaps $200 can also be used to expand industrial output by easily $10,000 or 50 times as much. This ratio helps explain why, in the American West, the sale of irrigation water rights by farmers to cities is an almost daily occurrence."}, {"letter": "F", "text": "In addition to population growth, urbanisation and industrialisation also expand the demand for water. As developing country villagers, traditionally reliant on the village well, move to urban high-rise apartment buildings with indoor plumbing, their residential water use can easily triple. Industrialisation takes even more water than urbanisation. Rising affluence in itself generates additional demand for water. As people move up the food chain, consuming more beef, pork, poultry, eggs, and dairy products, they use more grain. A US diet rich in livestock products requires 800 kilograms of grain per person a year, whereas diets in India, dominated by a starchy food staple such as rice, typically need only 200 kilograms. Using four times as much grain per person means using four times as much water."}, {"letter": "G", "text": "Once a localised phenomenon, water scarcity is now crossing national borders via the international grain trade. The world’s fastest-growing grain import market is North Africa and the Middle East; an area that includes Morocco, Algeria, Tunisia, Libya, Egypt, and Iran. Virtually every country in this region is simultaneously experiencing water shortages and rapid population growth."}, {"letter": "H", "text": "As the demand for water in the region’s cities and industries increases, it is typically satisfied by diverting water from irrigation. The loss in food production capacity is then offset by importing grain from abroad. Since 1 ton of grain represents 1,000 tons of water, this becomes the most efficient way to import water."}, {"letter": "I", "text": "Last year, Iran imported 7 million tons of wheat, eclipsing Japan to become the world’s leading wheat importer. This year, Egypt is also projected to move ahead of Japan. Iran and Egypt have nearly 70 million people each. Both populations are increasing by more than a million a year and both are pressing the limits of their water supplies."}, {"letter": "J", "text": "The water required to produce the grain and other foodstuffs imported into North Africa and the Middle East last year was roughly equal to the annual flow of the Nile River. Stated otherwise, the fast-growing water deficit of this region is equal to another Nile flowing into the region in the form of imported grain."}, {"letter": "K", "text": "It is now often said that future wars in the region will more likely be fought over water than oil. Perhaps, but given the difficulty in winning a water war, the competition for water seems more likely to take place in world grain markets. The countries that will ‘win’ in this competition will be those that are financially strongest, not those that are militarily strongest. The world water deficit grows larger with each year, making it potentially more difficult to manage. If we decided abruptly to stabilise water tables everywhere by simply pumping less water, the world grain harvest would fall by some 160 million tons or 8 percent, and grain prices would go off the chart. If the deficit continues to widen, the eventual adjustment will be even greater."}, {"letter": "L", "text": "Unless governments in water-short countries act quickly to stabilise their populations and to raise water productivity, their water shortages may soon become food shortages. The risk is that the growing number of water-short countries, including population giants China and India, with rising grain-import needs will overwhelm the exportable supply in food surplus countries, such as the United States, Canada, and Australia. This is turn could destabilise world grain markets. Another risk of delay in dealing with the deficit is that some low-income, water-short countries will not be able to afford to import needed grain, trapping millions of their people in hydrological poverty; thirsty and hungry, unable to escape."}, {"letter": "M", "text": "Although there are still some opportunities for developing new water resources, restoring the balance between water use and developing a sustainable supply will depend primarily on demand-side initiatives, such as stabilising population and raising water productivity. Governments can no longer separate population policy from the supply of water. And just as the world turned to raise land productivity a half-century ago when the frontiers of agricultural settlement disappeared, so it must now turn to raise water productivity. The first step toward this goal is to eliminate the water subsidies that foster inefficiency. The second step is to raise the price of water to reflect its cost. Shifting to more water-efficient technologies, more water-efficient crops, and more water-efficient forms of animal protein offer a huge potential for raising water productivity. These shifts will move faster if the price of water more closely reflects its real value."}]}};
+const q={"p1two": [[1, "First fact mentioned"], [2, "Second fact mentioned"]], "p1mc": [[3, "Geothermal energy is produced by", [["A", "heating the air below the surface of the ground."], ["B", "employing the force of falling water."], ["C", "extracting water or steam from beneath the earth’s surface."], ["D", "using the earth’s natural electricity."]]], [4, "Which form of alternative energy does not involve the use of turbines?", [["A", "wind energy"], ["B", "geothermal energy"], ["C", "tidal energy"], ["D", "fuel cell energy"]]]], "p1tf": [[5, "Wind power is the most efficient form of alternative energy."], [6, "Wave energy can be derived from a number of sources."], [7, "Alternative energy sources serve several purposes."], [8, "Fossil fuels are needed in at least one of these alternative energy sources."]], "p1fill": [[9, "By using alternative energy sources, we can cut the", "that are produced by current power sources."], [10, "In addition to fossil fuels and atom-splitting, we presently use", "as part of our power source."], [11, "Renewable energy called biomass is produced from", ""], [12, "The renewable energy that comes from within the earth is called", ""], [13, "One of the reasons that fuel cells are not widely used is the", "of manufacturing."]], "p2match": [[14, "Colour blindness can be caused by a birth defect, or"], [15, "Surprisingly, some people who are colour blind"], [16, "People with hereditary colour blindness"], [17, "Because of our genetic make-up, colour blindness"], [18, "Red-green genetic photoreceptor disorders mean that people"], [19, "People with monochromacy"], [20, "The inability to see certain lights"]], "p2mc": [[21, "What causes colour blindness?", [["A", "the absence of rod cells"], ["B", "the malfunction of rod cells"], ["C", "the malfunction of cone cells"], ["D", "the retina’s inability to detect light"]]], [22, "Which group of people are the least common?", [["A", "people who cannot detect blues from yellows"], ["B", "anomalous trichromats"], ["C", "people with dichromacy"], ["D", "people with achromatopsia"]]], [23, "What would colour-blind people consider an everyday nuisance?", [["A", "not being able to identify the colour of warning lights"], ["B", "not being able to tell an apple from a tomato"], ["C", "not being able to cook"], ["D", "not being able to buy matching clothes"]]]], "p3tf": [[27, "Vegetarians drink less water than meat-eaters."], [28, "A typical Indian diet requires less grain than a typical USA diet."], [29, "Growing grain uses more water than raising beef."], [30, "People that move from the country to the city may increase their water consumption considerably."], [31, "Future conflicts will be fought as much over food as they will over oil."], [32, "Egypt and Japan also import 7 million tons of oil annually."]], "p3para": [[33, "The volume of water is needed for irrigation in grain production."], [34, "Over-pumping our underground water supplies."], [35, "Population growth will be responsible for a new type of water-related poverty."], [36, "Industrialisation demands greater water supplies."]], "p3mc": [[37, "Our water supply is running low because", [["A", "grain is now exported globally."], ["B", "the world’s population is increasing rapidly."], ["C", "more people are moving to cities."], ["D", "people waste water foolishly."]]], [38, "People who have a high-meat diet cause more water to be used because", [["A", "it takes more grain to feed livestock than it does a human."], ["B", "the industrial processes to produce meat require a lot of water."], ["C", "livestock drink a lot of water."], ["D", "packaging of meat products goes through an intensive washing process."]]], [39, "What would reduce the use of water without adversely affecting the food supply?", [["A", "growing fewer crops"], ["B", "increasing water subsidies"], ["C", "diverting water from irrigation"], ["D", "falling population levels"]]], [40, "If there is a water war, who will win?", [["A", "the driest countries"], ["B", "the richest countries"], ["C", "the countries that are more forceful"], ["D", "the countries that have the biggest population."]]]]};
+const matchEndings={"A": "can see better at night than during the day.", "B": "cannot be treated by surgery.", "C": "can affect men much more easily than women.", "D": "can affect their sensitivity to bright lights.", "E": "can see no colour at all, other than shades of black, grey and white.", "F": "can see things that people with normal vision cannot.", "G": "can have very dangerous consequences for colour-blind people.", "H": "can be acquired or inherited.", "I": "can mean having to wear contact lenses.", "J": "cannot distinguish certain colours if they stand alone.", "K": "can match all colours of the spectrum."};
+const answerAliases={"1": ["B"], "2": ["D"], "3": ["C"], "4": ["D"], "5": ["NOT GIVEN"], "6": ["TRUE"], "7": ["TRUE"], "8": ["FALSE"], "9": ["amount of toxins"], "10": ["renewable energy"], "11": ["organic matter"], "12": ["geothermal energy"], "13": ["high cost", "cost"], "14": ["H"], "15": ["F"], "16": ["B"], "17": ["C"], "18": ["J"], "19": ["E"], "20": ["G"], "21": ["C"], "22": ["D"], "23": ["D"], "24": ["optic nerve"], "25": ["retina"], "26": ["macula"], "27": ["NOT GIVEN"], "28": ["TRUE"], "29": ["NOT GIVEN"], "30": ["TRUE"], "31": ["FALSE"], "32": ["NOT GIVEN"], "33": ["C"], "34": ["E"], "35": ["B"], "36": ["F"], "37": ["B"], "38": ["A"], "39": ["D"], "40": ["B"]};
+const canonicalAnswers={"1": "B / D (either order)", "2": "B / D (either order)", "3": "C", "4": "D", "5": "NOT GIVEN", "6": "TRUE", "7": "TRUE", "8": "FALSE", "9": "amount of toxins", "10": "renewable energy", "11": "organic matter", "12": "geothermal energy", "13": "(high) cost", "14": "H", "15": "F", "16": "B", "17": "C", "18": "J", "19": "E", "20": "G", "21": "C", "22": "D", "23": "D", "24": "optic nerve", "25": "retina", "26": "macula", "27": "NOT GIVEN", "28": "TRUE", "29": "NOT GIVEN", "30": "TRUE", "31": "FALSE", "32": "NOT GIVEN", "33": "C", "34": "E", "35": "B", "36": "F", "37": "B", "38": "A", "39": "D", "40": "B"};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const state={currentPart:1,answers:{},notes:[],timeLeft:3600,timer:null,takerId:"",contrast:"bw",textsize:"regular"};
+function hide(el){el.classList.add("hidden")}
+function show(el){el.classList.remove("hidden")}
+function renderPassage(data){
+ let html=`<div class="passage-title">${esc(data.title)}</div><div class="passage-sub">${esc(data.sub)}</div><div class="passage-time">${esc(data.time)}</div>`;
+ data.paras.forEach(p=>{html+=p.letter?`<div class="passage-para"><span class="para-letter">${esc(p.letter)}</span><span class="para-text">${esc(p.text)}</span></div>`:`<div class="passage-para"><span class="para-text">${esc(p.text)}</span></div>`});
+ return html;
+}
+function banner(part,range){return `<div class="part-banner"><b>Reading Passage ${part}</b><div class="instr">Answer questions ${range}.</div></div>`}
+function selectInput(num,text,values,labels=null,small=false){const current=state.answers[num]||"";return `<div class="question-row" id="q${num}"><span class="qnum">${num}</span><span class="qtext">${esc(text)}</span><select class="answer-select" data-q="${num}" ${small?'style="width:92px"':''}><option value="">--</option>${values.map((v,i)=>`<option value="${esc(v)}" ${current===v?"selected":""}>${esc(labels?labels[i]:v)}</option>`).join("")}</select></div>`}
+function mc(num,text,items){const current=state.answers[num]||"";return `<div class="mc-question" id="q${num}"><div class="mc-question-title"><span class="qnum">${num}</span><span>${esc(text)}</span></div><div class="mc-options">${items.map(([val,label])=>`<label><input type="radio" name="q${num}" value="${esc(val)}" ${current===val?"checked":""}><b>${esc(val)}</b> ${esc(label)}</label>`).join("")}</div></div>`}
+function fillInput(num,placeholder="________"){return `<input class="answer-input" data-q="${num}" value="${esc(state.answers[num]||"")}" placeholder="${placeholder}" autocomplete="off">`}
+function renderQ1(){
+ const facts=[
+  ["A","International co-operation has yet to result in the large-scale implementation and effective use of alternative power sources."],
+  ["B","One alternative energy source, in particular, will have a great impact in the years to come."],
+  ["C","A side-effect of one of these forms of energy is the production of chemical waste."],
+  ["D","Expense is the main factor that is an obstacle to developing one of these forms of energy."],
+  ["E","Approximately one in five US homes will be using one of these forms of energy within twenty years."],
+  ["F","One attraction of these forms of energy, in general, is the relatively low production costs."]
+ ];
+ return `${banner(1,"1–13")}
+ <div class="q-instructions"><span class="q-title">Questions 1–2</span><br>The writer mentions a number of facts relating to alternative power sources.<br>Which <b>TWO</b> of the following facts are mentioned?</div>
+ <div class="list-box">${facts.map(([a,t])=>`<b>${a}</b> ${esc(t)}`).join("<br><br>")}</div>
+ ${q.p1two.map(([n,t])=>selectInput(n,t,facts.map(x=>x[0]),facts.map(x=>x[0]),true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 3–4</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+ ${q.p1mc.map(([n,t,items])=>mc(n,t,items)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 5–8</span><br>Do the following statements agree with the information given in Reading Passage 1?<br>Choose <b>TRUE</b>, <b>FALSE</b>, or <b>NOT GIVEN</b>.</div>
+ ${q.p1tf.map(([n,t])=>selectInput(n,t,["TRUE","FALSE","NOT GIVEN"])).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 9–13</span><br>Complete the sentences.<br>Choose <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.</div>
+ <div class="summary-box">${q.p1fill.map(([n,before,after])=>`<div class="fill-sentence-row" id="q${n}"><span class="qnum">${n}</span><span class="fill-sentence">${esc(before)} ${fillInput(n)} ${esc(after)}</span></div>`).join("")}</div>`;
+}
+function renderQ2(){
+ const letters=Object.keys(matchEndings);
+ return `${banner(2,"14–26")}
+ <div class="q-instructions"><span class="q-title">Questions 14–20</span><br>Complete each sentence with the correct ending <b>A–K</b> from the box below.</div>
+ <div class="match-bank">${letters.map(l=>`<div class="match-bank-row"><span class="match-bank-letter">${l}</span><span>${esc(matchEndings[l])}</span></div>`).join("")}</div>
+ ${q.p2match.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 21–23</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+ ${q.p2mc.map(([n,t,items])=>mc(n,t,items)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 24–26</span><br>Complete the diagram below.<br>Choose <b>NO MORE THAN TWO WORDS</b> from the passage for each answer.</div>
+ <div class="diagram-rebuild">
+   <div class="diagram-title">The retina and colour-vision structures</div>
+   <svg class="eye-svg" viewBox="0 0 560 260" role="img" aria-label="Simplified eye cross-section with three numbered callouts">
+     <ellipse cx="250" cy="130" rx="185" ry="105" fill="none" stroke="currentColor" stroke-width="3"/>
+     <ellipse cx="113" cy="130" rx="35" ry="68" fill="none" stroke="currentColor" stroke-width="3"/>
+     <path d="M425 78 Q390 130 425 182" fill="none" stroke="currentColor" stroke-width="8" opacity=".55"/>
+     <circle cx="395" cy="130" r="8" fill="currentColor"/>
+     <path d="M432 130 L530 112" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round"/>
+     <line x1="473" y1="91" x2="520" y2="52" stroke="currentColor" stroke-width="2"/><text x="525" y="52" font-size="18" font-weight="700">24</text>
+     <line x1="420" y1="80" x2="500" y2="24" stroke="currentColor" stroke-width="2"/><text x="505" y="25" font-size="18" font-weight="700">25</text>
+     <line x1="395" y1="130" x2="505" y2="178" stroke="currentColor" stroke-width="2"/><text x="510" y="183" font-size="18" font-weight="700">26</text>
+   </svg>
+   <div class="diagram-fields">
+     <div class="diagram-field" id="q24"><span class="qnum">24</span>${fillInput(24)}</div>
+     <div class="diagram-field" id="q25"><span class="qnum">25</span>${fillInput(25)}</div>
+     <div class="diagram-field" id="q26"><span class="qnum">26</span>${fillInput(26)}</div>
+   </div>
+ </div>`;
+}
+function renderQ3(){
+ const letters="ABCDEFGHIJKLM".split("");
+ return `${banner(3,"27–40")}
+ <div class="q-instructions"><span class="q-title">Questions 27–32</span><br>Do the following statements agree with the information given in Reading Passage 3?<br>Choose <b>TRUE</b>, <b>FALSE</b>, or <b>NOT GIVEN</b>.</div>
+ ${q.p3tf.map(([n,t])=>selectInput(n,t,["TRUE","FALSE","NOT GIVEN"])).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 33–36</span><br>Reading Passage 3 has 13 paragraphs <b>A–M</b>.<br>Which paragraph contains the following information? Write the correct letter <b>A–M</b>.</div>
+ ${q.p3para.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+ <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 37–40</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+ ${q.p3mc.map(([n,t,items])=>mc(n,t,items)).join("")}`;
+}
+const partData={1:{range:[1,13],render:renderQ1},2:{range:[14,26],render:renderQ2},3:{range:[27,40],render:renderQ3}};
+function renderPart(part){state.currentPart=part;$("passage-pane").innerHTML=renderPassage(passages[String(part)]);$("questions-pane").innerHTML=partData[part].render();attachQuestionListeners();renderBottomBar();$("passage-pane").scrollTop=0;$("questions-pane").scrollTop=0}
+function attachQuestionListeners(){document.querySelectorAll("#questions-pane [data-q]").forEach(el=>{const eventName=(el.tagName==="INPUT"&&el.type==="text")?"input":"change";el.addEventListener(eventName,e=>{state.answers[Number(e.target.dataset.q)]=e.target.value;renderBottomBar()})});document.querySelectorAll("#questions-pane input[type=radio]").forEach(el=>el.addEventListener("change",e=>{state.answers[Number(e.target.name.slice(1))]=e.target.value;renderBottomBar()}));$("passage-pane").onmouseup=handleTextSelection;$("questions-pane").onmouseup=handleTextSelection}
+function countAnswered(part){const [s,e]=partData[part].range;let c=0;for(let n=s;n<=e;n++)if(String(state.answers[n]||"").trim())c++;return c}
+function renderBottomBar(){let html="";for(let part=1;part<=3;part++){const [start,end]=partData[part].range;if(part===state.currentPart){html+=`<div class="part-nav-group"><span class="part-label active">Passage ${part}</span>`;for(let n=start;n<=end;n++)html+=`<button class="qnum-btn ${state.answers[n]?"answered":""}" data-jump="${n}">${n}</button>`;html+="</div>"}else html+=`<div class="part-nav-group"><span class="part-label" data-part="${part}">Passage ${part}</span><span class="part-count">${countAnswered(part)} of ${end-start+1}</span></div>`}html+=`<button class="submit-check" id="submit-check-btn" title="Complete test">✔</button>`;$("bottombar").innerHTML=html;document.querySelectorAll("[data-part]").forEach(el=>el.addEventListener("click",()=>renderPart(Number(el.dataset.part))));document.querySelectorAll("[data-jump]").forEach(el=>el.addEventListener("click",()=>{const n=el.dataset.jump;const target=$("q"+n)||document.querySelector(`[data-q="${n}"]`);if(target)target.scrollIntoView({behavior:"smooth",block:"center"})}));$("submit-check-btn").addEventListener("click",goToFinal)}
+let selectionMenu=null;
+function clearSelectionMenu(){if(selectionMenu){selectionMenu.remove();selectionMenu=null}}
+function clearHighlightsInRange(range){document.querySelectorAll("mark.hl").forEach(mark=>{let hit=false;try{hit=range.intersectsNode(mark)}catch(_e){}if(hit){const parent=mark.parentNode;while(mark.firstChild)parent.insertBefore(mark.firstChild,mark);parent.removeChild(mark);parent.normalize()}})}
+function handleTextSelection(){clearSelectionMenu();const sel=window.getSelection();const text=sel?sel.toString().trim():"";if(!text||text.length>500)return;const range=sel.getRangeAt(0),rect=range.getBoundingClientRect();selectionMenu=document.createElement("div");selectionMenu.className="selection-menu";selectionMenu.innerHTML='<button data-act="highlight">Highlight</button><button data-act="note">Note</button><button data-act="clear">Clear</button>';selectionMenu.style.left=Math.max(8,Math.min(window.innerWidth-220,rect.left))+"px";selectionMenu.style.top=Math.max(74,rect.bottom+6)+"px";document.body.appendChild(selectionMenu);selectionMenu.addEventListener("mousedown",ev=>ev.preventDefault());selectionMenu.querySelector('[data-act="highlight"]').onclick=()=>{try{const r=sel.getRangeAt(0),mark=document.createElement("mark");mark.className="hl";r.surroundContents(mark)}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};selectionMenu.querySelector('[data-act="note"]').onclick=()=>{state.notes.push(text);renderNotes();sel.removeAllRanges();clearSelectionMenu()};selectionMenu.querySelector('[data-act="clear"]').onclick=()=>{try{clearHighlightsInRange(sel.getRangeAt(0))}catch(_e){}sel.removeAllRanges();clearSelectionMenu()}}
+document.addEventListener("mousedown",e=>{if(selectionMenu&&!selectionMenu.contains(e.target))clearSelectionMenu()});
+function renderNotes(){const list=$("notes-list");if(!list)return;list.innerHTML=state.notes.length?state.notes.map((n,i)=>`<div class="note-entry">${esc(n)} <button data-del-note="${i}" style="float:right;border:0;background:none;cursor:pointer">×</button></div>`).join(""):'<div class="notes-empty">Highlight text and choose <b>Note</b> to save it here.</div>';list.querySelectorAll("[data-del-note]").forEach(btn=>btn.onclick=()=>{state.notes.splice(Number(btn.dataset.delNote),1);renderNotes()})}
+function startTimer(){clearInterval(state.timer);state.timer=setInterval(()=>{state.timeLeft=Math.max(0,state.timeLeft-1);updateTimer();if(state.timeLeft===0){clearInterval(state.timer);goToFinal()}},1000);updateTimer()}
+function updateTimer(){const m=String(Math.floor(state.timeLeft/60)).padStart(2,"0"),s=String(state.timeLeft%60).padStart(2,"0");$("timer-display").textContent=`${m}:${s}`;$("timer-display").classList.toggle("low",state.timeLeft<=300)}
+function requestFullscreen(){const el=document.documentElement;if(el.requestFullscreen)el.requestFullscreen().catch(()=>{})}
+function goToFinal(){clearSelectionMenu();$("menu-overlay").classList.remove("open");hide($("screen-test"));show($("screen-final"));$("taker-id-display-final").textContent=state.takerId}
+function normalize(value){return String(value||"").trim().toLowerCase().replace(/[’']/g,"").replace(/[‐‑–—-]+/g," ").replace(/[.,;:!?()]/g,"").replace(/\s+/g," ")}
+function isRegularCorrect(n,user){const aliases=answerAliases[String(n)]||[];const u=normalize(user);return aliases.some(a=>normalize(a)===u)}
+function evaluateAnswers(){const result={};for(let n=3;n<=40;n++)result[n]=isRegularCorrect(n,state.answers[n]||"");const targets=new Set(["b","d"]),seen=new Set();for(const n of [1,2]){const u=normalize(state.answers[n]||"");result[n]=targets.has(u)&&!seen.has(u);if(result[n])seen.add(u)}return result}
+function estimateBand(correct){const table=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[8,3.5],[6,3]];for(const [min,band] of table)if(correct>=min)return band.toFixed(1);return"2.5"}
+function showResults(){clearInterval(state.timer);hide($("screen-final"));show($("screen-results"));$("results-taker-id").textContent=state.takerId;const evalMap=evaluateAnswers();let correct=0,rows="";for(let n=1;n<=40;n++){const user=state.answers[n]||"",ok=!!evalMap[n];if(ok)correct++;rows+=`<tr><td>${n}</td><td>${esc(user||"—")}</td><td>${esc(canonicalAnswers[String(n)]||"")}</td><td class="${ok?"ok":"no"}">${ok?"✓ Correct":"✗ Wrong"}</td></tr>`}$("score-correct").textContent=correct;$("score-band").textContent=estimateBand(correct);$("review-body").innerHTML=rows}
+function openMenuRoot(){$("menu-root").classList.remove("hidden");$("menu-contrast").classList.add("hidden");$("menu-textsize").classList.add("hidden");$("menu-back-btn").classList.remove("show");$("menu-title").textContent="Options"}
+function openSubmenu(which){$("menu-root").classList.add("hidden");$("menu-"+which).classList.remove("hidden");$("menu-back-btn").classList.add("show");$("menu-title").textContent=which==="contrast"?"Contrast":"Text size"}
+function setContrast(mode){document.body.classList.remove("contrast-wb","contrast-yb");if(mode==="wb")document.body.classList.add("contrast-wb");if(mode==="yb")document.body.classList.add("contrast-yb");state.contrast=mode;document.querySelectorAll("[data-contrast] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-contrast="${mode}"] .check`);if(c)c.textContent="✔"}
+function setTextSize(size){$("app").classList.remove("textsize-large","textsize-extralarge");if(size==="large")$("app").classList.add("textsize-large");if(size==="extralarge")$("app").classList.add("textsize-extralarge");state.textsize=size;document.querySelectorAll("[data-textsize] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-textsize="${size}"] .check`);if(c)c.textContent="✔"}
+$("pwd-submit").onclick=()=>{if($("pwd-input").value===REQUIRED_PASSWORD){$("pwd-error").textContent="";hide($("screen-password"));show($("screen-id"));$("id-input").focus()}else $("pwd-error").textContent="Incorrect password."};
+$("pwd-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("pwd-submit").click()});
+$("id-submit").onclick=()=>{const id=$("id-input").value.trim();if(!id){$("id-error").textContent="Please enter your Test Taker ID.";return}state.takerId=id;$("id-error").textContent="";$("taker-id-display").textContent=id;hide($("screen-id"));show($("screen-test"));renderNotes();renderPart(1);startTimer();requestFullscreen()};
+$("id-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("id-submit").click()});
+$("notes-toggle-btn").onclick=()=>{$("notes-panel").classList.toggle("open");renderNotes()};
+$("hamburger-btn").onclick=()=>{openMenuRoot();$("menu-overlay").classList.add("open")};
+$("menu-close-btn").onclick=()=>$("menu-overlay").classList.remove("open");
+$("menu-back-btn").onclick=openMenuRoot;$("menu-submit-btn").onclick=goToFinal;
+$("menu-contrast-btn").onclick=()=>openSubmenu("contrast");$("menu-textsize-btn").onclick=()=>openSubmenu("textsize");
+document.querySelectorAll("[data-contrast]").forEach(el=>el.onclick=()=>setContrast(el.dataset.contrast));
+document.querySelectorAll("[data-textsize]").forEach(el=>el.onclick=()=>setTextSize(el.dataset.textsize));
+$("back-to-test-btn").onclick=()=>{hide($("screen-final"));show($("screen-test"));renderPart(state.currentPart)};
+$("final-next-btn").onclick=showResults;
+$("restart-btn").onclick=()=>{clearInterval(state.timer);state.answers={};state.notes=[];state.currentPart=1;state.timeLeft=3600;state.takerId="";$("pwd-input").value="";$("id-input").value="";hide($("screen-results"));show($("screen-password"))};
+renderNotes();
+})();
+</script>
+</body>
+</html>

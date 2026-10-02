@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IELTS Full Reading Test</title>
+<style>
+:root{--ielts-red:#d2122e;--border:#c9c9c9;--text:#1a1a1a;--muted:#666;--panel:#f1f1f1;--focus:#2b6fd6;--highlight:#ffe066;--ok:#148a3b;--bad:#b50f28}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}button,input,select{font:inherit}button{touch-action:manipulation}#app{height:100vh;display:flex;flex-direction:column;overflow:hidden}.hidden{display:none!important}
+.auth-banner{height:64px;flex:0 0 64px;background:#172f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px;border-bottom:1px solid rgba(255,255,255,.18)}.auth-banner-text{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:800;white-space:nowrap}.auth-banner-link{display:inline-flex;align-items:center;gap:10px;padding:8px 21px;border:2px solid #d9f3ff;border-radius:28px;background:#45afe0;color:#fff;text-decoration:none;font-size:20px;font-weight:800;white-space:nowrap}.auth-banner-play{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#45afe0;font-size:16px}
+.gate-screen{height:100%;display:flex;align-items:center;justify-content:center;background:#f5f5f5;padding:20px}.gate-card{width:min(390px,100%);background:#fff;border:1px solid var(--border);border-radius:6px;padding:36px 40px;box-shadow:0 3px 16px rgba(0,0,0,.09)}.gate-logo{font-size:28px;font-weight:800;color:var(--ielts-red);letter-spacing:1px;text-align:center}.gate-sub{text-align:center;font-size:13px;color:var(--muted);margin:8px 0 25px}.gate-card label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}.gate-card input{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:4px;margin-bottom:16px}.gate-card input:focus{outline:2px solid var(--focus);border-color:var(--focus)}.gate-btn{width:100%;padding:11px;border:0;border-radius:4px;background:#111;color:#fff;cursor:pointer}.gate-error{min-height:18px;color:var(--ielts-red);font-size:13px;margin-top:-8px;margin-bottom:8px}.gate-footer{text-align:center;margin-top:17px;font-size:11px;color:#999}.gate-footer a{color:var(--focus);text-decoration:none}
+#screen-password,#screen-id,#screen-test,#screen-final,#screen-results{flex:1;min-height:0;height:auto!important}.topbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 20px;border-bottom:1px solid var(--border);background:#fff;flex-shrink:0}.topbar-left{display:flex;align-items:center;gap:13px;min-width:0}.ielts-logo{font-size:20px;font-weight:800;color:var(--ielts-red)}.brand-name{font-size:11px;color:#555}.taker-id-block{font-size:12px;line-height:1.35}.taker-id-block .label{font-weight:700}.timer-status{font-size:13px;font-weight:700}.timer-status.low{color:var(--ielts-red)}.topbar-right{display:flex;align-items:center;gap:13px}.icon-btn{border:0;background:none;cursor:pointer;font-size:19px;padding:5px}.final-action-btn{background:#fff;color:#111;border:1px solid #111;padding:8px 15px;border-radius:3px;font-size:12px;cursor:pointer}.final-action-btn.primary{background:#111;color:#fff}
+.main-wrap{position:relative;flex:1;display:flex;overflow:hidden}.content-wrap{flex:1;display:flex;overflow:hidden}.passage-pane,.questions-pane{flex:1 1 50%;overflow-y:auto;padding:22px 26px;font-size:14px;line-height:1.7}.passage-pane{border-right:1px solid var(--border)}.passage-title{font-size:17px;font-weight:800}.passage-sub{font-size:16px;font-weight:700;margin:5px 0}.passage-time{font-size:12px;color:#777;margin-bottom:18px}.passage-para{display:flex;gap:10px;margin-bottom:15px}.para-letter{width:24px;flex-shrink:0;font-weight:800;color:var(--ielts-red)}.para-text{flex:1;min-width:0}
+.part-banner{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin-bottom:18px;border-radius:3px}.part-banner b{font-size:14px}.part-banner .instr{font-size:13px;margin-top:2px}.q-instructions{font-size:13px;margin:0 0 12px}.q-title{font-weight:800}.section-title{font-size:14px;font-weight:800;margin:18px 0 10px}.question-row{display:flex;align-items:flex-start;gap:11px;margin-bottom:13px;font-size:13px}.question-row .qtext{flex:1}.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:31px;height:24px;border:1px solid #333;padding:1px 7px;font-size:12px;font-weight:800;flex-shrink:0}select.answer-select,input.answer-input{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px}select.answer-select{width:190px;max-width:100%}input.answer-input{width:180px;max-width:100%;text-align:center}.notes-box{background:var(--panel);border:1px solid #ddd;padding:14px 16px;margin:10px 0 16px;font-size:13px;line-height:2}.note-line{margin:5px 0}.note-sub{margin-left:18px}.inline-answer{display:inline-block;margin:0 4px}.option-list{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.75}.option-list div{margin:3px 0}.question-block{margin-bottom:20px}.question-block .question-row{margin-bottom:7px}
+.notes-panel{width:270px;border-left:1px solid var(--border);background:#f1f1f1;padding:15px;display:none;overflow-y:auto;flex-shrink:0}.notes-panel.open{display:block}.notes-title{font-size:13px;font-weight:800;color:var(--ielts-red);margin-bottom:13px}.notes-empty{font-size:13px;color:#666;text-align:center;margin-top:35px;line-height:1.6}.note-entry{position:relative;background:#fff;border:1px solid #ccc;border-radius:3px;padding:8px 31px 8px 10px;margin-bottom:9px;font-size:12px;font-style:italic}.note-remove{position:absolute;right:5px;top:5px;width:22px;height:22px;border:0;border-radius:50%;background:#e3e3e3;cursor:pointer}.selection-menu{position:fixed;z-index:100;background:#fff;border:1px solid #999;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;border-radius:3px}.selection-menu button{border:0;background:none;padding:8px 11px;font-size:11px;cursor:pointer}.selection-menu button+button{border-left:1px solid #ddd}mark.hl{background:var(--highlight);cursor:pointer;border-radius:2px;padding:0 1px}
+.bottombar{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:#fff;overflow-x:auto;flex-shrink:0}.part-nav-group{display:flex;align-items:center;gap:5px;white-space:nowrap}.part-label{font-size:13px;font-weight:700;cursor:pointer}.part-label.active{color:var(--ielts-red)}.part-count{font-size:12px;color:#888}.qnum-btn{width:25px;height:25px;border:1px solid transparent;border-radius:2px;background:none;font-size:12px;cursor:pointer;padding:0}.qnum-btn.answered{font-weight:800;color:var(--focus);border-color:#bcd0ef;background:#f2f6fd}.submit-check{width:36px;height:36px;border:0;background:#efefef;cursor:pointer;font-size:16px;flex-shrink:0}
+.menu-overlay{position:absolute;inset:0;z-index:60;background:#fff;display:none;flex-direction:column}.menu-overlay.open{display:flex}.menu-header{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;padding:14px 16px;border-bottom:1px solid #eee}.menu-header button{border:0;background:none;cursor:pointer}.menu-back{display:none;justify-self:start}.menu-back.show{display:block}.menu-title{text-align:center;font-weight:700;font-size:15px}.menu-close{justify-self:end;font-size:18px}.menu-body{width:min(440px,100%);margin:0 auto;padding:20px}.menu-item,.option-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #ddd;padding:14px 16px;font-size:14px;cursor:pointer}.menu-item+.menu-item,.option-row+.option-row{border-top:0}.menu-item.danger{background:var(--ielts-red);border-color:var(--ielts-red);color:#fff;font-weight:700;margin-bottom:15px}
+.review-feedback{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;line-height:1.25;padding:3px 6px;border-radius:3px;margin-left:7px}.review-feedback.correct{color:var(--ok);background:#eaf7ef;border:1px solid #b9dfc6}.review-feedback.wrong{color:var(--bad);background:#fff0f2;border:1px solid #efb8c0}.review-mode input.answer-input,.review-mode select.answer-select{color:#222;background:#f6f6f6;cursor:not-allowed}.answer-select:disabled,.answer-input:disabled{opacity:1}
+.transition-body{flex:1;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;font-size:13px;color:#444}.results-wrap{height:100%;overflow-y:auto;padding:30px 40px}.results-wrap h1{color:var(--ielts-red);font-size:25px;margin:0 0 4px}.score-summary{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 27px}.score-box{min-width:130px;text-align:center;border:1px solid #ddd;border-radius:5px;padding:16px 22px}.score-box .num{font-size:30px;font-weight:800;color:var(--ielts-red)}.score-box .lbl{font-size:12px;color:#666}.review-table{width:100%;border-collapse:collapse;font-size:13px}.review-table th,.review-table td{border:1px solid #ddd;padding:8px 10px;text-align:left}.review-table th{background:var(--panel)}.ok{color:var(--ok);font-weight:800}.no{color:var(--ielts-red);font-weight:800}.results-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.restart-btn{padding:10px 21px;border:0;border-radius:3px;background:#111;color:#fff;cursor:pointer}.review-btn{background:var(--ielts-red)}
+body.contrast-wb .topbar,body.contrast-wb .bottombar,body.contrast-wb .content-wrap,body.contrast-wb .passage-pane,body.contrast-wb .questions-pane{background:#000!important;color:#fff!important}body.contrast-wb .part-banner,body.contrast-wb .notes-box,body.contrast-wb .option-list{background:#171717;border-color:#555}body.contrast-wb input,body.contrast-wb select{background:#111;color:#fff;border-color:#777}body.contrast-yb .topbar,body.contrast-yb .bottombar,body.contrast-yb .content-wrap,body.contrast-yb .passage-pane,body.contrast-yb .questions-pane{background:#000!important;color:#f1d70a!important}#app.textsize-large .passage-pane,#app.textsize-large .questions-pane{font-size:16px}#app.textsize-extralarge .passage-pane,#app.textsize-extralarge .questions-pane{font-size:19px}
+@media(max-width:900px){.main-wrap,.content-wrap{flex-direction:column}.passage-pane{border-right:0;border-bottom:1px solid var(--border);max-height:46vh}.notes-panel{position:absolute;right:0;top:0;bottom:0;z-index:55}.brand-name{display:none}.topbar{padding:8px 10px}.passage-pane,.questions-pane{padding:18px}.results-wrap{padding:22px 16px}}
+@media(max-width:700px){.auth-banner{height:52px;flex-basis:52px;gap:8px;padding:6px 8px}.auth-banner-text{font-size:16px}.auth-banner-link{font-size:14px;padding:6px 11px}.auth-banner-play{width:24px;height:24px;font-size:12px}.topbar-right>span{display:none}.question-row{flex-wrap:wrap}select.answer-select,input.answer-input{width:100%}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="auth-banner"><span class="auth-banner-text">For the authentic tests, join</span><a class="auth-banner-link" href="https://t.me/jasurbekisaev" target="_blank" rel="noopener"><span class="auth-banner-play">▶</span>@jasurbekisaev</a></div>
+
+  <section class="gate-screen" id="screen-password">
+    <div class="gate-card">
+      <div class="gate-logo">IELTS</div>
+      <div class="gate-sub">IELTS Reading Test Access</div>
+      <label for="pwd-input">Enter Password</label>
+      <input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+      <div class="gate-error" id="pwd-error"></div>
+      <button class="gate-btn" id="pwd-submit">Continue</button>
+      <div class="gate-footer">IELTS Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+    </div>
+  </section>
+
+  <section class="gate-screen hidden" id="screen-id">
+    <div class="gate-card">
+      <div class="gate-logo">IELTS</div>
+      <div class="gate-sub">Enter your Test Taker ID</div>
+      <label for="id-input">Test Taker ID</label>
+      <input type="text" id="id-input" placeholder="e.g. 123456789" autocomplete="off">
+      <div class="gate-error" id="id-error"></div>
+      <button class="gate-btn" id="id-submit">Start Test</button>
+    </div>
+  </section>
+
+  <section class="hidden" id="screen-test" style="height:100%;display:flex;flex-direction:column">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div><div class="ielts-logo">IELTS</div><div class="brand-name">IELTS Full Reading Test 1</div></div>
+        <div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display"></div><div class="timer-status" id="timer-display">60:00</div></div>
+      </div>
+      <div class="topbar-right">
+        <span title="Connection">📶</span><span title="Notifications">🔔</span>
+        <button class="icon-btn" id="hamburger-btn" title="Menu">☰</button>
+        <button class="icon-btn" id="notes-toggle-btn" title="Notes">✏️</button>
+        <button class="final-action-btn hidden" id="back-to-results-btn">← Back to Results</button>
+      </div>
+    </header>
+    <div class="main-wrap">
+      <div class="content-wrap"><main class="passage-pane" id="passage-pane"></main><aside class="questions-pane" id="questions-pane"></aside></div>
+      <aside class="notes-panel" id="notes-panel"><div class="notes-title">Notes</div><div id="notes-list"></div></aside>
+      <div class="menu-overlay" id="menu-overlay">
+        <div class="menu-header"><button class="menu-back" id="menu-back-btn">‹ Options</button><div class="menu-title" id="menu-title">Options</div><button class="menu-close" id="menu-close-btn">✕</button></div>
+        <div class="menu-body">
+          <div id="menu-root"><div class="menu-item danger" id="menu-submit-btn"><span>🚀 Go to submission page</span><span>›</span></div><div class="menu-item" id="menu-contrast-btn"><span>◐ Contrast</span><span>›</span></div><div class="menu-item" id="menu-textsize-btn"><span>🔍 Text size</span><span>›</span></div></div>
+          <div class="hidden" id="menu-contrast"><div class="option-row" data-contrast="bw"><span><span class="check">✔</span> Black on white</span></div><div class="option-row" data-contrast="wb"><span><span class="check"></span> White on black</span></div><div class="option-row" data-contrast="yb"><span><span class="check"></span> Yellow on black</span></div></div>
+          <div class="hidden" id="menu-textsize"><div class="option-row" data-textsize="regular"><span><span class="check">✔</span> Regular</span></div><div class="option-row" data-textsize="large"><span><span class="check"></span> Large</span></div><div class="option-row" data-textsize="extralarge"><span><span class="check"></span> Extra large</span></div></div>
+        </div>
+      </div>
+    </div>
+    <footer class="bottombar" id="bottombar"></footer>
+  </section>
+
+  <section class="hidden" id="screen-final" style="height:100%;display:flex;flex-direction:column">
+    <header class="topbar"><div class="topbar-left"><div class="ielts-logo">IELTS</div><div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display-final"></div></div></div><div class="topbar-right"><button class="final-action-btn" id="back-to-test-btn">← Back to test</button><button class="final-action-btn primary" id="final-next-btn">Submit ✈</button></div></header>
+    <div class="transition-body">Click Submit to finish the test and view your result.</div>
+    <footer class="bottombar"><div class="part-nav-group"><span class="part-label">Passage 1</span><span class="part-count">Questions 1–13</span></div><div class="part-nav-group"><span class="part-label">Passage 2</span><span class="part-count">Questions 14–26</span></div><div class="part-nav-group"><span class="part-label">Passage 3</span><span class="part-count">Questions 27–40</span></div><button class="submit-check" style="background:#111;color:#fff">✔</button></footer>
+  </section>
+
+  <section class="hidden results-wrap" id="screen-results">
+    <h1>Test Results</h1><p style="font-size:13px;color:#555">Test taker ID: <span id="results-taker-id"></span></p>
+    <div class="score-summary"><div class="score-box"><div class="num" id="score-correct">0</div><div class="lbl">Correct</div></div><div class="score-box"><div class="num">40</div><div class="lbl">Total Questions</div></div><div class="score-box"><div class="num" id="score-band">0.0</div><div class="lbl">Estimated Band</div></div></div>
+    <table class="review-table"><thead><tr><th>Q#</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th></tr></thead><tbody id="review-body"></tbody></table>
+    <div class="results-actions"><button class="restart-btn review-btn" id="review-test-btn">Review Test</button><button class="restart-btn" id="restart-btn">Restart Test</button></div>
+  </section>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const REQUIRED_PASSWORD = "jasurbekisaev";
+
+  const DATA = {
+  "passages": {
+    "1": {
+      "title": "READING PASSAGE 1",
+      "sub": "Searching for sustainable solutions to indoor air pollution",
+      "time": "You should spend about 20 minutes on Questions 1–13, which are based on Reading Passage 1.",
+      "paras": [
+        [
+          "",
+          "Indoor air pollution is a major problem affecting women and children in developing countries."
+        ],
+        [
+          "",
+          "Indoor air pollution (IAP) kills more than 1.6 million people each year and some two billion more are at risk. The smoke from open cooking fires fills homes with a deadly mixture of particles and chemicals, often 100 times above agreed international exposure standards. This greatly increases the risk of respiratory diseases such as bronchitis and pneumonia, especially for women. Recent research also points to links between pregnant women’s exposure to IAP and low birth weight, increasing the vulnerability of the newborn."
+        ],
+        [
+          "",
+          "IAP is also part of a well-known poverty chain. Those not able to afford cleaner commercial fuels must spend many hard hours collecting biomass fuel. They do not have to pay for this, but the indirect costs on time and health are enormous. Cleaner fuels such as electricity and gas have yet to reach remote developing markets where the distribution costs are high."
+        ],
+        [
+          "",
+          "Attempts to solve this problem have not produced real progress on a significant scale. Special stoves to reduce emissions required expensive fuel, and bore little relation to what the market (millions of poor households) wanted and could afford for cooking their meals."
+        ],
+        [
+          "",
+          "Reducing risk"
+        ],
+        [
+          "",
+          "For these reasons, one multi-national foundation has committed US$ 10 million to tackle IAP through a programme called ‘Breathing Space’, based on business and market principles. The foundation started their work by carrying out a series of consultations with those people affected by the problem. At the same time, they requested proposals for potentially commercialisable ways of tackling IAP. About 140 of these were received, primarily from Non-Governmental Organisations (NGOs), of which most addressed the IAP issue but failed to understand what the Foundation meant by commercialisable solutions to IAP."
+        ],
+        [
+          "",
+          "The next task was then to organise pilot projects with NGO partners in eight developing countries, in order to systematically explore different market-based IAP solutions. These included the development and sale of new types of cooking stoves that were appropriate for this market, together with cleaner fuels, use of consumer finance on a micro-credit model, and reducing costs through mass production."
+        ],
+        [
+          "",
+          "In parallel, the foundation carried out a review of the only two large-scale household energy programmes in the world at present: the National Improved Chulha Programme in India and the National Improved Stove Programme in China. Lessons from these two programmes have been extremely valuable in developing the foundation’s approach, both in terms of what has worked and what has not."
+        ],
+        [
+          "",
+          "Following these two initiatives, the Breathing Space programme then went on to develop: complementary activities designed to answer key developmental and commercialisation questions raised by the pilot projects. These include development of a standardised monitoring and assessment system; and a set of tools for market research, demand assessment, supply chain development and sustainable financing."
+        ],
+        [
+          "",
+          "To date 250,000 households have been removed from risk through efforts to get smoke-reducing products to poor households. This figure will rise to more than a million by the end of the pilot phase at a total cost of US$ 7 million."
+        ],
+        [
+          "",
+          "Although this is the first systematic IAP intervention ever mounted on a global scale, it is still limited compared with the extent of the problem. However, a number of the interventions tested are robust enough to develop on a wider scale. Developments underway in India and Guatemala, based on financially viable business models, are targeting three million households."
+        ],
+        [
+          "",
+          "Eventually, the target is to get as many as 10 million households out of risk. In parallel, they are exploring the feasibility of building strategic partnerships and setting up intervention mechanisms on an international scale."
+        ],
+        [
+          "",
+          "Having an impact"
+        ],
+        [
+          "",
+          "Overall, experience to date of the impact of the various interventions carried out by Breathing Space is mixed. While a wide range of interventions is available, access by the poor is still very limited. In addition, most of the evaluation of these interventions has focused on changes in indoor air pollution levels, rather than health effects."
+        ],
+        [
+          "",
+          "Reductions in pollution achieved by interventions very markedly. Generally, among poor dependent communities where initial levels of pollution are very high, it has been difficult to achieve extremely low levels of pollution and exposure. When interventions are taken up by only part of a community, reductions in personal exposure will tend to be limited due to - among other factors - exposure from other nearby homes."
+        ],
+        [
+          "",
+          "The most successful projects have combined centralised component production, quality control and supply-chain management, with decentralised installation and assembly of products, linked to a network of social service providers (such as local NGOs) which provide the link to communities."
+        ],
+        [
+          "",
+          "The pilots have demonstrated there are some viable business models, supply chains and consumer financing mechanisms that could be brought to bear on the IAP problem on a large scale. This has given the foundation the confidence to expand its programme further."
+        ],
+        [
+          "",
+          "In Guatemala, for example, project personnel who were previously involved in managing a poverty project with a target population of 5,000 are now planning and implementing a self-financing strategy to get IAP interventions sold into a significant percentage of the 600,000 at-risk and very poor households. Meanwhile, in one state in India, the expanded programme will reach over three million people, from a pilot level of 100,000."
+        ]
+      ]
+    },
+    "2": {
+      "title": "READING PASSAGE 2",
+      "sub": "The Constant Evolution of the Humble Tomato",
+      "time": "You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2.",
+      "paras": [
+        [
+          "",
+          "Heirloom tomatoes - varieties that have been passed down through several generations of a family because they are thought to have a particularly good flavor - are really no more 'natural' than the varieties available in grocery stores. New studies promise to restore their lost, healthy genes."
+        ],
+        [
+          "A",
+          "Famous for their taste, color and organic appearance, heirloom tomatoes are favorites of gardeners and advocates of locally grown foods. The tomato enthusiast might conclude that, given the immense varieties, heirlooms must have a more diverse and superior set of genes than the tomatoes available in grocery stores, those ordinary hybrid varieties such as cherry and plum. However, their seeming diversity is only skin-deep; heirlooms are actually feeble and inbred, the defective product of breeding experiments that began hundreds of years ago, and exploded thanks to enthusiastic backyard gardeners. \"The irony of all this,\" says Steven Tanksley, a geneticist at Cornell University, \"is all that diversity of heirlooms can be accounted for by a handful of genes. There're probably no more than 10 mutant genes that create the diversity of heirlooms you see.\" But rather than simply proving that the myth about the heirloom's diversity is wrong, Tanksley's deconstruction of the tomato genome, along with work by others, is showing how a small berry-like fruit from the Andes became one of the world's top crops."
+        ],
+        [
+          "B",
+          "The cultivated tomato is a member of the nightshade family that includes New World crops such as the potato, which spread around the globe after Christopher Columbus brought them back to Spain in the 15th century. But whereas scientists have uncovered a wealth of archaeological evidence on early farming practices in the New World, the record is blank when it comes to the tomato. The modern tomato seems to have its origins in the Andes in South America, and may have been domesticated in Vera Cruz, Mexico. Primitive varieties still grow throughout the Americas. All mild, botanists call as many as 13 species 'tomatoes', and consider an additional four to be closely related."
+        ],
+        [
+          "C",
+          "One might assume that one of these known wild species became today's cultivated crop, but that's not the case: the Mother Tomato has never been found. The closest relative is the currant tomato which, based on genetic comparisons, split from today's tomato some 1.4 million years ago. So researchers like Tanksley have to work backward, crossing tomato varieties and species in order to understand how various genes influence shape and size. Once isolated, Tanksley later inserts those genes into other tomato varieties to make his case with a dramatic transformation."
+        ],
+        [
+          "D",
+          "Tanksley concludes from his analyses that in their effort to make bigger, tastier and faster-growing fruit, our ancestors ultimately exploited just 30 mutations out of the tomato's 35,000 genes. Most of these genes have only small effects on tomato size and shape, but recently Tanksley and his colleagues reported that they found a gene that increases fruit size by 50 percent. It was probably the most important event in domestication. The first written record of tomatoes—from Spain in the 1500s—confirms that this mutation, which enlarges tomatoes by producing compartments known as locules, existed back in the same yellow tomatoes that gave Italians the word pomodoro, or golden apple. Besides size, tomato farmers also selected for shape. To discover those genes, Esther van der Knaap, a Tanksley alumnus now at The Ohio State University, took a gene from one heirloom tomato and inserted it into a wild relative. She observed that, as a result, the tiny fruits became shaped like pears."
+        ],
+        [
+          "E",
+          "The selection of these traits has, however, affected the heirloom’s hardiness. They often suffer from infections that cause the fruit to crack, split and otherwise rot quickly. Wild plants must continuously evolve to fend off such infections, points out Roger Chetelat of the Tomato Genetics Resource Center at the University of California. But in their quest for size, shape and flavor, humans have inadvertently eliminated defensive genes. As a result, most possess only a single disease-resistant gene. Chetelat elaborates that heirlooms’ taste may have less to do with their genes than with the productivity of the plant and the growing environment. Any plant that produces only two fruits, as heirlooms sometimes do, is highly likely to produce juicier, sweeter and more flavorful fruit than varieties that produce 100, as commercial types do. In addition, heirlooms are sold ripened on the vine, a certain way to get tastier results than allowing them to mature on the shelf. This means breeders feel confident that getting germ-beating genes back into heirlooms won’t harm the desirable aspects of the fruit. Modern breeding has resuscitated grocery store tomatoes with an influx of wild genes: in the past 50 years, as many as 40 disease-resistant genes have been bred back into commercial crops."
+        ],
+        [
+          "F",
+          "In 1996 a tomato breeder and former Tanksley student named Doug Heath began a favorite project. After 12 years of traditional breeding with the help of molecular markers, he created a new multi-colored tomato less prone to cracking and also endowed with 12 disease-resistant genes. The original heirloom plant, Heath explains, had defective flowers, which is one reason why it produced only two fruits compared with the 30 he gets from his new variety. He claims he is also able to maintain a comparable flavor and sugar profile even on productive plants. The heirloom’s defects are, after all, just an accident of a narrow breeding strategy left over from the very beginning of genetic modification."
+        ]
+      ]
+    },
+    "3": {
+      "title": "READING PASSAGE 3",
+      "sub": "The effectiveness of an online course",
+      "time": "You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3.",
+      "paras": [
+        [
+          "",
+          "As access to the Internet has continued to grow, web-based learning has continued to expand. With approximately half of the households in the United States (or 150 million people) connected to the Internet, an estimated 2 million students are taking post-secondary courses that are fully delivered online. Millions of other students at all educational levels (primary, secondary, post-secondary) participate in online courses. However, the effectiveness of online courses, particularly in relation to individual student needs, perceptions, and student outcomes, is sometimes questioned."
+        ],
+        [
+          "",
+          "Common elements for learning in a typical classroom environment are the social and communicative interactions between student and teacher, and student and student. The ability to ask a question, to share an opinion with a fellow student, or to disagree with the point of view in a reading assignment are quite fundamental learning activities. However, effective web-based learning requires adjustments on the part of students and teachers for successful interactions to occur, for example. Many online courses provide students and faculty, and students and students with the ability to interact with each other via an electronic bulletin or discussion board."
+        ],
+        [
+          "",
+          "While most studies show a link between interaction and satisfaction in web-based courses, some observers have cautioned that this is not always the case. Ruberg, Taylor and Moore, for example, observe that in order to interact successfully, students must adjust to the non-linear nature of web-based learning. Typical face-to-face situations tend to be linear, focusing on a single discussion thread. Web-based learning sessions on an electronic bulletin board can have multiple threads with several discussions and interactions progressing simultaneously. Students respond to a teacher but also to other students, depending on their interest and points of view."
+        ],
+        [
+          "",
+          "Sproull and Kiesler caution about discussions based on misinformation, that continue because online an instructor cannot necessarily immediately correct or clarify a comment. As a result, students need to have the experience and knowledge base to sit through the discussion for misinformation. In online learning, the amount of student interaction and the number of comments can easily lead to what is described as information overload. Furthermore, comments in online discussions tend to be lengthier than in face-to-face situations. With more information from many sources, students need to be more attentive to both the who and what of a discussion. Herbert Simon, an economist, cautions that, ‘a wealth of information can create a poverty of attention.’"
+        ],
+        [
+          "",
+          "In examinations of interaction, the concept of ‘presence’, or a sense of being in a place and belonging to a group, has received attention. It is generally assumed that when a student is physically present in a face-to-face course, he or she has a sense of belonging to the class or group enrolled in the course and this sense of belonging is greater than that experienced on an online course. He or she listens to the discussion and may choose to raise a hand to comment, answer or ask a question. Furthermore, this same student may develop a relationship with other students in the class and discuss topics related to the class during a break. However, this is an assumption and not always true. For a variety of reasons, some students can also feel alienated in a face-to-face class and not feel part of a group."
+        ],
+        [
+          "",
+          "The idea of presence has been redefined in relation to an online course. The simplest definition of presence for an online course refers to a student’s sense of being registered and belonging in a course, and the ability to interact with other students and an instructor even though physical contact is not available. However, as this concept is studied, the definition is expanding and being refined to include telepresence, cognitive presence, social presence, teaching presence, and other forms of presence. The term ‘community’ is related to presence, and refers to a group of individuals who belong to a social unit, such as students in a class. In an online course, however, terms such as communities of inquiry, communities of learners, and knowledge-building communities have evolved."
+        ],
+        [
+          "",
+          "As the definition of presence has expanded and evolved, a distinction has been made between interaction and presence, emphasizing that they are not the same. Interaction may indicate presence but it is also possible for a student to interact by posting a message on an electronic bulletin board, while not necessarily feeling that he or she is part of a group or a class."
+        ],
+        [
+          "",
+          "A study conducted by Professor Anthony Picciano used questionnaires to determine students’ attitudes in relation to their interactions and sense of purpose in online courses. An attempt was made to go beyond student perceptions of interaction and performance and to include perceptions of social presence, as well as actual participation in class activities. In addition, data was collected on performance measures that related specifically to course objectives. While much of the research, including this study, supports the strong relationship between students’ perception of interaction and perceived learning, the results of the study indicated that the relationship of actual measures of interaction and performance is mixed."
+        ],
+        [
+          "",
+          "The success of many online courses is dependent upon the nature of student-to-student and student-to-faculty interaction. However, how interaction affects learning outcomes and what the relationships between the two are, is in need of further study."
+        ]
+      ]
+    }
+  },
+  "answerKey": {
+    "1": [
+      "low birth weight"
+    ],
+    "2": [
+      "biomass fuel"
+    ],
+    "3": [
+      "distribution costs"
+    ],
+    "4": [
+      "special stoves"
+    ],
+    "5": [
+      "consultations"
+    ],
+    "6": [
+      "pilot projects"
+    ],
+    "7": [
+      "review"
+    ],
+    "8": [
+      "10 million"
+    ],
+    "9": [
+      "international"
+    ],
+    "10": [
+      "TRUE"
+    ],
+    "11": [
+      "FALSE"
+    ],
+    "12": [
+      "NOT GIVEN"
+    ],
+    "13": [
+      "FALSE"
+    ],
+    "14": [
+      "F"
+    ],
+    "15": [
+      "A"
+    ],
+    "16": [
+      "E"
+    ],
+    "17": [
+      "D"
+    ],
+    "18": [
+      "B"
+    ],
+    "19": [
+      "C"
+    ],
+    "20": [
+      "D"
+    ],
+    "21": [
+      "A"
+    ],
+    "22": [
+      "archaeological"
+    ],
+    "23": [
+      "Andes"
+    ],
+    "24": [
+      "currant"
+    ],
+    "25": [
+      "mutation"
+    ],
+    "26": [
+      "infections"
+    ],
+    "27": [
+      "D"
+    ],
+    "28": [
+      "D"
+    ],
+    "29": [
+      "D"
+    ],
+    "30": [
+      "B"
+    ],
+    "31": [
+      "A"
+    ],
+    "32": [
+      "YES"
+    ],
+    "33": [
+      "NOT GIVEN"
+    ],
+    "34": [
+      "NO"
+    ],
+    "35": [
+      "YES"
+    ],
+    "36": [
+      "NO"
+    ],
+    "37": [
+      "A"
+    ],
+    "38": [
+      "F"
+    ],
+    "39": [
+      "B"
+    ],
+    "40": [
+      "C"
+    ]
+  }
+};
+
+  const displayKey = Object.fromEntries(Object.entries(DATA.answerKey).map(([k,v])=>[k,v.join(" / ")]));
+  const state = {answers:{}, currentPart:1, notes:[], timeLeft:3600, timer:null, takerId:"", reviewMode:false, selectionMenu:null};
+  const $ = id => document.getElementById(id);
+  const show = el => el.classList.remove("hidden");
+  const hide = el => el.classList.add("hidden");
+  const esc = value => String(value ?? "").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]));
+  const normalize = value => String(value ?? "").trim().toLowerCase().replace(/[’']/g,"").replace(/[‐‑–—-]+/g," ").replace(/\s+/g," ");
+  const isCorrect = (num,value=state.answers[num]) => { const user=normalize(value); return !!user && (DATA.answerKey[num]||[]).some(k=>normalize(k)===user); };
+  const isAnswered = num => state.answers[num] !== undefined && String(state.answers[num]).trim() !== "";
+
+  function answerInput(num, placeholder=""){
+    const value=state.answers[num]??"";
+    return `<input class="answer-input" type="text" data-q="${num}" value="${esc(value)}" placeholder="${esc(placeholder)}" autocomplete="off">${reviewBadge(num)}`;
+  }
+  function answerSelect(num, options){
+    const value=state.answers[num]??"";
+    return `<select class="answer-select" data-q="${num}"><option value="">Select</option>${options.map(([v,t])=>`<option value="${esc(v)}" ${String(value)===String(v)?"selected":""}>${esc(t)}</option>`).join("")}</select>${reviewBadge(num)}`;
+  }
+  function reviewBadge(num){
+    if(!state.reviewMode) return "";
+    const ok=isCorrect(num); const given=state.answers[num]??"";
+    return `<span class="review-feedback ${ok?"correct":"wrong"}">${ok?"✓ Correct":`✗ ${given?"Wrong":"Blank"} · Correct: ${esc(displayKey[num])}`}</span>`;
+  }
+  function qRow(num,text,control){return `<div class="question-row" id="q-${num}"><span class="qnum">${num}</span><div class="qtext">${text}<div style="margin-top:6px">${control}</div></div></div>`;}
+
+  function renderPassage(part){
+    const p=DATA.passages[part];
+    $("passage-pane").innerHTML=`<div class="passage-title">${p.title}</div><div class="passage-sub">${p.sub}</div><div class="passage-time">${p.time}</div>${p.paras.map(([letter,text])=>`<div class="passage-para"><div class="para-letter">${esc(letter)}</div><div class="para-text">${esc(text)}</div></div>`).join("")}`;
+  }
+
+  function renderQuestions(part){
+    let html=`<div class="part-banner"><b>READING PASSAGE ${part}</b><div class="instr">Questions ${part===1?"1–13":part===2?"14–26":"27–40"}</div></div>`;
+    if(part===1){
+      const short={
+        1:"What condition in very young babies may be a result of the mother's breathing in smoke from cooking fires?",
+        2:"What type of free fuel do low-income households have to use?",
+        3:"What makes electricity and gas unavailable in some areas?",
+        4:"What devices, developed to solve the problem of IAP, failed because they did not meet local needs?"
+      };
+      html+=`<div class="section-title">Questions 1–4</div><div class="q-instructions">Answer the questions below.<br>Choose <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.</div>`;
+      for(let n=1;n<=4;n++) html+=qRow(n,esc(short[n]),answerInput(n));
+
+      html+=`<div class="section-title">Questions 5–9</div><div class="q-instructions">Complete the flow-chart below.<br>Choose <b>NO MORE THAN TWO WORDS AND/OR A NUMBER</b> from the passage for each answer.</div>
+      <div class="notes-box"><b>Stages in the 'Breathing Space' programme</b>
+        <div class="note-line">conducting <span class="inline-answer"><b>5</b> ${answerInput(5)}</span> and requesting proposals</div>
+        <div class="note-line">↓</div>
+        <div class="note-line">setting up <span class="inline-answer"><b>6</b> ${answerInput(6)}</span> in developing countries</div>
+        <div class="note-line">↓</div>
+        <div class="note-line"><span class="inline-answer"><b>7</b> ${answerInput(7)}</span> of existing programmes in China and India</div>
+        <div class="note-line">↓</div>
+        <div class="note-line">complementary activities, e.g. standardised monitoring; development of business tools</div>
+        <div class="note-line">↓</div>
+        <div class="note-line">wider-scale developments in India and Guatemala</div>
+        <div class="note-line">↓</div>
+        <div class="note-line">long-term aim: protection of up to <span class="inline-answer"><b>8</b> ${answerInput(8)}</span> households</div>
+        <div class="note-line">↓</div>
+        <div class="note-line">possible establishment of partnerships and intervention mechanisms on the <span class="inline-answer"><b>9</b> ${answerInput(9)}</span> level</div>
+      </div>`;
+
+      const tf=[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]];
+      const statements={
+        10:"Less research has been done on the Breathing Space programme's impact on health than on its effect on indoor pollution levels.",
+        11:"The Breathing Space programme has been very successful in communities with high levels of indoor pollution.",
+        12:"The pilot project worked most effectively when it included provision for health education.",
+        13:"The target in Guatemala is to have IAP interventions in all at-risk households."
+      };
+      html+=`<div class="section-title">Questions 10–13</div><div class="q-instructions">Do the following statements agree with the information given in Reading Passage 1?<br><b>TRUE</b> — agrees; <b>FALSE</b> — contradicts; <b>NOT GIVEN</b> — there is no information.</div>`;
+      for(let n=10;n<=13;n++) html+=qRow(n,esc(statements[n]),answerSelect(n,tf));
+    }
+
+    if(part===2){
+      const paraOpts=["A","B","C","D","E","F"].map(x=>[x,x]);
+      const q14={
+        14:"an explanation of research aimed at restoring the health of the heirloom tomato.",
+        15:"a reference to a false belief about the heirloom tomato.",
+        16:"a description of the flavour of the heirloom tomato.",
+        17:"a reference to a single gene that significantly improves the cultivation of tomatoes."
+      };
+      html+=`<div class="section-title">Questions 14–17</div><div class="q-instructions">Reading Passage 2 has six paragraphs, <b>A–F</b>.<br>Which paragraph contains the following information?</div>`;
+      for(let n=14;n<=17;n++) html+=qRow(n,esc(q14[n]),answerSelect(n,paraOpts));
+
+      const researchers=[["A","A — Steven Tanksley"],["B","B — Esther van der Knaap"],["C","C — Roger Chetelat"],["D","D — Doug Heath"]];
+      const q18={
+        18:"The transplanting of certain genes into tomatoes can change their shape.",
+        19:"The flavour of the heirloom tomato is largely dependent on actual yield and cultivation.",
+        20:"A new type of tomato can be produced that is stronger than the original heirloom tomato yet equally sweet and flavoursome.",
+        21:"The wide variety of heirloom tomatoes is due to only a small number of genes."
+      };
+      html+=`<div class="section-title">Questions 18–21</div><div class="q-instructions">Match each statement with the correct researcher, <b>A, B, C or D</b>.</div><div class="option-list"><b>List of Researchers</b><div>A — Steven Tanksley</div><div>B — Esther van der Knaap</div><div>C — Roger Chetelat</div><div>D — Doug Heath</div></div>`;
+      for(let n=18;n<=21;n++) html+=qRow(n,esc(q18[n]),answerSelect(n,researchers));
+
+      const gaps={
+        22:"There is little information on the origin of the tomato despite the existence of ______ data on the growing of other New World crops.",
+        23:"Although it is uncertain, the tomato is thought to have first grown in the ______.",
+        24:"In regard to genetic similarities, the ______ tomato is the nearest to the earliest type of tomato.",
+        25:"A genetic ______ which is evident in pomodoro produced larger tomatoes.",
+        26:"______ are a problem for heirloom tomatoes because they frequently lead to damage and deterioration."
+      };
+      html+=`<div class="section-title">Questions 22–26</div><div class="q-instructions">Complete the sentences below.<br>Choose <b>ONE WORD ONLY</b> from the passage for each answer.</div>`;
+      for(let n=22;n<=26;n++) html+=qRow(n,esc(gaps[n]),answerInput(n));
+    }
+
+    if(part===3){
+      const opts=["A","B","C","D"].map(x=>[x,x]);
+      const mc={
+        27:{q:"Which of the following is mentioned in the article in relation to classroom-based learning?",o:[["A","A — the development of academic skills."],["B","B — the documenting of information."],["C","C — the compilation of assignments."],["D","D — the exchange of ideas."]]},
+        28:{q:"Ruberg, Taylor and Moore point out that web-based learning requires learners to",o:[["A","A — think sequentially."],["B","B — research different points of view."],["C","C — limit their responses to other students."],["D","D — follow more than one discussion at a time."]]},
+        29:{q:"What problem did Sproull and Kiesler identify with online discussions?",o:[["A","A — Online discussions demand less attention than face-to-face ones."],["B","B — Teachers have difficulty monitoring the length of comments."],["C","C — Face-to-face interactions between students are lost."],["D","D — There is a delay in giving feedback to students."]]},
+        30:{q:"The writer refers to the concept of online presence as",o:[["A","A — listening to a discussion."],["B","B — a feeling of being part of a group."],["C","C — posting ideas on an electronic bulletin board."],["D","D — having a good relationship with other students."]]},
+        31:{q:"What was a focus of Anthony Picciano’s study?",o:[["A","A — to examine the relationship between presence and course outcomes."],["B","B — to analyse the differences between online and class-based courses."],["C","C — to examine the importance of being present in a classroom."],["D","D — to demonstrate that online courses are not generally effective."]]}
+      };
+      html+=`<div class="section-title">Questions 27–31</div><div class="q-instructions">Choose the correct letter, <b>A, B, C or D</b>.</div>`;
+      for(let n=27;n<=31;n++) html+=qRow(n,esc(mc[n].q),answerSelect(n,mc[n].o));
+
+      const yn=[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]];
+      const q32={
+        32:"The ability of online courses to meet an individual participant’s needs is unclear.",
+        33:"Researchers caution against building strong online relationships.",
+        34:"Common assumptions about the benefits of face-to-face courses have proved to be correct.",
+        35:"The meaning of presence is still being clarified.",
+        36:"Research on the impacts of interaction on learning outcomes has produced consistent results."
+      };
+      html+=`<div class="section-title">Questions 32–36</div><div class="q-instructions">Do the following statements agree with the claims of the writer?<br><b>YES</b> — agrees; <b>NO</b> — contradicts; <b>NOT GIVEN</b> — impossible to say.</div>`;
+      for(let n=32;n<=36;n++) html+=qRow(n,esc(q32[n]),answerSelect(n,yn));
+
+      const endings=[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"]];
+      const q37={
+        37:"The ability to succeed in an online course",
+        38:"The need to be mindful of the source of comments in an online discussion",
+        39:"In online courses, it is presence, rather than interaction, that",
+        40:"The relationship between interaction and learning achievement"
+      };
+      html+=`<div class="section-title">Questions 37–40</div><div class="q-instructions">Complete each sentence with the correct ending, <b>A–F</b>, below.</div>
+      <div class="option-list"><b>List of Endings</b>
+        <div><b>A</b> — is dependent on adapting to unfamiliar interaction formats.</div>
+        <div><b>B</b> — is key in determining whether a student has a sense of belonging in a course.</div>
+        <div><b>C</b> — is a subject that the writer believes will require more study.</div>
+        <div><b>D</b> — is essential to excel in study and scholarship.</div>
+        <div><b>E</b> — is key in determining whether a student feels they have learned something from a course.</div>
+        <div><b>F</b> — is important for determining their validity.</div>
+      </div>`;
+      for(let n=37;n<=40;n++) html+=qRow(n,esc(q37[n]),answerSelect(n,endings));
+    }
+
+    $("questions-pane").innerHTML=html;
+    bindAnswerEvents();
+    if(state.reviewMode){$("questions-pane").querySelectorAll("input,select").forEach(el=>el.disabled=true);$("screen-test").classList.add("review-mode");}else{$("screen-test").classList.remove("review-mode");}
+  }
+
+  function bindAnswerEvents(){
+    $("questions-pane").querySelectorAll("[data-q]").forEach(el=>{
+      el.addEventListener("input",()=>{state.answers[Number(el.dataset.q)]=el.value;renderBottomBar();});
+      el.addEventListener("change",()=>{state.answers[Number(el.dataset.q)]=el.value;renderBottomBar();});
+    });
+  }
+
+  function partRange(part){return part===1?[1,13]:part===2?[14,26]:[27,40];}
+  function renderBottomBar(){
+    let html="";
+    for(let p=1;p<=3;p++){
+      const [a,b]=partRange(p); const answered=Array.from({length:b-a+1},(_,i)=>a+i).filter(isAnswered).length;
+      html+=`<div class="part-nav-group"><span class="part-label ${state.currentPart===p?"active":""}" data-part="${p}">Passage ${p}</span><span class="part-count">${answered}/${b-a+1}</span>${Array.from({length:b-a+1},(_,i)=>a+i).map(n=>`<button class="qnum-btn ${isAnswered(n)?"answered":""}" data-qnav="${n}" title="Question ${n}">${n}</button>`).join("")}</div>`;
+    }
+    html+=`<button class="submit-check" id="bottom-submit" title="Submit">✔</button>`;
+    $("bottombar").innerHTML=html;
+    $("bottombar").querySelectorAll("[data-part]").forEach(el=>el.onclick=()=>switchPart(Number(el.dataset.part)));
+    $("bottombar").querySelectorAll("[data-qnav]").forEach(el=>el.onclick=()=>jumpQuestion(Number(el.dataset.qnav)));
+    $("bottom-submit").onclick=openFinal;
+  }
+  function partForQuestion(n){return n<=13?1:n<=26?2:3;}
+  function jumpQuestion(n){const p=partForQuestion(n);if(state.currentPart!==p)switchPart(p);requestAnimationFrame(()=>$("q-"+n)?.scrollIntoView({behavior:"smooth",block:"center"}));}
+  function switchPart(part){state.currentPart=part;renderPassage(part);renderQuestions(part);renderBottomBar();$("passage-pane").scrollTop=0;$("questions-pane").scrollTop=0;}
+
+  function updateTimer(){
+    const m=Math.floor(state.timeLeft/60),s=state.timeLeft%60;$("timer-display").textContent=`${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;$("timer-display").classList.toggle("low",state.timeLeft<=300);
+  }
+  function startTimer(){clearInterval(state.timer);updateTimer();state.timer=setInterval(()=>{state.timeLeft--;updateTimer();if(state.timeLeft<=0){clearInterval(state.timer);state.timeLeft=0;finishTest();}},1000);}
+
+  function openFinal(){hide($("screen-test"));show($("screen-final"));$("taker-id-display-final").textContent=state.takerId;closeMenu();}
+  function backToTest(){hide($("screen-final"));show($("screen-test"));}
+  function bandScore(correct){if(correct>=39)return 9.0;if(correct>=37)return 8.5;if(correct>=35)return 8.0;if(correct>=33)return 7.5;if(correct>=30)return 7.0;if(correct>=27)return 6.5;if(correct>=23)return 6.0;if(correct>=19)return 5.5;if(correct>=15)return 5.0;if(correct>=13)return 4.5;if(correct>=10)return 4.0;if(correct>=8)return 3.5;if(correct>=6)return 3.0;if(correct>=4)return 2.5;if(correct>=3)return 2.0;if(correct>=2)return 1.5;if(correct>=1)return 1.0;return 0.0;}
+  function finishTest(){clearInterval(state.timer);hide($("screen-final"));hide($("screen-test"));show($("screen-results"));let correct=0,rows="";for(let n=1;n<=40;n++){const ok=isCorrect(n);if(ok)correct++;const ans=state.answers[n]??"";rows+=`<tr><td>${n}</td><td>${esc(ans||"—")}</td><td>${esc(displayKey[n])}</td><td class="${ok?"ok":"no"}">${ok?"Correct":"Wrong"}</td></tr>`;}$("score-correct").textContent=correct;$("score-band").textContent=bandScore(correct).toFixed(1);$("results-taker-id").textContent=state.takerId;$("review-body").innerHTML=rows;}
+  function enterReview(){state.reviewMode=true;clearInterval(state.timer);hide($("screen-results"));show($("screen-test"));show($("back-to-results-btn"));switchPart(state.currentPart||1);updateTimer();}
+  function backToResults(){hide($("screen-test"));show($("screen-results"));}
+  function restart(){location.reload();}
+
+  function renderNotes(){const list=$("notes-list");if(!state.notes.length){list.innerHTML='<div class="notes-empty">Select text in a passage, then choose <b>Note</b> to save it here.</div>';return;}list.innerHTML=state.notes.map((n,i)=>`<div class="note-entry">${esc(n)}<button class="note-remove" data-rm="${i}">×</button></div>`).join("");list.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{state.notes.splice(Number(b.dataset.rm),1);renderNotes();});}
+  function removeSelectionMenu(){state.selectionMenu?.remove();state.selectionMenu=null;}
+  function handleSelection(){removeSelectionMenu();const sel=window.getSelection();if(!sel||sel.isCollapsed)return;const text=sel.toString().trim();if(!text)return;const range=sel.getRangeAt(0);const container=range.commonAncestorContainer.nodeType===1?range.commonAncestorContainer:range.commonAncestorContainer.parentElement;if(!$("passage-pane").contains(container))return;const rect=range.getBoundingClientRect();const menu=document.createElement("div");menu.className="selection-menu";menu.style.left=Math.max(8,Math.min(window.innerWidth-160,rect.left))+"px";menu.style.top=Math.max(8,rect.bottom+6)+"px";menu.innerHTML='<button data-act="highlight">Highlight</button><button data-act="note">Note</button>';document.body.appendChild(menu);state.selectionMenu=menu;menu.querySelector('[data-act="note"]').onclick=()=>{state.notes.push(text);renderNotes();sel.removeAllRanges();removeSelectionMenu();};menu.querySelector('[data-act="highlight"]').onclick=()=>{try{const mark=document.createElement("mark");mark.className="hl";range.surroundContents(mark);}catch(e){}sel.removeAllRanges();removeSelectionMenu();};}
+
+  function openMenu(){$("menu-overlay").classList.add("open");showMenuRoot();}
+  function closeMenu(){$("menu-overlay").classList.remove("open");}
+  function showMenuRoot(){show($("menu-root"));hide($("menu-contrast"));hide($("menu-textsize"));$("menu-back-btn").classList.remove("show");$("menu-title").textContent="Options";}
+  function showSub(id,title){hide($("menu-root"));show($(id));$("menu-back-btn").classList.add("show");$("menu-title").textContent=title;}
+  function applyContrast(mode){document.body.classList.remove("contrast-wb","contrast-yb");if(mode==="wb")document.body.classList.add("contrast-wb");if(mode==="yb")document.body.classList.add("contrast-yb");document.querySelectorAll("[data-contrast] .check").forEach(x=>x.textContent="");document.querySelector(`[data-contrast="${mode}"] .check`).textContent="✔";}
+  function applyTextSize(mode){$("app").classList.remove("textsize-large","textsize-extralarge");if(mode==="large")$("app").classList.add("textsize-large");if(mode==="extralarge")$("app").classList.add("textsize-extralarge");document.querySelectorAll("[data-textsize] .check").forEach(x=>x.textContent="");document.querySelector(`[data-textsize="${mode}"] .check`).textContent="✔";}
+
+  $("pwd-submit").onclick=()=>{if($("pwd-input").value===REQUIRED_PASSWORD){hide($("screen-password"));show($("screen-id"));$("id-input").focus();}else{$("pwd-error").textContent="Incorrect password.";}};
+  $("pwd-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("pwd-submit").click();});
+  $("id-submit").onclick=()=>{const id=$("id-input").value.trim();if(!id){$("id-error").textContent="Please enter your Test Taker ID.";return;}state.takerId=id;$("taker-id-display").textContent=id;hide($("screen-id"));show($("screen-test"));switchPart(1);renderNotes();startTimer();};
+  $("id-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("id-submit").click();});
+  $("hamburger-btn").onclick=openMenu;$("menu-close-btn").onclick=closeMenu;$("menu-back-btn").onclick=showMenuRoot;$("menu-submit-btn").onclick=openFinal;$("menu-contrast-btn").onclick=()=>showSub("menu-contrast","Contrast");$("menu-textsize-btn").onclick=()=>showSub("menu-textsize","Text size");
+  document.querySelectorAll("[data-contrast]").forEach(el=>el.onclick=()=>applyContrast(el.dataset.contrast));document.querySelectorAll("[data-textsize]").forEach(el=>el.onclick=()=>applyTextSize(el.dataset.textsize));
+  $("notes-toggle-btn").onclick=()=>$("notes-panel").classList.toggle("open");$("passage-pane").addEventListener("mouseup",()=>setTimeout(handleSelection,0));document.addEventListener("mousedown",e=>{if(state.selectionMenu&&!state.selectionMenu.contains(e.target))removeSelectionMenu();});
+  $("back-to-test-btn").onclick=backToTest;$("final-next-btn").onclick=finishTest;$("review-test-btn").onclick=enterReview;$("restart-btn").onclick=restart;$("back-to-results-btn").onclick=backToResults;
+})();
+</script>
+</body>
+</html>

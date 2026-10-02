@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Full Reading Test – Bondi Beach / Antarctica / Talc Powder</title>
+<style>
+:root{--ielts-red:#d2122e;--border:#c9c9c9;--text:#1a1a1a;--muted:#666;--panel:#f1f1f1;--focus:#2b6fd6;--highlight:#ffe066}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+button,input,select{font:inherit}
+#app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.hidden{display:none!important}
+.auth-banner{height:64px;flex:0 0 64px;background:#172f4d;color:#fff;display:flex;align-items:center;justify-content:center;gap:18px;padding:8px 18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.auth-banner-text{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-weight:800;white-space:nowrap}
+.auth-banner-link{display:inline-flex;align-items:center;gap:10px;padding:8px 21px;border:2px solid #d9f3ff;border-radius:28px;background:#45afe0;color:#fff;text-decoration:none;font-size:20px;font-weight:800;white-space:nowrap}
+.auth-banner-play{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#45afe0;font-size:16px}
+.gate-screen{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#f5f5f5;padding:20px}
+.gate-card{width:min(390px,100%);background:#fff;border:1px solid var(--border);border-radius:6px;padding:36px 40px;box-shadow:0 3px 16px rgba(0,0,0,.09)}
+.gate-brand-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.gate-logo{font-size:28px;font-weight:800;color:var(--ielts-red);letter-spacing:1px}
+.gate-sub{text-align:center;font-size:13px;color:var(--muted);margin-bottom:25px}
+.gate-card label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+.gate-card input{width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:4px;margin-bottom:16px}
+.gate-card input:focus{outline:2px solid var(--focus);border-color:var(--focus)}
+.gate-btn{width:100%;padding:11px;border:0;border-radius:4px;background:#111;color:#fff;cursor:pointer}
+.gate-btn:hover{background:#000}
+.gate-error{min-height:18px;color:var(--ielts-red);font-size:13px;margin-top:-8px;margin-bottom:8px}
+.gate-footer{text-align:center;margin-top:17px;font-size:11px;color:#999}
+.gate-footer a{color:var(--focus);text-decoration:none}
+#screen-test,#screen-final,#screen-results{flex:1;min-height:0}
+.topbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 20px;border-bottom:1px solid var(--border);background:#fff;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:13px;min-width:0}
+.ielts-logo{font-size:20px;font-weight:800;color:var(--ielts-red)}
+.brand-name{font-size:11px;color:#555;white-space:nowrap}
+.taker-id-block{font-size:12px;line-height:1.35}
+.taker-id-block .label{font-weight:700}
+.timer-status{font-size:13px;font-weight:700;color:#222}
+.timer-status.low{color:var(--ielts-red)}
+.topbar-right{display:flex;align-items:center;gap:13px}
+.icon-btn{border:0;background:none;cursor:pointer;font-size:19px;padding:5px}
+.main-wrap{position:relative;flex:1;display:flex;overflow:hidden}
+.content-wrap{flex:1;display:flex;overflow:hidden}
+.passage-pane,.questions-pane{flex:1 1 50%;overflow-y:auto;padding:22px 26px;font-size:14px;line-height:1.7}
+.passage-pane{border-right:1px solid var(--border)}
+.passage-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.passage-sub{font-size:16px;font-weight:800;text-align:center;margin:8px 0 12px}
+.passage-time{font-size:12px;color:#777;margin-bottom:18px;font-style:italic}
+.passage-heading{font-size:15px;font-weight:800;text-align:center;margin:18px 0 10px}
+.passage-para{display:flex;gap:10px;margin-bottom:15px}
+.para-letter{width:24px;flex-shrink:0;font-weight:800;color:var(--ielts-red)}
+.para-text{flex:1}
+.part-banner{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin-bottom:18px;border-radius:3px}
+.part-banner b{font-size:14px}
+.part-banner .instr{font-size:13px;margin-top:2px}
+.q-instructions{font-size:13px;margin:0 0 12px}
+.q-title{font-weight:800}
+.question-row{display:flex;align-items:center;gap:11px;margin-bottom:13px;font-size:13px}
+.question-row .qtext{flex:1}
+.qnum{display:inline-flex;align-items:center;justify-content:center;min-width:31px;height:24px;border:1px solid #333;padding:1px 7px;font-size:12px;font-weight:800;flex-shrink:0}
+select.answer-select,input.answer-input{border:1px solid var(--focus);border-radius:3px;background:#fafcff;padding:6px 8px;font-size:13px}
+select.answer-select{width:170px}
+input.answer-input{width:185px;text-align:center}
+.summary-box{border:1px solid #ddd;background:#fafafa;padding:15px 17px;margin:10px 0 18px;font-size:14px;line-height:2.25}
+.summary-box input{vertical-align:middle;margin:0 4px}
+.list-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.75}
+.list-box b{font-size:13px}
+.mc-question{margin-bottom:18px;font-size:13px}
+.mc-question-title{display:flex;gap:9px;align-items:flex-start;margin-bottom:7px}
+.mc-options label{display:block;margin:7px 0 0 40px;cursor:pointer;line-height:1.45}
+.mc-options input{margin-right:8px}
+.flow-line{margin:8px 0}
+.flow-center{text-align:center;font-weight:700;margin:12px 0}
+.notes-panel{width:270px;border-left:1px solid var(--border);background:#f1f1f1;padding:15px;display:none;overflow-y:auto;flex-shrink:0}
+.notes-panel.open{display:block}
+.notes-title{font-size:13px;font-weight:800;color:var(--ielts-red);margin-bottom:13px}
+.notes-empty{font-size:13px;color:#666;text-align:center;margin-top:35px;line-height:1.6}
+.note-entry{background:#fff;border:1px solid #ccc;border-radius:3px;padding:8px 10px;margin-bottom:9px;font-size:12px;font-style:italic}
+.selection-menu{position:absolute;z-index:100;background:#fff;border:1px solid #999;box-shadow:0 2px 8px rgba(0,0,0,.2);display:flex;border-radius:3px}
+.selection-menu button{border:0;background:none;padding:8px 11px;font-size:11px;cursor:pointer}
+.selection-menu button+button{border-left:1px solid #ddd}
+mark.hl{background:var(--highlight)}
+.bottombar{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 18px;border-top:1px solid var(--border);background:#fff;overflow-x:auto;flex-shrink:0}
+.part-nav-group{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.part-label{font-size:13px;font-weight:700;cursor:pointer}
+.part-label.active{color:var(--ielts-red)}
+.part-count{font-size:12px;color:#888}
+.qnum-btn{width:23px;height:23px;border:1px solid transparent;border-radius:2px;background:none;font-size:12px;cursor:pointer;padding:0}
+.qnum-btn.answered{font-weight:800;color:var(--focus)}
+.submit-check{width:36px;height:36px;border:0;background:#efefef;cursor:pointer;font-size:16px;flex-shrink:0}
+.menu-overlay{position:absolute;inset:0;z-index:60;background:#fff;display:none;flex-direction:column}
+.menu-overlay.open{display:flex}
+.menu-header{display:grid;grid-template-columns:95px 1fr 40px;align-items:center;padding:14px 16px;border-bottom:1px solid #eee}
+.menu-header button{border:0;background:none;cursor:pointer}
+.menu-back{display:none;justify-self:start}
+.menu-back.show{display:block}
+.menu-title{text-align:center;font-weight:700;font-size:15px}
+.menu-close{justify-self:end;font-size:18px}
+.menu-body{width:min(440px,100%);margin:0 auto;padding:20px}
+.menu-item,.option-row{display:flex;align-items:center;justify-content:space-between;border:1px solid #ddd;padding:14px 16px;font-size:14px;cursor:pointer}
+.menu-item+.menu-item,.option-row+.option-row{border-top:0}
+.menu-item.danger{background:var(--ielts-red);border-color:var(--ielts-red);color:#fff;font-weight:700;margin-bottom:15px}
+.final-action-btn{background:#fff;color:#111;border:1px solid #111;padding:8px 15px;border-radius:3px;font-size:12px;cursor:pointer}
+.final-action-btn.primary{background:#111;color:#fff}
+.transition-body{flex:1;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;font-size:13px;color:#444}
+.results-wrap{height:100%;overflow-y:auto;padding:30px 40px}
+.results-wrap h1{color:var(--ielts-red);font-size:25px;margin:0 0 4px}
+.score-summary{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 27px}
+.score-box{min-width:130px;text-align:center;border:1px solid #ddd;border-radius:5px;padding:16px 22px}
+.score-box .num{font-size:30px;font-weight:800;color:var(--ielts-red)}
+.score-box .lbl{font-size:12px;color:#666;margin-top:4px}
+.review-table{width:100%;border-collapse:collapse;font-size:13px}
+.review-table th,.review-table td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+.review-table th{background:var(--panel)}
+.ok{color:#148a3b;font-weight:800} .no{color:var(--ielts-red);font-weight:800}
+.restart-btn{margin-top:22px;padding:10px 21px;border:0;border-radius:3px;background:#111;color:#fff;cursor:pointer}
+body.contrast-wb .topbar,body.contrast-wb .bottombar,body.contrast-wb .content-wrap,body.contrast-wb .passage-pane,body.contrast-wb .questions-pane{background:#000!important;color:#fff!important}
+body.contrast-wb .part-banner,body.contrast-wb .list-box,body.contrast-wb .summary-box{background:#171717;border-color:#444}
+body.contrast-wb input,body.contrast-wb select{background:#111;color:#fff;border-color:#777}
+body.contrast-yb .topbar,body.contrast-yb .bottombar,body.contrast-yb .content-wrap,body.contrast-yb .passage-pane,body.contrast-yb .questions-pane{background:#000!important;color:#f1d70a!important}
+body.contrast-yb .part-banner,body.contrast-yb .list-box,body.contrast-yb .summary-box{background:#171717;border-color:#555}
+body.contrast-yb input,body.contrast-yb select{background:#111;color:#f1d70a;border-color:#f1d70a}
+#app.textsize-large .passage-pane,#app.textsize-large .questions-pane{font-size:16px}
+#app.textsize-extralarge .passage-pane,#app.textsize-extralarge .questions-pane{font-size:19px}
+@media(max-width:900px){.main-wrap,.content-wrap{flex-direction:column}.passage-pane{border-right:0;border-bottom:1px solid var(--border);max-height:42vh}.notes-panel{position:absolute;right:0;top:0;bottom:0;z-index:55}.brand-name{display:none}.topbar{padding:8px 10px}.passage-pane,.questions-pane{padding:18px}.results-wrap{padding:22px 16px}}
+@media(max-width:700px){.auth-banner{height:52px;flex-basis:52px;gap:8px;padding:6px 8px}.auth-banner-text{font-size:16px}.auth-banner-link{font-size:14px;padding:6px 11px}.auth-banner-play{width:24px;height:24px;font-size:12px}}
+.passage-intro{font-style:italic;margin:0 0 17px;padding:10px 12px;background:#fafafa;border-left:3px solid var(--ielts-red);line-height:1.55}
+.diagram-box{border:1px solid #ddd;background:#fff;padding:10px;margin:10px 0 16px;border-radius:3px;text-align:center}
+.diagram-box img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-answer-grid{margin-top:10px}
+.multi-note{font-size:12px;color:#666;margin:-4px 0 12px}
+body.contrast-wb .passage-intro,body.contrast-wb .diagram-box{background:#111;color:#fff;border-color:#555}
+body.contrast-yb .passage-intro,body.contrast-yb .diagram-box{background:#111;color:#f1d70a;border-color:#555}
+.fill-sentence-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;font-size:13px;line-height:2}
+.fill-sentence-row .fill-sentence{flex:1}
+input.inline-answer-input{display:inline-block;width:150px;min-width:110px;border:0!important;border-bottom:2px solid #333!important;border-radius:0!important;background:transparent!important;padding:1px 5px 2px!important;margin:0 5px!important;text-align:center!important;outline:none;color:inherit}
+input.inline-answer-input:focus{border-bottom-color:var(--focus)!important;box-shadow:0 2px 0 rgba(43,111,214,.15)}
+input.inline-answer-input::placeholder{color:#777;letter-spacing:1px}
+.heading-bank{background:var(--panel);border:1px solid #ddd;padding:12px 14px;margin:10px 0 16px;border-radius:3px}
+.heading-bank-title{font-size:13px;font-weight:800;margin-bottom:8px}
+.heading-drag-item{display:flex;align-items:flex-start;gap:9px;background:#fff;border:1px solid #bbb;border-radius:4px;padding:8px 10px;margin:7px 0;cursor:grab;font-size:12px;line-height:1.45;user-select:none}
+.heading-drag-item:active{cursor:grabbing}
+.heading-drag-item.used{opacity:.58}
+.heading-drag-item.selected{outline:2px solid var(--focus);outline-offset:1px}
+.heading-roman{min-width:31px;font-weight:800;color:var(--ielts-red)}
+.heading-help{font-size:11px;color:#666;margin:6px 0 2px}
+.para-content{flex:1;min-width:0}
+.heading-drop-slot{display:flex;align-items:center;gap:8px;min-height:40px;border:2px dashed #9ca3af;border-radius:5px;background:#fafafa;padding:6px 8px;margin:0 0 9px;transition:.15s ease}
+.heading-drop-slot.drag-over{border-color:var(--focus);background:#eef5ff}
+.heading-drop-slot.filled{border-style:solid;border-color:#5c7fb6;background:#f5f8ff}
+.drop-qnum{display:inline-flex;align-items:center;justify-content:center;min-width:35px;height:25px;border:1px solid #333;background:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.drop-prompt{font-size:12px;color:#6b7280;flex:1}
+.drop-answer{font-size:12px;line-height:1.35;flex:1;font-weight:700}
+.drop-clear{border:0;background:transparent;color:#777;font-size:17px;line-height:1;cursor:pointer;padding:2px 5px;display:none}
+.heading-drop-slot.filled .drop-clear{display:block}
+.heading-assignments{border:1px solid #ddd;border-radius:3px;margin:12px 0 18px;overflow:hidden}
+.heading-assignment-row{display:flex;align-items:center;gap:8px;padding:7px 9px;font-size:12px;border-top:1px solid #e4e4e4}
+.heading-assignment-row:first-child{border-top:0}
+.heading-assignment-q{font-weight:800;min-width:35px}
+.heading-assignment-value{color:#555;flex:1}
+body.contrast-wb .heading-bank,body.contrast-wb .heading-drop-slot,body.contrast-wb .heading-drag-item{background:#171717;color:#fff;border-color:#666}
+body.contrast-yb .heading-bank,body.contrast-yb .heading-drop-slot,body.contrast-yb .heading-drag-item{background:#171717;color:#f1d70a;border-color:#777}
+body.contrast-wb .drop-qnum,body.contrast-yb .drop-qnum{background:#111;color:inherit;border-color:#888}
+@media(max-width:900px){.heading-drag-item{cursor:pointer}.heading-drop-slot{min-height:44px}}
+.category-box{background:var(--panel);border:1px solid #ddd;padding:12px 15px;margin:10px 0 16px;font-size:12px;line-height:1.8}
+.category-grid{display:grid;grid-template-columns:38px 1fr;gap:4px 10px}
+.two-choice-box{border:1px solid #ddd;background:#fafafa;padding:12px 15px;margin:10px 0 16px}
+.two-choice-box label{display:block;margin:8px 0;cursor:pointer;font-size:13px;line-height:1.45}
+.two-choice-box input{margin-right:8px}
+.example-row{font-size:13px;margin:9px 0 14px;padding:8px 10px;background:#fafafa;border-left:3px solid #aaa}
+.p3-key-line{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:2.2;margin:8px 0}
+.p3-key-line .answer-input{width:165px}
+.flow-chart-box{background:#fafafa;border:1px solid #ddd;padding:18px 20px;margin:12px 0 16px;border-radius:4px;text-align:center}
+.flow-step{display:flex;align-items:center;justify-content:center;gap:12px;margin:6px 0}
+.flow-arrow{font-size:20px;color:#666}
+.flow-label{font-weight:700;font-size:13px}
+.flow-input{margin:0 6px}
+.flow-input .answer-input{width:120px}
+.flow-chart-box .answer-input{width:135px}
+@media(max-width:700px){.flow-step{flex-wrap:wrap}.flow-chart-box .answer-input{width:120px}}
+.match-bank{background:var(--panel);border:1px solid #ddd;padding:13px 15px;margin:10px 0 18px;border-radius:3px;font-size:12px;line-height:1.55}
+.match-bank-row{display:grid;grid-template-columns:26px 1fr;gap:8px;margin:5px 0}.match-bank-letter{font-weight:800;color:var(--ielts-red)}
+.diagram-rebuild{border:1px solid #ccc;background:#fafafa;border-radius:5px;padding:14px 16px;margin:12px 0 18px}.diagram-title{font-weight:800;font-size:13px;text-align:center;margin-bottom:8px}.eye-svg{display:block;width:min(100%,520px);height:auto;margin:0 auto 8px}.diagram-fields{display:grid;gap:9px;max-width:520px;margin:0 auto}.diagram-field{display:flex;align-items:center;gap:10px}.diagram-field .answer-input{flex:1;width:auto}.diagram-note{font-size:11px;color:#777;text-align:center;margin-top:8px}
+body.contrast-wb .match-bank,body.contrast-wb .diagram-rebuild{background:#171717;color:#fff;border-color:#555}body.contrast-yb .match-bank,body.contrast-yb .diagram-rebuild{background:#171717;color:#f1d70a;border-color:#555}
+@media(max-width:650px){.diagram-field{align-items:flex-start}.diagram-field .answer-input{min-width:0}}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="auth-banner">
+<span class="auth-banner-text">For the authentic tests, join</span>
+<a class="auth-banner-link" href="https://t.me/jasurbekisaev" target="_blank" rel="noopener"><span class="auth-banner-play">▶</span>@jasurbekisaev</a>
+</div>
+<section class="gate-screen" id="screen-password">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Full Reading Test Access</div>
+<label for="pwd-input">Enter Password</label>
+<input type="password" id="pwd-input" placeholder="Password" autocomplete="off">
+<div class="gate-error" id="pwd-error"></div>
+<button class="gate-btn" id="pwd-submit">Continue</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="gate-screen hidden" id="screen-id">
+<div class="gate-card">
+<div class="gate-brand-row"><div class="gate-logo">IELTS</div></div>
+<div class="gate-sub">Enter your Test Taker ID</div>
+<label for="id-input">Test Taker ID</label>
+<input type="text" id="id-input" placeholder="e.g. 123456789" autocomplete="off">
+<div class="gate-error" id="id-error"></div>
+<button class="gate-btn" id="id-submit">Start Test</button>
+<div class="gate-footer">Full Reading Test — <a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener">@jasurbekisaev</a></div>
+</div>
+</section>
+<section class="hidden" id="screen-test" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar">
+<div class="topbar-left">
+<div><div class="ielts-logo">IELTS</div><div class="brand-name">Full Reading Test</div></div>
+<div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display"></div><div class="timer-status" id="timer-display">60:00</div></div>
+</div>
+<div class="topbar-right"><span title="Connection">📶</span><span title="Notifications">🔔</span><button class="icon-btn" id="hamburger-btn" title="Menu">☰</button><button class="icon-btn" id="notes-toggle-btn" title="Notes">✏️</button></div>
+</header>
+<div class="main-wrap">
+<div class="content-wrap"><main class="passage-pane" id="passage-pane"></main><aside class="questions-pane" id="questions-pane"></aside></div>
+<aside class="notes-panel" id="notes-panel"><div class="notes-title">Notes</div><div id="notes-list"></div></aside>
+<div class="menu-overlay" id="menu-overlay">
+<div class="menu-header"><button class="menu-back" id="menu-back-btn">‹ Options</button><div class="menu-title" id="menu-title">Options</div><button class="menu-close" id="menu-close-btn">✕</button></div>
+<div class="menu-body">
+<div id="menu-root"><div class="menu-item danger" id="menu-submit-btn"><span>🚀 Go to submission page</span><span>›</span></div><div class="menu-item" id="menu-contrast-btn"><span>◐ Contrast</span><span>›</span></div><div class="menu-item" id="menu-textsize-btn"><span>🔍 Text size</span><span>›</span></div></div>
+<div class="hidden" id="menu-contrast"><div class="option-row" data-contrast="bw"><span><span class="check">✔</span> Black on white</span></div><div class="option-row" data-contrast="wb"><span><span class="check"></span> White on black</span></div><div class="option-row" data-contrast="yb"><span><span class="check"></span> Yellow on black</span></div></div>
+<div class="hidden" id="menu-textsize"><div class="option-row" data-textsize="regular"><span><span class="check">✔</span> Regular</span></div><div class="option-row" data-textsize="large"><span><span class="check"></span> Large</span></div><div class="option-row" data-textsize="extralarge"><span><span class="check"></span> Extra large</span></div></div>
+</div>
+</div>
+</div>
+<footer class="bottombar" id="bottombar"></footer>
+</section>
+<section class="hidden" id="screen-final" style="height:100%;display:flex;flex-direction:column">
+<header class="topbar"><div class="topbar-left"><div class="ielts-logo">IELTS</div><div class="taker-id-block"><div class="label">Test taker ID</div><div id="taker-id-display-final"></div></div></div><div class="topbar-right"><button class="final-action-btn" id="back-to-test-btn">← Back to test</button><button class="final-action-btn primary" id="final-next-btn">Next ✈</button></div></header>
+<div class="transition-body">Click next to submit and view your result.</div>
+<footer class="bottombar"><div class="part-nav-group"><span class="part-label">Passage 1</span><span class="part-count">Questions 1–13</span></div><div class="part-nav-group"><span class="part-label">Passage 2</span><span class="part-count">Questions 14–26</span></div><div class="part-nav-group"><span class="part-label">Passage 3</span><span class="part-count">Questions 27–40</span></div><button class="submit-check" style="background:#111;color:#fff">✔</button></footer>
+</section>
+<section class="hidden results-wrap" id="screen-results">
+<h1>Test Results</h1>
+<p style="font-size:13px;color:#555">Test taker ID: <span id="results-taker-id"></span></p>
+<div class="score-summary"><div class="score-box"><div class="num" id="score-correct">0</div><div class="lbl">Correct</div></div><div class="score-box"><div class="num">40</div><div class="lbl">Total Questions</div></div><div class="score-box"><div class="num" id="score-band">0.0</div><div class="lbl">Estimated Band</div></div></div>
+<table class="review-table"><thead><tr><th style="width:60px">Q#</th><th>Your Answer</th><th>Correct Answer</th><th style="width:90px">Result</th></tr></thead><tbody id="review-body"></tbody></table>
+<button class="restart-btn" id="restart-btn">Restart Test</button>
+</section>
+</div>
+<script>
+(() => {
+"use strict";
+const REQUIRED_PASSWORD="jasurbekisaev";
+const passages={"1":{"title":"READING PASSAGE 1","sub":"Bondi Beach","time":"You should spend about 20 minutes on Questions 1–13, which are based on Reading Passage 1 below.","paras":[{"letter":"A","text":"Bondi Beach, Australia’s most famous beach, is located in the suburb of Bondi, in the Local Government Area of Waverley, seven kilometers from the centre of Sydney. “Bondi” or “Boondi” is an Aboriginal word meaning water breaking over rocks or the sound of breaking waves. The Australian Museum records that Bondi means place where a flight of nullas took place. There are Aboriginal Rock carving on the northern end of the beach at Ben Buckler and south of Bondi Beach near McKenzies Beach on the coastal walk."},{"letter":"B","text":"The indigenous people of the area at the time of European settlement have generally been welcomed to as the Sydney people or the Eora (Eora means “the people”). One theory describes the Eora as a sub-group of the Darug language group which occupied the Cumberland Plain west to the Blue Mountains. However, another theory suggests that they were a distinct language group of their own. There is no clear evidence for the name or names of the particular band(s) of the Eora that roamed what is now the Waverley area. A number of place names within Waverley, most famously Bondi, have been based on words derived from Aboriginal languages of the Sydney region."},{"letter":"C","text":"From the mid-1800s Bondi Beach was a favourite location for family outings and picnics. The beginnings of the suburb go back to 1809, when the early road builder, William Roberts, received from Governor Bligh a grant of 81 hectares of what is now most of the business and residential area of Bondi Beach. In 1851, Edward Smith Hall and Francis O’Brien purchased 200 acres of the Bondi area that embraced almost the whole frontage of Bondi Beach, and it was named the “The Bondi Estate.” Between 1855 and 1877 O’Brien purchased Hall’s share of the land, renamed the land the “O’Brien Estate,” and made the beach and the surrounding land available to the public as a picnic ground and amusement resort. As the beach became increasingly popular, O’Brien threatened to stop public beach access. However, the Municipal Council believed that the Government needed to intervene to make the beach a public reserve."},{"letter":"D","text":"During the 1900s beach became associated with health, leisure and democracy – a playground everyone could enjoy equally. Bondi Beach was a working class suburb throughout most of the twentieth century with migrant people from New Zealand comprising the majority of the local population. The first tramway reached the beach in 1884. Following this, tram became the first public transportation in Bondi. As an alternative, this action changed the rule that only rich people can enjoy the beach. By the 1930s Bondi was drawing not only local visitors but also people from elsewhere in Australia and overseas. Advertising at the time referred to Bondi Beach as the “Playground of the Pacific”."},{"letter":"E","text":"There is a growing trend that people prefer having relax near seaside instead of living unhealthily in cities. The increasing popularity of sea bathing during the late 1800s and early 1900s raised concerns about public safety and how to prevent people from drowning. In response, the world’s first formally documented surf lifesaving club, the Bondi Surf Bathers’ Life Saving Club, was formed in 1907. This was powerfully reinforced by the dramatic events of “Black Sunday” at Bondi in 1938. Some 35,000 people were on the beach and a large group of lifesavers were about to start a surf race when three freak waves hit the beach, sweeping hundreds of people out to sea. Lifesavers rescued 300 people. The largest mass rescue in the history of surf bathing, it confirmed the place of the lifesaver in the national imagination."},{"letter":"F","text":"Bondi Beach is the end point of the City to Surf Fun Run which is held each year in August. Australian surf carnivals further instilled this image. A Royal Surf Carnival was held at Bondi Beach for the Queen Elizabeth II during her first visited in Australia in 1954. Since 1867, there have been over fifty visits by a member of the British Royal Family to Australia. In addition to many activities, the Bondi Beach Markets is open every Sunday. Many wealthy people spend Christmas Day at the beach. However, the shortage of houses occurs when lots of people crushed to seaside. Manly is the seashore town which solved this problem. However, people still choose Bondi as the satisfied destination rather than Manly."},{"letter":"G","text":"Bondi Beach has a commercial area along Campbell Parade and adjacent side streets, featuring many popular cafes, restaurants, and hotels, with views of the contemporary beach. It is depicted as wholly modern and European. In the last decade, Bondi Beaches’ unique position has seen a dramatic rise in svelte houses and apartments to take advantage of the views and scent of the sea. The valley running down to the beach is famous world over for its view of distinctive red tiled roofs. Those architectures are deeply influenced by British costal town."},{"letter":"H","text":"Bondi Beach hosted the beach volleyball competition at the 2000 Summer Olympics. A temporary 10,000-seat stadium, a much smaller stadium, 2 warm-up courts, and 3 training courts were set up to host the tournament. The Bondi Beach Volleyball Stadium was constructed for it and stood for just six weeks. Campaigners oppose both the social and environmental consequences of the development. The stadium will divide the beach in two and seriously restrict public access for swimming, walking, and other forms of outdoor recreation. People protest for their human rights of having a pure seaside and argue for health life in Bondi."},{"letter":"I","text":"“They’re prepared to risk lives and risk the Bondi beach environment for the sake of eight days of volleyball”, said Stephen Uniacke, a construction lawyer involved in the campaign. Other environmental concerns include the possibility that soil dredged up from below the sand will acidify when brought to the surface."}]},"2":{"title":"READING PASSAGE 2","sub":"Antarctica – in from the cold?","time":"You should spend about 20 minutes on Questions 14–26, which are based on Reading Passage 2 below.","paras":[{"letter":"A","text":"A little over a century ago, men of the ilk of Scott, Shackleton and Mawson battled against Antarctica’s blizzards, cold and deprivation. In the name of Empire and in an age of heroic deeds they created an image of Antarctica that was to last well into the 20th century – an image of remoteness, hardship, bleakness and isolation that was the province of only the most courageous of men. The image was one of a place removed from everyday reality, of a place with no apparent value to anyone."},{"letter":"B","text":"As we enter the 21st century, our perception of Antarctica has changed. Although physically Antarctica is no closer and probably no warmer, and to spend time there still demands a dedication not seen in ordinary life, the continent and its surrounding ocean are increasingly seen to an integral part of Planet Earth, and a key component in the Earth System. Is this because the world seems a little smaller these days, shrunk by TV and tourism, or is it because Antarctica really does occupy a central spot on Earth’s mantle? Scientific research during the past half century has revealed – and continues to reveal – that Antarctica’s great mass and low temperature exert a major influence on climate and ocean circulation, factors which influence the lives of millions of people all over the globe."},{"letter":"C","text":"Antarctica was not always cold. The slow break-up of the super-continent Gondwana with the northward movements of Africa, South America, India and Australia eventually created enough space around Antarctica for the development of an Antarctic Circumpolar Current (ACC), that flowed from west to east under the influence of the prevailing westerly winds. Antarctica cooled, its vegetation perished, glaciation began and the continent took on its present-day appearance. Today the ice that overlies the bedrock is up to 4km thick, and surface temperatures as low as – 89.2deg C have been recorded. The icy blast that howls over the ice cap and out to sea – the so-called katabatic wind – can reach 300 km/hr, creating fearsome wind-chill effects."},{"letter":"D","text":"Out of this extreme environment come some powerful forces that reverberate around the world. The Earth’s rotation, coupled to the generation of cells of low pressure off the Antarctic coast, would allow Astronauts a view of Antarctica that is as beautiful as it is awesome. Spinning away to the northeast, the cells grow and deepen, whipping up the Southern Ocean into the mountainous seas so respected by mariners. Recent work is showing that the temperature of the ocean may be a better predictor of rainfall in Australia than is the pressure difference between Darwin and Tahiti – the Southern Oscillation Index. By receiving more accurate predictions, graziers in northern Queensland are able to avoid overstocking in years when rainfall will be poor. Not only does this limit their losses but it prevents serious pasture degradation that may take decades to repair. CSIRO is developing this as a prototype forecasting system, but we can confidently predict that as we know more about the Antarctic and Southern Ocean we will be able to enhance and extend our predictive ability."},{"letter":"E","text":"The ocean’s surface temperature results from the interplay between deep-water temperature, air temperature and ice. Each winter between 4 and 19 million square km of sea ice form, locking up huge quantities of heat close to the continent. Only now can we start to unravel the influence of sea ice on the weather that is experienced in southern Australia. But in another way the extent of sea ice extends its influence far beyond Antarctica. Antarctic krill – the small shrimp-like crustaceans that are the staple diet for baleen whales, penguins, some seals, flighted sea birds and many fish – breed well in years when sea ice is extensive and poorly when it is not. Many species of baleen whales and flighted sea birds migrate between the hemispheres and when the krill are less abundant they do not thrive."},{"letter":"F","text":"The circulatory system of the world’s oceans is like a huge conveyor belt, moving water and dissolved minerals and nutrients from one hemisphere to the other, and from the ocean’s abyssal depths to the surface. The ACC is the longest current in the world, and has the largest flow. Through it, the deep flows of the Atlantic, Indian and Pacific Oceans are joined to form part of a single global thermohaline circulation. During winter, the howling katabatics sometimes scour the ice off patches of the sea’s surface leaving large ice-locked lagoons, or ‘polynyas’. Recent research has shown that as fresh sea ice forms, it is continuously stripped away by the wind and may be blown up to 90km in a single day. Since only fresh water freezes into ice, the water that remains becomes increasingly salty and dense, sinking until it spills over the continental shelf. Cold water carries more oxygen than warm water, so when it rises, well into the northern hemisphere, it reoxygenates and revitalises the ocean. The state of the northern oceans, and their biological productivity, owe much to what happens in the Antarctic."}]},"3":{"title":"READING PASSAGE 3","sub":"Talc Powder","time":"You should spend about 20 minutes on Questions 27–40, which are based on Reading Passage 3 below.","paras":[{"letter":"A","text":"Peter Brigg discovers how talc from Luzenac’s Trimouns in France find its way into food and agricultural products – from chewing gum to olive oil. High in the French Pyrenees, some 1,700m above see level, lies Trimouns, a huge deposit of hydrated magnesium silicate – talc to you and me. Talc from Trimouns, and from ten other Luzenac mines across the globe, is used in the manufacture of a vast array of everyday products extending from paper, paint and plaster to cosmetics, plastics and car tyres. And of course there is always talc’s best known end use: talcum powder for babies’ bottoms. But the true versatility of this remarkable mineral is nowhere better displayed than in its sometimes surprising use in certain niche markets in the food and agriculture industries."},{"letter":"B","text":"Take, for example, the chewing gum business. Every year, Talc de Luzenac France – which owns and operates the Trimouns mine and is a member of international Luzenac Group (art of Rio Tinto minerals) – supplies about 6,000 tones of talc to chewing gum manufacturers in Europe. “We’ve been selling to this sector of the market since the 1960s,” says Laurent Fournier, sales manager in Luzenac’s Specialties business unit in Toulouse. “Admittedly, in terms of our total annual sales of talc, the amount we supply to chewing gum manufacturers is relatively small, but we see is as a valuable niche market: one where customers place a premium on securing supplies from a reliable, high quality source. Because of this, long term allegiance to a proven suppler is very much a feature of this sector of the talc market.” Switching sources – in the way that you might choose to buy, say, paperclips from Supplier A rather than from Supplier B – is not a easy option for chewing gum manufacturers,” Fournier says. “The cost of reformulating is high, so when customers are using a talc grade that works, even if it’s expensive, they are understandably reluctant to switch.”"},{"letter":"C","text":"But how is talc actually used in the manufacture of chewing gum? Patrick Delord, an engineer with a degree in agronomics, who has been with Luzenac for 22 years and is now senior market development manager, Agriculture and Food, in Europe, explains that chewing gums has four main components. “The most important of them is the gum base,” he says. “It’s the gum base that puts the chew into chewing gum. It binds all the ingredients together, creating a soft, smooth texture. To this the manufacturer the adds sweeteners, softeners and flavourings. Our talc is used as a filler in the gum base. The amount varies between, say, ten and 35 per cent, depending on the type of gum. Fruit flavoured chewing gum, for example, is slightly acidic and would react with the calcium carbonate that the manufacturer might otherwise use as a filler. Talc, on the other hand, makes an ideal filler because it’s non-reactive chemically. In the factory, talc is also used to dust the gum base pellets and to stop the chewing gum sticking during the lamination and packing process,” Delord adds."},{"letter":"D","text":"The chewing gum business is, however, just one example of talc’s use in the food sector. For the past 20 years or so, olive oil processors in Spain have been taking advantage of talc’s unique characteristics to help them boost the amount of oil they extract from crushed olives. According to Patrick Delord, talc is especially useful for treating what he calls “difficult” olives. After the olives are harvested – preferably early in the morning because their taste is better if they are gathered in the cool of the day – they are taken to the processing plant. There they are crushed and then stirred for 30-45 minutes. In the old days, the resulting paste was passed through an olive press but nowadays it’s more common to add water and centrifuge the mixture to separate the water and oil from the solid matter. The oil and water are then allowed to settle so that the olive oil layer can be decanted off and bottle. “Difficult” olives are those that are more reluctant than the norm to yield up their full oil content. This may be attributable to the particular species of olive, or to its water content and the time of year the olives are collected – at the beginning and the end of the season their water content is often either too high or too low. These olives are easy to recognize because they produce a lot of extra foam during the stirring process, a consequence of an excess of a fine sold that acts as a natural emulsifier. The oil in this emulsion is lost when the water is disposed of. Not only that, if the waste water is disposed of directly into local fields – often the case in many smaller processing operations – the emulsified oil may take some time to biodegrade and so be harmful to the environment."},{"letter":"E","text":"“If you add between a half and two per cent of talc by weight during the stirring process, it absorbs the natural emulsifier in the olives and so boosts the amount of oil you can extract,” says Delord. “In addition, talc’s flat, ‘platey’ structure helps increase the size of the oil droplets liberated during stirring, which again improves the yield. However, because talc is chemically inert, it doesn’t affect the colour, taste, appearance or composition of the resulting olive oil.”"},{"letter":"F","text":"If the use of talc in olive oil processing and in chewing gum is long established, new applications in the food and agriculture industries are also constantly being sought by Luzenac. One such promising new market is fruit crop protection, being pioneered in the US. Just like people, fruit can get sunburned. In fact, in very sunny regions up to 45 per cent of a typical crop can be affected by heat stress and sunburn. However, in the case of fruit, it’s not so much the ultra violet rays which harm the crop as the high surface temperature that the sun’s rays create."},{"letter":"G","text":"To combat this, farmers normally use either chemicals or spray a continuous fine canopy of mist above the fruit trees or bushes. The trouble is, this uses a lot of water – normally a precious commodity in hot, sunny areas – and it is therefore expensive. What’s more, the ground can quickly become waterlogged. “So our idea was to coat the fruit with talc to protect it from the sun,” says Greg Hunter, a marketing specialist who has been with Luzenac for ten years. “But to do this, several technical challenges had first to be overcome. Talc is very hydrophobic: it doesn’t like water. So in order to have a viable product we needed a wettable powder – something that would go readily into suspension so that is could be sprayed onto the fruit. It also had to break the surface tension of the cutin (the natural waxy, waterproof layer on the fruit) and of course it had to wash off easily when the fruit was harvested. No-one’s going to want an apple that’s covered in talc.”"},{"letter":"H","text":"Initial trials in the state of Washington in 2003 showed that when the product was sprayed onto Granny Smith apples, it reduced their surface temperature and lowered the incidence of sunburn by up to 60 per cent. Today the new product, known as Invelop Maximum SPF, is in its second commercial year on the US market. Apple growers are the primary target although Hunter believes grape growers represent another sector with long term potential. He is also hopeful of extending sales to overseas markets such as Australia, South America and southern Europe."}]}};
+const q={"p1tf":[[1,"The name of the Bondi beach is first called by the British settlers."],[2,"The aboriginal culture in Australia is different when compared with European culture."],[3,"Bondi beach area holds many contemporary hotels."],[4,"The seaside town in Bondi is affected by British culture for its characteristic red color."],[5,"Living near Bondi seashore is not beneficial for health."]],"p1short":[[6,"At the end of 19th century, which public transport did people use to go to Bondi?"],[7,"When did the British Royalty first visit Bondi?"],[8,"Which Olympic event did Bondi hold in 2000 Sydney Olympic games?"],[9,"What would be damaged if the stadium was built for that Olympic event?"]],"p2para":[[14,"The example of research on weather prediction on agriculture"],[15,"Antarctic sea ice brings life back to the world oceans’ vitality."],[16,"A food chain that influence the animals living pattern based on Antarctic fresh sea ice"],[17,"The explanation of how atmosphere pressure above Antarctica can impose effect on global climate change"],[18,"Antarctica was once thought to be a forgotten and insignificant continent"]],"p2match":[[19,"Globally, mass Antarctica’s size and …………………… influence the climate change"],[20,"…………………… contributory to western wind"],[21,"Southern Oscillation Index based on air pressure can predict ………………….. in Australia"]],"p2mc":[[22,"In the paragraph B, the author want to tell which of the following truth about Antarctic?",[["A","To show Antarctica has been a central topic of global warming in Mass media"],["B","To illustrate its huge see ice brings food to million lives to places in the world"],["C","To show it is the heart and its significance to the global climate and current"],["D","To illustrate it locates in the central spot on Earth geographically"]]],[23,"Why do Australian farmers keep an eye on the Antarctic ocean temperature?",[["A","Help farmers reduce their economic or ecological losses"],["B","Retrieve grassland decreased in the overgrazing process"],["C","Prevent animal from dying"],["D","A cell provides fertilizer for the grassland"]]],[24,"What is the final effect of katabatic winds?",[["A","Increase the moving speed of ocean current"],["B","Increase salt level near ocean surface"],["C","Bring fresh ice into southern oceans"],["D","Pile up the mountainous ice cap respected by mariners"]]],[25,"The break of the continental shelf is due to the",[["A","Salt and density increase"],["B","Salt and density decrease"],["C","global warming resulting a rising temperature"],["D","fresh ice melting into ocean water"]]],[26,"The decrease in number of Whales and seabirds is due to",[["A","killers whales are more active around"],["B","Sea birds are affected by high sea level salty"],["C","less sea ice reduces productivity of food source"],["D","seals fail to reproduce babies"]]]],"p3match":[[27,"Talc is used to increase the size of drops."],[28,"Talc is applied to reduce foaming."],[29,"Talc is employed as a filler of base."],[30,"Talc is modified and prevented sunburn."],[31,"Talc is added to stop stickiness."],[32,"Talc is used to increase production."]],"p3short":[[39,"In which process is talc used to clear the stickiness of chewing gum?"],[40,"Which group of farmers does Invelop intend to target in a long view?"]]};
+const answerAliases={"1":["FALSE"],"2":["NOT GIVEN"],"3":["NOT GIVEN"],"4":["TRUE"],"5":["FALSE"],"6":["tram"],"7":["1954"],"8":["beach volleyball"],"9":["environment"],"10":["wealthy people"],"11":["manly"],"12":["Bondi"],"13":["tiled roofs"],"14":["D"],"15":["F"],"16":["E"],"17":["C"],"18":["A"],"19":["D"],"20":["A"],"21":["C"],"22":["C"],"23":["A"],"24":["C"],"25":["C"],"26":["C"],"27":["C"],"28":["C"],"29":["B"],"30":["A"],"31":["B"],"32":["C"],"33":["20"],"34":["foam"],"35":["waste water"],"36":["harmful"],"37":["biodegrade"],"38":["droplets"],"39":["Lamination and packing"],"40":["Grape growers"]};
+const canonicalAnswers={"1":"FALSE","2":"NOT GIVEN","3":"NOT GIVEN","4":"TRUE","5":"FALSE","6":"tram","7":"1954","8":"beach volleyball","9":"environment","10":"wealthy people","11":"manly","12":"Bondi","13":"tiled roofs","14":"D","15":"F","16":"E","17":"C","18":"A","19":"D","20":"A","21":"C","22":"C","23":"A","24":"C","25":"C","26":"C","27":"C","28":"C","29":"B","30":"A","31":"B","32":"C","33":"20","34":"foam","35":"waste water","36":"harmful","37":"biodegrade","38":"droplets","39":"Lamination and packing","40":"Grape growers"};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const state={currentPart:1,answers:{},notes:[],timeLeft:3600,timer:null,takerId:"",contrast:"bw",textsize:"regular"};
+function hide(el){el.classList.add("hidden")}
+function show(el){el.classList.remove("hidden")}
+function renderPassage(data){
+  let html=`<div class="passage-title">${esc(data.title)}</div><div class="passage-sub">${esc(data.sub)}</div><div class="passage-time">${esc(data.time)}</div>`;
+  data.paras.forEach(p=>{html+=`<div class="passage-para">${p.letter?`<span class="para-letter">${esc(p.letter)}</span>`:""}<span class="para-text">${esc(p.text)}</span></div>`});
+  return html;
+}
+function banner(part,range){return `<div class="part-banner"><b>Reading Passage ${part}</b><div class="instr">Answer questions ${range}.</div></div>`}
+function selectInput(num,text,values,labels=null,small=false){
+  const current=state.answers[num]||"";
+  return `<div class="question-row" id="q${num}"><span class="qnum">${num}</span><span class="qtext">${esc(text)}</span><select class="answer-select" data-q="${num}" ${small?'style="width:100px"':''}><option value="">--</option>${values.map((v,i)=>`<option value="${esc(v)}" ${current===v?"selected":""}>${esc(labels?labels[i]:v)}</option>`).join("")}</select></div>`;
+}
+function mc(num,text,items){
+  const current=state.answers[num]||"";
+  return `<div class="mc-question" id="q${num}"><div class="mc-question-title"><span class="qnum">${num}</span><span>${esc(text)}</span></div><div class="mc-options">${items.map(([val,label])=>`<label><input type="radio" name="q${num}" value="${esc(val)}" ${current===val?"checked":""}><b>${esc(val)}</b> ${esc(label)}</label>`).join("")}</div></div>`;
+}
+function fillInput(num,placeholder="________"){
+  return `<input class="answer-input" data-q="${num}" value="${esc(state.answers[num]||"")}" placeholder="${placeholder}" autocomplete="off">`;
+}
+function shortRow(num,text){
+  return `<div class="question-row" id="q${num}"><span class="qnum">${num}</span><span class="qtext">${esc(text)}</span>${fillInput(num)}</div>`;
+}
+function renderQ1(){
+  return `${banner(1,"1–13")}
+  <div class="q-instructions"><span class="q-title">Questions 1–5</span><br>Do the following statements agree with the information given in Reading Passage 1?<br>Choose <b>TRUE</b>, <b>FALSE</b>, or <b>NOT GIVEN</b>.</div>
+  ${q.p1tf.map(([n,t])=>selectInput(n,t,["TRUE","FALSE","NOT GIVEN"])).join("")}
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 6–9</span><br>Answer the questions below using <b>NO MORE THAN TWO WORDS AND/OR NUMBERS</b> from the passage for each answer.</div>
+  ${q.p1short.map(([n,t])=>shortRow(n,t)).join("")}
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 10–13</span><br>Complete the following summary using <b>NO MORE THAN TWO WORDS</b> from the Reading Passage for each answer.</div>
+  <div class="summary-box" id="q10">
+  Bondi beach holds the feature sport activities every year, which attracts lo of <span class="qnum">10</span> ${fillInput(10)} choosing to live at this place during holidays. But local accommodation cannot meet with the expanding population, a nearby town of <span class="qnum">11</span> ${fillInput(11)} is the first suburb site to support the solution, yet people prefer <span class="qnum">12</span> ${fillInput(12)} as their best choice. Its seaside buildings are well-known in the world for the special scenic colored <span class="qnum">13</span> ${fillInput(13)} on buildings and the joyful smell from the sea.
+  </div>`;
+}
+function renderQ2(){
+  const letters=["A","B","C","D","E","F"];
+  const factors={A:"Antarctic Circumpolar Current (ACC)",B:"katabatic winds",C:"rainfall",D:"temperature",E:"glaciers",F:"pressure"};
+  return `${banner(2,"14–26")}
+  <div class="q-instructions"><span class="q-title">Questions 14–18</span><br>The reading Passage has seven paragraphs A–F.<br>Which paragraph contains the following information?</div>
+  ${q.p2para.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 19–21</span><br>Please match the natural phenomenon with correct determined factor. Choose the correct answer from the box.</div>
+  <div class="list-box">${letters.map(l=>`<b>${l}</b> &nbsp; ${esc(factors[l])}`).join("<br><br>")}</div>
+  ${q.p2match.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 22–26</span><br>Choose the correct letter, <b>A, B, C or D</b>.</div>
+  ${q.p2mc.map(([n,t,items])=>mc(n,t,items)).join("")}`;
+}
+function renderQ3(){
+  const cats={A:"Fruit protection",B:"Chewing gum business",C:"Olive oil extraction"};
+  const letters=["A","B","C"];
+  return `${banner(3,"27–40")}
+  <div class="q-instructions"><span class="q-title">Questions 27–32</span><br>Use the information in the passage to match each use of talc power with current application from <b>A, B or C</b>.<br><b>NB</b> You may use any letter more than once.</div>
+  <div class="list-box">${letters.map(l=>`<b>${l}</b> &nbsp; ${esc(cats[l])}`).join("<br><br>")}</div>
+  ${q.p3match.map(([n,t])=>selectInput(n,t,letters,letters,true)).join("")}
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 33–38</span><br>Complete the following summary using <b>NO MORE THAN TWO WORDS</b> from the Reading Passage for each answer.</div>
+  <div class="summary-box" id="q33">
+  Spanish olive oil industry has been using talc in oil extraction process for about <span class="qnum">33</span> ${fillInput(33)} years. It is useful in dealing with difficult olives which often produce high amount of <span class="qnum">34</span> ${fillInput(34)} because of the high content of solid materials. When smaller factories release <span class="qnum">35</span> ${fillInput(35)}, it could be <span class="qnum">36</span> ${fillInput(36)} to the environment because it is hard to <span class="qnum">37</span> ${fillInput(37)} and usually takes time as it contains emulsified. However, talc power added in the process is able to absorb the emulsifier oil. It improves the oil extraction production, because with aid of talc powder, size of oil <span class="qnum">38</span> ${fillInput(38)} increased.
+  </div>
+  <div class="q-instructions" style="margin-top:22px"><span class="q-title">Questions 39–40</span><br>Answer the questions below using <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.</div>
+  ${q.p3short.map(([n,t])=>shortRow(n,t)).join("")}`;
+}
+const partData={1:{range:[1,13],render:renderQ1},2:{range:[14,26],render:renderQ2},3:{range:[27,40],render:renderQ3}};
+function renderPart(part){
+  state.currentPart=part;
+  $("passage-pane").innerHTML=renderPassage(passages[String(part)]);
+  $("questions-pane").innerHTML=partData[part].render();
+  attachQuestionListeners(); renderBottomBar();
+  $("passage-pane").scrollTop=0; $("questions-pane").scrollTop=0;
+}
+function attachQuestionListeners(){
+  document.querySelectorAll("#questions-pane [data-q]").forEach(el=>{
+    const eventName=(el.tagName==="INPUT"&&el.type==="text")?"input":"change";
+    el.addEventListener(eventName,e=>{state.answers[Number(e.target.dataset.q)]=e.target.value;renderBottomBar()});
+  });
+  document.querySelectorAll("#questions-pane input[type=radio]").forEach(el=>el.addEventListener("change",e=>{state.answers[Number(e.target.name.slice(1))]=e.target.value;renderBottomBar()}));
+  $("passage-pane").onmouseup=handleTextSelection;
+  $("questions-pane").onmouseup=handleTextSelection;
+}
+function countAnswered(part){const [s,e]=partData[part].range;let c=0;for(let n=s;n<=e;n++)if(String(state.answers[n]||"").trim())c++;return c}
+function renderBottomBar(){
+  let html="";
+  for(let part=1;part<=3;part++){
+    const [start,end]=partData[part].range;
+    if(part===state.currentPart){
+      html+=`<div class="part-nav-group"><span class="part-label active">Passage ${part}</span>`;
+      for(let n=start;n<=end;n++)html+=`<button class="qnum-btn ${state.answers[n]?"answered":""}" data-jump="${n}">${n}</button>`;
+      html+="</div>";
+    }else{
+      html+=`<div class="part-nav-group"><span class="part-label" data-part="${part}">Passage ${part}</span><span class="part-count">${countAnswered(part)} of ${end-start+1}</span></div>`;
+    }
+  }
+  html+=`<button class="submit-check" id="submit-check-btn" title="Complete test">✔</button>`;
+  $("bottombar").innerHTML=html;
+  document.querySelectorAll("[data-part]").forEach(el=>el.addEventListener("click",()=>renderPart(Number(el.dataset.part))));
+  document.querySelectorAll("[data-jump]").forEach(el=>el.addEventListener("click",()=>{
+    const n=el.dataset.jump;
+    const target=$("q"+n)||document.querySelector(`[data-q="${n}"]`);
+    if(target)target.scrollIntoView({behavior:"smooth",block:"center"});
+  }));
+  $("submit-check-btn").addEventListener("click",goToFinal);
+}
+let selectionMenu=null;
+function clearSelectionMenu(){if(selectionMenu){selectionMenu.remove();selectionMenu=null}}
+function clearHighlightsInRange(range){
+  document.querySelectorAll("mark.hl").forEach(mark=>{
+    let hit=false;try{hit=range.intersectsNode(mark)}catch(_e){}
+    if(hit){const parent=mark.parentNode;while(mark.firstChild)parent.insertBefore(mark.firstChild,mark);parent.removeChild(mark);parent.normalize()}
+  });
+}
+function handleTextSelection(){
+  clearSelectionMenu();
+  const sel=window.getSelection(),text=sel?sel.toString().trim():"";
+  if(!text||text.length>500)return;
+  const range=sel.getRangeAt(0),rect=range.getBoundingClientRect();
+  selectionMenu=document.createElement("div");selectionMenu.className="selection-menu";
+  selectionMenu.innerHTML='<button data-act="highlight">Highlight</button><button data-act="note">Note</button><button data-act="clear">Clear</button>';
+  selectionMenu.style.left=Math.max(8,Math.min(window.innerWidth-220,rect.left))+"px";
+  selectionMenu.style.top=Math.max(74,rect.bottom+6)+"px";
+  document.body.appendChild(selectionMenu);
+  selectionMenu.addEventListener("mousedown",ev=>ev.preventDefault());
+  selectionMenu.querySelector('[data-act="highlight"]').onclick=()=>{try{const r=sel.getRangeAt(0),mark=document.createElement("mark");mark.className="hl";r.surroundContents(mark)}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};
+  selectionMenu.querySelector('[data-act="note"]').onclick=()=>{state.notes.push(text);renderNotes();sel.removeAllRanges();clearSelectionMenu()};
+  selectionMenu.querySelector('[data-act="clear"]').onclick=()=>{try{clearHighlightsInRange(sel.getRangeAt(0))}catch(_e){}sel.removeAllRanges();clearSelectionMenu()};
+}
+document.addEventListener("mousedown",e=>{if(selectionMenu&&!selectionMenu.contains(e.target))clearSelectionMenu()});
+function renderNotes(){
+  const list=$("notes-list");if(!list)return;
+  list.innerHTML=state.notes.length?state.notes.map((n,i)=>`<div class="note-entry">${esc(n)} <button data-del-note="${i}" style="float:right;border:0;background:none;cursor:pointer">×</button></div>`).join(""):'<div class="notes-empty">Highlight text and choose <b>Note</b> to save it here.</div>';
+  list.querySelectorAll("[data-del-note]").forEach(btn=>btn.onclick=()=>{state.notes.splice(Number(btn.dataset.delNote),1);renderNotes()});
+}
+function startTimer(){
+  clearInterval(state.timer);
+  state.timer=setInterval(()=>{state.timeLeft=Math.max(0,state.timeLeft-1);updateTimer();if(state.timeLeft===0){clearInterval(state.timer);goToFinal()}},1000);
+  updateTimer();
+}
+function updateTimer(){
+  const m=String(Math.floor(state.timeLeft/60)).padStart(2,"0"),s=String(state.timeLeft%60).padStart(2,"0");
+  $("timer-display").textContent=`${m}:${s}`;
+  $("timer-display").classList.toggle("low",state.timeLeft<=300);
+}
+function requestFullscreen(){const el=document.documentElement;if(el.requestFullscreen)el.requestFullscreen().catch(()=>{})}
+function goToFinal(){clearSelectionMenu();$("menu-overlay").classList.remove("open");hide($("screen-test"));show($("screen-final"));$("taker-id-display-final").textContent=state.takerId}
+function normalize(value){return String(value||"").trim().toLowerCase().replace(/[’']/g,"").replace(/[‐‑–—-]+/g," ").replace(/[.,;:!?()]/g,"").replace(/\s+/g," ")}
+function isRegularCorrect(n,user){const aliases=answerAliases[String(n)]||[];const u=normalize(user);return aliases.some(a=>normalize(a)===u)}
+function evaluateAnswers(){const result={};for(let n=1;n<=40;n++)result[n]=isRegularCorrect(n,state.answers[n]||"");return result}
+function estimateBand(correct){
+  const table=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[8,3.5],[6,3]];
+  for(const [min,band] of table)if(correct>=min)return band.toFixed(1);
+  return"2.5";
+}
+function showResults(){
+  clearInterval(state.timer);hide($("screen-final"));show($("screen-results"));$("results-taker-id").textContent=state.takerId;
+  const evalMap=evaluateAnswers();let correct=0,rows="";
+  for(let n=1;n<=40;n++){const user=state.answers[n]||"",ok=!!evalMap[n];if(ok)correct++;rows+=`<tr><td>${n}</td><td>${esc(user||"—")}</td><td>${esc(canonicalAnswers[String(n)]||"")}</td><td class="${ok?"ok":"no"}">${ok?"✓ Correct":"✗ Wrong"}</td></tr>`}
+  $("score-correct").textContent=correct;$("score-band").textContent=estimateBand(correct);$("review-body").innerHTML=rows;
+}
+function openMenuRoot(){$("menu-root").classList.remove("hidden");$("menu-contrast").classList.add("hidden");$("menu-textsize").classList.add("hidden");$("menu-back-btn").classList.remove("show");$("menu-title").textContent="Options"}
+function openSubmenu(which){$("menu-root").classList.add("hidden");$("menu-"+which).classList.remove("hidden");$("menu-back-btn").classList.add("show");$("menu-title").textContent=which==="contrast"?"Contrast":"Text size"}
+function setContrast(mode){document.body.classList.remove("contrast-wb","contrast-yb");if(mode==="wb")document.body.classList.add("contrast-wb");if(mode==="yb")document.body.classList.add("contrast-yb");state.contrast=mode;document.querySelectorAll("[data-contrast] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-contrast="${mode}"] .check`);if(c)c.textContent="✔"}
+function setTextSize(size){$("app").classList.remove("textsize-large","textsize-extralarge");if(size==="large")$("app").classList.add("textsize-large");if(size==="extralarge")$("app").classList.add("textsize-extralarge");state.textsize=size;document.querySelectorAll("[data-textsize] .check").forEach(x=>x.textContent="");const c=document.querySelector(`[data-textsize="${size}"] .check`);if(c)c.textContent="✔"}
+$("pwd-submit").onclick=()=>{if($("pwd-input").value===REQUIRED_PASSWORD){$("pwd-error").textContent="";hide($("screen-password"));show($("screen-id"));$("id-input").focus()}else $("pwd-error").textContent="Incorrect password."};
+$("pwd-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("pwd-submit").click()});
+$("id-submit").onclick=()=>{const id=$("id-input").value.trim();if(!id){$("id-error").textContent="Please enter your Test Taker ID.";return}state.takerId=id;$("id-error").textContent="";$("taker-id-display").textContent=id;hide($("screen-id"));show($("screen-test"));renderNotes();renderPart(1);startTimer();requestFullscreen()};
+$("id-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("id-submit").click()});
+$("notes-toggle-btn").onclick=()=>{$("notes-panel").classList.toggle("open");renderNotes()};
+$("hamburger-btn").onclick=()=>{openMenuRoot();$("menu-overlay").classList.add("open")};
+$("menu-close-btn").onclick=()=>$("menu-overlay").classList.remove("open");
+$("menu-back-btn").onclick=openMenuRoot;
+$("menu-submit-btn").onclick=goToFinal;
+$("menu-contrast-btn").onclick=()=>openSubmenu("contrast");
+$("menu-textsize-btn").onclick=()=>openSubmenu("textsize");
+document.querySelectorAll("[data-contrast]").forEach(el=>el.onclick=()=>setContrast(el.dataset.contrast));
+document.querySelectorAll("[data-textsize]").forEach(el=>el.onclick=()=>setTextSize(el.dataset.textsize));
+$("back-to-test-btn").onclick=()=>{hide($("screen-final"));show($("screen-test"));renderPart(state.currentPart)};
+$("final-next-btn").onclick=showResults;
+$("restart-btn").onclick=()=>{clearInterval(state.timer);state.answers={};state.notes=[];state.currentPart=1;state.timeLeft=3600;state.takerId="";$("pwd-input").value="";$("id-input").value="";hide($("screen-results"));show($("screen-password"))};
+renderNotes();
+})();
+</script>
+</body>
+</html>

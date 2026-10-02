@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Academic Reading – Sunlight Soap Story</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;font-family:Arial,sans-serif;font-size:14px;color:#222;background:#fff;overflow:hidden}
+body{display:flex;flex-direction:column}
+
+/* ID Screen */
+#idScreen{position:fixed;inset:0;background:#f0f0ec;display:flex;align-items:center;justify-content:center;z-index:9000}
+.id-card{background:#fff;border-radius:6px;padding:40px 44px;box-shadow:0 8px 40px rgba(0,0,0,.18);width:380px;text-align:center}
+.logo-big{background:#c8102e;color:#fff;font-weight:900;font-size:28px;padding:6px 14px;letter-spacing:3px;display:inline-block;margin-bottom:22px}
+.id-card h2{font-size:17px;font-weight:700;margin-bottom:6px}
+.id-card p{font-size:13px;color:#666;margin-bottom:22px}
+.id-card input{width:100%;border:1.5px solid #ccc;border-radius:3px;padding:10px 14px;font-size:15px;outline:none;margin-bottom:6px;text-align:center;letter-spacing:1px}
+.id-card input:focus{border-color:#c8102e}
+.id-err{color:#c8102e;font-size:12px;min-height:16px;margin-bottom:10px}
+.id-card button{width:100%;background:#c8102e;color:#fff;border:none;padding:12px;font-size:15px;font-weight:700;cursor:pointer;border-radius:3px}
+.id-card button:hover{background:#a80e26}
+
+/* Topbar */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:50px;border-bottom:2px solid #ddd;background:#fff;flex-shrink:0}
+.topbar-left{display:flex;align-items:center}
+.topbar-logo{background:#c8102e;color:#fff;font-weight:900;font-size:19px;padding:4px 9px;letter-spacing:2px}
+.tid{font-size:13px;color:#444;margin-left:12px;font-weight:600}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.timer{display:flex;align-items:center;gap:7px;border:1px solid #ccc;border-radius:3px;padding:5px 14px;font-size:15px;font-weight:700;color:#222;background:#f7f7f7}
+.timer svg{width:17px;height:17px}
+.timer.warn{color:#c8102e;border-color:#c8102e;background:#fff4f4;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.submit-btn{background:#c8102e;color:#fff;border:none;padding:8px 20px;font-size:13px;font-weight:700;cursor:pointer;border-radius:2px}
+.submit-btn:hover{background:#a80e26}
+
+/* Promo banner */
+.promo-banner{
+width:100%;
+background:#1d3557;
+border-bottom:1px solid #17304d;
+flex-shrink:0;
+}
+.promo-banner a{
+display:block;
+width:100%;
+line-height:0;
+cursor:pointer;
+}
+.promo-banner img{
+display:block;
+width:100%;
+max-width:100%;
+height:auto;
+}
+
+/* Header */
+.part-hdr{background:#f5f5f5;padding:10px 18px;border-bottom:1px solid #ccc;flex-shrink:0}
+.part-hdr strong{display:block;font-size:14px}
+.part-hdr span{font-size:13px;color:#555}
+
+/* Split Layout */
+.split{display:flex;flex:1;overflow:hidden}
+.left{width:52%;min-width:280px;overflow-y:auto;padding:26px 32px;line-height:1.78;font-size:14px;flex-shrink:0}
+.left h2{font-size:18px;font-weight:700;margin-bottom:14px;line-height:1.4;text-align:center}
+.left p{margin-bottom:12px;text-align:justify}
+.para-letter{font-size:20px;font-weight:700;margin-right:6px}
+.footnote{font-size:12px;color:#666;font-style:italic;margin-top:8px}
+
+/* highlights & notes */
+.hl-yellow{background:#fff176;border-radius:2px}
+.hl-note{background:#b3e5fc;border-radius:2px;position:relative}
+.hl-note::after{content:attr(data-note);display:none;position:absolute;bottom:calc(100% + 8px);left:0;background:#333;color:#fff;font-size:12px;line-height:1.45;padding:6px 10px;border-radius:4px;white-space:pre-wrap;max-width:240px;z-index:600;pointer-events:none;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.hl-note:hover::after{display:block}
+
+/* Resizer */
+.handle{width:9px;flex-shrink:0;background:#e0e0e0;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:col-resize;display:flex;align-items:center;justify-content:center}
+.handle::after{content:'⋮';font-size:18px;color:#bbb;pointer-events:none}
+.handle:hover,.handle.active{background:#c8102e}
+.handle:hover::after,.handle.active::after{color:#fff}
+
+/* Right Pane */
+.right{flex:1;min-width:300px;overflow-y:auto;padding:22px 26px}
+.right h3{font-size:15px;font-weight:700;margin-bottom:10px}
+.instr{font-size:13px;color:#333;line-height:1.55;margin-bottom:18px;padding:10px 14px;background:#fafaf8;border-left:3px solid #c8102e}
+.qblock{margin-bottom:18px;scroll-margin-top:20px}
+
+/* Questions 14-20 heading bank */
+.heading-bank{border:1px solid #c9c9c9;background:#f8f8f8;padding:12px;border-radius:4px;margin-bottom:20px}
+.heading-bank-title{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
+.heading-bank-title b{font-size:14px}
+.heading-bank-title span{color:#666;font-size:12px;line-height:1.4}
+.heading-card{display:grid;grid-template-columns:38px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:45px;padding:8px 10px;margin:7px 0;border:1px solid #aaa;border-radius:3px;background:#fff;cursor:grab;user-select:none;transition:transform .12s,border-color .12s,box-shadow .12s,opacity .12s}
+.heading-card:hover{border-color:#555;box-shadow:0 2px 8px rgba(0,0,0,.08);transform:translateY(-1px)}
+.heading-card.dragging{opacity:.45;transform:scale(.99)}
+.heading-card.used{background:#f0f3f6;border-color:#9aa6b2}
+.heading-card.used::after{content:'Used';font-size:10px;font-weight:800;color:#fff;background:#626f7b;border-radius:999px;padding:3px 7px}
+.heading-card.used em{display:none}
+.heading-card b{font-size:14px;color:#111;text-transform:lowercase}
+.heading-card span{font-size:13px;line-height:1.35}
+.heading-card em{font-size:10px;font-style:normal;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:.5px}
+.heading-help{margin-top:9px;color:#666;font-size:11px;line-height:1.45}
+
+/* heading drop zones inside passage */
+.paragraph-block{margin:0 0 18px;scroll-margin-top:18px}
+.paragraph-block>p{margin-bottom:0}
+.heading-drop{
+min-height:54px;display:flex;align-items:stretch;gap:0;margin:0 0 10px;
+border:2px dashed #a9a9a9;background:#fafafa;border-radius:4px;
+transition:border-color .16s,background .16s,box-shadow .16s;overflow:hidden
+}
+.heading-drop.drag-over{border-color:#c8102e;background:#fff5f6;box-shadow:0 0 0 3px rgba(200,16,46,.10)}
+.heading-drop.answered{border-style:solid;border-color:#777;background:#fff}
+.heading-drop.flash-target{animation:targetFlash .8s ease}
+@keyframes targetFlash{0%,100%{box-shadow:none}45%{box-shadow:0 0 0 5px rgba(200,16,46,.18)}}
+.drop-qnum{
+width:46px;flex:0 0 46px;display:flex;align-items:center;justify-content:center;
+background:#eef3f9;border-right:1px solid #b9c2cc;font-size:15px;font-weight:800;color:#111
+}
+.drop-answer{flex:1;min-width:0;display:flex;align-items:center;gap:8px;padding:9px 11px;line-height:1.35}
+.drop-placeholder{color:#777;font-size:13px;font-style:italic}
+.drop-heading-code{min-width:34px;font-size:15px;font-weight:900;color:#c8102e;text-transform:lowercase}
+.drop-heading-text{flex:1;font-size:13px;font-weight:600;color:#222}
+.drop-clear{width:27px;height:27px;flex:0 0 27px;border:1px solid #bbb;background:#fff;border-radius:50%;cursor:pointer;color:#666;font-size:16px;line-height:1}
+.drop-clear:hover{border-color:#c8102e;color:#c8102e;background:#fff5f6}
+
+/* Select rows */
+.match-row{display:grid;grid-template-columns:48px minmax(0,1fr) 110px;align-items:center;border:1px solid #c7c7c7;border-radius:4px;overflow:hidden;margin-bottom:9px;background:#fff}
+.match-row .qnum{height:50px;display:flex;align-items:center;justify-content:center;background:#eef3f9;border-right:1px solid #b9c2cc;font-weight:800}
+.match-row .person{padding:0 12px;font-weight:700}
+.q-select{font-size:14px;border:1.5px solid #ccc;border-radius:3px;padding:6px 8px;outline:none;cursor:pointer;background:#fff;justify-self:center}
+.q-select:focus{border-color:#c8102e}
+
+.idea-box{border:1px solid #c7c7c7;background:#fafafa;padding:14px 16px;border-radius:3px;margin-bottom:14px}
+.idea-line{display:grid;grid-template-columns:28px minmax(0,1fr);gap:0;margin:8px 0;font-size:14px;line-height:1.35}
+.idea-line b{color:#111}
+/* Multiple choice: click the option itself (no dropdown) */
+.mcq-head{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;border:1px solid #c7c7c7;border-radius:4px;overflow:hidden;margin-bottom:9px;background:#fff}
+.mcq-head .qnum{height:50px;display:flex;align-items:center;justify-content:center;background:#eef3f9;border-right:1px solid #b9c2cc;font-weight:800}
+.mcq-head .person{padding:0 12px;font-weight:700}
+.idea-line.mcq-option{grid-template-columns:38px minmax(0,1fr);align-items:center;margin:7px 0;padding:9px 11px;border:1px solid #c7c7c7;border-radius:3px;background:#fff;cursor:pointer;transition:border-color .12s,background .12s,box-shadow .12s}
+.idea-line.mcq-option:hover{border-color:#888;background:#f7f7f7}
+.idea-line.mcq-option b{display:flex;align-items:center;justify-content:center;width:25px;height:25px;border:1.5px solid #999;border-radius:2px;background:#fff}
+.idea-line.mcq-option.selected{border-color:#c8102e;background:#fff4f4;box-shadow:0 0 0 1px rgba(200,16,46,.08)}
+.idea-line.mcq-option.selected b{border-color:#c8102e;color:#c8102e}
+
+/* Summary */
+.summary-box{border:1px solid #c7c7c7;background:#fafafa;padding:16px 18px;border-radius:3px;line-height:2}
+.summary-box h4{font-size:15px;font-weight:800;text-align:center;margin-bottom:12px}
+.word-input{width:140px;border:1.5px solid #ccc;border-radius:3px;padding:4px 8px;outline:none;font-size:14px;text-align:center;background:#fff;margin:0 3px}
+.word-input:focus{border-color:#c8102e}
+.inline-qnum{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1.5px solid #888;border-radius:2px;font-size:12px;font-weight:700;vertical-align:middle;margin:0 4px}
+
+/* Bottom Nav */
+.bot{display:flex;align-items:center;justify-content:space-between;padding:8px 18px;border-top:1px solid #ccc;background:#fff;flex-shrink:0}
+.bot-left{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.plabel{font-size:13px;font-weight:700;color:#333;margin-right:6px}
+.dot{width:28px;height:28px;border:1.5px solid #aaa;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;cursor:pointer;border-radius:2px;color:#555;background:#fff;transition:all .15s}
+.dot:hover{background:#f0f0f0;border-color:#888}
+.dot.ans{background:#555;color:#fff;border-color:#555}
+.dot.cur{border:2.5px solid #c8102e !important;color:#c8102e !important;background:#fff !important}
+.navbtns{display:flex;gap:8px}
+.nav{width:44px;height:38px;background:#555;color:#fff;border:none;font-size:20px;cursor:pointer;border-radius:2px;display:flex;align-items:center;justify-content:center}
+.nav:hover{background:#333}
+.nav:disabled{background:#ccc;cursor:not-allowed}
+
+/* Context Menu */
+.ctx-menu{position:fixed;background:#fff;border:1px solid #ccc;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.18);z-index:8999;min-width:140px;overflow:hidden;display:none}
+.ctx-menu.show{display:block}
+.ctx-item{padding:10px 16px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:9px;user-select:none;transition:background .12s}
+.ctx-item:hover{background:#f5f5f5}
+.ctx-sep{height:1px;background:#eee}
+
+/* Note Dialog */
+.note-dialog{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9500;display:none;align-items:center;justify-content:center}
+.note-dialog.show{display:flex}
+.note-box{background:#fff;border-radius:4px;padding:22px 24px;width:340px;box-shadow:0 8px 32px rgba(0,0,0,.22)}
+.note-box h4{font-size:14px;font-weight:700;margin-bottom:10px}
+.note-box textarea{width:100%;height:90px;border:1px solid #ccc;border-radius:3px;padding:8px;font-size:13px;font-family:Arial,sans-serif;resize:none;outline:none}
+.note-box textarea:focus{border-color:#c8102e}
+.note-btns{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+.note-btns button{padding:7px 18px;border:none;border-radius:2px;font-size:13px;cursor:pointer;font-weight:600}
+.note-save{background:#c8102e;color:#fff}.note-save:hover{background:#a80e26}
+.note-cancel{background:#eee;color:#333}.note-cancel:hover{background:#ddd}
+
+/* Review */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:7000;align-items:center;justify-content:center}
+.overlay.on{display:flex}
+.revbox{background:#fff;border-radius:4px;padding:28px 32px;max-width:680px;width:93%;max-height:86vh;overflow-y:auto}
+.revbox h2{font-size:18px;font-weight:700;color:#c8102e;margin-bottom:18px}
+.scorecard{background:#f9f9f6;border:1px solid #ccc;padding:16px 20px;border-radius:3px;margin-bottom:20px}
+.band{font-size:44px;font-weight:900;color:#c8102e}
+.ritem{margin-bottom:12px;padding:10px 14px;border:1px solid #e0e0e0;border-radius:3px;font-size:13px}
+.ritem .rlabel{font-size:11px;font-weight:700;text-transform:uppercase;color:#999;margin-bottom:4px}
+.ok-lbl{color:#28a745;font-weight:700}
+.bad-lbl{color:#c8102e;font-weight:700}
+.close-btn{background:#c8102e;color:#fff;border:none;padding:10px 28px;font-size:14px;cursor:pointer;border-radius:2px;margin-top:16px;font-weight:700}
+.close-btn:hover{background:#a80e26}
+
+@media(max-width:760px){
+.heading-card{grid-template-columns:34px minmax(0,1fr)}
+.heading-card em,.heading-card.used::after{display:none}
+.drop-qnum{width:40px;flex-basis:40px}
+.match-row{grid-template-columns:42px minmax(0,1fr) 92px}
+.promo-banner img{width:100%;height:auto}
+}
+</style>
+</head>
+<body>
+
+<div id="idScreen">
+<div class="id-card">
+<div class="logo-big">IELTS</div>
+<h2>Enter Your Test Taker ID</h2>
+<p>Please type your ID to begin the test</p>
+<input type="text" id="idInput" value="STUDENT" maxlength="30" onkeydown="if(event.key==='Enter') startTest()">
+<div class="id-err" id="idErr"></div>
+<button onclick="startTest()">Start Test &rarr;</button>
+</div>
+</div>
+
+<div class="promo-banner">
+<a href="https://t.me/jasurbekisaev" target="_blank" rel="noopener noreferrer" aria-label="Open @jasurbekisaev on Telegram">
+<img src="data:image/png;base64,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" alt="For the authentic tests, join @jasurbekisaev">
+</a>
+</div>
+
+<div class="topbar">
+<div class="topbar-left">
+<div class="topbar-logo">IELTS</div>
+<span class="tid" id="tidDisplay">Test taker ID: —</span>
+</div>
+<div class="topbar-right">
+<div class="timer" id="timerBox">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+<span id="timerTxt">20:00</span>
+</div>
+<button class="submit-btn" onclick="openReview()">Submit Test</button>
+</div>
+</div>
+
+
+
+<div class="part-hdr">
+<strong>Reading Passage 1</strong>
+<span>You should spend about 20 minutes on Questions 1–13, which are based on the passage below.</span>
+</div>
+
+<div class="split" id="splitWrap">
+
+<div class="left" id="passagePane">
+<h2>Sunlight Soap Story</h2>
+
+<p>The first bars of Sunlight soap rolled off a manufacturing line operated by Lever Brothers in England in January 1886. The company was founded by William and James Lever, the only sons among ten siblings, ranking seventh and eighth in birth order. Their father worked as a shopkeeper, and both boys were trained within the family enterprise from a young age. During this period, William quickly distinguished himself through strong commercial instincts and a flair for enterprise. By his mid-twenties, he had effectively taken control of the business and was eager to pursue more ambitious ventures, which ultimately led him to the soap industry.</p>
+
+<p>At that time, soap was a basic necessity, but it was typically sold in plain, unappealing blocks from general stores. William Lever recognised that there was an opportunity to transform this mundane product into something desirable. He believed that if soap could be manufactured to a consistently high quality, given an attractive name and packaging, and marketed aggressively, it would appeal to a growing middle class eager for products that promised cleanliness and respectability. The name 'Sunlight' was chosen to evoke purity, freshness, and the natural bleaching power of the sun.</p>
+
+<p>Lever's innovation was not merely in branding but also in production. He invested in the latest manufacturing technology, allowing his factory at Port Sunlight, near Liverpool, to produce soap on a scale never seen before. Port Sunlight was more than a factory; it was a purpose-built village for the workers, with good quality housing, schools, libraries, and recreational facilities. Lever believed that contented workers would be productive workers, and his model village became famous around the world as an example of enlightened industrial paternalism.</p>
+
+<p>The marketing of Sunlight soap was equally revolutionary. Lever was one of the first manufacturers to advertise his product nationally. He used eye-catching posters, newspaper advertisements, and even gave away free samples to entice customers. The advertisements emphasised not just the cleaning power of Sunlight but also the social benefits of using it – cleaner clothes meant a cleaner home, and a cleaner home meant a more respectable family. This appeal to aspiration proved enormously successful.</p>
+
+<p>By the 1890s, Sunlight soap was selling in huge quantities across Britain and in export markets around the world. Lever Brothers expanded rapidly, acquiring other soap companies and diversifying into new products. In 1929, the company merged with Dutch margarine producer Margarine Unie to form Unilever, which today is one of the world's largest consumer goods companies, with products sold in over 190 countries.</p>
+
+<p>William Lever, who was made a baronet in 1911 and later became Viscount Leverhulme, never forgot his principles. He remained committed to the welfare of his workers and to the idea that business should serve society, not just shareholders. He once wrote: 'I do not believe that commerce can be permanently successful unless it is conducted on ethical principles.' His legacy lives on not only in the global giant that Unilever has become but also in the continued existence of Port Sunlight village, which remains a thriving community more than a century after it was built.</p>
+
+<p>The story of Sunlight soap is more than a tale of commercial success; it is a story of how vision, innovation, and social responsibility can combine to create something lasting. From a small family grocery business in Victorian England, William Lever built an industrial empire by understanding that even the simplest product could be transformed through quality, branding, and a genuine concern for people.</p>
+</div>
+
+<div class="handle" id="dragHandle"></div>
+
+<div class="right" id="qPane">
+<h3>Questions 1–5</h3>
+<p class="instr">Do the following statements agree with the information given in the passage?<br>
+Write: <b>TRUE</b> if the statement agrees with the information, <b>FALSE</b> if the statement contradicts the information, or <b>NOT GIVEN</b> if there is no information on this.</p>
+
+<div class="match-row qblock" id="qb-1">
+<div class="qnum">1</div>
+<div class="person">As young adults, William and James Lever were involved in the family grocery business.</div>
+<select class="q-select" onchange="pickSelect('q1',this.value)"><option value="">Select</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option></select>
+</div>
+<div class="match-row qblock" id="qb-2">
+<div class="qnum">2</div>
+<div class="person">William Lever was the eldest child in his family.</div>
+<select class="q-select" onchange="pickSelect('q2',this.value)"><option value="">Select</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option></select>
+</div>
+<div class="match-row qblock" id="qb-3">
+<div class="qnum">3</div>
+<div class="person">Soap was considered a luxury product in nineteenth-century England.</div>
+<select class="q-select" onchange="pickSelect('q3',this.value)"><option value="">Select</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option></select>
+</div>
+<div class="match-row qblock" id="qb-4">
+<div class="qnum">4</div>
+<div class="person">The name 'Sunlight' was chosen to suggest purity and freshness.</div>
+<select class="q-select" onchange="pickSelect('q4',this.value)"><option value="">Select</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option></select>
+</div>
+<div class="match-row qblock" id="qb-5">
+<div class="qnum">5</div>
+<div class="person">Lever Brothers merged with a Dutch company in 1929.</div>
+<select class="q-select" onchange="pickSelect('q5',this.value)"><option value="">Select</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option></select>
+</div>
+
+<h3 style="margin-top:8px;">Questions 6–10</h3>
+<p class="instr">Complete the sentences below.<br>Choose <b>ONE WORD ONLY</b> from the passage for each answer.</p>
+
+<div class="summary-box">
+<p><span class="inline-qnum">6</span> Lever built a factory at Port <input type="text" id="qb-6" class="word-input qblock" autocomplete="off" oninput="pickWord('q6',this.value)">, near Liverpool.</p>
+<p><span class="inline-qnum">7</span> The village provided workers with housing, schools, libraries, and <input type="text" id="qb-7" class="word-input qblock" autocomplete="off" oninput="pickWord('q7',this.value)"> facilities.</p>
+<p><span class="inline-qnum">8</span> Lever gave away free <input type="text" id="qb-8" class="word-input qblock" autocomplete="off" oninput="pickWord('q8',this.value)"> to encourage people to try Sunlight soap.</p>
+<p><span class="inline-qnum">9</span> The advertisements suggested that using Sunlight soap would make a family more <input type="text" id="qb-9" class="word-input qblock" autocomplete="off" oninput="pickWord('q9',this.value)">.</p>
+<p><span class="inline-qnum">10</span> William Lever believed that business should be conducted on <input type="text" id="qb-10" class="word-input qblock" autocomplete="off" oninput="pickWord('q10',this.value)"> principles.</p>
+</div>
+
+<h3 style="margin-top:8px;">Questions 11–13</h3>
+<p class="instr">Choose the correct letter, <b>A, B, C or D</b>.</p>
+
+<div class="qblock" id="qb-11">
+<div class="mcq-head">
+<div class="qnum">11</div>
+<div class="person">What was William Lever's main innovation in soap manufacturing?</div>
+</div>
+<div class="idea-box"><div class="idea-line mcq-option" onclick="pickMCQ('q11','A',this)"><b>A</b><span>He was the first person to make soap in England.</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q11','B',this)"><b>B</b><span>He produced soap on a large scale using modern technology.</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q11','C',this)"><b>C</b><span>He invented a new type of soap that cleaned better than others.</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q11','D',this)"><b>D</b><span>He sold soap only to wealthy customers.</span></div></div>
+</div>
+<div class="qblock" id="qb-12">
+<div class="mcq-head">
+<div class="qnum">12</div>
+<div class="person">Why did Lever build the village of Port Sunlight?</div>
+</div>
+<div class="idea-box"><div class="idea-line mcq-option" onclick="pickMCQ('q12','A',this)"><b>A</b><span>To reduce the cost of transporting workers to the factory</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q12','B',this)"><b>B</b><span>To create a tourist attraction near Liverpool</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q12','C',this)"><b>C</b><span>To provide good living conditions for his employees</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q12','D',this)"><b>D</b><span>To house his own family and relatives</span></div></div>
+</div>
+<div class="qblock" id="qb-13">
+<div class="mcq-head">
+<div class="qnum">13</div>
+<div class="person">What does the author suggest is William Lever's lasting legacy?</div>
+</div>
+<div class="idea-box"><div class="idea-line mcq-option" onclick="pickMCQ('q13','A',this)"><b>A</b><span>The fortune he left to his descendants</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q13','B',this)"><b>B</b><span>The numerous soap brands he created</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q13','C',this)"><b>C</b><span>The combination of commercial success with social responsibility</span></div>
+<div class="idea-line mcq-option" onclick="pickMCQ('q13','D',this)"><b>D</b><span>The introduction of advertising to the soap industry</span></div></div>
+</div>
+</div>
+</div>
+
+<div class="bot">
+<div class="bot-left" id="dotsBar"></div>
+<div class="navbtns">
+<button class="nav" id="btnPrev" onclick="navQ(-1)">&#8592;</button>
+<button class="nav" id="btnNext" onclick="navQ(1)">&#8594;</button>
+</div>
+</div>
+
+<div class="ctx-menu" id="ctxMenu">
+<div class="ctx-item" id="ctxHL" onclick="doHighlight()">🖊&nbsp; Highlight</div>
+<div class="ctx-sep" id="ctxSep1"></div>
+<div class="ctx-item" id="ctxNote" onclick="openNoteDialog()">📝&nbsp; Note</div>
+<div class="ctx-sep" id="ctxSep2" style="display:none"></div>
+<div class="ctx-item" id="ctxClear" onclick="doClear()" style="display:none">🗑&nbsp; Clear</div>
+</div>
+
+<div class="note-dialog" id="noteDialog">
+<div class="note-box">
+<h4>📝 Add Note</h4>
+<textarea id="noteText" placeholder="Type your note here…"></textarea>
+<div class="note-btns">
+<button class="note-cancel" onclick="closeNote()">Cancel</button>
+<button class="note-save" onclick="saveNote()">Save Note</button>
+</div>
+</div>
+</div>
+
+<div class="overlay" id="overlay">
+<div class="revbox">
+<h2>📋 Test Results &amp; Review</h2>
+<div class="scorecard" id="scoreCard"></div>
+<div id="revItems"></div>
+<button class="close-btn" onclick="closeReview()">✕ Close</button>
+</div>
+</div>
+
+<script>
+const CORRECT = {
+q1:'TRUE', q2:'FALSE', q3:'FALSE', q4:'TRUE', q5:'TRUE',
+q6:'Sunlight', q7:'recreational', q8:'samples', q9:'respectable', q10:'ethical',
+q11:'B', q12:'C', q13:'C'
+};
+
+const Q_IDS = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13'];
+const Q_LABELS = ['1','2','3','4','5','6','7','8','9','10','11','12','13'];
+const answers = {};
+let currentQ = 0;
+
+function renderDots(){
+  let d = '<span class="plabel">Passage</span>';
+  Q_IDS.forEach((id,i)=>{
+    const filled = typeof answers[id] === 'string' && answers[id].trim() !== '';
+    const cur = i === currentQ ? 'cur' : '';
+    d += `<div class="dot ${filled ? 'ans' : ''} ${cur}" onclick="jumpToQ(${i})">${Q_LABELS[i]}</div>`;
+  });
+  document.getElementById('dotsBar').innerHTML = d;
+  document.getElementById('btnPrev').disabled = currentQ === 0;
+  document.getElementById('btnNext').disabled = currentQ === Q_IDS.length - 1;
+}
+
+function jumpToQ(i){
+  currentQ = i;
+  const label = Q_LABELS[i];
+  const el = document.getElementById('qb-' + label);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+  renderDots();
+}
+function navQ(dir){
+  currentQ = Math.max(0, Math.min(Q_IDS.length - 1, currentQ + dir));
+  jumpToQ(currentQ);
+}
+
+function setAnswer(id,val,advance=false){
+  answers[id] = val;
+  const i = Q_IDS.indexOf(id);
+  if(advance && i >= 0 && i < Q_IDS.length - 1) currentQ = i + 1;
+  else if(i >= 0) currentQ = i;
+  renderDots();
+}
+function pickSelect(id,val){ setAnswer(id,val,true); }
+function pickMCQ(id,val,el){
+  const block = el.closest('.qblock');
+  if(block) block.querySelectorAll('.mcq-option').forEach(x=>x.classList.remove('selected'));
+  el.classList.add('selected');
+  setAnswer(id,val,true);
+}
+function pickWord(id,val){ setAnswer(id,val.trim(),false); }
+
+/* Drag Handle */
+(function(){
+const handle = document.getElementById('dragHandle');
+let dragging=false, startX=0, startW=0;
+handle.addEventListener('mousedown',e=>{
+dragging=true;
+startX=e.clientX;
+startW=document.getElementById('passagePane').offsetWidth;
+handle.classList.add('active');
+document.body.style.cursor='col-resize';
+document.body.style.userSelect='none';
+e.preventDefault();
+});
+document.addEventListener('mousemove',e=>{
+if(!dragging) return;
+const total = document.getElementById('splitWrap').offsetWidth - handle.offsetWidth;
+let w = Math.max(240, Math.min(total - 280, startW + (e.clientX - startX)));
+const p = document.getElementById('passagePane');
+p.style.width = w + 'px';
+p.style.minWidth = w + 'px';
+});
+document.addEventListener('mouseup',()=>{
+if(!dragging) return;
+dragging=false;
+handle.classList.remove('active');
+document.body.style.cursor='';
+document.body.style.userSelect='';
+});
+})();
+
+/* Highlight & Notes */
+const ctxMenu = document.getElementById('ctxMenu');
+let savedRange = null, clickedHL = null;
+function onMU(e){
+if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) return;
+const sel = window.getSelection(), txt = sel ? sel.toString().trim() : '', hlT = e.target.closest('.hl-yellow,.hl-note');
+if(txt.length > 0){
+savedRange = sel.getRangeAt(0).cloneRange();
+clickedHL = null;
+S('ctxHL',''); S('ctxSep1',''); S('ctxNote',''); H('ctxSep2'); H('ctxClear');
+showMenu(e); e.stopPropagation();
+} else if(hlT){
+clickedHL = hlT; savedRange = null;
+H('ctxHL'); H('ctxSep1'); H('ctxNote'); S('ctxSep2',''); S('ctxClear','');
+showMenu(e); e.stopPropagation();
+}
+}
+document.getElementById('passagePane').addEventListener('mouseup',onMU);
+document.getElementById('qPane').addEventListener('mouseup',onMU);
+document.addEventListener('mousedown',e=>{ if(!ctxMenu.contains(e.target)) ctxMenu.classList.remove('show'); });
+function S(id,d=''){ document.getElementById(id).style.display=d; }
+function H(id){ document.getElementById(id).style.display='none'; }
+function showMenu(e){ ctxMenu.style.left=e.pageX+'px'; ctxMenu.style.top=e.pageY+'px'; ctxMenu.classList.add('show'); }
+function wrapRange(cls,note){
+if(!savedRange) return;
+try{
+const sp = document.createElement('span');
+sp.className = cls;
+if(note) sp.setAttribute('data-note',note);
+savedRange.surroundContents(sp);
+} catch(err){
+const f = savedRange.extractContents();
+const sp = document.createElement('span');
+sp.className = cls;
+if(note) sp.setAttribute('data-note',note);
+sp.appendChild(f);
+savedRange.insertNode(sp);
+}
+window.getSelection().removeAllRanges();
+savedRange = null;
+}
+function doHighlight(){ ctxMenu.classList.remove('show'); wrapRange('hl-yellow',null); }
+function openNoteDialog(){ ctxMenu.classList.remove('show'); document.getElementById('noteText').value=''; document.getElementById('noteDialog').classList.add('show'); }
+function closeNote(){ document.getElementById('noteDialog').classList.remove('show'); savedRange=null; }
+function saveNote(){ const v = document.getElementById('noteText').value.trim(); if(!v || !savedRange){ closeNote(); return; } wrapRange('hl-note',v); closeNote(); }
+function doClear(){ ctxMenu.classList.remove('show'); if(!clickedHL) return; const p = clickedHL.parentNode; while(clickedHL.firstChild) p.insertBefore(clickedHL.firstChild,clickedHL); p.removeChild(clickedHL); clickedHL=null; }
+
+/* Timer & Start */
+function startTest(){
+const val = document.getElementById('idInput').value.trim();
+if(!val){ document.getElementById('idErr').textContent='Please enter your ID'; return; }
+document.getElementById('idErr').textContent='';
+document.getElementById('tidDisplay').textContent='Test taker ID: ' + val;
+document.getElementById('idScreen').style.display='none';
+startTimer();
+}
+let secs = 20 * 60, timerStarted = false, timerInterval = null;
+function startTimer(){
+if(timerStarted) return; timerStarted = true;
+const tTxt = document.getElementById('timerTxt'), tBox = document.getElementById('timerBox');
+timerInterval = setInterval(()=>{
+secs--;
+if(secs <= 0){
+secs = 0;
+tTxt.textContent='00:00';
+tBox.classList.add('warn');
+clearInterval(timerInterval);
+openReview();
+return;
+}
+tTxt.textContent = String(Math.floor(secs/60)).padStart(2,'0') + ':' + String(secs%60).padStart(2,'0');
+if(secs <= 180) tBox.classList.add('warn');
+},1000);
+}
+
+/* Review */
+const QLABELS_MAP = {
+q1:'Family grocery business', q2:'Birth order', q3:'Soap as a product', q4:'The Sunlight name', q5:'1929 merger',
+q6:'Port ___', q7:'___ facilities', q8:'free ___', q9:'more ___', q10:'___ principles',
+q11:'Manufacturing innovation', q12:'Purpose of Port Sunlight', q13:'Lasting legacy'
+};
+
+function openReview(){
+  let correct=0;
+  let html='';
+
+  Q_IDS.forEach((id,i)=>{
+    const user=(answers[id]||'').trim();
+    const expected=CORRECT[id];
+    const ok=user.toLowerCase()===expected.toLowerCase();
+    if(ok) correct++;
+
+    html += `<div class="ritem"><div class="rlabel">Q${Q_LABELS[i]}</div>
+    <div style="font-size:13px;margin-bottom:5px;">${QLABELS_MAP[id]}</div>
+    <div>Your answer: <b>${user||'—'}</b> &nbsp;
+    ${ok?'<span class="ok-lbl">✓ Correct</span>':'<span class="bad-lbl">✗ Incorrect</span> &nbsp; Correct: <b>'+expected+'</b>'}
+    </div></div>`;
+  });
+
+  const pct=correct/Q_IDS.length;
+  const band=pct>=.90?8.5:pct>=.77?7.5:pct>=.62?6.5:pct>=.46?5.5:pct>=.31?4.5:3.5;
+  document.getElementById('scoreCard').innerHTML=
+    '<div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#888;margin-bottom:6px;">READING BAND SCORE (estimated)</div>'+ 
+    '<div class="band">'+band+' <span style="font-size:16px;font-weight:400;color:#999;">/ 9.0</span></div>'+ 
+    '<div style="font-size:13px;margin-top:7px;color:#555;">'+correct+' correct out of '+Q_IDS.length+'</div>';
+  document.getElementById('revItems').innerHTML=html;
+  document.getElementById('overlay').classList.add('on');
+}
+function closeReview(){ document.getElementById('overlay').classList.remove('on'); }
+
+renderDots();
+</script>
+</body>
+</html>
