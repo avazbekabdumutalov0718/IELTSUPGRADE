@@ -1,0 +1,1424 @@
+IELTS SPEAKING PART 3 — ALL TOPICS AND QUESTIONS
+Source: VIVID IELTS — IELTSUPGRADE / speaking-questions.json
+Topics: 129 | Questions: 1029
+All questions are copied from the project's Part 3 dataset in original topic order.
+Note: This is the complete dataset in this project, not an official exhaustive list of all potential future IELTS questions.
+
+==============================================================================
+
+TOPIC 001: Cities / Visiting cities
+Questions: 9
+1. What makes a city attractive to visitors?
+2. Why do some people prefer visiting cities instead of the countryside?
+3. What are the advantages of living in a large city?
+4. What problems do big cities usually have?
+5. How can governments make cities better places to live?
+6. Why are cities becoming more crowded?
+7. What changes do you think cities will experience in the future?
+8. How are cities in your country different from cities abroad?
+9. Why do people like visiting big cities?
+
+TOPIC 002: Toys
+Questions: 5
+1. Are toys for boys and girls different?
+2. How are children’s toys different from those in the past?
+3. Is there a relationship between the toy industry and cartoon production?
+4. Do you think toy manufacturers are responsible for the kinds of toys children play with?
+5. How can toys influence a child’s development?
+
+TOPIC 003: Films / Movies
+Questions: 10
+1. Why do some films become more popular than others?
+2. What qualities make a good actor or actress?
+3. Do famous actors and actresses influence people’s choices of films?
+4. How has the film industry changed in recent years?
+5. Do you think people will watch more films at home in the future?
+6. What types of films do people in your country like watching?
+7. What abilities should a good actor have?
+8. Is it better to watch a film at the cinema or at home?
+9. How do famous actors become successful?
+10. Do you think films can influence people’s behaviour?
+
+TOPIC 004: Quiet places
+Questions: 12
+1. Why do people like quiet places?
+2. Why do people go to quiet places?
+3. Why do people prefer quieter places as they get older?
+4. Have quiet places changed a lot in recent years?
+5. Why are quiet places becoming less common?
+6. Why do people need quiet places?
+7. Do you think cities should create more quiet public spaces?
+8. Where do people usually go when they need peace and quiet?
+9. Is it easier to find a quiet place in the countryside than in cities?
+10. Do older people prefer quiet places to younger people?
+11. Why is the countryside quieter than city life?
+12. What kinds of quiet places are there in your country?
+
+TOPIC 005: Local news & Personal identity
+Questions: 8
+1. Do you think local news is important?
+2. Do people pay more attention to local news or national news?
+3. Why do people need to know about local news?
+4. What is personal identity?
+5. Is it important for people to learn about their personal identity?
+6. Who should teach people about their personal identity?
+7. Do you think buying locally produced products helps preserve personal identity?
+8. Is it also acceptable to buy imported products?
+
+TOPIC 006: Animal stories / Animals
+Questions: 14
+1. Why are stories involving animals popular with children?
+2. What can children learn from animal stories?
+3. Do people today prefer reading stories or watching films based on stories?
+4. Do traditional stories still play an important role in society?
+5. Why do some stories remain popular for many years?
+6. Should children be taken to the zoo?
+7. Do many people keep pets in your country?
+8. Why do people like keeping pets?
+9. Is it important for children to learn about animals?
+10. What can people learn from animals?
+11. How can we protect endangered animals?
+12. What kinds of animals often appear in stories for children?
+13. Is it necessary for children to learn about animals at school?
+14. Why do storytellers like using animals instead of humans?
+
+TOPIC 007: Learning languages
+Questions: 18
+1. Why are many people interested in learning foreign languages nowadays?
+2. Is it easier for children or adults to learn a new language?
+3. What difficulties do adults usually face when learning a foreign language?
+4. How can technology help people learn languages?
+5. Do you think schools should encourage students to learn more than one foreign language?
+6. Is learning a foreign language important for future career opportunities?
+7. How many languages do you think people should know?
+8. Do you think children learn languages more easily than adults?
+9. How can adults learn languages more easily?
+10. Why do some people learn languages faster than others?
+11. What are the advantages of speaking several languages?
+12. Do you think learning foreign languages will be important in the future?
+13. What are the most effective ways for adults to learn a new language?
+14. Do adults and children learn languages in different ways?
+15. Why do children usually learn languages more quickly than adults?
+16. Do you think AI can replace language teachers?
+17. How do children learn languages?
+18. What are the benefits of learning a foreign language?
+
+TOPIC 008: Boring places / Boredom
+Questions: 6
+1. Is being bored always a bad thing?
+2. What kinds of places do people usually find boring?
+3. Why do people sometimes feel bored?
+4. Do young people and older people get bored for the same reasons?
+5. How can cities make public places more interesting?
+6. Do you think technology has made people more or less likely to feel bored?
+
+TOPIC 009: Business / Successful business people
+Questions: 21
+1. What qualities make a person successful in business?
+2. Is it better to start your own business or work for a company?
+3. Why do some businesses succeed while others fail?
+4. Do you think entrepreneurs are born or made?
+5. How important is innovation in business?
+6. What kinds of businesses are becoming more popular these days?
+7. Do you think the government should provide financial support to business owners?
+8. What kinds of businesses are important for a country’s economy?
+9. Do you think young people are interested in starting their own businesses?
+10. Do you think businesses and factories can operate without harming the environment?
+11. What should companies do to protect the environment?
+12. What are the most important qualities of a successful business person?
+13. Do you think it is better to work for a company or run your own business?
+14. What are the advantages and disadvantages of starting a business?
+15. How important is money when starting a new business?
+16. Do you think young people should be encouraged to start their own businesses?
+17. How has technology changed the way businesses operate?
+18. Do you think it is easier to become successful in business nowadays than in the past?
+19. Do you think anyone can become a successful entrepreneur?
+20. How important is taking risks in business?
+21. Do governments do enough to support new businesses?
+
+TOPIC 010: Advertisements
+Questions: 5
+1. Should advertisements be different for different age groups?
+2. Are advertisements always useful?
+3. Do you think companies should spend a lot of money on advertising?
+4. Is advertising more effective than the quality of a product?
+5. Can people always trust advertisements?
+
+TOPIC 011: Growing plants / Gardening
+Questions: 6
+1. Is it common for people to grow plants in your country?
+2. Why do many people keep plants inside their homes?
+3. What are the benefits of growing plants at home?
+4. Do you think children should learn how to grow plants?
+5. Is gardening becoming more or less popular nowadays?
+6. Should cities create more green spaces for people?
+
+TOPIC 012: Ambition / Dreams
+Questions: 17
+1. Is ambition important for young people?
+2. What do most young people in your country dream about?
+3. Do different generations have different dreams?
+4. Do you think people should always follow their dreams?
+5. Can having too much ambition be a bad thing?
+6. How can parents help children achieve their ambitions?
+7. Do young people today have different dreams from older generations?
+8. Why is it important to have dreams or ambitions?
+9. What are the most common dreams among young people in your country?
+10. Can dreams change as people get older?
+11. What can stop people from achieving their dreams?
+12. How can parents and teachers encourage young people to follow their dreams?
+13. What ambitions do young people usually have?
+14. Do you know what your friends’ ambitions are?
+15. Do you enjoy listening to other people’s dreams or ambitions?
+16. Why is ambition important in people’s work?
+17. Can a person be too ambitious?
+
+TOPIC 013: Transport / Trips
+Questions: 10
+1. Are bikes popular in your city?
+2. Why are they unpopular in the central areas?
+3. Do you think government gives enough consideration to pedestrians?
+4. How do people in the countryside and the city travel?
+5. Why is public transport popular?
+6. Do you think the public transportation system in your city is good?
+7. How are transportation systems in rural and urban areas different?
+8. Which mode of transport is more popular in your country, a bicycle or a car?
+9. Do you think air pollution comes mostly from motor vehicles?
+10. Do you think people need to change the way they travel drastically to protect the environment?
+
+TOPIC 014: Stories
+Questions: 6
+1. Are you good at telling stories?
+2. Why do people enjoy listening to stories?
+3. What kinds of stories are popular with children in your country?
+4. Do stories help children learn important lessons?
+5. Is storytelling still important nowadays?
+6. Do you think books or films are better for telling stories?
+
+TOPIC 015: Family & Rewards
+Questions: 6
+1. What can children do to surprise and make their parents happy?
+2. What can children aged 5–6 do to make their parents happy?
+3. Should parents give gifts to their children as a reward?
+4. What kinds of gifts are the best rewards for children and teenagers?
+5. Can giving gifts as rewards have any negative consequences?
+6. Besides gifts, how else can parents encourage good behaviour in children?
+
+TOPIC 016: Opinions & Feedback
+Questions: 12
+1. Why do people ask others for their opinions?
+2. Is it important to listen to other people’s opinions?
+3. Do young people and older people express their opinions in the same way?
+4. Why is feedback important?
+5. How should people give negative feedback?
+6. Can feedback help people improve?
+7. Why is positive feedback important?
+8. Is negative feedback also useful? Why?
+9. Why should parents encourage their children?
+10. Why do some children need more encouragement than others?
+11. Is it possible for adults to benefit from positive feedback as well?
+12. Do you think both positive and negative feedback are important?
+
+TOPIC 017: Technology
+Questions: 33
+1. What kinds of technology do people want to own nowadays?
+2. How has technology changed people’s daily lives?
+3. Do older people and younger people use technology in the same way?
+4. Is it necessary for schools to use more technology in education?
+5. What are the disadvantages of relying too much on technology?
+6. What kinds of technology do you think will become popular in the future?
+7. What kinds of technology do young people want to have?
+8. What do young people usually do on their phones?
+9. Do you think they spend too much time on their phones?
+10. Why don’t many parents like their children spending a lot of time on phones?
+11. Are pen friends still important nowadays?
+12. Why do you think pen friends are no longer very important?
+13. What types of technology do young people want to buy or use these days?
+14. What are the advantages of technology?
+15. What are the differences between online and face-to-face interaction?
+16. What do people prefer when it comes to interacting online or face-to-face?
+17. From a health perspective, do you think technology is beneficial?
+18. What kinds of technical problems do people often face?
+19. How has technology made people’s lives easier?
+20. What should people do when technology does not work properly?
+21. Do older people find it more difficult to use technology than younger people?
+22. Will people become too dependent on technology in the future?
+23. How have mobile phones changed people’s lives?
+24. What are the advantages and disadvantages of smartphones?
+25. Do you think people spend too much time on their phones?
+26. Should children have mobile phones?
+27. How might mobile phones change in the future?
+28. What is the most important piece of technology that has changed people’s lives?
+29. Why has it had such an important impact?
+30. Do household appliances make people lazy?
+31. What are the advantages of using technology at home?
+32. What are the disadvantages of relying too much on technology?
+33. Do you think people will become more dependent on technology in the future?
+
+TOPIC 018: Famous people / Celebrities
+Questions: 12
+1. Why are some people more famous than others?
+2. Do you think famous people should be role models?
+3. How has social media changed the way people become famous?
+4. Why are celebrities so popular among young people?
+5. Do famous people have more responsibilities than ordinary people?
+6. Is being famous always a good thing?
+7. What kinds of people are usually famous in your country?
+8. Why do some people become famous?
+9. Do famous people have a responsibility to be good role models?
+10. Is it easier to become famous nowadays than in the past?
+11. Do you think young people are too interested in celebrities?
+12. What are the advantages and disadvantages of being famous?
+
+TOPIC 019: Videos / Online videos
+Questions: 30
+1. What kinds of videos do people enjoy watching nowadays?
+2. Why are online videos so popular?
+3. Can people learn useful things from videos?
+4. Do you think educational videos are more useful than books?
+5. How has technology changed the way people watch videos?
+6. Do you think people spend too much time watching videos online?
+7. What types of videos are popular in Uzbekistan?
+8. What effect do videos have on people’s lives?
+9. How have videos changed over the years?
+10. Why is watching videos so popular nowadays?
+11. Do people prefer watching short videos or long videos?
+12. How have online videos changed the way people learn?
+13. Do you think videos are replacing books and television?
+14. What are the advantages and disadvantages of watching videos online?
+15. Why do some videos become so popular nowadays?
+16. Which videos have been particularly trendy recently in Uzbekistan?
+17. What skills can people learn through online videos?
+18. Is there any particular job that cannot be learned through videos?
+19. Which is more useful for learning: watching videos or reading materials?
+20. Do older people and young people have the same preferences when it comes to online videos?
+21. Why do you think people have different preferences for online content?
+22. What types of videos are most popular in your country?
+23. How do videos influence people?
+24. How does news influence people?
+25. Do video preferences differ between young and older people?
+26. Can watching videos affect people’s health?
+27. Why do people spend so much time watching videos on social media?
+28. Do you think social media has changed the way people get news?
+29. What are the advantages and disadvantages of getting news from social media?
+30. Should people be careful about the information they watch online?
+
+TOPIC 020: Friendship
+Questions: 6
+1. Is it easy for young children to make friends?
+2. Where do young people usually make friends?
+3. What are the advantages of having older friends?
+4. Is it easier to make friends now than in the past?
+5. What qualities make a good friend?
+6. Can online friendships be as strong as face-to-face friendships?
+
+TOPIC 021: Tall buildings
+Questions: 15
+1. What are the advantages and disadvantages of living in tall buildings?
+2. Do you think cities should build more tall buildings?
+3. Why do many companies choose skyscrapers as their offices?
+4. Are tall buildings suitable for families with children?
+5. How have tall buildings changed modern cities?
+6. Do you think there will be more skyscrapers in the future?
+7. What are the advantages of living in cities?
+8. What are the disadvantages of living in large cities?
+9. What kinds of buildings are popular in your country?
+10. What makes a building attractive?
+11. Do you think old buildings should be preserved?
+12. Why do some people prefer modern buildings?
+13. What are the differences between old and modern buildings?
+14. Should governments spend money on preserving old buildings?
+15. How can buildings affect people’s quality of life?
+
+TOPIC 022: Memory / Learning
+Questions: 6
+1. Is it important to memorize things nowadays?
+2. What kinds of things do people usually need to remember?
+3. Do young people and older people memorize things in different ways?
+4. Has technology made it less necessary to remember information?
+5. What are some effective ways to improve memory?
+6. Should schools encourage students to memorize information or understand it?
+
+TOPIC 023: Competitions
+Questions: 13
+1. What kinds of competitions are popular in your country besides sports?
+2. Do you think it is better to take part in competitions or just watch them?
+3. Why do people enjoy taking part in competitions?
+4. What qualities does a person need to be competitive?
+5. Are competitions important in the job market?
+6. Why is it important to be competitive in professions such as journalism?
+7. Why do people like taking part in competitions?
+8. Do you think competition is good for children?
+9. What are the advantages of winning a competition?
+10. Why do some people dislike competitions?
+11. Is competition more important in sports or education?
+12. Do you think schools should organize more competitions?
+13. How can competitions affect people’s motivation?
+
+TOPIC 024: Working abroad / International jobs
+Questions: 3
+1. What are the benefits of working in an international company?
+2. What kinds of skills are important for working in a company?
+3. What kinds of jobs do people usually do in another country?
+
+TOPIC 025: Clothes
+Questions: 4
+1. Why do people give clothes as gifts?
+2. Do people wear different clothes at work and at home?
+3. How does the weather influence what people wear?
+4. Do young and old people have different clothing preferences?
+
+TOPIC 026: Social skills / Spending time with others
+Questions: 12
+1. Why do people like spending time with others?
+2. How has social behaviour changed compared with the past?
+3. Do young people communicate differently from older people?
+4. Is it important to have good social skills?
+5. What makes someone popular in society?
+6. How can people improve their social skills?
+7. Who do you think has the greatest influence on a person’s development?
+8. Why do you think it is good to talk to different types of people?
+9. In your country, do people tend to mix with different types of people, or do they usually stay within one social circle?
+10. Has it become easier for people to interact with people from different backgrounds nowadays?
+11. Do you think people are born introverted or extroverted, or can their personality change?
+12. Can a person’s partner have a negative influence as well?
+
+TOPIC 027: Smiling
+Questions: 8
+1. Why do people smile?
+2. Do you think people smile more now than in the past?
+3. What kinds of situations make people smile?
+4. Is smiling important in communication?
+5. Can a smile improve someone’s mood?
+6. Why do some people smile more often than others?
+7. Is it always necessary to smile, even if you are unhappy?
+8. Do you think people smile differently in different cultures?
+
+TOPIC 028: Singing / Culture
+Questions: 7
+1. Why do people enjoy singing?
+2. Do you think singing is an important part of culture?
+3. Why do some people prefer singing alone while others enjoy singing in groups?
+4. What factors do people consider when choosing a house?
+5. Is location more important than the size of a house?
+6. Why do different people prefer different types of houses?
+7. How have people’s preferences for houses changed over the years?
+
+TOPIC 029: Planning
+Questions: 17
+1. Why are some people better at planning than others?
+2. Why is planning important in everyday life?
+3. Is it always necessary to make detailed plans?
+4. What are the advantages of planning a trip in advance?
+5. Do people prefer to plan alone or with others?
+6. How has technology changed the way people make plans?
+7. Can too much planning sometimes be a disadvantage?
+8. Do you think children should learn planning skills at school?
+9. Are young people better at planning than older people?
+10. What problems can happen if people do not plan well?
+11. Is it better to make detailed plans or be flexible?
+12. Do people need different planning skills for work and personal life?
+13. Why do people make plans?
+14. Is it always important to follow a plan?
+15. What can cause people to change their plans?
+16. Do young people plan more than older people?
+17. Do you think technology has made planning easier?
+
+TOPIC 030: Rules / Laws / Environment
+Questions: 19
+1. Why do governments make laws?
+2. Why is it important for people to follow rules?
+3. Do people always obey the law?
+4. Should children learn about rules from an early age?
+5. Are there too many rules in modern society?
+6. What environmental rules should governments introduce?
+7. How can schools encourage people to protect the environment?
+8. What happens if people ignore environmental laws?
+9. Why do some places ban the use of mobile phones?
+10. Do people always follow rules?
+11. Why are laws and rules important in society?
+12. What can governments do to encourage people to follow rules?
+13. Do you think people’s behaviour changes when there are strict rules?
+14. What kinds of rules do families usually have?
+15. Is it sometimes good to break the rules?
+16. Do people always have to obey rules?
+17. Why do some people dislike following rules?
+18. Should parents make strict rules for their children?
+19. What can happen if people do not follow important rules?
+
+TOPIC 031: Helping others / Volunteering
+Questions: 9
+1. Do schools teach children about helping others?
+2. Should schools teach children to help others?
+3. Are developed countries obliged to help developing countries?
+4. Is there any benefit for developed countries if they provide help?
+5. Should developed countries provide training, or is financial support enough?
+6. Is it common to help neighbours in Uzbekistan?
+7. How can we encourage children to help other people?
+8. Why is volunteering important?
+9. What are the benefits of volunteering for young people?
+
+TOPIC 032: Rivers & Lakes
+Questions: 6
+1. Why are rivers and lakes important for a country?
+2. How do people use rivers and lakes in daily life?
+3. What problems do rivers and lakes face today?
+4. What can governments do to protect rivers and lakes?
+5. Do you think people care enough about protecting natural water resources?
+6. How might climate change affect rivers and lakes in the future?
+
+TOPIC 033: Countryside
+Questions: 6
+1. What are the advantages of living in the countryside?
+2. What are the disadvantages of living in the countryside?
+3. What kinds of people usually choose to live in the countryside?
+4. Do you think more young people will move to cities in the future?
+5. How has life in the countryside changed in recent years?
+6. Do you think governments should do more to improve life in rural areas?
+
+TOPIC 034: Social media
+Questions: 4
+1. Do young people and older people use different social media platforms?
+2. Do people still read newspapers nowadays?
+3. Will people read newspapers in the future?
+4. What do people use social media for?
+
+TOPIC 035: Jobs / Work
+Questions: 23
+1. Are salary and personal interest equally important when choosing a job?
+2. How do children decide what job they want to do in the future?
+3. Do you think earning a high salary is more important than doing a job you enjoy?
+4. Why do many children want to become firefighters or police officers?
+5. What factors do people usually consider when choosing a job?
+6. What are the advantages of working from home?
+7. What are the disadvantages of working from home?
+8. Do you think more people will work from home in the future?
+9. Do you think people should have flexible working hours?
+10. What are the advantages of having a fixed work schedule?
+11. Why do some people prefer working at night?
+12. Why do people work hard to earn more money?
+13. Do you think earning a high salary is the most important thing about a job?
+14. Should companies provide training for their employees?
+15. What are the benefits of employee training?
+16. What kinds of subjects do children enjoy studying?
+17. Do the best teachers try to make their students interested in lessons?
+18. How do students usually feel when they return to studying after working full-time?
+19. Should adults stop studying after finishing school or university?
+20. What are the benefits of continuing to study after finishing university?
+21. Why do some people continue learning throughout their lives?
+22. Should children learn more difficult subjects at school?
+23. Are teachers making subjects fun for children?
+
+TOPIC 036: Being busy / Free time
+Questions: 14
+1. Why are some people busier than others?
+2. Do people today have less free time than in the past?
+3. How do people usually manage a busy schedule?
+4. Is being busy always a good thing?
+5. What problems can people face if they are too busy?
+6. How can people achieve a better work-life balance?
+7. Do you think school students are busier than before?
+8. Why are many students so busy nowadays?
+9. Should children study hard? Why or why not?
+10. Should children have long school holidays?
+11. What role does entertainment play in people’s lives?
+12. Is it better for children to learn through games? Why?
+13. How can parents help children balance study and free time?
+14. Do adults have enough free time these days?
+
+TOPIC 037: Imagination
+Questions: 9
+1. How important is imagination for children?
+2. What games help develop children’s imagination?
+3. What school subjects help develop children’s imagination?
+4. What kinds of jobs require imagination?
+5. Will people need imagination in the future?
+6. Which gives people more opportunities to use their imagination, books or screens?
+7. Do computers help people develop their imagination?
+8. Do teachers encourage students to use their imagination?
+9. Will computers become more important for people in the future?
+
+TOPIC 038: TV programmes
+Questions: 11
+1. What kinds of TV shows are popular in your country?
+2. Do young and old people like watching the same kinds of TV shows?
+3. What kinds of TV shows do young people usually prefer?
+4. Are platforms like YouTube and Netflix popular in your country?
+5. Why do some TV programmes become more popular than others?
+6. Do you think people watch too much television nowadays?
+7. What are the advantages of watching TV compared with using the Internet for entertainment?
+8. Do you think educational TV programmes are effective for children?
+9. How has the way people watch TV changed in recent years?
+10. Do you think traditional TV will disappear in the future?
+11. How does television influence people’s opinions and behavior?
+
+TOPIC 039: Children and art
+Questions: 3
+1. Are art classes important for children?
+2. Why do many children like drawing?
+3. How can parents support their children’s hobbies?
+
+TOPIC 040: Making decisions
+Questions: 17
+1. Should children be allowed to make their own decisions?
+2. At what age should children start making their own decisions?
+3. What kinds of decisions should children be allowed to make?
+4. Why do some parents make decisions for their children?
+5. Do children sometimes make better decisions than adults?
+6. Should parents allow children to make mistakes?
+7. How can making decisions help children become more independent?
+8. What small decisions do people usually make?
+9. When making decisions, should people make them quickly or take a long time?
+10. Can a group of people solve a problem better than one person?
+11. What important decisions do people usually make?
+12. At what age do children start to have their own opinions?
+13. Should parents listen to children’s opinions?
+14. Why do children sometimes have different opinions from their parents?
+15. How can parents help children develop their own opinions?
+16. Do children become more confident in expressing their opinions as they grow older?
+17. Is it important for children to discuss different ideas with other people?
+
+TOPIC 041: Advice
+Questions: 6
+1. Why do people ask others for advice?
+2. Who do people usually ask for advice?
+3. Is it better to ask family members or friends for advice?
+4. Why do some people find it difficult to accept advice?
+5. Should parents give their children advice about everything?
+6. Do young people need more advice than older people?
+
+TOPIC 042: Houses / Accommodation
+Questions: 4
+1. Do people in your country usually rent a house or buy one?
+2. What are the advantages and disadvantages of buying a house?
+3. How has the climate affected the design of houses?
+4. Do you think people spend the time they save on useful things?
+
+TOPIC 043: Special meals
+Questions: 3
+1. Are special meals different from everyday meals? Why?
+2. Are there any special occasions when people have special meals?
+3. Do you think it is okay to spend a lot of money on special meals?
+
+TOPIC 044: Success
+Questions: 8
+1. What makes a person successful?
+2. Is success more important for young people or older people?
+3. Do successful people always have to work hard?
+4. What role does family support play in a person’s success?
+5. Do you think successful people should help others?
+6. Are people today more focused on success than in the past?
+7. How can parents help their children become successful?
+8. Do you think money is an important part of success?
+
+TOPIC 045: Noise
+Questions: 8
+1. What do you think about noisy neighbours?
+2. What kinds of noise do people usually complain about?
+3. Do you think cities are noisier than the countryside?
+4. Why do some people choose to live in the countryside rather than in a city?
+5. How does noise affect people’s daily lives?
+6. What can people do to reduce noise pollution?
+7. Why do you think families are noisier today than they were in the past?
+8. Do you think modern technology has made people’s lives noisier?
+
+TOPIC 046: Imtihon to‘plami 01
+Questions: 7
+1. Do you think it is a good idea for family members to work together?
+2. What are the advantages of having a family business?
+3. What problems can people face when working with their family members?
+4. Why do some people choose to work in a family business?
+5. Do you think children should continue their parents' business?
+6. Is it easier to manage a business with family members or with other people?
+7. Do you think family businesses will be common in the future?
+
+TOPIC 047: Imtihon to‘plami 02
+Questions: 8
+1. Why do people ask others for advice?
+2. Who do people usually ask for advice?
+3. Do young people usually ask their friends for advice?
+4. Is it difficult to give good advice?
+5. Why do some people not follow advice?
+6. Is advice from older people usually better than advice from younger people?
+7. Do people today need more advice than people in the past?
+8. Should people always follow the advice they receive?
+
+TOPIC 048: Imtihon to‘plami 03
+Questions: 8
+1. Why do people spend so much time on social media?
+2. What kinds of videos are popular on social media?
+3. Why do people like watching short videos?
+4. Do social media videos influence people's opinions?
+5. Why are videos more popular than written information?
+6. What kinds of videos are popular among young people?
+7. Do you think people will watch more videos in the future?
+8. What are the advantages and disadvantages of watching videos online?
+
+TOPIC 049: Imtihon to‘plami 04
+Questions: 4
+1. In your country, what gifts do people usually take when they visit someone's house?
+2. Why do people visit each other's homes?
+3. Why do people invite others to their homes?
+4. What should people do to keep their city clean?
+
+TOPIC 050: Imtihon to‘plami 05
+Questions: 7
+1. Do your friends have the same ambitions as you?
+2. Is ambition important for young people?
+3. What kind of ambitions do most young people have in Uzbekistan?
+4. Does society value some ambitions more than others?
+5. Do you think people who don't have ambitions are disadvantaged?
+6. Why are ambitious people important for the world?
+7. Is it possible to live without ambition?
+
+TOPIC 051: Imtihon to‘plami 06
+Questions: 7
+1. Why do people sometimes change their opinions?
+2. What kinds of things can make people change their opinions?
+3. Do you think young people are more likely to change their opinions than older people?
+4. Is it easy to change someone else's opinion?
+5. Why do some people refuse to change their opinions even when they are given new information?
+6. Do you think social media influences people's opinions?
+7. How can people make sure that their opinions are based on reliable information?
+
+TOPIC 052: Imtihon to‘plami 07
+Questions: 8
+1. What kinds of jobs are popular among young people in your country?
+2. Why do some people prefer working from home?
+3. What are the benefits of working from home?
+4. Why may some people dislike working from home?
+5. What are the disadvantages of working from home?
+6. Do you think more people will work from home in the future?
+7. What qualities are important for people to have in their jobs?
+8. Is it more important to have a high salary or to enjoy your job?
+
+TOPIC 053: Imtihon to‘plami 08
+Questions: 8
+1. Why do people ask others for advice?
+2. Who do people usually ask for advice?
+3. Do young people usually ask their friends for advice?
+4. Is it difficult to give good advice?
+5. Why do some people not follow advice?
+6. Is advice from older people usually better than advice from younger people?
+7. Do people today need more advice than people in the past?
+8. Should people always follow the advice they receive?
+
+TOPIC 054: Imtihon to‘plami 09
+Questions: 8
+1. How does technology affect young people?
+2. What kind of technology do young people use most?
+3. Do young people spend too much time using technology?
+4. What are the advantages of technology for young people?
+5. What are the disadvantages of technology for young people?
+6. Can people make good friends online?
+7. Why might people find it difficult to become good friends online?
+8. Do you think people can be as close to online friends as they are to friends they meet in real life?
+
+TOPIC 055: Imtihon to‘plami 10
+Questions: 8
+1. Why are childhood friendships important?
+2. Where do children usually make friends?
+3. Is it easy for children to make friends?
+4. What activities do children usually do with their friends?
+5. Do childhood friendships usually last for a long time?
+6. What is the difference between childhood friends and friends people make as adults?
+7. Do you think people need friends when they grow older?
+8. Is it easier to make friends today than in the past?
+
+TOPIC 056: Imtihon to‘plami 11
+Questions: 8
+1. Why do people become interested in famous people?
+2. What kinds of people are usually famous in your country?
+3. Do young people usually have different famous people they admire than older people?
+4. What are the advantages of being famous?
+5. What are the disadvantages of being famous?
+6. Do famous people have a responsibility to be good role models?
+7. Why do some people want to become famous?
+8. Do you think people are more interested in famous people today than in the past?
+
+TOPIC 057: Imtihon to‘plami 12
+Questions: 8
+1. Why do people enjoy spending time with other people?
+2. What kinds of activities do people usually do together?
+3. Do people behave differently when they are with friends?
+4. Why do some people behave differently in public and at home?
+5. Can people's behaviour change as they get older?
+6. What influences the way people behave?
+7. Do you think parents have a strong influence on children's behaviour?
+8. Is people's behaviour affected by the people they spend time with?
+
+TOPIC 058: Imtihon to‘plami 13
+Questions: 5
+1. Does climate change affect the design of buildings?
+2. Why do people want to design their own buildings themselves?
+3. Do you think architects' jobs are difficult?
+4. Is it better to reconstruct an old building or build a new one?
+5. Do you think new buildings should be built in other places or in historical areas?
+
+TOPIC 059: Imtihon to‘plami 14
+Questions: 7
+1. What is the difference between national and local newspapers?
+2. Which do you think is more important, local or national news?
+3. Do young people and older people prefer different types of news?
+4. Should newspapers focus more on national or international news?
+5. Why do some people still prefer printed newspapers?
+6. Why do many people prefer getting news online nowadays?
+7. Do you think newspapers will disappear in the future?
+
+TOPIC 060: Imtihon to‘plami 15
+Questions: 6
+1. Do you think face-to-face communication is important?
+2. What are the advantages of online communication?
+3. What are the disadvantages of online communication?
+4. Is body language important when people talk to each other?
+5. Why can face-to-face communication sometimes be better than online communication?
+6. Do you think people communicate differently online and in person?
+
+TOPIC 061: Imtihon to‘plami 16
+Questions: 5
+1. What kind of movies do people watch in your country?
+2. What kind of movies do you like?
+3. Do you think it is better to watch movies with friends or alone?
+4. Why do people prioritize entertainment rather than what actually matters, and what is your view on that?
+5. Do you think watching movies is a waste of time?
+
+TOPIC 062: Imtihon to‘plami 17
+Questions: 1
+1. When do children start to have their own opinions?
+
+TOPIC 063: Imtihon to‘plami 18
+Questions: 8
+1. What types of media content are popular in your country?
+2. Why do people spend so much time watching online content?
+3. How has media content changed in recent years?
+4. Do you think people are influenced by the content they watch?
+5. Why do people like recording videos?
+6. What kinds of videos do people usually record?
+7. Do you think people record too many videos nowadays?
+8. How might video recording change in the future?
+
+TOPIC 064: Imtihon to‘plami 19
+Questions: 6
+1. What kinds of rules do families usually have?
+2. Is it sometimes good to break the rules?
+3. Do people always have to obey rules?
+4. Why do some people dislike following rules?
+5. Should parents make strict rules for their children?
+6. What can happen if people do not follow important rules?
+
+TOPIC 065: Imtihon to‘plami 20
+Questions: 5
+1. Where do young people usually make friends?
+2. Do you think children can make friends at family gatherings?
+3. Is it easier for children to make friends than adults?
+4. Do you think friends are more important than family?
+5. Why do some people become closer to their friends than to their family members?
+
+TOPIC 066: Imtihon to‘plami 21
+Questions: 7
+1. Why do you think interviews are popular among young people?
+2. What about older people? Do they enjoy watching interviews?
+3. Do you think people's interest in interviews depends on their age?
+4. What is the difference between interviews with famous people and ordinary people?
+5. What kinds of questions are usually asked when interviewing young people?
+6. How might these questions be different when interviewing older people?
+7. Do you think interviews will become more popular in the future?
+
+TOPIC 067: Imtihon to‘plami 22
+Questions: 6
+1. Why are some people interested in talking to older people?
+2. What kinds of information do young people usually share with each other?
+3. How can people know whether someone is listening to them?
+4. Why is it important to listen carefully when someone is talking?
+5. What would you do if someone did not listen to you?
+6. Do you think young people are good listeners?
+
+TOPIC 068: Imtihon to‘plami 23
+Questions: 4
+1. Do many people in your country enjoy growing plants?
+2. What are the advantages of growing plants?
+3. What kinds of plants are popular in your country?
+4. Do you think more people will grow plants in the future?
+
+TOPIC 069: Imtihon to‘plami 24
+Questions: 6
+1. Why do people like visiting interesting places?
+2. What kinds of places do people usually visit during holidays?
+3. Do you think people travel more now than in the past?
+4. What are the advantages of visiting new places?
+5. How can tourism affect local communities?
+6. Do you think people will travel more or less in the future?
+
+TOPIC 070: Imtihon to‘plami 25
+Questions: 6
+1. Where do you usually prefer to meet your friends?
+2. Do you meet your friends in the same places now as you did when you were younger?
+3. Is it important for leaders to communicate internationally?
+4. Do people always understand each other when they use a translator?
+5. Why can't people solve some problems through talking?
+6. What are the common situations when people need to talk to strangers?
+
+TOPIC 071: Imtihon to‘plami 26
+Questions: 6
+1. What kinds of places do adults usually like to go to?
+2. What is the difference between the places adults and children like to visit?
+3. What do children usually talk about when they spend time with their parents?
+4. Why is it important for parents to spend time with their children?
+5. Do you think children and adults enjoy the same activities?
+6. How have people's choices of entertainment changed over time?
+
+TOPIC 072: Imtihon to‘plami 27
+Questions: 6
+1. Do you think children should learn arts and crafts at school?
+2. What can children learn from making things by hand?
+3. Do you think creativity is something people are born with?
+4. Can people become more creative through practice?
+5. Why is creativity important for children?
+6. Are creative skills useful in the workplace?
+
+TOPIC 073: Imtihon to‘plami 28
+Questions: 7
+1. Do advertisements actually increase a company's sales?
+2. What types of advertisements are most effective nowadays?
+3. Why do some successful or premium brands choose not to use mainstream advertising?
+4. Should advertising aimed specifically at children be restricted?
+5. Should there be strict regulations on advertising harmful products such as alcohol and tobacco?
+6. To what extent are advertisements nowadays truthful and reliable?
+7. Should advertisements mainly provide information about the product?
+
+TOPIC 074: Imtihon to‘plami 29
+Questions: 8
+1. Why do some people prefer quiet places?
+2. What kinds of places are usually quiet?
+3. Why are quiet places important in cities?
+4. Why is it difficult to find quiet places nowadays?
+5. Do young people like quiet places?
+6. Should governments create more quiet public spaces?
+7. What are the benefits of spending time in a quiet place?
+8. Do you think there will be more or fewer quiet places in the future?
+
+TOPIC 075: Imtihon to‘plami 30
+Questions: 6
+1. Why do some people dislike certain types of food?
+2. Why do people’s food preferences change as they get older?
+3. Do you think children should be encouraged to try food they dislike?
+4. Why do some people prefer traditional food to international food?
+5. How have people’s eating habits changed in recent years?
+6. Do you think people eat more unhealthy food nowadays than in the past?
+
+TOPIC 076: Imtihon to‘plami 31
+Questions: 7
+1. Why do some people get bored more easily than others?
+2. What do people usually do when they feel bored?
+3. Do you think people today get bored less often than in the past?
+4. Why do children sometimes feel bored even when they have many things to do?
+5. Is it important for people to experience boredom sometimes?
+6. What can parents do to help children deal with boredom?
+7. Do you think technology has made people less able to deal with boredom?
+
+TOPIC 077: Imtihon to‘plami 32
+Questions: 7
+1. Why do some people find it difficult to make decisions?
+2. Do you think young people can make good decisions on their own?
+3. What kinds of decisions should parents make for their children?
+4. Is it better to make decisions quickly or take a long time to think?
+5. What factors should people consider before making an important decision?
+6. Do people usually ask others for advice before making important decisions?
+7. Who has more influence on people's decisions, friends or family?
+
+TOPIC 078: Imtihon to‘plami 33
+Questions: 3
+1. Do you think natural parks should be restricted in order to protect them?
+2. Do advances in science and technology have a negative effect on the natural environment?
+3. Which is more important: protecting nature or developing the economy?
+
+TOPIC 079: Imtihon to‘plami 34
+Questions: 7
+1. Why do some people dislike travelling?
+2. What kinds of trips do people usually find boring or tiring?
+3. Why do people continue taking trips they do not enjoy?
+4. Do you think travelling is more stressful now than it was in the past?
+5. What can people do to make a long journey more enjoyable?
+6. Why do some people prefer travelling alone while others prefer travelling with friends or family?
+7. How might travelling change in the future?
+
+TOPIC 080: Imtihon to‘plami 35
+Questions: 8
+1. Why are rivers and lakes important to people?
+2. What are the main differences between rivers and lakes?
+3. How do rivers and lakes benefit the environment?
+4. What problems can pollution cause to rivers and lakes?
+5. Why do some people choose to live near rivers or lakes?
+6. Should governments spend more money protecting rivers and lakes?
+7. What can individuals do to keep rivers and lakes clean?
+8. Do you think rivers and lakes will be more or less important in the future?
+
+TOPIC 081: Imtihon to‘plami 36
+Questions: 8
+1. What does it mean to be successful in life?
+2. What makes a person successful in business?
+3. Is it more difficult to become successful in business nowadays?
+4. What qualities are important for success in business?
+5. Do you think money is the most important measure of success?
+6. Why do some people become successful while others do not?
+7. Is success more dependent on hard work or luck?
+8. What can young people do to become successful in the future?
+
+TOPIC 082: Imtihon to‘plami 37
+Questions: 8
+1. In your country, do children like biology?
+2. Why is being a doctor a hard job?
+3. Why do young children want to become doctors?
+4. What qualities does a good doctor need?
+5. Is working as a doctor more difficult than other jobs?
+6. Why do some people choose medical careers?
+7. How can schools encourage children to learn more about biology?
+8. Do you think the medical profession will change in the future?
+
+TOPIC 083: Imtihon to‘plami 38
+Questions: 10
+1. Why do people enjoy watching videos online?
+2. What types of videos are popular among young people in your country?
+3. Do you think educational videos are useful for children?
+4. Why do some videos become extremely popular?
+5. Do people spend too much time watching videos nowadays?
+6. How has technology changed the way people learn?
+7. Can videos replace traditional classroom learning?
+8. Do you think the way people watch videos will change in the future?
+9. What are the advantages and disadvantages of short videos?
+10. Should parents control what kind of videos their children watch?
+
+TOPIC 084: Imtihon to‘plami 39
+Questions: 7
+1. What makes a good service?
+2. Why is good customer service important for businesses?
+3. Do you think public services are good in your country?
+4. What public services do people use most often?
+5. How can governments improve public services?
+6. Should public services be free for everyone?
+7. Do you think technology can improve public services?
+
+TOPIC 085: Imtihon to‘plami 40
+Questions: 7
+1. Why do some children behave badly?
+2. What can parents do when their children behave badly?
+3. Should parents punish children for bad behavior?
+4. How can schools deal with children who behave badly?
+5. Do you think children behave differently now compared with the past?
+6. What role do teachers play in teaching children good behavior?
+7. Who should be mainly responsible for children's behavior, parents or teachers?
+
+TOPIC 086: Imtihon to‘plami 41
+Questions: 7
+1. How is nature important to people?
+2. What natural places do people usually visit?
+3. Do you think people are spending more time in nature nowadays?
+4. Why do some people prefer spending time in nature?
+5. What can people do to protect natural places?
+6. Do children nowadays spend enough time outdoors?
+7. How can cities provide people with more opportunities to enjoy nature?
+
+TOPIC 087: Imtihon to‘plami 42
+Questions: 7
+1. Why are some people busier than others?
+2. Do you think people are busier nowadays than in the past?
+3. Is it good to be busy all the time?
+4. Why do some people enjoy having a busy lifestyle?
+5. How can people manage their time effectively?
+6. Do you think students nowadays have too many things to do?
+7. What are the disadvantages of being too busy?
+
+TOPIC 088: Imtihon to‘plami 43
+Questions: 5
+1. Why do people like visiting the same places again?
+2. What kinds of places do people usually want to visit more than once?
+3. Is it better to revisit a place or travel somewhere new?
+4. Why do some people prefer travelling to familiar places?
+5. How can tourism affect popular places?
+
+TOPIC 089: Imtihon to‘plami 44
+Questions: 6
+1. Why do people help others with their problems?
+2. What kinds of problems do people usually ask others for help with?
+3. Do young people help others more than older people?
+4. Should people always help others when they have problems?
+5. How can helping others benefit the person who provides the help?
+6. Do you think people are becoming less willing to help each other nowadays?
+
+TOPIC 090: Imtihon to‘plami 45
+Questions: 6
+1. What do people usually save money for?
+2. What do you think people should save money for?
+3. Do more people save money for gadgets nowadays?
+4. Should children be taught about money at school?
+5. How can schools teach children about money?
+6. Do children know more about money now compared to previous generations?
+
+TOPIC 091: Imtihon to‘plami 46
+Questions: 4
+1. Do you think videos can teach people new things effectively?
+2. Can people learn all skills just by watching videos?
+3. Should governments regulate video content online?
+4. What can people learn from videos, and what can they not?
+
+TOPIC 092: Imtihon to‘plami 47
+Questions: 6
+1. Do you think people like noisy places?
+2. Why do some people like to meet in places with loud music?
+3. What kinds of noises are there in our life?
+4. Which area is exposed to more noise, the city or the countryside?
+5. How would people usually respond to noises in your country?
+6. On what occasions do people need to be quiet?
+
+TOPIC 093: Imtihon to‘plami 48
+Questions: 7
+1. What do people usually do in their leisure time?
+2. How have advancements in technology affected people’s leisure time?
+3. Do you think people have more free time now than in the past?
+4. Do older people also spend their leisure time actively?
+5. What activities are popular among older people?
+6. Why do some people prefer spending their leisure time alone?
+7. Do you think people will have more or less leisure time in the future?
+
+TOPIC 094: Imtihon to‘plami 49
+Questions: 8
+1. Why do people travel abroad or go on long-distance journeys?
+2. Why do some people choose to work abroad?
+3. What are the main reasons people travel to other countries?
+4. How often do people usually go on holiday?
+5. Why do people need to go on holiday?
+6. Do you think people travel more often nowadays than in the past?
+7. What are the benefits of travelling long distances?
+8. What problems can people face when travelling abroad?
+
+TOPIC 095: Imtihon to‘plami 50
+Questions: 7
+1. Why do people need friends?
+2. What makes someone a good friend?
+3. Do you think it is easier to make friends when you are young?
+4. How have friendships changed because of technology?
+5. Is it better to have a few close friends or many friends?
+6. Why do some friendships last for many years while others end quickly?
+7. Do you think people spend enough time with their friends nowadays?
+
+TOPIC 096: Imtihon to‘plami 51
+Questions: 7
+1. Why do some people prefer living in tall buildings?
+2. What are the advantages of living in a high-rise building?
+3. What are some disadvantages of living in tall buildings?
+4. Why are more tall buildings being built in cities nowadays?
+5. Do you think cities should have more high-rise buildings or more low-rise buildings?
+6. What problems can tall buildings cause in crowded cities?
+7. Do you think tall buildings will become more common in the future?
+
+TOPIC 097: Imtihon to‘plami 52
+Questions: 7
+1. Do you think competition makes people more confident?
+2. Why do some people enjoy competing with others?
+3. Is rivalry stronger between neighbouring countries or between countries that are far apart?
+4. What kinds of competitions do children usually take part in?
+5. Do you think competitions are beneficial for children?
+6. What can children learn from taking part in competitions?
+7. Can competition sometimes have a negative effect on children?
+
+TOPIC 098: Imtihon to‘plami 53
+Questions: 6
+1. Is it good for people to have a daily routine?
+2. Why do some people prefer to follow the same routine every day?
+3. Are there any routines that people should be forced to follow?
+4. What are the advantages of doing something regularly?
+5. Can having a strict routine have any disadvantages?
+6. Do people's routines change as they get older?
+
+TOPIC 099: Imtihon to‘plami 54
+Questions: 7
+1. Do your friends have the same ambitions as you?
+2. Is it important for young people to have ambitions?
+3. What kinds of ambitions do young people in Uzbekistan usually have?
+4. Do you think society values some ambitions more than others?
+5. Are people without ambitions at a disadvantage?
+6. Why are ambitious people important to society?
+7. Do you think it is possible to live a happy life without having any ambitions?
+
+TOPIC 100: Imtihon to‘plami 55
+Questions: 6
+1. Is it common for people to grow plants in your country?
+2. Why do people grow plants in their homes?
+3. Why do people like growing vegetables and fruits?
+4. Why do some people prefer to buy vegetables from shops?
+5. Do you think growing plants will continue to be popular in the future?
+6. How can people grow plants in apartments?
+
+TOPIC 101: Imtihon to‘plami 56
+Questions: 8
+1. What kind of jobs require helping others?
+2. What do you think the government should give to society, time or money?
+3. In what ways should the government give its time to society?
+4. Do you think a society can become too focused on individual success at the expense of community values? Why?
+5. Do citizens need to do more to influence the decisions made by their government?
+6. How can people contribute more to their local community?
+7. Why is it important for people to care about society as a whole?
+8. What can governments do to encourage people to become more involved in their communities?
+
+TOPIC 102: Imtihon to‘plami 57
+Questions: 8
+1. Do you think talkative people are good at listening to others?
+2. How can you tell whether someone is really listening to you?
+3. What can people do to become better listeners?
+4. Why do some people find it difficult to listen to others?
+5. Is listening more important than speaking in a conversation?
+6. Do people listen differently when they talk to friends and strangers?
+7. How can teachers encourage students to listen to each other?
+8. Has social media affected the way people listen and communicate with each other?
+
+TOPIC 103: Imtihon to‘plami 58
+Questions: 7
+1. Should people keep in touch with friends they made in childhood?
+2. How important is childhood in our lives?
+3. Why are childhood friendships important?
+4. Do you think it is easier to make friends when you are a child or an adult?
+5. What can people learn from their childhood friends?
+6. Do friendships from childhood usually last for a long time?
+7. How has the way people make friends changed compared with the past?
+
+TOPIC 104: Imtihon to‘plami 59
+Questions: 8
+1. What makes a businessman successful?
+2. What qualities does a successful businessman need?
+3. Why do some businesses become more successful than others?
+4. How important is customer satisfaction for a business?
+5. What can businesses do to satisfy their customers?
+6. Why do some customers become loyal to a particular business?
+7. Should businesses focus more on making money or satisfying customers?
+8. How can businesses deal with unhappy customers?
+
+TOPIC 105: Imtihon to‘plami 60
+Questions: 6
+1. Why do some people get bored more easily than others?
+2. What do people usually do when they feel bored?
+3. Do you think people nowadays get bored more easily than in the past?
+4. Is it good for people to experience boredom sometimes?
+5. Why do children often get bored when they have nothing to do?
+6. How can people make their free time more interesting?
+
+TOPIC 106: Imtihon to‘plami 61
+Questions: 5
+1. Where do people from your country usually go for holidays?
+2. How do people usually plan their holidays?
+3. Why do some people prefer travelling abroad for their holidays?
+4. Are there any places in your country that are popular with tourists?
+5. What type of accommodation do people in your country usually prefer?
+
+TOPIC 107: Imtihon to‘plami 62
+Questions: 6
+1. What are the most important things to consider when choosing a house to live in?
+2. What are the differences between choosing a house in the countryside and choosing one in the city?
+3. Why do some people prefer living in the countryside?
+4. Do you think people's housing preferences change as they get older?
+5. What kinds of gifts are popular in your country?
+6. When do people usually give gifts?
+
+TOPIC 108: Imtihon to‘plami 63
+Questions: 4
+1. What places are usually noisy in your city?
+2. Why are some places in cities noisier than others?
+3. What problems can noise cause for people?
+4. What can be done to reduce noise in cities?
+
+TOPIC 109: Imtihon to‘plami 64
+Questions: 5
+1. What happens if you do not listen carefully when others are talking?
+2. Why do some people talk about things that other people are not interested in?
+3. Is it polite to stop someone when you are not interested in what they are saying?
+4. Why is it important to listen carefully when someone is talking to you?
+5. How can people show that they are listening to someone?
+
+TOPIC 110: Imtihon to‘plami 65
+Questions: 6
+1. Do competitions increase people's stress?
+2. Why do many people think that competitions are unfair or unequal nowadays?
+3. What are the drawbacks of competing with others?
+4. Can competition have positive effects on people?
+5. Does hosting an international sports event help improve relationships between countries?
+6. How can international sporting events bring people from different countries together?
+
+TOPIC 111: Imtihon to‘plami 66
+Questions: 6
+1. What kinds of things do people like to make by hand?
+2. Why do some people prefer making things themselves rather than buying them?
+3. What kinds of things do children like to make?
+4. Do children prefer making things by hand or using technology?
+5. Should schools teach art to children?
+6. How can schools help children develop their creativity?
+
+TOPIC 112: Imtihon to‘plami 67
+Questions: 6
+1. Do you think biology is easier than other subjects?
+2. Why do some students find biology difficult?
+3. Should technology be used more in medicine?
+4. What are the advantages of using technology in medicine?
+5. Should governments invest more money in medicine?
+6. What areas of medicine should governments invest in?
+
+TOPIC 113: Imtihon to‘plami 68
+Questions: 7
+1. Do you know your neighbours well?
+2. What kind of people make good neighbours?
+3. Is it important to have a good relationship with your neighbours?
+4. What problems can people have with their neighbours?
+5. Why do some people not know their neighbours?
+6. Has the relationship between neighbours changed compared with the past?
+7. What can people do to build better relationships with their neighbours?
+
+TOPIC 114: Imtihon to‘plami 69
+Questions: 7
+1. Why do people like tall buildings?
+2. What are the advantages of living in a tall building?
+3. What are the disadvantages of tall buildings?
+4. How can tall buildings be decorated to make them more attractive?
+5. Should governments control the design of tall buildings?
+6. Do you think there will be more tall buildings in the future?
+7. What makes a building attractive or unattractive?
+
+TOPIC 115: Imtihon to‘plami 70
+Questions: 5
+1. What do you think of making friends online?
+2. Do we benefit from having friends with different personalities?
+3. Would you only make friends with people who are similar to you?
+4. How and where do people in your country make friends these days?
+5. In what situations would people be willing to get to know new people?
+
+TOPIC 116: Imtihon to‘plami 71
+Questions: 5
+1. Should governments spend money on large programmes that bring people together?
+2. What do friends usually do when they are together?
+3. Why do people enjoy spending time with their friends?
+4. Is it easier for people to make friends when they take part in group activities?
+5. Do you think people spend enough time with their friends nowadays?
+
+TOPIC 117: Imtihon to‘plami 72
+Questions: 8
+1. Do you think it is important to preserve historic buildings?
+2. Why is it important to preserve them?
+3. How do people decide which buildings should be preserved?
+4. Who should be responsible for preserving historic buildings?
+5. What is the difference between living in an old building and living in a modern building?
+6. Do people prefer living in old buildings or modern buildings?
+7. What can people learn from historic buildings?
+8. Do you think more historic buildings will disappear in the future?
+
+TOPIC 118: Imtihon to‘plami 73
+Questions: 6
+1. What is the difference between shopping in the past and shopping nowadays?
+2. What is the difference between young people and older people when they go shopping?
+3. Do you think it is better to go shopping alone or with friends?
+4. Why do some people enjoy shopping with other people?
+5. Do you think people shop more than they did in the past?
+6. How has online shopping changed the way people shop?
+
+TOPIC 119: Imtihon to‘plami 74
+Questions: 6
+1. Why do people sometimes change their opinions?
+2. What kinds of things can influence people's opinions?
+3. Do young people change their opinions more easily than older people?
+4. Is it important to listen to opinions that are different from our own?
+5. Can people's opinions be influenced by their friends?
+6. How does social media affect people's opinions?
+
+TOPIC 120: Imtihon to‘plami 75
+Questions: 6
+1. Why do some people prefer waking up early?
+2. What are the benefits of waking up early?
+3. Do people nowadays wake up earlier or later than in the past?
+4. Why do some people find it difficult to wake up early?
+5. Should children be encouraged to wake up early?
+6. Do you think people's sleeping habits will change in the future?
+
+TOPIC 121: Imtihon to‘plami 76
+Questions: 10
+1. What qualities should a person have to be successful?
+2. Why is determination important for success?
+3. What are the benefits of engaging in different sports for children?
+4. Can everyone be successful in sports?
+5. What kinds of sports are popular among children in your country?
+6. Why is gymnastics popular among girls?
+7. What is the relationship between sports and success?
+8. Do successful sportspeople influence children?
+9. Is success in sports more dependent on talent or hard work?
+10. Should children be encouraged to participate in different sports?
+
+TOPIC 122: Imtihon to‘plami 77
+Questions: 6
+1. How has technology changed people's daily lives?
+2. What are the main advantages of using technology in everyday life?
+3. Are there any disadvantages to relying on technology?
+4. Do you think people use technology too much nowadays?
+5. How has technology changed the way students learn?
+6. What are the benefits of using technology in education?
+
+TOPIC 123: Imtihon to‘plami 78
+Questions: 7
+1. Why do people like watching interviews?
+2. What makes an interview interesting to watch?
+3. What skills does a person need to be a good interviewer?
+4. Do you think interviews are important when choosing someone for a job?
+5. What questions are usually asked in a job interview?
+6. What makes a person successful in a job interview?
+7. Do you think job interviews will be different in the future?
+
+TOPIC 124: Imtihon to‘plami 79
+Questions: 7
+1. Why do people help each other?
+2. What kind of problems do people usually need help with?
+3. Do you think people are more willing to help friends than strangers?
+4. Why is it important to help people in your community?
+5. Should children be taught to help other people?
+6. Do you think people nowadays help each other as much as they did in the past?
+7. What can governments do to encourage people to help others?
+
+TOPIC 125: Imtihon to‘plami 80
+Questions: 7
+1. What can people do to stay healthy?
+2. What are the most common health problems in your country?
+3. How would you describe the general level of health among people in Uzbekistan?
+4. Why do some people have unhealthy lifestyles?
+5. What effect does advertising have on people's choice of unhealthy food?
+6. Do you think advertisements for harmful foods should be controlled?
+7. What can governments do to encourage people to live healthier lives?
+
+TOPIC 126: Imtihon to‘plami 81
+Questions: 6
+1. What are the advantages of working with other people?
+2. Do you think children should be taught how to work with others?
+3. How can schools teach children to work as a team?
+4. What can governments do to encourage people to work together?
+5. How important is it for different countries to work together?
+6. Why is cooperation between countries important?
+
+TOPIC 127: Imtihon to‘plami 82
+Questions: 7
+1. What kinds of videos are popular in your country?
+2. Why do people enjoy watching videos online?
+3. What types of videos are popular among young people?
+4. Do people prefer watching short videos or longer videos?
+5. How have videos changed the way people learn?
+6. Do you think people spend too much time watching videos nowadays?
+7. What kind of videos do you think will be popular in the future?
+
+TOPIC 128: Imtihon to‘plami 83
+Questions: 6
+1. Why do people have ambitions?
+2. What kinds of ambitions do young people usually have?
+3. Do you think ambitions change as people get older?
+4. Is it important to have a long-term ambition?
+5. What can people do to achieve their ambitions?
+6. Why do some people give up on their ambitions?
+
+TOPIC 129: Imtihon to‘plami 84
+Questions: 5
+1. Why do people save money?
+2. Is it easy for young people to save money?
+3. What do people usually save money for?
+4. Should parents teach their children how to save money?
+5. Do you think people save more money now than they did in the past?
+
