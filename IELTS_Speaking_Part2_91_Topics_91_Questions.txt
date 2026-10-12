@@ -1,0 +1,372 @@
+IELTS SPEAKING PART 2 — ALL TOPICS AND QUESTIONS
+Source: VIVID IELTS — IELTSUPGRADE / speaking-questions.json
+Topics: 91 | Questions: 91
+All questions are copied from the project's Part 2 dataset in original topic order.
+Note: This is the complete dataset in this project, not an official exhaustive list of all potential future IELTS questions.
+
+==============================================================================
+
+TOPIC 001: City
+Questions: 1
+1. Describe a city you visited and would like to visit again
+
+TOPIC 002: Toy
+Questions: 1
+1. Describe a toy you enjoyed playing with in your childhood
+
+TOPIC 003: Film / Movie
+Questions: 1
+1. Describe a film you enjoyed watching
+
+TOPIC 004: Place to recommend
+Questions: 1
+1. Describe a place you would recommend living in, other than your hometown
+
+TOPIC 005: Quiet place
+Questions: 1
+1. Describe a quiet place you like to be alone or would like to visit
+
+TOPIC 006: Local news
+Questions: 1
+1. Describe a piece of local news that interested many people
+
+TOPIC 007: Story with animals
+Questions: 1
+1. Describe an animal story or character
+
+TOPIC 008: Person who learns languages easily
+Questions: 1
+1. Describe someone good at learning languages
+
+TOPIC 009: Boring place
+Questions: 1
+1. Describe a place you found boring
+
+TOPIC 010: Successful business person
+Questions: 1
+1. Describe a successful business person you know
+
+TOPIC 011: Advertisement
+Questions: 1
+1. Describe an advertisement presented by a famous person
+
+TOPIC 012: Person who likes growing plants
+Questions: 1
+1. Describe someone who enjoys growing plants
+
+TOPIC 013: Ambition / Dream
+Questions: 1
+1. Describe an ambition you have not yet achieved
+
+TOPIC 014: Trip by vehicle
+Questions: 1
+1. Describe an interesting car, bicycle or motorbike trip you would like to take
+
+TOPIC 015: Favourite song
+Questions: 1
+1. Describe your favourite song
+
+TOPIC 016: Story you remember
+Questions: 1
+1. Describe a story you remember well
+
+TOPIC 017: Family member you are proud of
+Questions: 1
+1. Describe a family member you are proud of
+
+TOPIC 018: Someone asked for your opinion
+Questions: 1
+1. Describe a time someone asked for your opinion
+
+TOPIC 019: Technology other than a phone
+Questions: 1
+1. Describe technology you would like to own
+
+TOPIC 020: Famous person you would like to meet
+Questions: 1
+1. Describe a famous person you would like to meet
+
+TOPIC 021: Interesting video
+Questions: 1
+1. Describe an interesting video you watched recently
+
+TOPIC 022: Childhood friend
+Questions: 1
+1. Describe a childhood friend you remember well
+
+TOPIC 023: Tall building / Building
+Questions: 1
+1. Describe a building you like or dislike
+
+TOPIC 024: Interesting lesson
+Questions: 1
+1. Describe a lesson you found interesting
+
+TOPIC 025: Competition
+Questions: 1
+1. Describe a competition you took part in or watched
+
+TOPIC 026: Place to work for a short time
+Questions: 1
+1. Describe where you would like to work briefly
+
+TOPIC 027: Piece of clothing as a gift
+Questions: 1
+1. Describe clothing someone gave you
+
+TOPIC 028: Person you enjoy spending time with
+Questions: 1
+1. Describe a person you like spending time with
+
+TOPIC 029: People smiling
+Questions: 1
+1. Describe an occasion when you saw many people smiling
+
+TOPIC 030: Place where people sing
+Questions: 1
+1. Describe a place where people often sing
+
+TOPIC 031: Person good at planning
+Questions: 1
+1. Describe a person who plans trips or events well
+
+TOPIC 032: Environmental law
+Questions: 1
+1. Describe an environmental law you know about
+
+TOPIC 033: Time you helped a child
+Questions: 1
+1. Describe a time you helped a child
+
+TOPIC 034: Important river or lake
+Questions: 1
+1. Describe an important river or lake in your country
+
+TOPIC 035: Countryside place
+Questions: 1
+1. Describe a countryside place you enjoyed visiting
+
+TOPIC 036: Person you follow on social media
+Questions: 1
+1. Describe someone you follow online
+
+TOPIC 037: Person who learns new things alone
+Questions: 1
+1. Describe a self-taught person
+
+TOPIC 038: Perfect job
+Questions: 1
+1. Describe your ideal job
+
+TOPIC 039: Special day out that did not cost much
+Questions: 1
+1. Describe a cheap special day
+
+TOPIC 040: Positive feedback
+Questions: 1
+1. Describe positive feedback you received about your work
+
+TOPIC 041: Lost something in public
+Questions: 1
+1. Describe losing something in a public place
+
+TOPIC 042: Not allowed to use a phone
+Questions: 1
+1. Describe a time you could not use your phone
+
+TOPIC 043: Technical problem
+Questions: 1
+1. Describe a technical problem you faced
+
+TOPIC 044: Used a mobile phone for something important
+Questions: 1
+1. Describe an important use of your phone
+
+TOPIC 045: Had to change a plan
+Questions: 1
+1. Describe a time you changed your plans
+
+TOPIC 046: Busy day
+Questions: 1
+1. Describe a day when you were very busy
+
+TOPIC 047: Needed imagination
+Questions: 1
+1. Describe a time you had to use your imagination
+
+TOPIC 048: TV programme
+Questions: 1
+1. Describe a TV programme you enjoy watching
+
+TOPIC 049: Child who likes drawing
+Questions: 1
+1. Describe a child who enjoys drawing or painting
+
+TOPIC 050: Difficult decision
+Questions: 1
+1. Describe a difficult decision you had to make
+
+TOPIC 051: House or apartment you would like to live in
+Questions: 1
+1. Describe your ideal home
+
+TOPIC 052: Well-known person in your country
+Questions: 1
+1. Describe a famous person in Uzbekistan
+
+TOPIC 053: Long walk
+Questions: 1
+1. Describe a long walk you enjoyed
+
+TOPIC 054: Interesting discussion with friends
+Questions: 1
+1. Describe an interesting conversation with friends
+
+TOPIC 055: Invention
+Questions: 1
+1. Describe a useful invention that may change lives
+
+TOPIC 056: Gave advice to someone
+Questions: 1
+1. Describe a time you gave advice
+
+TOPIC 057: Had a cake
+Questions: 1
+1. Describe an occasion when you had a cake
+
+TOPIC 058: Rule at school
+Questions: 1
+1. Describe a school rule you like or dislike
+
+TOPIC 059: Made an important decision
+Questions: 1
+1. Describe an important decision you made
+
+TOPIC 060: Family member to work with
+Questions: 1
+1. Describe a family member you would like to work with in the future
+
+TOPIC 061: Home you like but would not live in
+Questions: 1
+1. Describe a friend's home you like but would not choose for yourself
+
+TOPIC 062: Famous person in the news
+Questions: 1
+1. Describe a famous person you have seen in the news
+
+TOPIC 063: Message to someone far away
+Questions: 1
+1. Describe a letter, email or message you wrote to someone living far away
+
+TOPIC 064: Interview you watched
+Questions: 1
+1. Describe an interview with a well-known person you saw or heard
+
+TOPIC 065: Uninteresting talk you had to listen to
+Questions: 1
+1. Describe a speech or conversation that did not interest you
+
+TOPIC 066: Interesting place on holiday
+Questions: 1
+1. Describe an interesting place you visited on vacation
+
+TOPIC 067: Enjoyable event
+Questions: 1
+1. Describe an event you really enjoyed
+
+TOPIC 068: Person good at making things
+Questions: 1
+1. Describe someone who makes things by hand or with technology
+
+TOPIC 069: Advertisement you remember
+Questions: 1
+1. Describe an advertisement that stuck in your mind
+
+TOPIC 070: Least favourite food
+Questions: 1
+1. Describe a food you dislike
+
+TOPIC 071: Natural place you enjoy visiting
+Questions: 1
+1. Describe a place in nature you like
+
+TOPIC 072: Journey you did not enjoy
+Questions: 1
+1. Describe a journey you often make but dislike
+
+TOPIC 073: Person who overcame difficulties
+Questions: 1
+1. Describe someone who struggled but succeeded
+
+TOPIC 074: Person who wants a medical career
+Questions: 1
+1. Describe someone interested in becoming a doctor or nurse
+
+TOPIC 075: Good service in a shop
+Questions: 1
+1. Describe a time you received good service
+
+TOPIC 076: Children behaving badly
+Questions: 1
+1. Describe a time you saw children misbehaving
+
+TOPIC 077: Helped someone solve a problem
+Questions: 1
+1. Describe a problem you helped someone with
+
+TOPIC 078: Saved money to buy something
+Questions: 1
+1. Describe something you saved up for
+
+TOPIC 079: Noisy place
+Questions: 1
+1. Describe a noisy place you have been to
+
+TOPIC 080: Evening event with friends
+Questions: 1
+1. Describe an enjoyable evening spent with friends
+
+TOPIC 081: Live sports event
+Questions: 1
+1. Describe a sports event you watched and enjoyed
+
+TOPIC 082: Routine that wastes time
+Questions: 1
+1. Describe something you do regularly but consider a waste of time
+
+TOPIC 083: Place where an event took place
+Questions: 1
+1. Describe a place connected to an event you attended
+
+TOPIC 084: Interesting neighbour
+Questions: 1
+1. Describe a neighbour you find interesting
+
+TOPIC 085: Building you like to visit
+Questions: 1
+1. Describe a building you enjoy going to
+
+TOPIC 086: Shop you often visit
+Questions: 1
+1. Describe a shop you go to regularly
+
+TOPIC 087: Changed your opinion
+Questions: 1
+1. Describe a time you changed your mind about something
+
+TOPIC 088: Woke up early
+Questions: 1
+1. Describe an occasion when you got up very early
+
+TOPIC 089: Successful sportsperson
+Questions: 1
+1. Describe an athlete who performed well in an important event
+
+TOPIC 090: Article about a health problem
+Questions: 1
+1. Describe a health-related article you read
+
+TOPIC 091: Worked with others on a project
+Questions: 1
+1. Describe a time you collaborated on a project
+
