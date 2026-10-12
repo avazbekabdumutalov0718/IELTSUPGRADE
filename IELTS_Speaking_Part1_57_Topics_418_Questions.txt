@@ -1,0 +1,596 @@
+IELTS SPEAKING PART 1 - ALL TOPICS AND QUESTIONS
+Source: VIVID IELTS / IELTSUPGRADE (speaking-questions.json, main)
+Topics: 57 | Questions: 418
+Each question is copied from the Part 1 question list (original order).
+Note: IELTS topics rotate; this is the full set in the project's current data, not an official list of every possible future exam question.
+============================================================
+
+TOPIC 01: Mirrors
+Questions: 5
+1. Do you like looking at yourself in a mirror?
+2. How often do you use a mirror?
+3. Do you usually carry a mirror with you?
+4. Have you ever bought a mirror?
+5. Would you use mirrors to decorate your room?
+
+TOPIC 02: Work or Studies
+Questions: 19
+1. Do you work or are you a student?
+2. What kind of work do you do? / What do you do?
+3. How long have you been doing this job?
+4. What do you usually do at work?
+5. How do you organize your time at work?
+6. What do you enjoy most about your job / studies?
+7. Is there anything you would like to change about your work / studies?
+8. What is your major? / What do you study?
+9. Why did you choose your major / this subject / field of study?
+10. Do you enjoy your studies?
+11. What do you dislike about your studies / major?
+12. Who helps you the most with your studies?
+13. What is the best time of the day to study?
+14. Do you prefer studying alone or with others?
+15. What do you usually do after studying?
+16. Did you always want to study this subject?
+17. Do you think you will continue studying in the future?
+18. What would you like to study in the future?
+19. Is there anything you find difficult about your studies?
+
+TOPIC 03: Hometown
+Questions: 10
+1. Where is your hometown? / Where are you from?
+2. What do you like most about your hometown?
+3. Has your hometown changed in recent years / much in recent years?
+4. Would you like to continue living in your hometown in the future?
+5. What is your hometown famous for / well-known for / known for?
+6. Is it a noisy or a quiet place to live?
+7. Is your hometown a busy place?
+8. Is your hometown a good place for young people?
+9. Did you learn about the history of your hometown at school?
+10. How long have you lived there / been living there?
+
+TOPIC 04: Accommodation / Home
+Questions: 12
+1. What kind of accommodation do you live in?
+2. Do you live in a house or a flat / apartment?
+3. How long have you lived there?
+4. What do you like most about your home / house / flat / accommodation?
+5. Why did you move to your house / flat?
+6. What is your favourite room in your home?
+7. Is there anything you would like to change about your home?
+8. Would you like to move to another place in the future?
+9. What kind of accommodation would you like to live in?
+10. Who do you live with?
+11. Do you like the area where you live?
+12. Is your area a good place to live?
+
+TOPIC 05: Watches
+Questions: 8
+1. Do you usually wear a watch?
+2. What kind of watch do you like / prefer?
+3. Have you ever received a watch as a gift?
+4. Do you think people still need to wear watches nowadays?
+5. How often do you check the time?
+6. Do you prefer a traditional watch or a smartwatch?
+7. When did you get your first watch?
+8. Did you wear a watch when you were a child?
+
+TOPIC 06: Clothes
+Questions: 10
+1. What kind of clothes do you usually wear?
+2. Do you prefer wearing comfortable or fashionable clothes?
+3. Do you like buying new clothes?
+4. Have your clothing preferences changed over the years?
+5. Are there any colours you dislike wearing?
+6. Have you ever received clothes as a gift?
+7. What was the last piece of clothing someone gave you?
+8. How do people choose clothes according to the weather?
+9. Do people wear different clothes for different occasions?
+10. Why do you think some people buy clothes because of the brand?
+
+TOPIC 07: Singing
+Questions: 10
+1. Do you like singing?
+2. How often do you sing? / When do you usually sing?
+3. Did you enjoy singing when you were a child?
+4. Do you often sing now?
+5. Would you like to take singing lessons / learn singing in the future?
+6. Do you prefer singing alone or with other people?
+7. Do you think everyone can learn to sing well?
+8. Do you think singing classes are important?
+9. Do you like listening to other people sing?
+10. Is singing popular among people around you?
+
+TOPIC 08: Gifts
+Questions: 6
+1. Do you like giving gifts to other people?
+2. What kind of gifts do you usually give?
+3. Have you ever received a gift that you really liked?
+4. Do you prefer giving expensive or meaningful gifts?
+5. Do you like receiving gifts?
+6. Is it easy for you to choose gifts for other people?
+
+TOPIC 09: Hobbies & Free time
+Questions: 11
+1. Do you have any hobbies?
+2. Do you have the same hobbies as your family members?
+3. Do you think your hobbies will help you in your future job?
+4. What do you usually do in your free time / spare time?
+5. Do you usually spend your free time alone or with other people?
+6. Do you have enough free time?
+7. What did you do in your spare time when you were younger?
+8. Has the way you spend your spare time changed compared with the past?
+9. Do you prefer indoor or outdoor leisure activities?
+10. Have your leisure activities changed since you were a child?
+11. Do you think it’s important to have leisure time?
+
+TOPIC 10: Friends
+Questions: 7
+1. Where do you usually go for a walk with your friends?
+2. Do you prefer spending time with a group of friends or with just one friend?
+3. Where do you usually meet your friends?
+4. Why do you choose that place?
+5. How many friends do you usually meet at the same time?
+6. Why do you like meeting these particular friends?
+7. What do you usually do together?
+
+TOPIC 11: Neighbours
+Questions: 3
+1. Do you know many of your neighbours / people in the area where you live?
+2. Is it important to have a good relationship with your neighbours?
+3. Do you know many people who live nearby?
+
+TOPIC 12: Space / Stars
+Questions: 8
+1. Do you enjoy looking at the stars?
+2. Did you learn about space at school?
+3. Would you like to travel into space if you had the chance?
+4. Are you interested in outer space and stars / space?
+5. Do you like watching programmes or reading about space?
+6. Would you like to learn more about space?
+7. Do you think space exploration is important?
+8. Do you enjoy looking at the stars at night?
+
+TOPIC 13: Music
+Questions: 5
+1. Do you like listening to music?
+2. Did you enjoy music when you were a child?
+3. What kind of music do you like / enjoy?
+4. When do you usually listen to music?
+5. Which professional musicians do you like?
+
+TOPIC 14: Shopping
+Questions: 6
+1. Do you enjoy shopping?
+2. How often do you go shopping?
+3. What do you usually buy when you go shopping?
+4. Do you prefer shopping online or in stores?
+5. Do you often go shopping with other people?
+6. Has your shopping habit changed compared with the past?
+
+TOPIC 15: Mornings / Daily Routine
+Questions: 22
+1. Do you usually wake up early?
+2. What do you usually do in the morning?
+3. What is your favourite part of the morning?
+4. Do you think mornings are important?
+5. Are your mornings different on weekends?
+6. Do you like mornings?
+7. Are you usually busy in the mornings?
+8. Do you prefer mornings or evenings?
+9. What is your morning routine like?
+10. Do you enjoy mornings?
+11. What do you usually do after you wake up?
+12. Do you think waking up early is a good habit?
+13. What is your daily routine like?
+14. What is your favourite part of the day?
+15. Has your daily routine changed in recent years?
+16. Do you prefer having a busy routine or a relaxed one?
+17. What do you usually do in the evening?
+18. Do you prefer to stay at home or go out in the evening?
+19. Is your evening routine different from your morning routine?
+20. What do you enjoy doing most in the evening?
+21. Do you do the same things in the evenings during the weekends?
+22. What do you do on the weekends?
+
+TOPIC 16: Headphones
+Questions: 7
+1. Do you often wear / use headphones?
+2. When do you usually use headphones?
+3. Do you think headphones are important in your daily life?
+4. Are there any disadvantages of using headphones?
+5. What do you use your headphones for?
+6. Do you prefer headphones or speakers?
+7. Is it comfortable using headphones?
+
+TOPIC 17: Typing / Handwriting
+Questions: 10
+1. Do you like typing or handwriting?
+2. What do you like most about typing?
+3. What do you like most about handwriting?
+4. Which do you prefer, typing or handwriting?
+5. How often do you type?
+6. Do you prefer typing on a keyboard or writing by hand?
+7. Did you have any lessons about typing at school?
+8. Do you often type on a computer or phone?
+9. How often do you use a keyboard?
+10. Did you learn how to type when you were young?
+
+TOPIC 18: Art / Drawing
+Questions: 7
+1. Do you like art?
+2. Did you enjoy drawing or painting when you were a child?
+3. Have you ever visited an art gallery?
+4. Do you think art is important in schools?
+5. Do you prefer drawing or painting?
+6. Did you sign up for drawing classes as a kid?
+7. Do you like looking at pictures and paintings?
+
+TOPIC 19: Pets
+Questions: 8
+1. Do you like pets?
+2. Did you have any pets when you were a child?
+3. Would you like to have a pet in the future?
+4. Do you have a pet?
+5. Why do people keep pets?
+6. What is your favourite animal?
+7. If you had a chance, what kind of pet would you like to have?
+8. Are there many birds in your country?
+
+TOPIC 20: Jokes / Humour
+Questions: 9
+1. Are you good at telling jokes?
+2. Do your friends like telling jokes / often tell jokes?
+3. What kind of jokes do you enjoy?
+4. Do you think it’s important to have a good sense of humor?
+5. Do you like jokes and comedy?
+6. Are jokes popular in your country?
+7. Who loves jokes in your family?
+8. Do you enjoy watching humorous programmes?
+9. Do you think humour is important in friendships?
+
+TOPIC 21: Reading
+Questions: 10
+1. Do you prefer reading on paper or on a screen?
+2. Why do you prefer reading on a screen?
+3. When you read, do you usually scan the text or read it carefully?
+4. Why do some people not read carefully?
+5. Do you read more now than you did in the past?
+6. When do you usually read?
+7. Do you buy a lot of books?
+8. Do you enjoy reading books?
+9. What kind of books do you usually read?
+10. Do you think reading is important?
+
+TOPIC 22: Sports
+Questions: 16
+1. Have you ever been part of a sports team?
+2. What kind of sport was it?
+3. Did you enjoy being part of the team?
+4. What sports team would you like to join?
+5. Why do some people enjoy being in sports teams?
+6. Do you prefer team sports or individual sports?
+7. Do you like sports?
+8. What sport do you enjoy watching?
+9. Did you play any sports when you were a child?
+10. Do you think children should do more sport?
+11. What sports do you like watching?
+12. Do you play any sports?
+13. What sport is popular in your country?
+14. Is swimming a popular sport in your country?
+15. Are team sports popular in your country?
+16. Would you like to participate in a team sport in the future?
+
+TOPIC 23: Food / Meals
+Questions: 13
+1. What’s your favourite meal?
+2. Who usually cooks meals in your family?
+3. Do you enjoy cooking?
+4. Do you prefer eating at home or in restaurants?
+5. What kind of food do you like?
+6. Do you prefer eating at home or eating out?
+7. Is there any food you disliked when you were a child?
+8. Do you enjoy trying new food?
+9. What food did you like when you were a child?
+10. Have your food preferences changed?
+11. When do you like to eat international cuisine?
+12. Why do you like traditional Uzbek meals?
+13. In Uzbekistan, is it important to have a meal with other people?
+
+TOPIC 24: Photos
+Questions: 4
+1. Do you like taking photos?
+2. What kinds of photos do you usually take?
+3. Do you prefer taking photos yourself or having someone take photos of you?
+4. Do you have many family photos?
+
+TOPIC 25: Being Tidy / Keeping things
+Questions: 11
+1. Are you a tidy person?
+2. Do you like keeping your room tidy / things tidy?
+3. How often do you tidy your room or workplace?
+4. Did your parents ask you to keep your room tidy when you were a child?
+5. Do you keep old things?
+6. What kinds of things do you usually keep?
+7. Why do some people keep things for a long time?
+8. Do you still have anything that you have kept since your childhood?
+9. Where do you keep your special things?
+10. Do you prefer to keep things for a long time?
+11. Do you think it is possible for people to be tidy all the time?
+
+TOPIC 26: Advertisements
+Questions: 3
+1. Do you enjoy watching advertisements?
+2. What kind of advertisements do you watch?
+3. What do you usually do when advertisements come on TV?
+
+TOPIC 27: Computers / Laptops / Tablets
+Questions: 9
+1. Do you think life without laptops would be difficult?
+2. When did you first use a laptop?
+3. Do you prefer using a laptop or a tablet?
+4. Why do you prefer using a laptop?
+5. Do you often use a computer or a laptop / tablet?
+6. What do you usually use a computer or laptop for?
+7. How often do you use a computer?
+8. Do you often use a computer or a tablet?
+9. What do you mainly use them for?
+
+TOPIC 28: Websites
+Questions: 9
+1. What kinds of websites do you usually use?
+2. Has the design of the website you use changed recently?
+3. Is the design of a website important to you?
+4. What makes a website easy to use?
+5. How often do you visit websites?
+6. What kind of websites do you usually use?
+7. What websites do you find useful?
+8. Do you prefer using websites on a computer or a phone?
+9. Are there any websites you don’t like using?
+
+TOPIC 29: Walking / Parks
+Questions: 11
+1. Do you like walking?
+2. Where do you usually go for a walk?
+3. Do you often visit parks?
+4. What do you usually do when you go to a park?
+5. Did you go for walks when you were a child?
+6. Where did you usually go for walks?
+7. Do you still enjoy going for walks?
+8. Do you often walk?
+9. Have you ever walked a long distance from your apartment?
+10. Do you enjoy walking?
+11. Are there many parks in your hometown?
+
+TOPIC 30: Buildings
+Questions: 8
+1. Do you like tall buildings? Why?
+2. Would you like to live or work in a tall building?
+3. Are there many tall buildings in your city?
+4. Do you like looking at buildings?
+5. What kinds of buildings are common in your hometown?
+6. Are there any old buildings in your hometown?
+7. What type of buildings do you like?
+8. Do you think buildings are important to a city?
+
+TOPIC 31: Teachers
+Questions: 7
+1. Did you have a favourite teacher at school?
+2. What qualities make a good teacher?
+3. Would you like to become a teacher in the future?
+4. Do you have a favourite teacher?
+5. What makes a good teacher?
+6. Do you think teachers are important?
+7. Do you still keep in touch with any of your teachers?
+
+TOPIC 32: Science
+Questions: 6
+1. What kind of science are you interested in?
+2. Did you enjoy studying science at school?
+3. Do you think science is important in everyday life?
+4. Are you interested in science?
+5. Would you like to study science in the future?
+6. Which area of science would you like to learn more about?
+
+TOPIC 33: Losing things
+Questions: 4
+1. Do you often lose things?
+2. What kinds of things do you usually lose?
+3. How do you usually find lost items?
+4. Have you ever found something that someone else had lost?
+
+TOPIC 34: Emails
+Questions: 3
+1. Is emailing popular in your country?
+2. Do you think people will use emails in the future too?
+3. Do you prefer to send people emails or call them on the phone?
+
+TOPIC 35: Sleeping
+Questions: 3
+1. Do you usually go to bed early or late?
+2. Has your sleeping routine changed compared with the past?
+3. What is the first thing you usually do after you wake up?
+
+TOPIC 36: Driving / Cars
+Questions: 7
+1. Do you prefer being a driver or a passenger?
+2. Did you often go on long journeys when you were a child?
+3. Would you like to buy an expensive car in the future?
+4. Do you think expensive cars will be more common in the future?
+5. Where do you usually see expensive cars?
+6. Have you ever been on a long car journey?
+7. Did you enjoy travelling by car when you were a child?
+
+TOPIC 37: Organisation / Planning
+Questions: 6
+1. Are you an organized person?
+2. Do you like to plan your daily activities?
+3. What do you do to stay organized?
+4. Is it important to be organized?
+5. How do you schedule or organize your studies?
+6. Do you always organize your studies?
+
+TOPIC 38: Memory
+Questions: 7
+1. Are you good at remembering things?
+2. What kinds of things do you usually forget?
+3. Do you think you have a good memory?
+4. How do you remember important dates or events?
+5. Has technology made it easier to remember things?
+6. Is it important to have a good memory?
+7. Would you like to improve your memory?
+
+TOPIC 39: Sitting still
+Questions: 3
+1. Do you often have to sit in one place for a long time?
+2. Do you enjoy sitting still for long periods?
+3. What do you usually do when you have to sit for a long time?
+
+TOPIC 40: Talent
+Questions: 2
+1. Do you think you have any special talent?
+2. Do any of your family members have the same talent?
+
+TOPIC 41: Politeness
+Questions: 6
+1. Do you think it is important to be polite?
+2. Who taught you to be polite when you were a child?
+3. Do you think you are a polite person?
+4. How do you usually show politeness to other people?
+5. Are people in your country generally polite?
+6. Are children taught to be polite at school?
+
+TOPIC 42: Tiredness
+Questions: 7
+1. When do you usually feel tired?
+2. What kinds of things make you feel tired?
+3. What do you do when you feel tired?
+4. Would you meet your friends when you are feeling tired?
+5. Do you often feel tired after a busy day?
+6. Do you think school is tiring?
+7. Do you think people feel more tired nowadays?
+
+TOPIC 43: Paper
+Questions: 7
+1. Have you ever made something out of paper?
+2. Did you make things from paper when you were a child?
+3. What kind of things did you make with paper?
+4. Do you like writing on paper?
+5. Have you ever written a letter on paper?
+6. Do you prefer writing on paper or using a computer?
+7. Do you think recycling paper is important?
+
+TOPIC 44: Trying New Things
+Questions: 4
+1. Did you enjoy trying new things when you were a child?
+2. What kind of new things did you like trying?
+3. Did your parents encourage you to try new things?
+4. Is there anything new you would like to try in the future?
+
+TOPIC 45: Boredom
+Questions: 5
+1. Do you ever get bored?
+2. When would you feel bored?
+3. Do you think school is boring?
+4. Do you feel more bored now than when you were young?
+5. What do you usually do when you feel bored?
+
+TOPIC 46: Secondary School
+Questions: 5
+1. What do you remember about your first day at secondary school?
+2. How did you feel on your first day?
+3. Did you make any new friends at secondary school?
+4. What did you enjoy most about your school?
+5. Is there anything you would change about your school?
+
+TOPIC 47: Shoes
+Questions: 8
+1. Do you like buying shoes?
+2. Have you ever bought shoes online?
+3. Do you prefer fashionable shoes or comfortable shoes?
+4. How much money do you usually spend on shoes?
+5. What is your favourite type of shoes?
+6. How often do you buy shoes?
+7. Have you ever bought a pair of shoes that you didn't like?
+8. Do you ever buy expensive shoes?
+
+TOPIC 48: Stress
+Questions: 3
+1. Do you often feel stressed in your daily life?
+2. What usually makes you feel stressed?
+3. What do you do when you feel stressed?
+
+TOPIC 49: Rubbish & Recycling
+Questions: 4
+1. Do you pick up rubbish if you see it on the ground?
+2. How do you feel when you see rubbish on the ground?
+3. Do you think recycling is well-developed in your country?
+4. Do people in your country recycle paper?
+
+TOPIC 50: Social Media
+Questions: 7
+1. At what age did you first start using social media?
+2. Do you think you will continue using social media in the future?
+3. Do you use social media?
+4. Which social media platform do you use most?
+5. How often do you use social media?
+6. What do you usually do on social media?
+7. Do you think you spend too much time on social media?
+
+TOPIC 51: Conversations & Communication
+Questions: 5
+1. What do young people usually talk about with their friends?
+2. Do young people enjoy talking to older people?
+3. What topics do you usually discuss with people your age?
+4. Do you think young people and older people communicate differently?
+5. Do you prefer talking face to face or sending messages?
+
+TOPIC 52: Saying Thank You
+Questions: 3
+1. Do you often say “thank you” to people?
+2. When do you usually say thank you?
+3. Do you think people say “thank you” enough nowadays?
+
+TOPIC 53: Noise & Quiet Places
+Questions: 8
+1. Do you prefer to be in a noisy place or a quiet place?
+2. What kinds of places do you find noisy?
+3. Are there any quiet places near where you live?
+4. Do you like spending time in quiet places?
+5. When do you usually need a quiet place?
+6. Is it easy to find quiet places in your city?
+7. Have you ever been to a very noisy place?
+8. Does noise affect your mood or concentration?
+
+TOPIC 54: Fruit & Vegetables
+Questions: 5
+1. Do you like eating fruit?
+2. What is your favourite fruit?
+3. Do you often eat vegetables?
+4. What vegetables do you usually eat?
+5. Did you eat vegetables when you were a child?
+
+TOPIC 55: Skills & Doing Things Well
+Questions: 5
+1. What skills would you like to learn?
+2. Do you think you are good at doing things?
+3. How did you feel after doing something well?
+4. What are you good at?
+5. Is there a skill you learned on your own?
+
+TOPIC 56: Colours
+Questions: 4
+1. What is your favourite colour?
+2. Are there any colours you dislike?
+3. Do colours affect your choice of clothes?
+4. Which colour don't you like to wear?
+
+TOPIC 57: School Subjects & Art Competitions
+Questions: 7
+1. What was your favourite subject at school?
+2. Which school subject did you find difficult?
+3. Should students be able to choose their subjects?
+4. Did you take part in art activities at school?
+5. Have you ever participated in an art competition?
+6. Would you like to participate in an art competition in the future?
+7. Do you think art competitions are useful for students?
+
